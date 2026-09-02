@@ -1,0 +1,25 @@
+ID,Category,Test,Format,Expected/Pass Criteria,Metrics/Notes
+LIB-01,Library,Cold scan of configured HDD root,ISO/CSO/PBP,Titles discovered; UI remains responsive; index saved,"scan time, title count, memory"
+LIB-02,Library,Cached startup after LIB-01,Mixed,Library loads from index without full rescan,startup time
+LIB-03,Library,Add USB library root,Mixed,USB and HDD titles merged; no duplicates,scan time
+LIB-04,Library,Remove/move game after index,ISO,Missing title removed/marked safely; no crash,
+LIB-05,Library,CSO metadata/artwork,CSO,Title and supported embedded artwork displayed,
+LIB-06,Library,Corrupt/non-PSP image,ISO,Graceful invalid-game result; UI remains usable,
+LIB-07,Library,Repeated library rescan x20,Mixed,No continuous D3D texture/memory leak,"memory delta, created/released textures"
+SW-01,Session,Game A → Library → Game B,ISO→ISO,No app restart; B boots cleanly,"switch time, memory"
+SW-02,Session,ISO → CSO → ISO,Mixed,All sessions cleanly stop/start,file handle/audio cleanup
+SW-03,Session,Return and relaunch same game,ISO,Fresh PSP session starts correctly,
+SW-04,Session,Reset current game,ISO,Game restarts; shell remains alive,
+SW-05,Session,Attempt invalid game after valid game,Invalid,Failure returns to library,
+SW-06,Session,20 consecutive session transitions,Mixed,No crash; no continuous unexplained memory growth,memory high-water
+JIT-01,CPU/JIT,Developer overlay backend check,Any,Shows real PPC JIT or explicit fallback,backend name
+JIT-02,CPU/JIT,Interpreter vs JIT behavioral comparison,PSP autotest,Results match for selected test,fallback count
+JIT-03,CPU/JIT,Generic fallback telemetry,Heavy title/test,Hot fallback ops identified,fallback histogram
+PERF-01,Performance,111 MHz vs Auto/default PSP clock,Same scene,Default chosen from measured compatibility/speed,FPS/VPS/frame time
+PERF-02,Performance,Worker profile comparison,Same scene,Best measured profile selected,FPS/VPS/audio underruns
+GPU-01,GPU,1x vs 2x rendering,Same scene,Both selectable; no corrupt output,FPS/frame time
+GPU-02,GPU,Texture-heavy scene,User-owned dump,No runaway texture growth or severe state churn,"uploads/frame, cache"
+AUD-01,Audio,10-minute gameplay,Any,No sustained crackle/underrun,underrun count
+SAVE-01,Save,Normal savedata across game switch,Any,Save remains valid after returning/relaunching,
+STATE-01,Save State,Save/load slot from in-game menu,Any,State restores; menu returns cleanly,
+CRASH-01,Recovery,Recoverable emulation fault,Test case,Returns to library/error screen where possible,error log generated
