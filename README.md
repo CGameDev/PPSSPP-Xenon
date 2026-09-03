@@ -14,8 +14,27 @@ Then read:
 - [`RESEARCH_REFERENCES.md`](RESEARCH_REFERENCES.md)
 - [`PPSSPP-Xenon-Test-Matrix.csv`](PPSSPP-Xenon-Test-Matrix.csv)
 - [`source-overlay/README.md`](source-overlay/README.md)
+- [`REUPLOAD_VERIFICATION_2026-09-03.md`](REUPLOAD_VERIFICATION_2026-09-03.md)
 
-The user-provided Xbox source overlay is archived under `source-overlay/` and must be reconstructed and applied according to its README before modernization begins.
+The owner-provided Xbox source overlay is preserved under `source-overlay/` and includes automatic reconstruction/integrity-check scripts.
+
+Windows / PowerShell:
+
+```powershell
+& .\source-overlay\reconstruct.ps1
+```
+
+Linux / shell:
+
+```bash
+bash source-overlay/reconstruct.sh
+```
+
+The reconstructed owner source must match SHA-256:
+
+`6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35`
+
+The GitHub repository itself is the authoritative Codex handoff; a separate chat attachment is not required.
 
 ## Primary targets
 
