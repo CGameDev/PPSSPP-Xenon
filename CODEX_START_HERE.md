@@ -1,14 +1,16 @@
 # PPSSPP-Xenon — CODEX START HERE
 
-## Current M3 warning checkpoint — read first
+## Current M4 launcher checkpoint — read first
 
-M1 recovered the original archive; M2 fixed the original 62 link warnings. M3
-resolves the remaining 46/40 warnings and fully rebuilds Debug/Release_LTCG with
-zero warnings/errors. Read
-`docs/BASELINE.md` and `docs/BUILD_XBOX360.md` before the historical order below.
-Preserve the original hash and owner precedence. Use the fresh staging and
-local-only build drivers: the old XDK target auto-deploys after image creation
-unless explicitly excluded. Runtime/performance validation remains pending. Read docs/WARNING_REVIEW_M3.md. Do not deploy or launch without separate owner instruction. Both UI views stay; production CCLOS styling is still provisional.
+The first native CCLOS-style launcher keeps both switchable Games views, the
+existing Recent grid policy and the owner's session/IGM/input architecture.
+Debug/Release_LTCG fully rebuild with zero warnings/errors. Read docs/BASELINE.md,
+docs/BUILD_XBOX360.md and docs/HADCV_M4.md. Source recovery and M2/M3 warning fixes
+remain intact. The fresh staging/local-only build drivers explicitly exclude all
+Deploy entries; never bypass that guard. No Xbox connection, deployment or launch
+is authorized. Runtime/performance and detailed visual acceptance remain pending.
+The latest owner request authorizes this provisional launcher implementation
+while hardware testing is deferred; older checkpoint ordering is historical.
 
 Repository: https://github.com/CGameDev/PPSSPP-Xenon.git
 

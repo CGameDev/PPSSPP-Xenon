@@ -1,115 +1,104 @@
-# Baseline warning checkpoint — M3
+# First CCLOS-style launcher checkpoint — M4
 
-**Debug and Release_LTCG both complete full local Rebuilds with 0 warnings and
-0 errors.** The remaining M2 totals (46 Debug / 40 Release_LTCG) are resolved;
-the earlier 62-warning fixes also remain clean. Both switchable library views
-and the navy/teal design previews are preserved. Nothing was deployed or launched
-on an Xbox. Runtime compatibility and performance remain NOT RUN.
+The native launcher now uses the requested dark navy/teal presentation with
+**both switchable Games grid and compact views**. Both full local XDK Rebuilds
+finish with **0 warnings and 0 errors**. No Xbox connection, deployment or launch
+was performed. Styling remains provisional for owner review; hardware behavior
+and performance remain **NOT RUN**.
 
-## Reviewable changes
+## Implemented scope
 
-`baseline-overlay/remaining-warnings.patch` changes 18 source/project files over
-M2. `Xbox/XenonEmulationLoop.h` holds the existing owner emulation loop in a
-non-inlined helper so its SEH handler no longer shares a function with main's
-RAII objects. The exact loop body and surrounding lifecycle are compared with
-the authenticated owner source. The exception filter, core timing, input/menu
-sequence and return/reset/exit decisions are retained. The helper is called once
-per session; no per-frame helper call or tuning change is added.
+`baseline-overlay/cclos-launcher-milestone.patch` changes only XboxLauncher.cpp
+and its header over M3. The new CclosLauncherTheme.h supplies colors, geometry,
+bounded text/image fitting and conversion between grid-row/list-item scroll
+offsets. Three nonvirtual methods are added; class state and layout are unchanged.
 
-The numeric warning investigation found a real morph-normal defect: multiplying
-an endian-wrapped signed 16-bit sample by a float selected an overload returning
-the wrapped integer type, truncating fractional normals. Convert the sample to
-float before multiplying, matching the intended floating-point accumulation.
-A negative control reproduces the old zero result for a fractional normal;
-786,432 sample/weight/reversal cases and a blended-normal case pass afterward.
+- Static navy panels, teal selection borders, safe 1280×720 insets, header/tabs,
+  selected-game details and the existing controller hints.
+- Four columns × three visible grid rows or eight compact rows. Titles and
+  paths fit their pixel width with ellipses; non-ASCII bytes use the existing
+  atlas's question-mark glyph. Existing ASCII-only font coverage is not expanded.
+- Aspect-preserving artwork from the existing poster/icon cache; folder,
+  missing-art, empty and loading presentations. No new shader, texture asset,
+  animation, network, decoder or cache policy is introduced.
+- RT switches Games views while preserving the selected game and converting
+  offset units so it stays visible. Existing A file/folder requests, B exit,
+  LB/RB tabs, debounce and repeat logic remain. Recent retains its existing
+  grid-only policy. The already inactive Settings action is labelled unavailable.
 
-The trailing-backslash launcher comment also swallowed the following root-directory
-assignment during XDK preprocessing. Rewording the comment restores the existing
-intended initialization to the game drive; before/after preprocessing and host
-root checks verify it. Both grid/list controls and renderers remain intact.
+All 3,878 source/project/font/image files in the manifest were compared with M3:
+only XboxLauncher.cpp/.h differ. The additional generated git-version.cpp moves
+from m3 to m4. Core, GPU, Common, FFmpeg sources, XboxMain and the session helper
+are unchanged. Thirty-three other launcher methods, including artwork loaders,
+resource creation, drawing primitives, animated background and in-game menu/toast
+paths, match M3 exactly. Only the launcher's call to its animated background is
+replaced; in-game behavior is preserved in source. Fresh preparation reproduces
+the exact built launcher/helper/project bytes.
 
-Other changes give unsigned fields unsigned comparison constants, use a signed
-tile-loop index matching tileCount, make bounded emitter offsets explicitly
-signed, bind the block cache after member construction, type the masked VFPU
-negate flag as bool, remove unused scalar locals, guard an unused platform label
-and replace xxHash's boolean-division compile-time check with an equivalent
-negative-array-size check. [The warning review](WARNING_REVIEW_M3.md) maps every
-code/count to its change and verification.
+## Review previews
 
-Debug Common/Core/GPU projects disable obsolete MinimalRebuild (/Gm), retaining
-multiprocess compilation (/MP). This resolves their incompatible build options.
-Three Common units containing no executable code or CRT initializers are excluded
-from Debug/Release_LTCG; full linking confirms required symbols are still present.
-No warning is disabled, warning level reduced or optimization policy weakened.
+Open [the implementation preview](../design/cclos-preview.html). It visualizes
+draw commands from the actual native methods with host device/cache stubs,
+including both views and empty/missing-art/long-title/folder/Recent/loading
+scenarios. Artwork is fictional; browser text rasterization is approximate.
+These are **host previews, not Xbox screenshots**. The earlier broader concept
+study remains [separate](../design/cclos-concept-m0.html). Both view types were
+approved; detailed spacing, typography and TV readability are still open.
 
-## Evidence
+## Validation
 
 | Check | Result |
 | --- | --- |
-| Original archive hash and every member CRC | PASS, authority unchanged |
-| Existing host unit tests | 20 PASS, no local skips |
-| State-deletion helper / actual artwork-loader tests | PASS, retained |
-| Morph normals | 786,432 cases plus multi-morph blend PASS; old defect reproduced |
-| Unsigned limits, tile bounds, VFPU negate flags and initial root | PASS, 4,194,304 prefix/lane checks |
-| Actual session loop | 8 host cases PASS, including native Windows SEH fault/filter |
-| Original loop/lifecycle versus extracted helper | Exact source comparison PASS |
-| PPC emitter | All 82 generated prologue/epilogue words match reference; scratch address normalized |
-| Cache construction/reinitialization | PASS; XDK class size/alignment unchanged per configuration |
-| xxHash | 32 one-shot/streaming outputs match reference; false size check rejected |
-| GPU layout | Four XDK compile-only probes PASS, existing sizes/offsets/alignment preserved |
-| Excluded Common units | XDK COFF inspection: zero code bytes, no CRT initializers |
-| Fresh preparation versus final built source | Exact byte match |
-| Debug full Rebuild | PASS, 0 warnings / 0 errors |
-| Release_LTCG full Rebuild | PASS, 0 warnings / 0 errors |
-| Console deployment, launch, runtime or performance | NOT RUN |
+| Owner archive authority and every ZIP member CRC | PASS; original SHA-256 unchanged |
+| Twelve FFmpeg libraries / 436 PPCBE objects | PASS; byte-identical to M3 |
+| Full Debug Rebuild | PASS; 0 warnings / 0 errors |
+| Full Release_LTCG Rebuild | PASS; 0 warnings / 0 errors |
+| Existing host unit tests | 20 PASS; no local skips |
+| Existing state-deletion fixture | PASS |
+| Source-derived M3 regressions against M4 | PASS; numeric, native host SEH, owner lifecycle, emitter/cache/hash and negative controls |
+| Actual launcher method traces | PASS; both views and all listed fixture states |
+| Packed font quad bounds and bounded text/image fitting | PASS; existing donor font/packing settings |
+| RT toggle debounce/selection visibility and existing input requests | PASS with host stubs |
+| Inactive Render/Update and view switch side effects | PASS; no work while inactive, no scan/write/resource calls from switching |
+| Fresh source replay / class state / unaffected methods | PASS |
+| Browser scene/view/viewport combinations | 56 PASS; no page errors or external requests |
+| Xbox boot, runtime, rendering/input/audio, states/switching, memory or performance | NOT RUN |
 
-The XDK is PowerPC 16.00.11886.00 with MSBuild 4 and installed licensed VS2010.
-Host regressions use actual staged functions; new fixtures pass with warnings as
-errors. Emitter tests use the real project's /W3 (its unchanged primitives have
-additional /W4 narrowing diagnostics); other new MSVC fixtures use /W4. Original
-reference/negative controls intentionally retain diagnostics and are not compiled
-with /WX. Hosted GCC checks rebuild the fixture inputs from the fixed public donor
-and authenticated owner overlay; no Xbox executable is executed by these tests.
+The fixed 14-title fixture gives this bounded drawing comparison:
 
-[Build identities](evidence/m3/baseline-builds.json), full logs, zero-warning
-inventories, source hashes, target probes and host outputs are in
-[M3 evidence](evidence/m3/). XEX timestamps/paths mean rebuilds are not claimed
-byte-for-byte deterministic. This is a warning-clean build checkpoint, not a
-runtime-qualified release or a performance measurement.
+| View | M3 → M4 draw calls | Triangles | Artwork lookups |
+| --- | --- | --- | --- |
+| Grid | 153 → 80 | 740 → 636 | 15 → 13 |
+| Compact | 157 → 64 | 632 → 562 | 11 → 9 |
 
-## Source, dependencies and preservation
+Counts include the entire launcher frame with the same cache fixtures; the new
+geometry shows fewer items at once. Old nine-slice shadows count as one batched
+draw each. M4 removes the launcher's 100 moving symbol draws/trigonometry. Grid
+artwork now queries up to 13 texture descriptors for aspect fitting (M3 grid: 0);
+compact queries 9 versus 10. Those metadata reads reuse cached textures. No
+frame-time or CPU/GPU speedup is inferred from these host counts. The normal
+emulation loop receives no new per-frame calls; inactive launcher methods return
+before resource or drawing work. Actual Xbox performance equivalence still needs
+measurement at a separately authorized checkpoint.
 
-The original owner archive retains SHA-256
-`6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35`.
-The legacy donor stays at `540db97d96136b2139e5f12dd3c0bb18f2e1cd1f`.
-Separate patches apply after archive verification; donor/owner source encodings
-are preserved byte-for-byte outside intentional hunks and line-ending normalization.
-All twelve FFmpeg libraries remain identical to M2, with all 436 objects PPCBE.
-FFmpeg source, headers and codec profiles are unchanged and were not rebuilt.
-Original licenses/notices remain, and no SDK contents or generated binaries are
-committed. The two functional corrections above and the bounded lifetime changes
-are explicit; no JIT/core modernization, clock/worker tuning or visual redesign
-is included. Detailed CCLOS styling remains provisional.
+## Evidence and limits
 
-Every legacy Deploy entry remains explicitly excluded, and the local driver still
-rejects enabled/missing deployment metadata. M3 performs no console connection,
-deployment or launch. Historical M1's failed automatic copy attempt remains
-recorded; no historical failure is erased.
+[M4 evidence](evidence/m4/) contains full redacted build logs, zero-warning
+audits, XEX/source identities, preservation and deployment metadata, host outputs,
+trace comparison and browser checks. [Build instructions](BUILD_XBOX360.md)
+reproduce the fresh stage, local builds and host checks. XEX files are kept local
+and not committed; timestamps/paths mean deterministic binary identity is not
+claimed. No SDK or private CCLOS assets are published.
 
-## Retained build failure and limits
+All four Deploy entries remain explicitly excluded. The build driver still
+refuses missing/enabled exclusions and verifies library architecture first.
+Historical M1's failed SDK auto-copy attempt remains recorded; M4 makes no console
+actions. The owner explicitly requested this provisional launcher milestone
+while deferring hardware tests; earlier hardware-first ordering is historical.
 
-The first Debug build exposed a further same-file unsigned comparison; all
-unsigned wrapped comparisons in that path were checked and corrected. The first
-Release attempt exhausted local disk space. Only older task-generated compiler
-intermediates and Common/Core/GPU libraries under verified task staging roots
-were removed; original sources, FFmpeg, XEX outputs and packaged milestones remain.
-Both full builds were repeated after the final emitter refinement and passed;
-accepted output identities are separate from initial diagnostics.
-
-No Xbox boot, rendering/audio/input, savedata/states/switching, memory growth or
-performance result is claimed. Keep PR #2 draft; no baseline tag, merge, release,
-deployment or hardware run is part of this checkpoint.
-
-[M0](BASELINE_M0.md), [M1](BASELINE_M1.md), [M2](BASELINE_M2.md) and their evidence
-remain historical. M2 hashes apply at commit
-`4ec6ba48525aa8be4e71eb05b6f113943f56327b`; M3 adds its own current evidence index.
+Keep PR #2 draft. No deployment, launch, baseline tag, merge or release is part
+of this checkpoint. The previous [M3 report](BASELINE_M3.md) and its evidence are
+historical at `6f65400eacc6200fa198351bd324a368ed5ad6df`. M0–M2 reports and failures
+remain. To roll back the UI, revert the M4 checkpoint commit (or omit only its
+last patch/helper and restore the m3 identity); the authentic archive, dependency
+recovery and warning fixes remain independent.

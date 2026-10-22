@@ -13,7 +13,7 @@ const {chromium} = require('playwright');
   page.on('pageerror', error => errors.push(String(error)));
   const requests = [];
   page.on('request', request => requests.push(request.url()));
-  await page.goto('file:///' + root.replaceAll('\\','/') + '/design/cclos-preview.html');
+  await page.goto('file:///' + root.replaceAll('\\','/') + '/design/cclos-concept-m0.html');
   const results = [];
   for (const width of [1280,1920,736,360]) {
     await page.setViewportSize({width,height:780});

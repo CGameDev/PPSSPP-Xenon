@@ -1,5 +1,7 @@
 # Compatibility evidence
 
+M4 host traces exercise both launcher views and existing input requests with stubs. Core/session/IGM paths stay unchanged from M3. Both full local builds remain warning-clean. All Xbox compatibility rows still remain NOT RUN; no console actions were taken.
+
 M1 recovers the owner source and builds Debug/Release_LTCG. No Xbox runtime result
 exists; every hardware row in the test matrix remains NOT RUN. Host file-helper
 tests and library object/header checks do not certify JIT/codec behavior, loading,

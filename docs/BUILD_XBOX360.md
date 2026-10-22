@@ -10,10 +10,10 @@ Use Python 3 and Git. The legacy checkout must be at `metalex10/PPSSPP-X360@540d
 python tools/verify_source_overlay.py
 python -m unittest discover -s tests -v
 python tools/prepare_baseline.py --legacy <legacy-checkout> `
-  --destination artifacts/baseline-m3 --with-build-compatibility
+  --destination artifacts/baseline-m4 --with-build-compatibility
 ```
 
-Compatibility mode stages beneath this project. It records the pristine source manifest, applies the four tracked patches, copies the licensed font header/helper and writes combined provenance. The original archival overlay remains unchanged.
+Compatibility mode stages beneath this project. It records the pristine source manifest, applies the five tracked patches, copies the licensed font header and three launcher/session helpers and writes combined provenance. The original archival overlay remains unchanged.
 
 ## Local host tools
 
@@ -31,13 +31,13 @@ Use source/build staging paths without spaces; SDK/Bash installation paths may c
 
 ```powershell
 python tools/build_xbox_ffmpeg.py `
-  --source artifacts/baseline-m3/ffmpeg --build artifacts/ffmpeg-debug `
+  --source artifacts/baseline-m4/ffmpeg --build artifacts/ffmpeg-debug `
   --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
   --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
   --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Debug
 
 python tools/build_xbox_ffmpeg.py `
-  --source artifacts/baseline-m3/ffmpeg --build artifacts/ffmpeg-release `
+  --source artifacts/baseline-m4/ffmpeg --build artifacts/ffmpeg-release `
   --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
   --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
   --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Release
@@ -50,8 +50,8 @@ Native Makefiles use Windows source paths. The old MSVC dependency scanner is by
 ## Build local XEX files
 
 ```powershell
-./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m3 -Configuration Debug -Rebuild
-./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m3 -Configuration Release_LTCG -Rebuild
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m4 -Configuration Debug -Rebuild
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m4 -Configuration Release_LTCG -Rebuild
 ```
 
 The driver checks every project deployment exclusion and all six library architectures before MSBuild with normal project references. It requests Build or, with -Rebuild, a full Rebuild. Do not invoke Deploy or launch an XEX as part of this procedure.
@@ -87,7 +87,7 @@ Read WARNING_REVIEW_M3.md and preserve any failed logs.
 Run the added source-derived regressions after preparation:
 
 ```powershell
-python tests/run_m3_regressions.py --source-root artifacts/baseline-m3 `
+python tests/run_m3_regressions.py --source-root artifacts/baseline-m4 `
   --reference-root <pinned-legacy-checkout> --build-root artifacts/m3-host-regressions
 ```
 
@@ -103,3 +103,33 @@ Keep enough free local storage for full compiler/link intermediates. After a
 space failure, preserve sources/evidence and only remove verified task-generated
 intermediates in obsolete staging roots; never delete owner source or SDK files.
 Repeat both full rebuilds before recording accepted hashes.
+
+## M4 launcher validation and previews
+
+After staging, run the actual launcher methods with host drawing/input/cache stubs:
+
+```powershell
+python tests/run_cclos_launcher.py --source-root artifacts/baseline-m4 `
+  --build-root artifacts/cclos-launcher-tests --preview-data design/cclos-launcher-frames.js
+```
+
+This recovers the preceding launcher by reversing only the M4 patch in a disposable
+reference folder. An explicit `--reference-root` can instead select a retained M3
+stage. Both use the same donor font packed at 20 px / 2x oversampling. Assertions
+cover packed glyph bounds, fitting, both view layouts and input contracts; real
+Xbox machine code, storage or input devices are never executed. Source-derived
+M3 regressions above also run against the M4 stage.
+
+Open design/cclos-preview.html for the trace-driven provisional review. With
+Playwright installed, `node tests/cclos_preview_smoke.cjs` checks 56 scene/view/
+viewport combinations and writes screenshots under ignored artifacts. Set
+PREVIEW_BROWSER_CHANNEL=msedge and NODE_PATH to an existing Playwright package
+when using installed Edge on Windows. The older concept study and its smoke
+check remain at design/cclos-concept-m0.html / tests/preview_smoke.cjs.
+
+The MSVC host tracer uses the desktop CRT's standard non-deprecation macro for
+existing bounded sprintf usage. Only the unchanged owner's animated-background
+method has a desktop-only C4244 diagnostic bracket while compiling the fixture;
+the XDK source, project warning policies and production builds have no warning
+suppression. New presentation methods remain under /W3 /WX (GCC -Wall -Wextra
+-Werror). This host compatibility handling does not alter the rendered source.

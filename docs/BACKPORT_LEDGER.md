@@ -1,5 +1,7 @@
 # Backport ledger
 
+M4 adds an original launcher-only CCLOS-style visual layer and bounded fitting/scroll helpers. No upstream backport, new asset dependency, core/session code or tuning change. See HADCV_M4.md and evidence/m4/.
+
 M3 adds original warning fixes, not an upstream modernization merge: owner SEH
 loop extraction, correct floating morph-normal multiplication, typed comparisons
 and offsets, delayed cache binding, a standard xxHash compile-time assertion and

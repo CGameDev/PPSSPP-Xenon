@@ -1,0 +1,6 @@
+{
+  "removed": "Task-generated .obj/.pch/.pdb/.idb/.ilk and Common/Core/GPU .lib files only in six checked baseline-m3 build directories before M4 rebuilds.",
+  "bytes_reclaimed": 1290199454,
+  "preserved": "All owner/pinned source, FFmpeg libraries, final XEX, previous milestone packages and evidence.",
+  "build_space_failure": "NONE in M4"
+}

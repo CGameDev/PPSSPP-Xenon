@@ -1,12 +1,11 @@
 # PPSSPP Xenon
 
-> **M3 warning-clean build checkpoint:** the byte-exact owner source is recovered,
-> Xbox FFmpeg is rebuilt, and Debug/Release_LTCG both rebuild locally. Both full rebuilds finish
-> with zero warnings/errors; the remaining 46/40 diagnostics are resolved. See
-> [baseline evidence and retained warnings](docs/BASELINE.md) and
-> [reproduction steps](docs/BUILD_XBOX360.md). These are untested builds; no Xbox
-> runtime/performance acceptance is claimed. [CCLOS UI concepts](design/README.md)
-> retain both tile and compact views; detailed styling remains provisional.
+> **M4 launcher checkpoint:** the first native CCLOS-style navy/teal launcher
+> keeps both switchable Games grid/compact views and the existing emulator/session
+> paths. Debug and Release_LTCG both fully rebuild with **0 warnings / 0 errors**.
+> [Review the implementation preview](design/cclos-preview.html),
+> [evidence](docs/BASELINE.md) and [reproduction](docs/BUILD_XBOX360.md).
+> Styling remains provisional; no Xbox runtime or performance acceptance is claimed.
 
 **PPSSPP Xenon** is an Xbox 360 / Xenon modernization project based on the legacy Xbox 360 port of PPSSPP.
 

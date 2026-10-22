@@ -1,0 +1,27 @@
+Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+test_unsafe_deployment_metadata_refused_before_build (test_build_safety.LocalBuildSafetyTests.test_unsafe_deployment_metadata_refused_before_build) ... ok
+test_summary_duplicates_are_not_counted_twice (test_build_safety.WarningAuditTests.test_summary_duplicates_are_not_counted_twice) ... ok
+launcher_texture_cases.cpp
+test_failure_cleanup_and_pixel_copy (test_launcher_texture.LauncherTextureTests.test_failure_cleanup_and_pixel_copy) ... ok
+test_invalid_overlay_does_not_change_existing_source (test_prepare_baseline.BaselineStagingTests.test_invalid_overlay_does_not_change_existing_source) ... ok
+test_invalid_overlay_does_not_create_staging (test_prepare_baseline.BaselineStagingTests.test_invalid_overlay_does_not_create_staging) ... ok
+test_owner_overlay_wins_and_receipt_matches_final_bytes (test_prepare_baseline.BaselineStagingTests.test_owner_overlay_wins_and_receipt_matches_final_bytes) ... ok
+test_path_escape_is_rejected (test_prepare_baseline.BaselineStagingTests.test_path_escape_is_rejected) ... ok
+test_cli_is_read_only_and_fails_for_untrusted_source (test_source_overlay.SourceGateTests.test_cli_is_read_only_and_fails_for_untrusted_source) ... ok
+test_crc_success_cannot_override_wrong_hash (test_source_overlay.SourceGateTests.test_crc_success_cannot_override_wrong_hash) ... ok
+test_encoded_size_limit (test_source_overlay.SourceGateTests.test_encoded_size_limit) ... ok
+test_invalid_base64_is_rejected (test_source_overlay.SourceGateTests.test_invalid_base64_is_rejected) ... ok
+test_matching_hash_cannot_override_corrupt_member (test_source_overlay.SourceGateTests.test_matching_hash_cannot_override_corrupt_member) ... ok
+test_missing_part_rejected (test_source_overlay.SourceGateTests.test_missing_part_rejected) ... ok
+test_missing_required_source_rejected (test_source_overlay.SourceGateTests.test_missing_required_source_rejected) ... ok
+test_non_zip_rejected (test_source_overlay.SourceGateTests.test_non_zip_rejected) ... ok
+test_valid_archive_requires_matching_hash (test_source_overlay.SourceGateTests.test_valid_archive_requires_matching_hash) ... ok
+test_empty_archive_rejected (test_xbox_libraries.XboxLibraryTests.test_empty_archive_rejected) ... ok
+test_host_object_rejected (test_xbox_libraries.XboxLibraryTests.test_host_object_rejected) ... ok
+test_ppcbe_accepted (test_xbox_libraries.XboxLibraryTests.test_ppcbe_accepted) ... ok
+test_truncated_archive_rejected (test_xbox_libraries.XboxLibraryTests.test_truncated_archive_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.441s
+
+OK

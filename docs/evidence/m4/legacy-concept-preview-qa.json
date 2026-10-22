@@ -1,0 +1,108 @@
+{
+  "status": "PASS",
+  "renderer": "Installed Microsoft Edge / Playwright, host-only",
+  "results": [
+    {
+      "width": 1280,
+      "scene": "tiles",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1280,
+      "scene": "list",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1280,
+      "scene": "pause",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1280,
+      "scene": "empty",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1920,
+      "scene": "tiles",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1920,
+      "scene": "list",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1920,
+      "scene": "pause",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1920,
+      "scene": "empty",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 736,
+      "scene": "tiles",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 736,
+      "scene": "list",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 736,
+      "scene": "pause",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 736,
+      "scene": "empty",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 360,
+      "scene": "tiles",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 360,
+      "scene": "list",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 360,
+      "scene": "pause",
+      "status": "PASS",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 360,
+      "scene": "empty",
+      "status": "PASS",
+      "horizontalOverflow": false
+    }
+  ],
+  "selectionUpdates": "PASS",
+  "mockActions": "PASS",
+  "navigation": "PASS",
+  "pageErrors": [],
+  "externalRequests": 0,
+  "xboxRuntime": "NOT RUN"
+}

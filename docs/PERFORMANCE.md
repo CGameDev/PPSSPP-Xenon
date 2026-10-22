@@ -1,5 +1,7 @@
 # Performance evidence
 
+M4 replaces the launcher-only animated shell with static panels and limits visible cards/rows. Same 14-title fixture: host draw calls grid 153→80, compact 157→64; triangles 740→636 / 632→562; artwork lookups 15→13 / 11→9. These count actual method traces with stubbed drawing/cache; they are not frame times or GPU measurements. Existing in-game/IGM code is unchanged. No new resources, cache policy, persistence, shader or emulation tuning is introduced. See evidence/m4/launcher-receipt.json. Xbox performance remains NOT RUN.
+
 M3 fully rebuilds both configurations warning-clean and preserves GPU/cache layouts, but Xbox performance remains NOT RUN. Dependency restoration and
 the recorded launcher/build adapters do not change CPU clock/worker/JIT/GPU/audio
 tuning. Do not infer performance equivalence from build success. The following

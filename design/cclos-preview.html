@@ -1,113 +1,49 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PPSSPP Xenon — CCLOS concept review</title>
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PPSSPP Xenon · CCLOS launcher milestone</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#07101c;color:#eaf6fa;font-family:Segoe UI,Arial,sans-serif}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible{outline:3px solid #fff;outline-offset:4px}.review{padding:14px 4%;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#101e30;color:#adbecb;font-size:13px}.review strong{color:#57e0d0;letter-spacing:2px;margin-right:auto}.review button{background:transparent;border:1px solid #3b526a;border-radius:4px;padding:7px 12px}.review button[aria-pressed=true]{border-color:#53e0d0;color:#78f6e6;background:#153b43}.screen{position:relative;isolation:isolate;min-height:720px;overflow:hidden;background:radial-gradient(ellipse at 72% -25%,#193a55 0,transparent 60%),radial-gradient(ellipse at 30% 110%,#09363d 0,transparent 55%),#07131f;padding:42px 64px 0}.screen:before{content:"";position:absolute;z-index:-1;inset:0;opacity:.3;background-image:radial-gradient(circle,#75b8c5 .65px,transparent 1px);background-size:67px 61px}.top{display:flex;align-items:center;gap:22px;padding-bottom:24px;border-bottom:1px solid #26404e}.symbol{width:43px;height:43px;border:1px solid #40d8d1;border-radius:12px;display:grid;place-items:center;color:#6bf5e0;font-size:27px;box-shadow:0 0 24px #21c8c218}.wordmark{font-size:24px;letter-spacing:5px;font-weight:600}.wordmark small{display:block;font-size:10px;font-weight:400;letter-spacing:4px;color:#91acb9;margin-top:5px}.top-right{margin-left:auto;text-align:right;font-size:14px;color:#b5cbd4}.top-right b{display:block;font-size:11px;letter-spacing:2px;color:#67d5ce;margin-bottom:6px;font-weight:400}.navigation{display:flex;gap:32px;margin-top:23px;align-items:center}.navigation button{background:none;border:0;border-bottom:3px solid transparent;padding:0 0 12px;color:#a6bac6;font-size:17px}.navigation button[aria-pressed=true]{color:#f3fffd;border-bottom-color:#40e4ce}.navigation span{margin-left:auto;font-size:12px;letter-spacing:2px;color:#8ea6b5}.library{padding-top:23px}.sectionline{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.sectionline h1{font-size:21px;font-weight:400;margin:0}.sectionline span{font-size:13px;color:#a9c0cd}.layout{display:grid;grid-template-columns:1.04fr 1.34fr;gap:26px}.hero{position:relative;min-height:305px;border-radius:7px;border:2px solid #6bf6d6;box-shadow:0 0 23px #41e9d32b;overflow:hidden;background:linear-gradient(155deg,#122e48,#09131e)}.space-art{position:absolute;inset:0;overflow:hidden;background:radial-gradient(circle at 70% 30%,#163f5a 0,#101e37 45%,#07141e 90%)}.space-art:before{content:"";position:absolute;width:220px;height:220px;border:1px solid #41978f;border-radius:50%;top:-30px;right:-35px;background:radial-gradient(circle at 34% 30%,#367885,#102b44 68%);box-shadow:-10px 5px 50px #3ca0b91a}.space-art:after{content:"";position:absolute;width:220px;height:135px;border:1px solid #3fa6b2;transform:rotate(-32deg);top:82px;left:35px;background:linear-gradient(160deg,#27465d,#08121f 60%);clip-path:polygon(0 48%,64% 0,100% 100%,30% 70%)}.hero .shade{position:absolute;inset:0;background:linear-gradient(transparent 22%,#06121fee 85%)}.hero-copy{position:absolute;left:26px;right:24px;bottom:25px}.eyebrow{font-size:10px;letter-spacing:3px;color:#8fdfd6}.hero h2{font-size:40px;letter-spacing:5px;font-weight:400;margin:6px 0 10px}.hero p{font-size:13px;color:#bbd0d9;margin:0}.launch{margin-top:18px;border:1px solid #66e6ce;border-radius:3px;padding:8px 18px;background:#0d3a3e;color:#c7fff1;font-size:14px}.launch i,.key{display:inline-grid;place-items:center;width:21px;height:21px;border:1px solid #639688;border-radius:50%;margin-right:8px;font-size:12px;font-style:normal}.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.tile{position:relative;min-height:146px;background:#102c3c;border:1px solid #2b5261;border-radius:5px;overflow:hidden;text-align:left;padding:0;display:flex;flex-direction:column;justify-content:flex-end}.tile:before{content:"";position:absolute;inset:0 0 35px;background:linear-gradient(152deg,transparent 30%,#46758266 31%,transparent 34%),radial-gradient(ellipse at 80% 0,#294f67,transparent 80%)}.tile:nth-child(2n){background:#102b30}.tile:nth-child(3n){background:#191f3a}.tile strong{position:relative;display:block;font-size:15px;font-weight:400;letter-spacing:2px;margin:0 13px 7px}.tile small{font-size:10px;letter-spacing:1px;background:#07151ebf;color:#9eb8c9;padding:9px 13px;position:relative}.selection{margin-top:19px;display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-top:1px solid #203d4a;color:#a5bdc7;font-size:13px}.selection b{color:#dfedf3;font-weight:400}.selection .tag{color:#83d4ca;letter-spacing:1px;font-size:11px}.footer{margin-top:25px;border-top:1px solid #267577;display:flex;align-items:center;gap:24px;padding:19px 0;color:#c0d3dd;font-size:13px}.footer .aside{margin-left:auto;color:#6e939e;font-size:11px;letter-spacing:2px}.key{width:21px;height:21px;color:#7de7d2}.compact{display:grid;grid-template-columns:1.25fr 1fr;gap:30px}.rows{display:flex;flex-direction:column;gap:8px}.row{display:flex;align-items:center;text-align:left;border:1px solid #28424f;background:#0b1d2c;border-radius:4px;padding:14px 19px;font-size:17px;gap:15px}.row em{font-style:normal;color:#82b5bd;font-size:11px;width:42px}.row span{margin-left:auto;font-size:12px;color:#91abb7}.row.selected{border-color:#5ae4cb;background:#143539;box-shadow:inset 3px 0 #5ae4cb}.detail{padding:22px;background:#0c1e2d;border:1px solid #284754;border-radius:6px}.detail .miniart{height:139px;position:relative;overflow:hidden;border-radius:3px}.detail h2{font-size:30px;font-weight:400;letter-spacing:4px;margin:20px 0 10px}.detail p{font-size:14px;line-height:1.7;color:#aec7d3}.detail .eyebrow{margin-top:17px}.pause{display:grid;grid-template-columns:1fr 1fr;gap:80px;min-height:422px;align-items:center;padding:25px 0 0}.session-scene{position:relative;height:340px;overflow:hidden;background:#0d2234;border:1px solid #264658;border-radius:5px}.session-scene:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,transparent 0 90px,#33526944 91px 93px,transparent 94px 160px)}.session-scene .fictional{position:absolute;inset:0;display:grid;place-content:center;text-align:center;background:radial-gradient(ellipse at 50% 100%,#0c4c4b88,transparent 80%)}.fictional strong{font-size:42px;letter-spacing:7px;font-weight:400}.fictional span{margin-top:12px;font-size:11px;letter-spacing:3px;color:#87b1c2}.session-scene .caption{position:absolute;bottom:18px;left:20px;color:#96aeb8;font-size:11px}.pause-panel .eyebrow{margin-bottom:9px}.pause-panel h1{font-weight:400;font-size:28px;margin:0 0 17px}.menu{display:flex;flex-direction:column;gap:5px}.menu button{text-align:left;background:transparent;border:1px solid transparent;padding:11px 17px;font-size:18px;border-radius:4px}.menu button.selected{border-color:#5ce6d0;background:#143f41}.menu button small{float:right;color:#8eabb8;font-size:12px;padding-top:4px}.menu button:disabled{opacity:.45;cursor:default}.empty{min-height:422px;display:grid;place-content:center;text-align:center}.empty h1{font-weight:400;font-size:29px;margin:17px}.empty p{max-width:440px;line-height:1.7;color:#b0c6d0;margin:0 auto}.empty button{justify-self:center;margin-top:23px}.notice{position:absolute;left:64px;right:64px;bottom:3px;min-height:15px;font-size:11px;color:#86a5b3;letter-spacing:1px;text-align:right}[hidden]{display:none!important}
-@media(min-width:1400px){.screen{padding-left:6%;padding-right:6%}.layout{grid-template-columns:1fr 1.45fr}.hero{min-height:335px}.tile{min-height:160px}}
-@media(max-width:800px){.screen{padding:26px 24px 0;min-height:720px}.wordmark{font-size:19px}.top-right{display:none}.navigation{gap:18px;flex-wrap:wrap}.navigation button{font-size:14px}.navigation span{display:none}.layout,.compact,.pause{grid-template-columns:1fr;gap:20px}.hero{min-height:270px}.tiles{grid-template-columns:repeat(3,1fr)}.tile{min-height:130px}.pause{padding-top:25px}.session-scene{height:180px}.footer{flex-wrap:wrap;gap:12px}.footer .aside{margin:0;width:100%}.notice{position:static;text-align:left;padding-bottom:12px}.selection{gap:12px;flex-wrap:wrap}}
-@media(max-width:440px){.review{gap:8px}.review strong{width:100%}.review button{padding:8px}.screen{padding:22px 18px 0}.top{gap:12px}.wordmark{letter-spacing:2px}.tiles{grid-template-columns:repeat(2,1fr)}.tile strong{font-size:13px}.hero h2{font-size:30px}.navigation{gap:15px}.navigation button{font-size:13px}.sectionline{gap:12px;align-items:flex-start}.sectionline span{font-size:11px}.row{padding:12px;font-size:14px}.row em{width:30px}.row span{font-size:10px}.session-scene .fictional strong{font-size:30px}.pause{gap:20px}}
+:root{color-scheme:dark;background:#07131f;color:#eaf6fa;font:15px/1.5 system-ui,Arial,sans-serif}*{box-sizing:border-box}body{margin:0;padding:24px}main{max-width:1440px;margin:auto}header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}h1{font-size:23px;letter-spacing:.04em;margin:0}p{color:#aec7d3;margin:8px 0 18px}small{color:#7895a5}a{color:#5ce6d0}nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}button,select{border:1px solid #294653;background:#101e30;color:#aec7d3;padding:9px 16px;border-radius:3px;font:inherit;cursor:pointer}button[aria-pressed=true]{border-color:#5ce6d0;color:#5ce6d0;background:#153d43}button:focus-visible,select:focus-visible{outline:2px solid #eaf6fa;outline-offset:3px}.screen{border:1px solid #294653;box-shadow:0 18px 80px #0008;aspect-ratio:16/9;overflow:hidden}svg{display:block;width:100%;height:100%}.note{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px}.status{color:#5ce6d0}footer{margin-top:24px;color:#7895a5;font-size:13px}@media(max-width:600px){body{padding:12px}h1{font-size:18px}nav{gap:6px}button,select{padding:7px 10px}.note{gap:6px}}
 </style>
-</head>
-<body>
-<div class="review" aria-label="Concept review scenes">
-  <strong>DESIGN STUDY · NOT APPROVED</strong>
-  <button data-scene="tiles" aria-pressed="true">01 / Tile library</button>
-  <button data-scene="list" aria-pressed="false">02 / Compact library</button>
-  <button data-scene="pause" aria-pressed="false">03 / In-game menu</button>
-  <button data-scene="empty" aria-pressed="false">04 / Empty library</button>
-</div>
-<main class="screen" id="preview">
-  <header class="top">
-    <div class="symbol" aria-hidden="true">≋</div>
-    <div class="wordmark">PPSSPP <span style="color:#69ddcf">XENON</span><small>CCLOS EDITION / CONCEPT</small></div>
-    <div class="top-right"><b>LOCAL LIBRARY</b>Xbox 360 / PSP</div>
-  </header>
-  <nav class="navigation" aria-label="Library views">
-    <button data-view="Recent" aria-pressed="false">Recent</button>
-    <button data-view="All Games" aria-pressed="true">All Games</button>
-    <button data-view="Favorites" aria-pressed="false">Favorites</button>
-    <button data-view="Folders" aria-pressed="false">Folders</button>
-    <span id="view-context">6 SAMPLE TITLES</span>
-  </nav>
-  <section class="library" id="tiles">
-    <div class="sectionline"><h1>Your PSP library</h1><span>Fictional homebrew fixtures · HDD + USB</span></div>
-    <div class="layout">
-      <div class="hero">
-        <div class="space-art" aria-hidden="true"></div><div class="shade"></div>
-        <div class="hero-copy"><div class="eyebrow">SELECTED / FICTIONAL FIXTURE</div><h2 id="hero-title">ORBITAL</h2><p>Homebrew demo · Local library</p><button class="launch" data-action="Launch preview"><i>A</i>Play</button></div>
-      </div>
-      <div class="tiles">
-        <button class="tile" data-title="Orbital"><strong>ORBITAL</strong><small>HOMEBREW · PBP</small></button>
-        <button class="tile" data-title="Verdant"><strong>VERDANT</strong><small>SAMPLE · ISO</small></button>
-        <button class="tile" data-title="Afterglow"><strong>AFTERGLOW</strong><small>SAMPLE · CSO</small></button>
-        <button class="tile" data-title="Tidal"><strong>TIDAL</strong><small>SAMPLE · ISO</small></button>
-        <button class="tile" data-title="Vector"><strong>VECTOR</strong><small>SAMPLE · PBP</small></button>
-        <button class="tile" data-title="Horizon"><strong>HORIZON</strong><small>SAMPLE · CSO</small></button>
-      </div>
-    </div>
-    <div class="selection"><b id="selected-title">Orbital / Homebrew demo</b><span id="selected-path">hdd1:\PSP\Demos\Orbital\EBOOT.PBP</span><span class="tag">HDD + USB / LOCAL LIBRARY</span></div>
-  </section>
-  <section class="library" id="list" hidden>
-    <div class="sectionline"><h1>Your PSP library</h1><span>Compact view · fictional sample content</span></div>
-    <div class="compact">
-      <div class="rows">
-        <button class="row selected" data-title="Orbital"><em>PBP</em>Orbital<span>HDD</span></button>
-        <button class="row" data-title="Verdant"><em>ISO</em>Verdant<span>HDD</span></button>
-        <button class="row" data-title="Afterglow"><em>CSO</em>Afterglow<span>USB</span></button>
-        <button class="row" data-title="Tidal"><em>ISO</em>Tidal<span>HDD</span></button>
-        <button class="row" data-title="Vector"><em>PBP</em>Vector<span>USB</span></button>
-        <button class="row" data-title="Horizon"><em>CSO</em>Horizon<span>HDD</span></button>
-      </div>
-      <aside class="detail"><div class="miniart"><div class="space-art" aria-hidden="true"></div></div><div class="eyebrow">SELECTED / FICTIONAL FIXTURE</div><h2 id="detail-title">ORBITAL</h2><p>Local PSP content<br>Details follow your selection.</p><button class="launch" data-action="Launch preview"><i>A</i>Play</button></aside>
-    </div>
-  </section>
-  <section class="pause" id="pause" hidden>
-    <div class="session-scene"><div class="fictional"><strong>ORBITAL</strong><span>FICTIONAL GAMEPLAY PLACEHOLDER</span></div><div class="caption">Concept background / no emulation running</div></div>
-    <div class="pause-panel"><div class="eyebrow">PPSSPP XENON / ORBITAL</div><h1>In-game menu</h1><div class="menu">
-      <button class="selected" data-action="Resume preview">Resume <small>A</small></button>
-      <button data-action="Save state preview">Save state <small>Slot 1</small></button>
-      <button data-action="Load state preview">Load state <small>Slot 1</small></button>
-      <button disabled>Game settings <small>Planned</small></button>
-      <button data-action="Reset confirmation preview">Reset game</button>
-      <button data-action="Return-to-library preview">Return to library</button>
-    </div></div>
-  </section>
-  <section class="empty" id="empty" hidden>
-    <div class="eyebrow">LOCAL FIRST / NO DOWNLOAD SERVICE</div><h1>Make room for your PSP library</h1><p>Add a folder containing your own PSP games or homebrew. Your library stays usable when a drive or artwork is unavailable.</p><button class="launch" data-action="Folder picker preview"><i>X</i>Add library folder</button>
-  </section>
-  <footer class="footer"><span><b class="key">A</b>Select</span><span><b class="key">B</b>Back</span><span><b class="key">X</b>View</span><span><b class="key">Y</b>Options</span><span class="aside">DESIGN PREVIEW · NO RUNTIME METRICS</span></footer>
-  <div class="notice" id="notice" aria-live="polite">Proposed launcher presentation · emulator behavior unchanged</div>
+<main>
+<header><h1>CCLOS / LAUNCHER MILESTONE</h1><span class="status">Provisional · review preview</span></header>
+<p>Drawn from the actual launcher’s host trace at 1280 × 720. Fictional artwork and approximate font rendering; this is not an Xbox capture.</p>
+<nav aria-label="Preview controls"><button id="grid" aria-pressed="true">Grid view</button><button id="list" aria-pressed="false">Compact view</button>
+<select id="scene" aria-label="Preview scenario"><option value="normal">Library</option><option value="empty">Empty folder</option><option value="missing">Missing artwork</option><option value="long">Long title and path</option><option value="folder">Folder</option><option value="recent">Recent</option><option value="loading">Loading</option></select></nav>
+<div class="screen"><svg id="screen" viewBox="0 0 1280 720" role="img" aria-label="CCLOS launcher grid preview"></svg></div>
+<div class="note"><span id="description">Grid library · same selected game in both views</span><span id="budget"></span></div>
+<footer>Games supports RT to switch grid/list. Recent keeps its existing grid view. The preview controls change fixture scenes only; they cannot launch an emulator or access console/storage. Detailed styling and TV readability remain open for review. <a href="cclos-concept-m0.html">Earlier concept study</a>.</footer>
 </main>
+<script src="cclos-launcher-frames.js"></script>
 <script>
-(() => {
-  const scenes = ['tiles','list','pause','empty'];
-  const notice = document.getElementById('notice');
-  document.querySelectorAll('[data-scene]').forEach(button => button.addEventListener('click', () => {
-    scenes.forEach(id => document.getElementById(id).hidden = id !== button.dataset.scene);
-    document.querySelectorAll('[data-scene]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    notice.textContent = 'Provisional concept / awaiting owner design review';
-  }));
-  document.querySelectorAll('[data-title]').forEach(button => button.addEventListener('click', () => {
-    document.getElementById('selected-title').textContent = button.dataset.title + ' / fictional fixture';
-    document.getElementById('hero-title').textContent = button.dataset.title.toUpperCase();
-    document.getElementById('detail-title').textContent = button.dataset.title.toUpperCase();
-    const paths = {Orbital:'hdd1:\\PSP\\Demos\\Orbital\\EBOOT.PBP',Verdant:'hdd1:\\PSP\\Verdant.iso',Afterglow:'usb0:\\PSP\\Afterglow.cso',Tidal:'hdd1:\\PSP\\Tidal.iso',Vector:'usb0:\\PSP\\Vector\\EBOOT.PBP',Horizon:'hdd1:\\PSP\\Horizon.cso'};
-    document.getElementById('selected-path').textContent = paths[button.dataset.title];
-    document.querySelectorAll('.row').forEach(item => item.classList.toggle('selected', item.dataset.title === button.dataset.title));
-    notice.textContent = 'Selection preview only / ' + button.dataset.title;
-  }));
-  document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
-    document.querySelectorAll('[data-view]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    document.getElementById('view-context').textContent = button.dataset.view.toUpperCase() + ' / PROPOSED VIEW';
-    notice.textContent = button.dataset.view + ' navigation concept / sample content does not filter';
-  }));
-  document.querySelectorAll('[data-action]').forEach(button => button.addEventListener('click', () => {
-    notice.textContent = button.dataset.action + ' / no emulator or storage action is executed';
-  }));
-})();
-</script>
-</body>
-</html>
+'use strict';
+const svg=document.querySelector('#screen'), select=document.querySelector('#scene');
+let view='grid';
+const ns='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent=svg){const e=document.createElementNS(ns,tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);parent.append(e);return e}
+function color(argb){return '#'+(argb>>>0).toString(16).padStart(8,'0').slice(2)}
+const colors=[['#294653','#5ce6d0'],['#102c3c','#82aacc'],['#45375e','#bea3d8'],['#194c63','#7eb6cb'],['#3e4934','#afbd83']];
+function art(c){const p=colors[c.id%colors.length],g=el('svg',{x:c.x,y:c.y,width:c.w,height:c.h,viewBox:'0 0 480 272',preserveAspectRatio:'none'});el('rect',{width:480,height:272,fill:p[0]},g);el('circle',{cx:350,cy:65,r:125,fill:p[1],opacity:'.22'},g);el('path',{d:'M0 230 L185 45 375 272H0Z',fill:p[1],opacity:'.22'},g);el('path',{d:'M200 272L385 85 480 185V272Z',fill:p[1],opacity:'.3'},g);el('path',{d:'M28 235H190M28 245H120',stroke:p[1],'stroke-width':3,opacity:'.6'},g)}
+function draw(){
+  const scene=select.value==='normal'?view:select.value;
+  const frame=CCLOS_FRAMES.find(f=>f.scene===scene&&(scene==='recent'||f.view===view));
+  if(!frame)throw new Error('Missing launcher trace '+scene+'/'+view);
+  svg.replaceChildren();
+  for(const c of frame.commands){
+    if(c.kind==='rect')el('rect',{x:c.x,y:c.y,width:c.w,height:c.h,fill:color(c.color)});
+    else if(c.kind==='text'){const t=el('text',{x:c.x,y:c.y+16*c.scale,fill:color(c.color),'font-family':'Arial, sans-serif','font-size':20*c.scale,textLength:c.w,lengthAdjust:'spacingAndGlyphs'});t.textContent=c.text}
+    else if(c.kind==='art')art(c);
+    else if(c.kind==='folder'){const g=el('svg',{x:c.x,y:c.y,width:c.w,height:c.h,viewBox:'0 0 50 42'});el('path',{d:'M2 8H19L24 13H48V39H2Z',fill:'#5ce6d0',opacity:'.8'},g)}
+    else throw new Error('Unexpected drawing command '+c.kind);
+  }
+  svg.setAttribute('aria-label','CCLOS launcher '+frame.view+' / '+scene+' preview');
+  for(const v of ['grid','list'])document.querySelector('#'+v).setAttribute('aria-pressed',String(view===v));
+  document.querySelector('#description').textContent=(frame.view==='grid'?'Grid':'Compact')+' · '+select.options[select.selectedIndex].text+' · 1280 × 720 drawing coordinates';
+  document.querySelector('#budget').textContent=frame.drawCalls+' host draw calls · '+frame.cacheReads+' cached artwork lookups';
+}
+document.querySelector('#grid').onclick=()=>{view='grid';draw()};
+document.querySelector('#list').onclick=()=>{view='list';draw()};
+select.onchange=draw;
+document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='v'&&e.target.tagName!=='SELECT'){view=view==='grid'?'list':'grid';draw()}});
+draw();
+</script></html>
