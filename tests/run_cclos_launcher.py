@@ -78,11 +78,15 @@ def main():
         fixture = ROOT / "tests/cclos_launcher_trace.cpp"
         includes = [work, ROOT / "vendor/stb", ROOT / "baseline-overlay/Xbox"]
         if msvc:
-            cmd = [compiler, "/nologo", "/EHsc", "/W3", "/WX", "/D_CRT_SECURE_NO_WARNINGS"] + ["/I" + str(x) for x in includes]
+            cmd = [compiler, "/nologo", "/EHsc", "/W3", "/D_CRT_SECURE_NO_WARNINGS"] + ["/I" + str(x) for x in includes]
+            if label == "current": cmd += ["/WX"]
             if label == "reference": cmd += ["/DREFERENCE_RENDER"]
             cmd += ["/Fe" + str(exe), str(fixture)]
         else:
-            cmd = [compiler, "-std=c++11", "-Wall", "-Wextra", "-Werror"] + ["-I" + str(x) for x in includes]
+            cmd = [compiler, "-std=c++11", "-Wall", "-Wextra"] + ["-I" + str(x) for x in includes]
+            # Keep diagnostics visible on the immutable historical reference.
+            # Only the new implementation must pass with warnings as errors.
+            if label == "current": cmd += ["-Werror"]
             if label == "reference": cmd += ["-DREFERENCE_RENDER"]
             cmd += [str(fixture), "-o", str(exe)]
         result = subprocess.run(cmd, cwd=work, capture_output=True, text=True)

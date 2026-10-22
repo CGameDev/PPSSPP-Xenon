@@ -190,8 +190,8 @@
     },
     {
       "path": "docs/BUILD_XBOX360.md",
-      "bytes": 8605,
-      "sha256": "f0bcef7e6c2c159c2eba1b8371897646cd4f1cff795c7e4e1c7392672a85bf99"
+      "bytes": 8918,
+      "sha256": "0afadb2d9a268e1e5ef244a093f97a721f378239f83aa64052c4ea02a4c0521c"
     },
     {
       "path": "docs/COMPATIBILITY.md",
@@ -694,6 +694,11 @@
       "sha256": "226028c4ab061504916175dc246f5f2620f1c37fa977bac402982d25bcabefd5"
     },
     {
+      "path": "docs/evidence/m4/ci-initial-failure.txt",
+      "bytes": 17356,
+      "sha256": "78aaf41763f14bd58f8640f6297d64eb30cc4d255a8194f8e494224b6af1e0da"
+    },
+    {
       "path": "docs/evidence/m4/current-compile.txt",
       "bytes": 25,
       "sha256": "d60fbf4422e3a1445d9e415254062155d60a8d84998448fe400c7dd200aa575c"
@@ -895,8 +900,8 @@
     },
     {
       "path": "tests/run_cclos_launcher.py",
-      "bytes": 7214,
-      "sha256": "b10502d7d55ebe5f7f7af0f6b02a9fdd150ec4c8948eab74cc99b88da620a404"
+      "bytes": 7455,
+      "sha256": "0ab57ac4bec91ac83ae0bebde86747735613ae35ae98865c206fb8e6df318c81"
     },
     {
       "path": "tests/run_m3_regressions.py",

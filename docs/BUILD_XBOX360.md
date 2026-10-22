@@ -133,3 +133,7 @@ method has a desktop-only C4244 diagnostic bracket while compiling the fixture;
 the XDK source, project warning policies and production builds have no warning
 suppression. New presentation methods remain under /W3 /WX (GCC -Wall -Wextra
 -Werror). This host compatibility handling does not alter the rendered source.
+The historical comparison source retains its diagnostics without warnings as
+errors: GCC reports three unused variables in those old presentation methods.
+The initial CI reference-compile failure is preserved in M4 evidence; current
+launcher code compiled cleanly in that run and keeps its strict warning policy.
