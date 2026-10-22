@@ -48,6 +48,7 @@ Fresh preparation reproduces the built source/helper/header/project bytes.
 | In-game browser combinations | 136 PASS, no overflow/errors/network |
 | Both launcher views / browser combinations | Identical native traces; 56 browser checks PASS |
 | Fresh byte replay, unchanged class/session/Core/GPU | PASS |
+| Hosted Source preflight on 0dfdac4 | All three jobs PASS, including both launcher and in-game checks |
 | Xbox runtime, actual serialization/reset/switching and performance | NOT RUN |
 
 Host checks execute extracted native methods with stubbed device, input and state
@@ -69,8 +70,9 @@ Normal menus remove the existing 100 moving symbols and their trigonometry.
 When the atlas is absent, the old menu already skipped them; the styled panels
 then use more draws. A fitted ellipsis can add a glyph in the long notification
 fixture. These bounds are recorded rather than treated as free work. Inactive
-menu/toast paths still return before resource/drawing work. Normal gameplay adds
-no new per-frame call or draw count, and the emulation loop/tuning are untouched.
+menu/toast paths still return before resource/drawing work. The emulation loop
+has no new call sites; ordinary notifications retain two draws. Emulation/tuning
+source is untouched.
 Actual Xbox frame-time/performance equivalence still needs hardware measurement.
 
 ## Preview, readiness and evidence
@@ -94,6 +96,12 @@ attempt hit local disk-space failure. Only older task-generated intermediates
 and project libraries inside checked M4 staging roots were removed; sources,
 FFmpeg, XEX and milestone packages remain. Both accepted configurations were
 fully rebuilt after the final two-draw notification refinement.
+
+[Hosted verification](https://github.com/CGameDev/PPSSPP-Xenon/actions/runs/39720412280)
+passes all three jobs on the implementation commit, including strict GCC compilation
+of the current launcher/menu fixtures. CI logs and identities are retained under
+evidence/m5/. Native Windows SEH was separately checked locally; hosted tests do
+not execute Xbox code or establish real serialization.
 
 All four Deploy entries stay explicitly excluded and the local driver refuses
 unsafe metadata. M5 performs no console actions. Earlier M1's failed automatic

@@ -183,8 +183,8 @@
     },
     {
       "path": "docs/BASELINE.md",
-      "bytes": 6207,
-      "sha256": "cafa8b17f0899aa5c17d99ede126406feb5a54b11c14de257670ab5e99d31ea4"
+      "bytes": 6722,
+      "sha256": "ac0e19462d81b5465ae99ce41b66c994ce57ee793734e5f435b2e552d8a0c302"
     },
     {
       "path": "docs/BASELINE_M0.md",
@@ -872,9 +872,29 @@
       "sha256": "0db25e3a4517dca093b18e313dfcbbb48bc084c1eb46b6169ff6fb0672405e86"
     },
     {
+      "path": "docs/evidence/m5/CI.json",
+      "bytes": 801,
+      "sha256": "6ef6653c69c53254174fa9ee2d39fa04044269cbcbe6b46aa9717401902b0ab9"
+    },
+    {
       "path": "docs/evidence/m5/baseline-builds.json",
       "bytes": 587,
       "sha256": "3abfde8400366fb237f739d712f6e6efb3983df0b4ce292664ca03cc3c5c4cf1"
+    },
+    {
+      "path": "docs/evidence/m5/ci-legacy-warning-regressions.txt",
+      "bytes": 21257,
+      "sha256": "d19c6a2db91a92c5de87b839d3e65046481f9eaa4e871d84a12119968242e9e2"
+    },
+    {
+      "path": "docs/evidence/m5/ci-owner-source-integrity.txt",
+      "bytes": 13167,
+      "sha256": "ba4f81d34de2305428b6974dd932a23a117f70b1de0c234f4fc1743566b4d6f0"
+    },
+    {
+      "path": "docs/evidence/m5/ci-verifier-tests.txt",
+      "bytes": 15304,
+      "sha256": "e96ed07b5f16b229a12a521167dd85f0ed2c914ba1d66bc5c866c0ccb2790a86"
     },
     {
       "path": "docs/evidence/m5/console-readiness.json",
