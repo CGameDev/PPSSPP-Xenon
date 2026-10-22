@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+source-overlay/Xbox-original-upload.zip
+source-overlay/extracted/
+artifacts/

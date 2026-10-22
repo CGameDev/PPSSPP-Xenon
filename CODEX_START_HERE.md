@@ -1,5 +1,13 @@
 # PPSSPP-Xenon — CODEX START HERE
 
+## Current recovery gate — read first
+
+M0 found that the tracked owner archive is damaged. Read `docs/BASELINE.md` and
+`docs/HADCV_M0.md` before following the historical bootstrap order below. Run
+`python tools/verify_source_overlay.py`; do not reconstruct/import unless the
+original documented digest and all member CRC checks pass. Preserve the expected
+hash and source precedence. M0 includes no production UI or emulator changes.
+
 Repository: https://github.com/CGameDev/PPSSPP-Xenon.git
 
 Project name: **PPSSPP Xenon**

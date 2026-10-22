@@ -1,5 +1,11 @@
 # PPSSPP Xenon — User-Provided Xbox Source Overlay
 
+> **2026-10-21 integrity failure:** the currently tracked four parts decode to
+> SHA-256 `755ae766ecceb5c3469f765e46de1470fdddbc978ec3c260076f9c2097c907d2`,
+> with a bad CRC in `Xbox/XboxMain.cpp`. Do not use these bytes as source. The
+> expected original hash below is unchanged. Run the read-only
+> `python tools/verify_source_overlay.py` gate and read `docs/BASELINE.md` first.
+
 This directory preserves the **original `Xbox.zip` uploaded by the project owner** when the PPSSPP Xenon modernization milestone was prepared.
 
 The source archive is stored losslessly as four ordered Base64 chunks because the repository connector used for the initial seed could not directly write arbitrary ZIP bytes:

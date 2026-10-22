@@ -1,5 +1,12 @@
 # PPSSPP Xenon
 
+> **M0 recovery checkpoint (2026-10-21):** the archived owner overlay fails its
+> original SHA-256 and ZIP CRC checks. Run `python tools/verify_source_overlay.py`
+> before reconstruction/import. See [baseline and build evidence](docs/BASELINE.md)
+> and [HAD-CV state](docs/HADCV_M0.md). No qualified XEX or Xbox runtime result exists.
+> [CCLOS-style UI concepts](design/README.md) are available for review; both tile
+> and compact views will be retained. Detailed styling remains provisional.
+
 **PPSSPP Xenon** is an Xbox 360 / Xenon modernization project based on the legacy Xbox 360 port of PPSSPP.
 
 The project goal is to preserve the working Xbox 360 platform implementation while improving PSP compatibility, performance, stability, game-library usability, and game switching specifically for Xenon PowerPC and Xenos hardware.

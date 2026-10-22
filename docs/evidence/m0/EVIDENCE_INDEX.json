@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "hash_scope": "Exact committed bytes; LF text and original PNG bytes",
+  "test_outcomes": {
+    "python_unit_tests": "9 PASS",
+    "python_compile": "PASS",
+    "browser_scene_viewports": "16 PASS",
+    "browser_interactions": "PASS",
+    "owner_archive": "FAIL",
+    "legacy_donor_debug_build": "FAIL",
+    "owner_overlay_build": "BLOCKED",
+    "xbox_runtime": "NOT RUN"
+  },
+  "files": [
+    {
+      "path": "tools/verify_source_overlay.py",
+      "sha256": "a998e8f5c0bc6be351ff896d2d200f2604d773207687a9b3ff6df0958aba22d9",
+      "bytes": 4007
+    },
+    {
+      "path": "tests/test_source_overlay.py",
+      "sha256": "a18eac6f70f531adc37e47e9a6813ad224049a83f7601e5150da7a67242ea1ab",
+      "bytes": 4166
+    },
+    {
+      "path": "tests/preview_smoke.cjs",
+      "sha256": "e24621f2374edcbeeab88e33ba0a0b3249661ce5e62184d52d44a9ba0ed3590d",
+      "bytes": 3656
+    },
+    {
+      "path": "design/cclos-preview.html",
+      "sha256": "bf39deafb813d1ccbaf13162d6e33107478832264db1a4a3a957519a1db9f8e2",
+      "bytes": 16586
+    },
+    {
+      "path": "docs/SOURCE_LOCK.json",
+      "sha256": "ee3344fc5761acec1992296ef607fe10140fe32cd245a0f5080602a39f60a8aa",
+      "bytes": 2475
+    },
+    {
+      "path": "design/previews/cclos-compact-library.png",
+      "sha256": "ec22a01348d2c9b303c69de22776200945dc62ab64d2dc1c5f8e4986ef76a047",
+      "bytes": 300259
+    },
+    {
+      "path": "design/previews/cclos-empty.png",
+      "sha256": "a5a7c83f500ecd3340c649bdcb4e554640066862b8d1130359b7cb7a8ae4f7ce",
+      "bytes": 380316
+    },
+    {
+      "path": "design/previews/cclos-ingame-menu.png",
+      "sha256": "90d4d8877ac6801ea942da667c3ecde342d8960ebc1da2c95e83a80642dbb4ef",
+      "bytes": 423124
+    },
+    {
+      "path": "design/previews/cclos-tile-library.png",
+      "sha256": "f9a7da8965532d566cf61935247e91b101778515eaaff8bbfc95241ab9cee82c",
+      "bytes": 436750
+    },
+    {
+      "path": "docs/evidence/m0/host-compile.txt",
+      "sha256": "90e13fd5e48cbe0944dfbad15e0463c96b49105f0652b8c8386bdd0d2b4612ac",
+      "bytes": 47
+    },
+    {
+      "path": "docs/evidence/m0/host-tests.txt",
+      "sha256": "6f6def4dceedc8d44344af1740e22d05bf39127e4e68bd4820c34f40922b4f57",
+      "bytes": 1181
+    },
+    {
+      "path": "docs/evidence/m0/legacy-debug-build.txt",
+      "sha256": "919bbede41ccfe88c581a4230436100ec1602e81131c004e494a73d94bf195bb",
+      "bytes": 10660
+    },
+    {
+      "path": "docs/evidence/m0/owner-overlay-preflight.json",
+      "sha256": "efc8295337d1560479f226107ec3a0fc7a7af65f43f374d8f1857a1ebd57525b",
+      "bytes": 1303
+    },
+    {
+      "path": "docs/evidence/m0/preview-qa.json",
+      "sha256": "ff7e53957c98ca0a196c2916c2714f7f7dd7805f999f19a7df56c4f747b05310",
+      "bytes": 2104
+    }
+  ]
+}
