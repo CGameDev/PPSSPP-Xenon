@@ -1,0 +1,759 @@
+Build started 10/21/2026 10:04:41 PM.
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\PPSSPP.sln" on node 1 (Rebuild target(s)).
+ValidateSolutionConfiguration:
+  Building solution configuration "Debug|Xbox 360".
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\PPSSPP.sln" (1) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) on node 1 (Rebuild target(s)).
+_PrepareForClean:
+  Deleting file "Debug\xx.lastbuildstate".
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj" (3) on node 1 (Clean target(s)).
+_PrepareForClean:
+  Deleting file "xbox\Debug\CommonXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj" (Clean target(s)).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj" (4) on node 1 (Clean target(s)).
+_PrepareForClean:
+  Deleting file "xbox\Debug\CoreXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj" (Clean target(s)).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\libkirk\libkirkXbox.vcxproj" (5) on node 1 (Clean target(s)).
+_PrepareForClean:
+  Deleting file "xbox\Debug\libkirkXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\libkirk\libkirkXbox.vcxproj" (Clean target(s)).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\zlib\zlibXbox.vcxproj" (6) on node 1 (Clean target(s)).
+_PrepareForClean:
+  Deleting file "xbox\Debug\zlibXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\zlib\zlibXbox.vcxproj" (Clean target(s)).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj" (7) on node 1 (Clean target(s)).
+_PrepareForClean:
+  Deleting file "xbox\Debug\GPUXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj" (Clean target(s)).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj" (3:2) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\CommonXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /I../native /I../Common /Zi /nologo /W3 /WX- /MP /Od /D _XBOX /D NO_UNICODE /D BIG_ENDIAN /D USE_DIRECTX /D PPC /D WIN32 /D _DEBUG /D _XBOX /D _LIB /GF- /Gm /MTd /GS- /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Yc"StdAfx.h" /Fp"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\xbox\Debug\CommonXbox.pch" /Fo"xbox\Debug\\" /Fd"xbox\Debug\vc100.pdb" /TP /FIstdafx.h stdafx.cpp /callcap /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+  stdafx.cpp
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /I../native /I../Common /Zi /nologo /W3 /WX- /MP /Od /D _XBOX /D NO_UNICODE /D BIG_ENDIAN /D USE_DIRECTX /D PPC /D WIN32 /D _DEBUG /D _XBOX /D _LIB /GF- /Gm /MTd /GS- /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"xbox\Debug\\" /Fd"xbox\Debug\vc100.pdb" /TP /FIstdafx.h ChunkFile.cpp ConsoleListener.cpp Crypto\md5.cpp Crypto\sha1.cpp ExtendedTrace.cpp FileUtil.cpp KeyMap.cpp LogManager.cpp MemArena.cpp MemoryUtil.cpp Misc.cpp MsgHandler.cpp ppcAbi.cpp ppcEmitter.cpp StringUtils.cpp ThreadPools.cpp Timer.cpp XboxCPUDetect.cpp /callcap /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+cl : Command line warning D9030:  [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  XboxCPUDetect.cpp
+  Timer.cpp
+  ThreadPools.cpp
+  StringUtils.cpp
+  ppcEmitter.cpp
+ppcEmitter.cpp(805): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+ppcEmitter.cpp(820): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+ppcEmitter.cpp(852): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  ppcAbi.cpp
+  MsgHandler.cpp
+  Misc.cpp
+  MemoryUtil.cpp
+  MemArena.cpp
+MemArena.cpp(327): warning C4102: 'bail' : unreferenced label [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  LogManager.cpp
+  KeyMap.cpp
+  FileUtil.cpp
+FileUtil.cpp(655): warning C4101: 'dir' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  ExtendedTrace.cpp
+  sha1.cpp
+  md5.cpp
+  ConsoleListener.cpp
+  ChunkFile.cpp
+  Generating Code...
+Lib:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\Lib.exe /OUT:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\Debug\CommonXbox.lib" /NOLOGO xbox\Debug\ChunkFile.obj
+  xbox\Debug\ConsoleListener.obj
+  xbox\Debug\md5.obj
+  xbox\Debug\sha1.obj
+  xbox\Debug\ExtendedTrace.obj
+  xbox\Debug\FileUtil.obj
+  xbox\Debug\KeyMap.obj
+  xbox\Debug\LogManager.obj
+  xbox\Debug\MemArena.obj
+  xbox\Debug\MemoryUtil.obj
+  xbox\Debug\Misc.obj
+  xbox\Debug\MsgHandler.obj
+  xbox\Debug\ppcAbi.obj
+  xbox\Debug\ppcEmitter.obj
+  xbox\Debug\stdafx.obj
+  xbox\Debug\StringUtils.obj
+  xbox\Debug\ThreadPools.obj
+  xbox\Debug\Timer.obj
+  xbox\Debug\XboxCPUDetect.obj
+stdafx.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+ppcAbi.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+ExtendedTrace.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  CommonXbox.vcxproj -> <workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\Debug\CommonXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\CommonXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\CommonXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj" (default targets).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj" (4:2) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\CoreXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+PreBuildEvent:
+  Description: Updating git-version.cpp
+  ../Windows/git-version-gen.cmd
+  :VCEnd
+  Git not on path, trying default Msysgit paths
+ClCompile:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /I..\ffmpeg\WindowsInclude /I..\ffmpeg\Windows\x86\include /I../common /I.. /I../native /I../native/ext/glew /I../ext/zlib /Zi /nologo /W3 /WX- /MP /Od /D USE_FFMPEG /D USE_DIRECTX /D NO_UNICODE /D _XBOX /D PPC /D BIG_ENDIAN /D _DEBUG /D _LIB /GF- /Gm /MTd /GS- /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"xbox\Debug\\" /Fd"xbox\Debug\vc100.pdb" /TP /FICore/x360_compat.h ..\ext\disarm.cpp "..\ext\snappy\snappy-c.cpp" ..\ext\snappy\snappy.cpp "..\git-version.cpp" Config.cpp Core.cpp CoreTiming.cpp CPU.cpp Cwcheat.cpp Debugger\Breakpoints.cpp Debugger\SymbolMap.cpp Dialog\PSPDialog.cpp Dialog\PSPGamedataInstallDialog.cpp Dialog\PSPMsgDialog.cpp Dialog\PSPNetconfDialog.cpp Dialog\PSPOskDialog.cpp Dialog\PSPPlaceholderDialog.cpp Dialog\PSPSaveDialog.cpp Dialog\SavedataParam.cpp ELF\ElfReader.cpp ELF\ParamSFO.cpp ELF\PBPReader.cpp ELF\PrxDecrypter.cpp FileSystems\BlockDevices.cpp FileSystems\DirectoryFileSystem.cpp FileSystems\ISOFileSystem.cpp FileSystems\MetaFileSystem.cpp FileSystems\tlzrc.cpp FileSystems\VirtualDiscFileSystem.cpp Font\PGF.cpp HDRemaster.cpp HLE\HLE.cpp HLE\HLETables.cpp HLE\proAdhoc.cpp HLE\sceAtrac.cpp HLE\sceAudio.cpp HLE\sceAudiocodec.cpp HLE\sceCcc.cpp HLE\sceChnnlsv.cpp HLE\sceCtrl.cpp HLE\sceDeflt.cpp HLE\sceDisplay.cpp HLE\sceDmac.cpp HLE\sceFont.cpp HLE\sceGe.cpp HLE\sceHeap.cpp HLE\sceHprm.cpp HLE\sceHttp.cpp HLE\sceImpose.cpp HLE\sceIo.cpp HLE\sceJpeg.cpp HLE\sceKernel.cpp HLE\sceKernelAlarm.cpp HLE\sceKernelEventFlag.cpp HLE\sceKernelInterrupt.cpp HLE\sceKernelMbx.cpp HLE\sceKernelMemory.cpp HLE\sceKernelModule.cpp HLE\sceKernelMsgPipe.cpp HLE\sceKernelMutex.cpp HLE\sceKernelSemaphore.cpp HLE\sceKernelThread.cpp HLE\sceKernelTime.cpp HLE\sceKernelVTimer.cpp HLE\sceMpeg.cpp HLE\sceNet.cpp HLE\sceNetAdhoc.cpp HLE\sceNp.cpp HLE\sceOpenPSID.cpp HLE\sceParseHttp.cpp HLE\sceParseUri.cpp HLE\scePauth.cpp HLE\scePower.cpp HLE\scePsmf.cpp HLE\scePspNpDrm_user.cpp HLE\sceP3da.cpp HLE\sceMd5.cpp HLE\sceMp4.cpp HLE\sceMp3.cpp HLE\sceGameUpdate.cpp HLE\sceRtc.cpp HLE\sceSas.cpp HLE\sceSsl.cpp HLE\sceUmd.cpp HLE\sceUsb.cpp HLE\sceUtility.cpp HLE\sceVaudio.cpp HLE\__sceAudio.cpp Host.cpp HW\AsyncIOManager.cpp HW\MediaEngine.cpp HW\MemoryStick.cpp HW\MpegDemux.cpp HW\SasAudio.cpp HW\SimpleAT3Dec.cpp Loaders.cpp MemMap.cpp MemmapFunctions.cpp MIPS\JitCommon\JitBlockCache.cpp MIPS\JitCommon\JitCommon.cpp Mips\MIPS.cpp Mips\MIPSAnalyst.cpp MIPS\MIPSAsm.cpp MIPS\MIPSAsmTables.cpp Mips\MIPSCodeUtils.cpp MIPS\MIPSDebugInterface.cpp Mips\MIPSDis.cpp MIPS\MIPSDisVFPU.cpp Mips\MIPSInt.cpp MIPS\MIPSIntVFPU.cpp Mips\MIPSTables.cpp MIPS\MIPSVFPUUtils.cpp MIPS\PPC\PpcAsm.cpp MIPS\PPC\PpcCompAlu.cpp MIPS\PPC\PpcCompBranch.cpp MIPS\PPC\PpcCompFpu.cpp MIPS\PPC\PpcCompLoadStore.cpp MIPS\PPC\PpcCompVFPU.cpp MIPS\PPC\PpcJit.cpp MIPS\PPC\PpcRegCache.cpp MIPS\PPC\PpcRegCacheFPU.cpp MIPS\PPC\PpcRegCacheVPU.cpp PSPLoaders.cpp PSPMixer.cpp Reporting.cpp SaveState.cpp System.cpp Util\BlockAllocator.cpp Util\PPGeDraw.cpp Util\ppge_atlas.cpp /callcap /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+cl : Command line warning D9030:  [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+  ppge_atlas.cpp
+  PPGeDraw.cpp
+  BlockAllocator.cpp
+  System.cpp
+  SaveState.cpp
+  Reporting.cpp
+  PSPMixer.cpp
+  PSPLoaders.cpp
+  PpcRegCacheVPU.cpp
+  PpcRegCacheFPU.cpp
+  PpcRegCache.cpp
+  PpcJit.cpp
+MIPS\PPC\PpcJit.cpp(206): warning C4355: 'this' : used in base member initializer list [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+  PpcCompVFPU.cpp
+MIPS\PPC\PpcCompVFPU.cpp(116): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning) [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+  PpcCompLoadStore.cpp
+  PpcCompFpu.cpp
+  PpcCompBranch.cpp
+  PpcCompAlu.cpp
+  PpcAsm.cpp
+  MIPSVFPUUtils.cpp
+  MIPSTables.cpp
+  Generating Code...
+  Compiling...
+  MIPSIntVFPU.cpp
+  MIPSInt.cpp
+  MIPSDisVFPU.cpp
+  MIPSDis.cpp
+  MIPSDebugInterface.cpp
+  MIPSCodeUtils.cpp
+  MIPSAsmTables.cpp
+  MIPSAsm.cpp
+  MIPSAnalyst.cpp
+  MIPS.cpp
+  JitCommon.cpp
+  JitBlockCache.cpp
+  MemmapFunctions.cpp
+  MemMap.cpp
+  Loaders.cpp
+  SimpleAT3Dec.cpp
+  SasAudio.cpp
+  MpegDemux.cpp
+  MemoryStick.cpp
+  MediaEngine.cpp
+  Generating Code...
+  Compiling...
+  AsyncIOManager.cpp
+  Host.cpp
+  __sceAudio.cpp
+  sceVaudio.cpp
+  sceUtility.cpp
+  sceUsb.cpp
+  sceUmd.cpp
+  sceSsl.cpp
+  sceSas.cpp
+  sceRtc.cpp
+  sceGameUpdate.cpp
+  sceMp3.cpp
+  sceMp4.cpp
+  sceMd5.cpp
+  sceP3da.cpp
+  scePspNpDrm_user.cpp
+  scePsmf.cpp
+  scePower.cpp
+  scePauth.cpp
+  sceParseUri.cpp
+  Generating Code...
+  Compiling...
+  sceParseHttp.cpp
+  sceOpenPSID.cpp
+  sceNp.cpp
+  sceNetAdhoc.cpp
+  sceNet.cpp
+  sceMpeg.cpp
+  sceKernelVTimer.cpp
+  sceKernelTime.cpp
+  sceKernelThread.cpp
+  sceKernelSemaphore.cpp
+  sceKernelMutex.cpp
+  sceKernelMsgPipe.cpp
+  sceKernelModule.cpp
+<workspace>\work\ppsspp-xenon\artifacts\baseline-m2\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+          HLE\sceKernelModule.cpp(1221) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  sceKernelMemory.cpp
+  sceKernelMbx.cpp
+  sceKernelInterrupt.cpp
+  sceKernelEventFlag.cpp
+  sceKernelAlarm.cpp
+  sceKernel.cpp
+  sceJpeg.cpp
+  Generating Code...
+  Compiling...
+  sceIo.cpp
+  sceImpose.cpp
+  sceHttp.cpp
+  sceHprm.cpp
+  sceHeap.cpp
+  sceGe.cpp
+  sceFont.cpp
+  sceDmac.cpp
+  sceDisplay.cpp
+  sceDeflt.cpp
+  sceCtrl.cpp
+  sceChnnlsv.cpp
+  sceCcc.cpp
+  sceAudiocodec.cpp
+  sceAudio.cpp
+  sceAtrac.cpp
+<workspace>\work\ppsspp-xenon\artifacts\baseline-m2\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+          HLE\sceAtrac.cpp(1539) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  proAdhoc.cpp
+  HLETables.cpp
+  HLE.cpp
+  HDRemaster.cpp
+  Generating Code...
+  Compiling...
+  PGF.cpp
+  VirtualDiscFileSystem.cpp
+  tlzrc.cpp
+  MetaFileSystem.cpp
+  ISOFileSystem.cpp
+  DirectoryFileSystem.cpp
+  BlockDevices.cpp
+  PrxDecrypter.cpp
+  PBPReader.cpp
+  ParamSFO.cpp
+  ElfReader.cpp
+  SavedataParam.cpp
+<workspace>\work\ppsspp-xenon\artifacts\baseline-m2\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+          Dialog\SavedataParam.cpp(966) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  PSPSaveDialog.cpp
+  PSPPlaceholderDialog.cpp
+  PSPOskDialog.cpp
+  PSPNetconfDialog.cpp
+  PSPMsgDialog.cpp
+  PSPGamedataInstallDialog.cpp
+  PSPDialog.cpp
+  SymbolMap.cpp
+  Generating Code...
+  Compiling...
+  Breakpoints.cpp
+  Cwcheat.cpp
+  CPU.cpp
+  CoreTiming.cpp
+  Core.cpp
+  Config.cpp
+  git-version.cpp
+  snappy.cpp
+  snappy-c.cpp
+  disarm.cpp
+  Generating Code...
+Lib:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\Lib.exe /OUT:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\Debug\CoreXbox.lib" /NOLOGO xbox\Debug\disarm.obj
+  "xbox\Debug\snappy-c.obj"
+  xbox\Debug\snappy.obj
+  "xbox\Debug\git-version.obj"
+  xbox\Debug\Config.obj
+  xbox\Debug\Core.obj
+  xbox\Debug\CoreTiming.obj
+  xbox\Debug\CPU.obj
+  xbox\Debug\Cwcheat.obj
+  xbox\Debug\Breakpoints.obj
+  xbox\Debug\SymbolMap.obj
+  xbox\Debug\PSPDialog.obj
+  xbox\Debug\PSPGamedataInstallDialog.obj
+  xbox\Debug\PSPMsgDialog.obj
+  xbox\Debug\PSPNetconfDialog.obj
+  xbox\Debug\PSPOskDialog.obj
+  xbox\Debug\PSPPlaceholderDialog.obj
+  xbox\Debug\PSPSaveDialog.obj
+  xbox\Debug\SavedataParam.obj
+  xbox\Debug\ElfReader.obj
+  xbox\Debug\ParamSFO.obj
+  xbox\Debug\PBPReader.obj
+  xbox\Debug\PrxDecrypter.obj
+  xbox\Debug\BlockDevices.obj
+  xbox\Debug\DirectoryFileSystem.obj
+  xbox\Debug\ISOFileSystem.obj
+  xbox\Debug\MetaFileSystem.obj
+  xbox\Debug\tlzrc.obj
+  xbox\Debug\VirtualDiscFileSystem.obj
+  xbox\Debug\PGF.obj
+  xbox\Debug\HDRemaster.obj
+  xbox\Debug\HLE.obj
+  xbox\Debug\HLETables.obj
+  xbox\Debug\proAdhoc.obj
+  xbox\Debug\sceAtrac.obj
+  xbox\Debug\sceAudio.obj
+  xbox\Debug\sceAudiocodec.obj
+  xbox\Debug\sceCcc.obj
+  xbox\Debug\sceChnnlsv.obj
+  xbox\Debug\sceCtrl.obj
+  xbox\Debug\sceDeflt.obj
+  xbox\Debug\sceDisplay.obj
+  xbox\Debug\sceDmac.obj
+  xbox\Debug\sceFont.obj
+  xbox\Debug\sceGe.obj
+  xbox\Debug\sceHeap.obj
+  xbox\Debug\sceHprm.obj
+  xbox\Debug\sceHttp.obj
+  xbox\Debug\sceImpose.obj
+  xbox\Debug\sceIo.obj
+  xbox\Debug\sceJpeg.obj
+  xbox\Debug\sceKernel.obj
+  xbox\Debug\sceKernelAlarm.obj
+  xbox\Debug\sceKernelEventFlag.obj
+  xbox\Debug\sceKernelInterrupt.obj
+  xbox\Debug\sceKernelMbx.obj
+  xbox\Debug\sceKernelMemory.obj
+  xbox\Debug\sceKernelModule.obj
+  xbox\Debug\sceKernelMsgPipe.obj
+  xbox\Debug\sceKernelMutex.obj
+  xbox\Debug\sceKernelSemaphore.obj
+  xbox\Debug\sceKernelThread.obj
+  xbox\Debug\sceKernelTime.obj
+  xbox\Debug\sceKernelVTimer.obj
+  xbox\Debug\sceMpeg.obj
+  xbox\Debug\sceNet.obj
+  xbox\Debug\sceNetAdhoc.obj
+  xbox\Debug\sceNp.obj
+  xbox\Debug\sceOpenPSID.obj
+  xbox\Debug\sceParseHttp.obj
+  xbox\Debug\sceParseUri.obj
+  xbox\Debug\scePauth.obj
+  xbox\Debug\scePower.obj
+  xbox\Debug\scePsmf.obj
+  xbox\Debug\scePspNpDrm_user.obj
+  xbox\Debug\sceP3da.obj
+  xbox\Debug\sceMd5.obj
+  xbox\Debug\sceMp4.obj
+  xbox\Debug\sceMp3.obj
+  xbox\Debug\sceGameUpdate.obj
+  xbox\Debug\sceRtc.obj
+  xbox\Debug\sceSas.obj
+  xbox\Debug\sceSsl.obj
+  xbox\Debug\sceUmd.obj
+  xbox\Debug\sceUsb.obj
+  xbox\Debug\sceUtility.obj
+  xbox\Debug\sceVaudio.obj
+  xbox\Debug\__sceAudio.obj
+  xbox\Debug\Host.obj
+  xbox\Debug\AsyncIOManager.obj
+  xbox\Debug\MediaEngine.obj
+  xbox\Debug\MemoryStick.obj
+  xbox\Debug\MpegDemux.obj
+  xbox\Debug\SasAudio.obj
+  xbox\Debug\SimpleAT3Dec.obj
+  xbox\Debug\Loaders.obj
+  xbox\Debug\MemMap.obj
+  xbox\Debug\MemmapFunctions.obj
+  xbox\Debug\JitBlockCache.obj
+  xbox\Debug\JitCommon.obj
+  xbox\Debug\MIPS.obj
+  xbox\Debug\MIPSAnalyst.obj
+  xbox\Debug\MIPSAsm.obj
+  xbox\Debug\MIPSAsmTables.obj
+  xbox\Debug\MIPSCodeUtils.obj
+  xbox\Debug\MIPSDebugInterface.obj
+  xbox\Debug\MIPSDis.obj
+  xbox\Debug\MIPSDisVFPU.obj
+  xbox\Debug\MIPSInt.obj
+  xbox\Debug\MIPSIntVFPU.obj
+  xbox\Debug\MIPSTables.obj
+  xbox\Debug\MIPSVFPUUtils.obj
+  xbox\Debug\PpcAsm.obj
+  xbox\Debug\PpcCompAlu.obj
+  xbox\Debug\PpcCompBranch.obj
+  xbox\Debug\PpcCompFpu.obj
+  xbox\Debug\PpcCompLoadStore.obj
+  xbox\Debug\PpcCompVFPU.obj
+  xbox\Debug\PpcJit.obj
+  xbox\Debug\PpcRegCache.obj
+  xbox\Debug\PpcRegCacheFPU.obj
+  xbox\Debug\PpcRegCacheVPU.obj
+  xbox\Debug\PSPLoaders.obj
+  xbox\Debug\PSPMixer.obj
+  xbox\Debug\Reporting.obj
+  xbox\Debug\SaveState.obj
+  xbox\Debug\System.obj
+  xbox\Debug\BlockAllocator.obj
+  xbox\Debug\PPGeDraw.obj
+  xbox\Debug\ppge_atlas.obj
+  CoreXbox.vcxproj -> <workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\Debug\CoreXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\CoreXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\CoreXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj" (default targets).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\libkirk\libkirkXbox.vcxproj" (5:2) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\libkirkXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /Zi /nologo /W3 /WX- /MP /Od /D PPC /D BIG_ENDIAN /D NO_JIT /D _MBCS /D _MBCS /D _CRT_SECURE_NO_WARNINGS /GF- /Gm- /EHsc /MTd /GS /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"xbox\Debug\\" /Fd"xbox\Debug\vc100.pdb" /TC AES.c amctrl.c bn.c ec.c kirk_engine.c SHA1.c /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+  AES.c
+  amctrl.c
+  bn.c
+  ec.c
+  kirk_engine.c
+  SHA1.c
+Lib:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\Lib.exe /OUT:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\libkirk\Debug\libkirkXbox.lib" /NOLOGO xbox\Debug\AES.obj
+  xbox\Debug\amctrl.obj
+  xbox\Debug\bn.obj
+  xbox\Debug\ec.obj
+  xbox\Debug\kirk_engine.obj
+  xbox\Debug\SHA1.obj
+  libkirkXbox.vcxproj -> <workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\libkirk\Debug\libkirkXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\libkirkXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\libkirkXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\libkirk\libkirkXbox.vcxproj" (default targets).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\zlib\zlibXbox.vcxproj" (6:2) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\zlibXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /Zi /nologo /W3 /WX- /MP /Od /Ob2 /Oi /Ot /D WIN32 /D _DEBUG /D _LIB /D _MBCS /D _CRT_SECURE_NO_WARNINGS /GF- /Gm- /EHsc /MTd /GS /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"xbox\Debug\\" /Fd"xbox\Debug\vc100.pdb" /TC adler32.c compress.c crc32.c deflate.c gzclose.c gzlib.c gzread.c gzwrite.c infback.c inffast.c inflate.c inftrees.c trees.c uncompr.c zutil.c /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+  adler32.c
+  compress.c
+  crc32.c
+  deflate.c
+  gzclose.c
+  gzlib.c
+  gzread.c
+  gzwrite.c
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
+Lib:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\Lib.exe /OUT:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\zlib\Debug\zlibXbox.lib" /NOLOGO xbox\Debug\adler32.obj
+  xbox\Debug\compress.obj
+  xbox\Debug\crc32.obj
+  xbox\Debug\deflate.obj
+  xbox\Debug\gzclose.obj
+  xbox\Debug\gzlib.obj
+  xbox\Debug\gzread.obj
+  xbox\Debug\gzwrite.obj
+  xbox\Debug\infback.obj
+  xbox\Debug\inffast.obj
+  xbox\Debug\inflate.obj
+  xbox\Debug\inftrees.obj
+  xbox\Debug\trees.obj
+  xbox\Debug\uncompr.obj
+  xbox\Debug\zutil.obj
+  zlibXbox.vcxproj -> <workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\zlib\Debug\zlibXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\zlibXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\zlibXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\zlib\zlibXbox.vcxproj" (default targets).
+Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (2) is building "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj" (7:2) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\GPUXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /I../common /I.. /I../native /I../native/ext/glew /Zi /nologo /W3 /WX- /MP /Od /D NO_UNICODE /D USE_DIRECTX /D WIN32 /D _XBOX /D PPC /D BIG_ENDIAN /D _DEBUG /D _XBOX /D _LIB /GF- /Gm /MTd /GS- /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"xbox\Debug\\" /Fd"xbox\Debug\vc100.pdb" /TP /FIcore/x360_compat.h ..\ext\xbrz\xbrz.cpp Common\IndexGenerator.cpp Common\TextureDecoder.cpp Common\VertexDecoderCommon.cpp Directx9\FramebufferDX9.cpp Directx9\GPU_DX9.cpp Directx9\helper\dx_state.cpp Directx9\helper\fbo.cpp Directx9\helper\global.cpp Directx9\PixelShaderGeneratorDX9.cpp Directx9\ShaderManagerDX9.cpp Directx9\SplineDX9.cpp Directx9\StateMappingDX9.cpp Directx9\TextureCacheDX9.cpp Directx9\TextureScalerDX9.cpp Directx9\TransformPipelineDX9.cpp Directx9\VertexDecoderDX9.cpp Directx9\VertexShaderGeneratorDX9.cpp GeDisasm.cpp GPUCommon.cpp GPUState.cpp Math3D.cpp Null\NullGpu.cpp /callcap /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+cl : Command line warning D9030:  [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  NullGpu.cpp
+  Math3D.cpp
+  GPUState.cpp
+  GPUCommon.cpp
+  GeDisasm.cpp
+  VertexShaderGeneratorDX9.cpp
+  VertexDecoderDX9.cpp
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp2' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp2' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1425): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1503): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1596): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+<workspace>\work\ppsspp-xenon\artifacts\baseline-m2\common\Swap.h(125): warning C4244: 'argument' : conversion from 'const float' to 'const s16', possible loss of data [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+          Directx9\VertexDecoderDX9.cpp(456) : see reference to function template instantiation 'swap_struct_t<T,F> swap_struct_t<T,F>::operator *<float>(const S &) const' being compiled
+          with
+          [
+              T=s16,
+              F=swap_16_t<s16>,
+              S=float
+          ]
+  TransformPipelineDX9.cpp
+  TextureScalerDX9.cpp
+  TextureCacheDX9.cpp
+  StateMappingDX9.cpp
+  SplineDX9.cpp
+  ShaderManagerDX9.cpp
+  PixelShaderGeneratorDX9.cpp
+  global.cpp
+Directx9\helper\global.cpp(361): warning C4018: '<' : signed/unsigned mismatch [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  fbo.cpp
+  dx_state.cpp
+  GPU_DX9.cpp
+  FramebufferDX9.cpp
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelType' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelSize' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'align' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelFormat' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  VertexDecoderCommon.cpp
+  Generating Code...
+  Compiling...
+  TextureDecoder.cpp
+  IndexGenerator.cpp
+  xbrz.cpp
+  Generating Code...
+Lib:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\Lib.exe /OUT:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\Debug\GPUXbox.lib" /NOLOGO xbox\Debug\xbrz.obj
+  xbox\Debug\IndexGenerator.obj
+  xbox\Debug\TextureDecoder.obj
+  xbox\Debug\VertexDecoderCommon.obj
+  xbox\Debug\FramebufferDX9.obj
+  xbox\Debug\GPU_DX9.obj
+  xbox\Debug\dx_state.obj
+  xbox\Debug\fbo.obj
+  xbox\Debug\global.obj
+  xbox\Debug\PixelShaderGeneratorDX9.obj
+  xbox\Debug\ShaderManagerDX9.obj
+  xbox\Debug\SplineDX9.obj
+  xbox\Debug\StateMappingDX9.obj
+  xbox\Debug\TextureCacheDX9.obj
+  xbox\Debug\TextureScalerDX9.obj
+  xbox\Debug\TransformPipelineDX9.obj
+  xbox\Debug\VertexDecoderDX9.obj
+  xbox\Debug\VertexShaderGeneratorDX9.obj
+  xbox\Debug\GeDisasm.obj
+  xbox\Debug\GPUCommon.obj
+  xbox\Debug\GPUState.obj
+  xbox\Debug\Math3D.obj
+  xbox\Debug\NullGpu.obj
+  GPUXbox.vcxproj -> <workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\Debug\GPUXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\GPUXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\GPUXbox.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj" (default targets).
+InitializeBuildStatus:
+  Creating "Debug\xx.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /I../../Common /I../.. /I../../Core /I../../native/ext/glew /I../../native /I../../ui /I../../ext/zlib /Zi /nologo /W3 /WX- /MP /Od /D NO_UNICODE /D _DEBUG /D _XBOX /D PPC /D BIG_ENDIAN /D NO_JIT /D USE_DIRECTX /D WORDS_BIGENDIAN /GF- /Gm- /MTd /GS- /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP ..\..\ext\xxhash.c ..\..\native\base\buffer.cpp ..\..\native\base\stringutil.cpp ..\..\native\base\timeutil.cpp ..\..\native\data\compression.cpp ..\..\native\ext\cityhash\city.cpp ..\..\native\ext\jpge\jpgd.cpp ..\..\native\ext\jpge\jpge.cpp ..\..\native\ext\sha1\sha1.cpp ..\..\native\ext\stb_image\stb_image.c ..\..\native\ext\vjson\block_allocator.cpp ..\..\native\ext\vjson\json.cpp ..\..\native\file\fd_util.cpp ..\..\native\file\file_util.cpp ..\..\native\file\ini_file.cpp ..\..\native\file\zip_read.cpp ..\..\native\gfx\texture_atlas.cpp ..\..\native\i18n\i18n.cpp ..\..\native\image\png_load.cpp ..\..\native\image\zim_load.cpp ..\..\native\input\input_state.cpp ..\..\native\math\expression_parser.cpp ..\..\native\math\lin\matrix4x4.cpp ..\..\native\math\lin\quat.cpp ..\..\native\net\http_client.cpp ..\..\native\net\resolve.cpp ..\..\native\net\url.cpp ..\..\native\thread\threadpool.cpp ..\..\native\util\text\parsers.cpp ..\..\native\util\text\utf8.cpp ..\Compare.cpp ..\display_xbox.cpp ..\Jit\bram.cpp ..\XaudioSound.cpp ..\XboxFpsOverlay.cpp ..\XboxLauncher.cpp ..\XboxMain.cpp ..\InputDevice.cpp ..\XboxHost.cpp ..\XboxOnScreenDisplay.cpp ..\XboxOs.cpp ..\XinputDevice.cpp /callcap /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+  xxhash.c
+  buffer.cpp
+  stringutil.cpp
+  timeutil.cpp
+  compression.cpp
+  city.cpp
+  jpgd.cpp
+  jpge.cpp
+  sha1.cpp
+  stb_image.c
+  block_allocator.cpp
+  json.cpp
+..\..\ext\xxhash.c(312): warning C4804: '/' : unsafe use of type 'bool' in operation [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  fd_util.cpp
+  file_util.cpp
+  ini_file.cpp
+  zip_read.cpp
+  texture_atlas.cpp
+  i18n.cpp
+  png_load.cpp
+  zim_load.cpp
+  input_state.cpp
+  expression_parser.cpp
+  matrix4x4.cpp
+  quat.cpp
+  http_client.cpp
+  resolve.cpp
+  url.cpp
+  threadpool.cpp
+  parsers.cpp
+  utf8.cpp
+  Compare.cpp
+  display_xbox.cpp
+  bram.cpp
+  XaudioSound.cpp
+  XboxFpsOverlay.cpp
+  XboxLauncher.cpp
+  XboxMain.cpp
+  InputDevice.cpp
+  XboxHost.cpp
+  XboxOnScreenDisplay.cpp
+  XboxOs.cpp
+  XinputDevice.cpp
+..\XboxMain.cpp(492): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(501): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(505): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(507): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(508): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(290) : see declaration of 'currentGame'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(286) : see declaration of 'launcher'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(236) : see declaration of 'error_string'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(290) : see declaration of 'currentGame'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(286) : see declaration of 'launcher'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(236) : see declaration of 'error_string'
+..\XboxLauncher.cpp(578): warning C4010: single-line comment contains line-continuation character [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+Link:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\link.exe /ERRORREPORT:QUEUE /OUT:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\Debug\xx.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\\..\ffmpeg\Xbox\ppcD\lib" xapilibd.lib d3d9d.lib d3dx9d.lib xgraphicsd.lib xboxkrnl.lib xnetd.lib xaudiod2.lib xactd3.lib x3daudiod.lib xmcored.lib xbdm.lib vcompd.lib avcodec.lib avdevice.lib avformat.lib avutil.lib swresample.lib swscale.lib /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\Debug\xx.pdb" /STACK:"2097152","2097152" /TLBID:1 /IMPLIB:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\Debug\xx.lib" Debug\xxhash.obj
+  Debug\buffer.obj
+  Debug\stringutil.obj
+  Debug\timeutil.obj
+  Debug\compression.obj
+  Debug\city.obj
+  Debug\jpgd.obj
+  Debug\jpge.obj
+  Debug\sha1.obj
+  Debug\stb_image.obj
+  Debug\block_allocator.obj
+  Debug\json.obj
+  Debug\fd_util.obj
+  Debug\file_util.obj
+  Debug\ini_file.obj
+  Debug\zip_read.obj
+  Debug\texture_atlas.obj
+  Debug\i18n.obj
+  Debug\png_load.obj
+  Debug\zim_load.obj
+  Debug\input_state.obj
+  Debug\expression_parser.obj
+  Debug\matrix4x4.obj
+  Debug\quat.obj
+  Debug\http_client.obj
+  Debug\resolve.obj
+  Debug\url.obj
+  Debug\threadpool.obj
+  Debug\parsers.obj
+  Debug\utf8.obj
+  Debug\Compare.obj
+  Debug\display_xbox.obj
+  Debug\bram.obj
+  Debug\XaudioSound.obj
+  Debug\XboxFpsOverlay.obj
+  Debug\XboxLauncher.obj
+  Debug\XboxMain.obj
+  Debug\InputDevice.obj
+  Debug\XboxHost.obj
+  Debug\XboxOnScreenDisplay.obj
+  Debug\XboxOs.obj
+  Debug\XinputDevice.obj
+  "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\Debug\CommonXbox.lib"
+  "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\Debug\CoreXbox.lib"
+  "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\libkirk\Debug\libkirkXbox.lib"
+  "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\ext\zlib\Debug\zlibXbox.lib"
+  "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\Debug\GPUXbox.lib" /XEX:NO
+ImageXex:
+  C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\imagexex.exe /out:"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\Debug\xx.xex" "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\Debug\xx.exe" 
+  Microsoft(R) Xbox 360 Image File Builder Version 2.0.21256.0
+  (c)2012 Microsoft Corporation. All rights reserved.
+  
+FinalizeBuildStatus:
+  Deleting file "Debug\xx.unsuccessfulbuild".
+  Touching "Debug\xx.lastbuildstate".
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (Rebuild target(s)).
+Done Building Project "<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\PPSSPP.sln" (Rebuild target(s)).
+
+Build succeeded.
+
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\PPSSPP.sln" (Rebuild target) (1) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (Rebuild target) (2) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj" (default target) (3:2) ->
+(ClCompile target) -> 
+  cl : Command line warning D9030:  [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  ppcEmitter.cpp(805): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  ppcEmitter.cpp(820): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  ppcEmitter.cpp(852): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  MemArena.cpp(327): warning C4102: 'bail' : unreferenced label [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  FileUtil.cpp(655): warning C4101: 'dir' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+
+
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\PPSSPP.sln" (Rebuild target) (1) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (Rebuild target) (2) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj" (default target) (3:2) ->
+(Lib target) -> 
+  stdafx.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  ppcAbi.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+  ExtendedTrace.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Common\CommonXbox.vcxproj]
+
+
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\PPSSPP.sln" (Rebuild target) (1) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (Rebuild target) (2) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj" (default target) (4:2) ->
+(ClCompile target) -> 
+  cl : Command line warning D9030:  [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+  MIPS\PPC\PpcJit.cpp(206): warning C4355: 'this' : used in base member initializer list [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+  MIPS\PPC\PpcCompVFPU.cpp(116): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning) [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+  <workspace>\work\ppsspp-xenon\artifacts\baseline-m2\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+  <workspace>\work\ppsspp-xenon\artifacts\baseline-m2\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+  <workspace>\work\ppsspp-xenon\artifacts\baseline-m2\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Core\CoreXbox.vcxproj]
+
+
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\PPSSPP.sln" (Rebuild target) (1) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (Rebuild target) (2) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj" (default target) (7:2) ->
+  cl : Command line warning D9030:  [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp2' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp2' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1425): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1503): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\VertexDecoderDX9.cpp(1596): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  <workspace>\work\ppsspp-xenon\artifacts\baseline-m2\common\Swap.h(125): warning C4244: 'argument' : conversion from 'const float' to 'const s16', possible loss of data [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\helper\global.cpp(361): warning C4018: '<' : signed/unsigned mismatch [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelType' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelSize' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\FramebufferDX9.cpp(887): warning C4101: 'align' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+  Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelFormat' : unreferenced local variable [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\GPU\GPUXbox.vcxproj]
+
+
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\PPSSPP.sln" (Rebuild target) (1) ->
+"<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj" (Rebuild target) (2) ->
+  ..\..\ext\xxhash.c(312): warning C4804: '/' : unsafe use of type 'bool' in operation [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(492): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(501): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(505): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(507): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(508): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+  ..\XboxLauncher.cpp(578): warning C4010: single-line comment contains line-continuation character [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m2\Xbox\xx\xx.vcxproj]
+
+    46 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:04:58.43

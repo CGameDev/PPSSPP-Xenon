@@ -1,0 +1,195 @@
+{
+  "parent_m2_commit": "4ec6ba48525aa8be4e71eb05b6f113943f56327b",
+  "original_archive_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+  "changed_source_or_project_files": [
+    "Common/CommonXbox.vcxproj",
+    "Common/FileUtil.cpp",
+    "Common/MemArena.cpp",
+    "Common/ppcEmitter.cpp",
+    "Core/CoreXbox.vcxproj",
+    "Core/Dialog/SavedataParam.cpp",
+    "Core/HLE/sceAtrac.cpp",
+    "Core/HLE/sceKernelModule.cpp",
+    "Core/MIPS/JitCommon/JitBlockCache.h",
+    "Core/MIPS/PPC/PpcCompVFPU.cpp",
+    "Core/MIPS/PPC/PpcJit.cpp",
+    "GPU/Directx9/FramebufferDX9.cpp",
+    "GPU/Directx9/VertexDecoderDX9.cpp",
+    "GPU/Directx9/helper/global.cpp",
+    "GPU/GPUXbox.vcxproj",
+    "Xbox/XboxMain.cpp",
+    "ext/xxhash.c",
+    "Xbox/XboxLauncher.cpp"
+  ],
+  "new_helper": "Xbox/XenonEmulationLoop.h",
+  "generated_identity": "m2 -> m3",
+  "fresh_replay": "PASS exact source bytes",
+  "built_files": [
+    {
+      "path": "Common/CommonXbox.vcxproj",
+      "bytes": 18754,
+      "sha256": "796f2ba165958deba5319960cebd62298d895c51128bc5223c3e87a8456ceffb"
+    },
+    {
+      "path": "Common/FileUtil.cpp",
+      "bytes": 18964,
+      "sha256": "b8326a9ad5f27d4cca1b7836738c29ee453aa39c45e6174d7fdf772d20f4cfad"
+    },
+    {
+      "path": "Common/MemArena.cpp",
+      "bytes": 11626,
+      "sha256": "b27ca6633d51e1249b9551b2fd8044ad00fc3037ebd180756e1222666f6c1a02"
+    },
+    {
+      "path": "Common/ppcEmitter.cpp",
+      "bytes": 24508,
+      "sha256": "d378d9b30d718f8b07a851ce8b73e123e4544b2982239850c965f2f765fb4c45"
+    },
+    {
+      "path": "Core/CoreXbox.vcxproj",
+      "bytes": 54310,
+      "sha256": "d8f7c83e39952dd3846b907a9a0e32226966ae1138fd084726e6685d508c44ee"
+    },
+    {
+      "path": "Core/Dialog/SavedataParam.cpp",
+      "bytes": 44409,
+      "sha256": "516fc43708363da4c02d4043dc9f9ef11c8edd914434b0b7687e1357ff43a8dd"
+    },
+    {
+      "path": "Core/HLE/sceAtrac.cpp",
+      "bytes": 65211,
+      "sha256": "cad5ba7541e1fdb6d510e4d7f4c84add584932e2ce012edfd2272eb629daa2c0"
+    },
+    {
+      "path": "Core/HLE/sceKernelModule.cpp",
+      "bytes": 59365,
+      "sha256": "dce6a068e5d1854566609953a42dd3dfd0a3176d502aeae9760b006c303d2412"
+    },
+    {
+      "path": "Core/MIPS/JitCommon/JitBlockCache.h",
+      "bytes": 4320,
+      "sha256": "5e8ba9cd975d710e3231f99d6236f975e76afda751a4dc6c1fa6169d68f073e5"
+    },
+    {
+      "path": "Core/MIPS/PPC/PpcCompVFPU.cpp",
+      "bytes": 30079,
+      "sha256": "339c20e8f452364f6981b4401757f24a08296879324ae22420fbdca74a060070"
+    },
+    {
+      "path": "Core/MIPS/PPC/PpcJit.cpp",
+      "bytes": 6870,
+      "sha256": "d060c6c03240d02b2da9b5cbec7517eecb58553c1c73d3862f9de16046ad0ee7"
+    },
+    {
+      "path": "GPU/Directx9/FramebufferDX9.cpp",
+      "bytes": 35929,
+      "sha256": "0669efe62cd85b523c765d3a3285b1ede85edac2a8feacd4c28669fc22500282"
+    },
+    {
+      "path": "GPU/Directx9/VertexDecoderDX9.cpp",
+      "bytes": 45035,
+      "sha256": "a6dd14c777686a2f7f5c27bc405514e70cf93dddb984ebd29b02a962544a0e20"
+    },
+    {
+      "path": "GPU/Directx9/helper/global.cpp",
+      "bytes": 17184,
+      "sha256": "d507a76c794c0a190d5847a1290fd774eb2b8e088b4a2abcb1d95c684e96efca"
+    },
+    {
+      "path": "GPU/GPUXbox.vcxproj",
+      "bytes": 33320,
+      "sha256": "f8c99eb5ea521a9ccedb36834a59ae031c7058bb475415244b4213a487c61347"
+    },
+    {
+      "path": "Xbox/XboxMain.cpp",
+      "bytes": 11678,
+      "sha256": "dbae7daf5fb2065b74642d5c33ff013def94b8b0588cbe7e4f9a425fa66e0983"
+    },
+    {
+      "path": "ext/xxhash.c",
+      "bytes": 15840,
+      "sha256": "901b140fc4c1242a9d6977edaa1996fcc2643b87c02137f833f943cba610942d"
+    },
+    {
+      "path": "Xbox/XboxLauncher.cpp",
+      "bytes": 79851,
+      "sha256": "0a8c5e1e07fce626801d4712ffc445be6651870b67be583c601d51b89a004546"
+    },
+    {
+      "path": "Xbox/XenonEmulationLoop.h",
+      "bytes": 3177,
+      "sha256": "d1dfc29704348d71286efd42033a619792a9b41ef96b7c5ef9600768effd831b"
+    },
+    {
+      "path": "GPU/GPUState.h",
+      "bytes": 20322,
+      "sha256": "4379ac4257e1dbaab3faa8077a9c91ca7608d691e108593ed05801a7a717805a"
+    },
+    {
+      "path": "Xbox/xx/xx.vcxproj",
+      "bytes": 23830,
+      "sha256": "87b32c912662897b59fce4c682be81dc72340d29149a7e917a26972cd79fd954"
+    },
+    {
+      "path": "Xbox/XenonStateDeleteCompat.h",
+      "bytes": 663,
+      "sha256": "bb599199804ed661de2ede5ff5a53c216173ba008a571fe56809070705fb0532"
+    },
+    {
+      "path": "git-version.cpp",
+      "bytes": 167,
+      "sha256": "ec3e9a0bba8eb716bed285c23444abd053f4c854b993d49bb449b997d959c15a"
+    }
+  ],
+  "design_files": [
+    {
+      "path": "design/cclos-preview.html",
+      "sha256": "bf39deafb813d1ccbaf13162d6e33107478832264db1a4a3a957519a1db9f8e2",
+      "unchanged": true
+    },
+    {
+      "path": "design/previews/cclos-compact-library.png",
+      "sha256": "ec22a01348d2c9b303c69de22776200945dc62ab64d2dc1c5f8e4986ef76a047",
+      "unchanged": true
+    },
+    {
+      "path": "design/previews/cclos-empty.png",
+      "sha256": "a5a7c83f500ecd3340c649bdcb4e554640066862b8d1130359b7cb7a8ae4f7ce",
+      "unchanged": true
+    },
+    {
+      "path": "design/previews/cclos-ingame-menu.png",
+      "sha256": "90d4d8877ac6801ea942da667c3ecde342d8960ebc1da2c95e83a80642dbb4ef",
+      "unchanged": true
+    },
+    {
+      "path": "design/previews/cclos-tile-library.png",
+      "sha256": "f9a7da8965532d566cf61935247e91b101778515eaaff8bbfc95241ab9cee82c",
+      "unchanged": true
+    },
+    {
+      "path": "design/README.md",
+      "sha256": "f79ed583169d789a24509e19726f75f767942d557968ef3ee41d72490bfa66f6",
+      "unchanged": true
+    }
+  ],
+  "deployment_exclusions": [
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Debug|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Debug_Optimised|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Release|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'",
+      "excluded": true
+    }
+  ],
+  "console_actions": "NONE: no deployment, launch or runtime test"
+}

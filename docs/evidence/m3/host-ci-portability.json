@@ -1,0 +1,8 @@
+{
+  "commit": "ac58de4e653a65339040a684cbc033e968d67542",
+  "workflow": "https://github.com/CGameDev/PPSSPP-Xenon/actions/runs/39713505397",
+  "owner_source": "PASS",
+  "existing_host_tests": "PASS",
+  "failure": "GCC eagerly parses uninstantiated legacy endian templates and requires bswapf/bswapd declarations in the host fixture.",
+  "fix": "Add host float/double byte-swap stubs using memcpy and verify round trips. No production source, build flags or XEX change."
+}

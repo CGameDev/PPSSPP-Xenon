@@ -1,0 +1,84 @@
+{
+  "compared_to_m1_commit": "d68b9a609b3e145e72a3fa97613b78de738215a5",
+  "changed_source_or_project_files": [
+    "GPU/GPUState.h",
+    "Xbox/XboxLauncher.cpp"
+  ],
+  "additional_generated_identity_change": "git-version.cpp m1 -> m2",
+  "original_archive_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+  "source_manifest_files": 6409,
+  "fresh_patch_replay": "PASS: exact built bytes",
+  "built_source": [
+    {
+      "path": "GPU/GPUState.h",
+      "sha256": "4379ac4257e1dbaab3faa8077a9c91ca7608d691e108593ed05801a7a717805a"
+    },
+    {
+      "path": "Xbox/XboxLauncher.cpp",
+      "sha256": "2550f6951f0d91750218573db289bc8921a7a84dde62b42ae6aeb3309a2546f9"
+    },
+    {
+      "path": "Xbox/xx/xx.vcxproj",
+      "sha256": "87b32c912662897b59fce4c682be81dc72340d29149a7e917a26972cd79fd954"
+    },
+    {
+      "path": "Xbox/XenonStateDeleteCompat.h",
+      "sha256": "bb599199804ed661de2ede5ff5a53c216173ba008a571fe56809070705fb0532"
+    },
+    {
+      "path": "git-version.cpp",
+      "sha256": "b909447ad9640f292716edae0d75d988d730c964dbefe9fd886f9c30d086bd30"
+    }
+  ],
+  "design_files": [
+    {
+      "path": "design/cclos-preview.html",
+      "sha256": "bf39deafb813d1ccbaf13162d6e33107478832264db1a4a3a957519a1db9f8e2",
+      "identical_to_m1": true
+    },
+    {
+      "path": "design/previews/cclos-compact-library.png",
+      "sha256": "ec22a01348d2c9b303c69de22776200945dc62ab64d2dc1c5f8e4986ef76a047",
+      "identical_to_m1": true
+    },
+    {
+      "path": "design/previews/cclos-empty.png",
+      "sha256": "a5a7c83f500ecd3340c649bdcb4e554640066862b8d1130359b7cb7a8ae4f7ce",
+      "identical_to_m1": true
+    },
+    {
+      "path": "design/previews/cclos-ingame-menu.png",
+      "sha256": "90d4d8877ac6801ea942da667c3ecde342d8960ebc1da2c95e83a80642dbb4ef",
+      "identical_to_m1": true
+    },
+    {
+      "path": "design/previews/cclos-tile-library.png",
+      "sha256": "f9a7da8965532d566cf61935247e91b101778515eaaff8bbfc95241ab9cee82c",
+      "identical_to_m1": true
+    },
+    {
+      "path": "design/README.md",
+      "sha256": "f79ed583169d789a24509e19726f75f767942d557968ef3ee41d72490bfa66f6",
+      "identical_to_m1": true
+    }
+  ],
+  "deployment_metadata": [
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Debug|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Debug_Optimised|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Release|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'",
+      "excluded": true
+    }
+  ],
+  "console_actions": "NOT RUN: no deployment, launch or runtime test"
+}

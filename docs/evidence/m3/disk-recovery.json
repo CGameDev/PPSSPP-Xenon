@@ -1,0 +1,7 @@
+{
+  "reason": "Local C: drive filled during first Release rebuild; no source repair was needed.",
+  "removed": "976 generated .obj/.pch/.pdb/.idb/.ilk files and older generated Common/Core/GPU libraries only, within verified task staging roots baseline-m1 and baseline-m2",
+  "bytes_reclaimed": 2642787638,
+  "preserved": "Original/pinned sources, FFmpeg libraries, final XEX files, delivery ZIPs and historical logs/receipts",
+  "result": "Both full Rebuilds repeated successfully; final receipts bind accepted outputs"
+}

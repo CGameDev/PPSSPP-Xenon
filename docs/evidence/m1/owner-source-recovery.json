@@ -1,0 +1,176 @@
+{
+  "package": "PPSSPP-Xenon-Codex-Milestone-v1.0.zip",
+  "package_sha256": "ea8eaf39d8899f231d1ba1cee7687cbc67e071154ed9972f2883950c8efc8a3b",
+  "owner_archive_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+  "archive_bytes": 56233,
+  "zip_crc": "PASS",
+  "members": 30,
+  "corrupted_archive_byte_offsets": [
+    5883,
+    42887
+  ],
+  "recovery_method": "Byte-exact original archive recovered from local owner milestone package; no source reconstruction or manual patching",
+  "parts": [
+    {
+      "part": "Xbox-original-upload.part01.b64",
+      "before_sha256": "37192e250770878ae6a3b2634b210dc0a92db069ed5a6437c310a6e677da78de",
+      "after_sha256": "7aa1f1447c7caab42ae8b4905959fae9073e2a065dd182f0ccb0a1505558be66",
+      "changed": true
+    },
+    {
+      "part": "Xbox-original-upload.part02.b64",
+      "before_sha256": "5f6cada8041d76ab4ff9190855e8329b08b9b34771557099d0be22c9752ec477",
+      "after_sha256": "5f6cada8041d76ab4ff9190855e8329b08b9b34771557099d0be22c9752ec477",
+      "changed": false
+    },
+    {
+      "part": "Xbox-original-upload.part03.b64",
+      "before_sha256": "4d753dc56d597c919bc8895d0ac748a425944b9320bd51484a337947cbce7d0c",
+      "after_sha256": "4d753dc56d597c919bc8895d0ac748a425944b9320bd51484a337947cbce7d0c",
+      "changed": false
+    },
+    {
+      "part": "Xbox-original-upload.part04.b64",
+      "before_sha256": "112e6852c623c99c68dedfc5aaa544fc7e2009baa72f3018ad5a8802fee672b2",
+      "after_sha256": "5b38958b56e08dfa164df9b529f6daae4fae79d33ed07b8c4b534396ec8731ca",
+      "changed": true
+    }
+  ],
+  "files": [
+    {
+      "path": "Xbox/Compare.cpp",
+      "sha256": "cf2e1b51290522b55c6fd342c3153b53c3bdcd8a65d74eba1c6768d074dadac4",
+      "bytes": 2247
+    },
+    {
+      "path": "Xbox/Compare.h",
+      "sha256": "39030d14ca74d4440032fbcca2fca8f109db8d154df8a5020114620079975069",
+      "bytes": 962
+    },
+    {
+      "path": "Xbox/display_xbox.cpp",
+      "sha256": "acd12f98894fd75782de786d25c3381e79bc0f795a8377f1c52348494ba20d8d",
+      "bytes": 109
+    },
+    {
+      "path": "Xbox/InputDevice.cpp",
+      "sha256": "a34a076cfd01d20390818b4220c41fbd41a53ecef7efa116a4120d185f1a76ed",
+      "bytes": 373
+    },
+    {
+      "path": "Xbox/InputDevice.h",
+      "sha256": "89dea7b2eb69cf5698beca4a1bb8e2cb7270495817796c19952d096dc6771a63",
+      "bytes": 318
+    },
+    {
+      "path": "Xbox/PPSSPP.sln",
+      "sha256": "99b167a8f52b12b2576eaf1e764555084fef0f7f3368b4bfd9c42d4592307aac",
+      "bytes": 34468
+    },
+    {
+      "path": "Xbox/StubHost.h",
+      "sha256": "1b8c57c5e1aa8314d792886ce0148669685c617638f70d54acb0c500797e54ea",
+      "bytes": 1672
+    },
+    {
+      "path": "Xbox/XaudioSound.cpp",
+      "sha256": "7ad96456767c76f63e3936806732b18c09d013948b3e7373b2dd4f70705b5e63",
+      "bytes": 5472
+    },
+    {
+      "path": "Xbox/XaudioSound.h",
+      "sha256": "7115257598b1018a85768c2c4273ee3c74e8be8fb18c2823cc1742273d9a3b5f",
+      "bytes": 91
+    },
+    {
+      "path": "Xbox/Xbox.vcxproj.filters",
+      "sha256": "94625aec81f94cd73fc55638795d231d6411f0840df8a9b3151c25fda5f425b3",
+      "bytes": 684
+    },
+    {
+      "path": "Xbox/Xbox.vcxproj.vcxproj",
+      "sha256": "299c81d70b5ead598e7e7fb7ca34f02a3e1410f4ddf5ebcbf44d48b3fd02cba0",
+      "bytes": 17514
+    },
+    {
+      "path": "Xbox/XboxFpsOverlay.cpp",
+      "sha256": "ec36d7c1ee1ac676c54442d1199e03e2980616cfd38a9f6b8cb9195cbb0a693e",
+      "bytes": 7457
+    },
+    {
+      "path": "Xbox/XboxFpsOverlay.h",
+      "sha256": "b3e109881d2d464983342ccd68b7987335f0a488096a39290ab6b65f93c0d080",
+      "bytes": 1165
+    },
+    {
+      "path": "Xbox/XboxHost.cpp",
+      "sha256": "9f191b0633a91cf7d65345c87ce325a61cd13eaa2330f543125801aa1aa95cb6",
+      "bytes": 3047
+    },
+    {
+      "path": "Xbox/XboxHost.h",
+      "sha256": "88349e5cbd7e97caff12df24a0af7ad9d6aebeff42b71d2167c1d196f102ecc8",
+      "bytes": 1369
+    },
+    {
+      "path": "Xbox/XboxLauncher.cpp",
+      "sha256": "52398b72770e4ed38a1c47cf69758e4276d60f3d61801b977819569964cded64",
+      "bytes": 79326
+    },
+    {
+      "path": "Xbox/XboxLauncher.h",
+      "sha256": "56cbd6e12a19b589d3dca81944d62dbc84531ea76de2934e3a55d8514473dedd",
+      "bytes": 5244
+    },
+    {
+      "path": "Xbox/XboxMain.cpp",
+      "sha256": "4e1b10a4b92d30ae8f6dbaac1809bf88d956b2e1eb941cc215c6eb903b20ed42",
+      "bytes": 14302
+    },
+    {
+      "path": "Xbox/XboxOnScreenDisplay.cpp",
+      "sha256": "e68082d9851207cccf49eddb14e095713dc01e882f7d80765c504cce7910f5d8",
+      "bytes": 365
+    },
+    {
+      "path": "Xbox/XboxOnScreenDisplay.h",
+      "sha256": "8a07abf1ac0ceccbc0e654027768bb5f0ee00938679e7d23782bf99ceca79900",
+      "bytes": 33
+    },
+    {
+      "path": "Xbox/XboxOs.cpp",
+      "sha256": "77225c593613f20cb3d20dfb3d97080540b04dc2b183fbeaa35b34c9b2927640",
+      "bytes": 830
+    },
+    {
+      "path": "Xbox/XinputDevice.cpp",
+      "sha256": "8ca3d808113f6407782c0c924e667ef9f1ca98819da52aab5790b2d11db53b6e",
+      "bytes": 7547
+    },
+    {
+      "path": "Xbox/XinputDevice.h",
+      "sha256": "7d1bc5c1319c6831a0af75f787b8d6ed94a9de8b53ee0d7f8fa43c3a889675ce",
+      "bytes": 409
+    },
+    {
+      "path": "Xbox/Jit/bram.cpp",
+      "sha256": "8255bf5c7d453b769999056de35a8ecff8e1a2a3d7da763b571bcef71ef0fb13",
+      "bytes": 8662
+    },
+    {
+      "path": "Xbox/Jit/bram.h",
+      "sha256": "6fb987e1ae5ae08ec6fb1f87347793d3ab625dfb7e76f0675b0fd407beff6d49",
+      "bytes": 1846
+    },
+    {
+      "path": "Xbox/xx/xx.vcxproj",
+      "sha256": "43b72283079fe98d20efd2773c14914a399c80b60d19298a8ec76b190352a131",
+      "bytes": 23225
+    },
+    {
+      "path": "Xbox/xx/xx.vcxproj.filters",
+      "sha256": "df6248c9647ccfde6dff297f18aaaf2295aff98935d220a5f2b52321cdd9685d",
+      "bytes": 8800
+    }
+  ]
+}

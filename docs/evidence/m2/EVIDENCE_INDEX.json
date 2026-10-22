@@ -1,0 +1,586 @@
+{
+  "schema_version": 1,
+  "milestone": "M2",
+  "parent_m1_commit": "d68b9a609b3e145e72a3fa97613b78de738215a5",
+  "hash_scope": "Exact Git blob bytes (canonical LF for tracked text); excludes this index to avoid self-reference",
+  "results": {
+    "owner_archive": "PASS",
+    "host_tests": "20 PASS, no local skips",
+    "host_cpp_loader_cases": "12 PASS",
+    "old_loader_negative_control": "C4715 reproduced twice; rejected as expected",
+    "target_layout_probes": "4 compile-only PASS",
+    "fresh_source_replay": "PASS exact bytes",
+    "Debug": "full Rebuild PASS; original targeted warnings 0; other warnings 46",
+    "Release_LTCG": "full Rebuild PASS; original targeted warnings 0; other warnings 40",
+    "both_ui_views": "PRESERVED",
+    "xbox_actions": "NOT RUN",
+    "runtime_and_performance": "NOT RUN"
+  },
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 365,
+      "sha256": "a195ce92453e49991b5d055bd27bdb81e2b2173aa1ad1f847a7ea51d33179a2f"
+    },
+    {
+      "path": ".github/workflows/source-preflight.yml",
+      "bytes": 913,
+      "sha256": "8eb0665163ee8e8a9ca0e14a2c6be3353d8a8891ebe76265d11391e41921638d"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 96,
+      "sha256": "e3d3bb5a8eed7de7b5306800653996c1c807665f75c720f1336625fb701354ae"
+    },
+    {
+      "path": "CODEX_START_HERE.md",
+      "bytes": 5936,
+      "sha256": "2171eba33741ddc699faad38d7745f7c72f0ac2e453ded8ad47f414886cb72f9"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 18046,
+      "sha256": "db296f2f7f35bca3a174efb0eb392b3b17bd94b341851429a3dff411b1c2fc73"
+    },
+    {
+      "path": "PPSSPP-Xenon-Modernization-Milestone-v1.0.md",
+      "bytes": 25959,
+      "sha256": "98374d43fc1f3bb7e12ea63e193e49e45d49695bcfc15986e7bea753a87c6e6b"
+    },
+    {
+      "path": "PPSSPP-Xenon-Test-Matrix.csv",
+      "bytes": 2563,
+      "sha256": "0d26dc5f2e585c8196220fd0c0ebabadf5387fd63d86bbd48e241fdec28b0640"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2821,
+      "sha256": "8a87104a603dfa40dd94a32ac2dd38eb777fab3f68bae1f1322430102edba52f"
+    },
+    {
+      "path": "RESEARCH_REFERENCES.md",
+      "bytes": 2916,
+      "sha256": "14d1667e1bb542afcb90d10302e44b42a950e9086b64306cd9bafa91d010ba2c"
+    },
+    {
+      "path": "REUPLOAD_VERIFICATION_2026-09-03.md",
+      "bytes": 1346,
+      "sha256": "80315147aaeeefd66b8d4880027c0a07ca12e3cc9b427374b0e595aa96bafbb2"
+    },
+    {
+      "path": "baseline-overlay/README.md",
+      "bytes": 1312,
+      "sha256": "06f04a1329fa6e167330df6855d38c57bd07ebb8ebb346b6b78a008429e4362c"
+    },
+    {
+      "path": "baseline-overlay/Xbox/XenonStateDeleteCompat.h",
+      "bytes": 663,
+      "sha256": "bb599199804ed661de2ede5ff5a53c216173ba008a571fe56809070705fb0532"
+    },
+    {
+      "path": "baseline-overlay/launcher-legacy-compat.patch",
+      "bytes": 1032,
+      "sha256": "958c54633ed86467c873336d96a5bf93a9985fd036f0df60061542d3f3fc6dbc"
+    },
+    {
+      "path": "baseline-overlay/local-build-project.patch",
+      "bytes": 1834,
+      "sha256": "7f337ccb31f2055c6725137f76de89c59584b27994410e907ffb537804b10f91"
+    },
+    {
+      "path": "baseline-overlay/warning-fixes.patch",
+      "bytes": 1380,
+      "sha256": "95f17e393a3c697f9f3ee368cfa310ba52cf1292bde9d6df2a1cc8af674b16f8"
+    },
+    {
+      "path": "design/README.md",
+      "bytes": 3066,
+      "sha256": "f79ed583169d789a24509e19726f75f767942d557968ef3ee41d72490bfa66f6"
+    },
+    {
+      "path": "design/cclos-preview.html",
+      "bytes": 16586,
+      "sha256": "bf39deafb813d1ccbaf13162d6e33107478832264db1a4a3a957519a1db9f8e2"
+    },
+    {
+      "path": "design/previews/cclos-compact-library.png",
+      "bytes": 300259,
+      "sha256": "ec22a01348d2c9b303c69de22776200945dc62ab64d2dc1c5f8e4986ef76a047"
+    },
+    {
+      "path": "design/previews/cclos-empty.png",
+      "bytes": 380316,
+      "sha256": "a5a7c83f500ecd3340c649bdcb4e554640066862b8d1130359b7cb7a8ae4f7ce"
+    },
+    {
+      "path": "design/previews/cclos-ingame-menu.png",
+      "bytes": 423124,
+      "sha256": "90d4d8877ac6801ea942da667c3ecde342d8960ebc1da2c95e83a80642dbb4ef"
+    },
+    {
+      "path": "design/previews/cclos-tile-library.png",
+      "bytes": 436750,
+      "sha256": "f9a7da8965532d566cf61935247e91b101778515eaaff8bbfc95241ab9cee82c"
+    },
+    {
+      "path": "docs/ATTRIBUTION.md",
+      "bytes": 1588,
+      "sha256": "c8c8c15f1a3ece8b0d95c644c03961c3fc2b41dc94b92f60a265719c58434534"
+    },
+    {
+      "path": "docs/BACKPORT_LEDGER.md",
+      "bytes": 1273,
+      "sha256": "67a1a93aa8fb97a911681a1993ddf7cf95da75ef7ed6a691002f882899abaf49"
+    },
+    {
+      "path": "docs/BASELINE.md",
+      "bytes": 5146,
+      "sha256": "3333e767b968270067cb3d59dbff7c158b1f56ba642dcdfbeb0664b6bea91034"
+    },
+    {
+      "path": "docs/BASELINE_M0.md",
+      "bytes": 4476,
+      "sha256": "9089a11636816dc11774ec9497f192678c1a75b42532095745267f2031764383"
+    },
+    {
+      "path": "docs/BASELINE_M1.md",
+      "bytes": 6268,
+      "sha256": "e69704e32104b3fd4ce5505bd638ce36c555cd15dfb0de276b0aba1a565fc6d8"
+    },
+    {
+      "path": "docs/BUILD_XBOX360.md",
+      "bytes": 5788,
+      "sha256": "0e78183163ed4053858bfec5786e1b6df76ed10b8225028667d750b2acc51dff"
+    },
+    {
+      "path": "docs/COMPATIBILITY.md",
+      "bytes": 1316,
+      "sha256": "0756423c22ce094bf4bc56bb2a24ebb46367f688e0e4dac052b04e547512064b"
+    },
+    {
+      "path": "docs/FEASIBILITY.md",
+      "bytes": 5654,
+      "sha256": "9488c4888f821a193f91926a10e58d7b577a05c703d825160318dbde4baf64c3"
+    },
+    {
+      "path": "docs/HADCV_M0.md",
+      "bytes": 2954,
+      "sha256": "8bbb9e81c3016c16c40cd9d0f14df8181c0b4f0d7d84ec0a08d91be82162e047"
+    },
+    {
+      "path": "docs/HADCV_M1.md",
+      "bytes": 1154,
+      "sha256": "63643b7d393c6ec452feded5b5858493a75a9df8d5e2a19613e2ba4bb5ce353c"
+    },
+    {
+      "path": "docs/HADCV_M2.md",
+      "bytes": 983,
+      "sha256": "6cc20a2c84fbc0dce112da5a57df37357ea0f01e4fc76cea139c3aaddb7dd90c"
+    },
+    {
+      "path": "docs/PERFORMANCE.md",
+      "bytes": 1391,
+      "sha256": "86495856b3b9df03affc282836eb0c85b64aca755cf3c4929c5fc658f7c5d4ca"
+    },
+    {
+      "path": "docs/SOURCE_LOCK.json",
+      "bytes": 4446,
+      "sha256": "a5d6df64ab9008c6ff90bdcf8220f2f49e21ab22e5b3401aaeebe2044e26d1f3"
+    },
+    {
+      "path": "docs/WARNING_REVIEW_M2.md",
+      "bytes": 4735,
+      "sha256": "2448829e3208153b4befe14e5d61b759869416f7cceab9daac4e7233e38f0b59"
+    },
+    {
+      "path": "docs/evidence/m0/EVIDENCE_INDEX.json",
+      "bytes": 2774,
+      "sha256": "a87cfd8351ff507ad98a0f2e06d7ba1b9bda262116941b7a0b8dbad4cc7d3e27"
+    },
+    {
+      "path": "docs/evidence/m0/host-compile.txt",
+      "bytes": 47,
+      "sha256": "90e13fd5e48cbe0944dfbad15e0463c96b49105f0652b8c8386bdd0d2b4612ac"
+    },
+    {
+      "path": "docs/evidence/m0/host-tests.txt",
+      "bytes": 1181,
+      "sha256": "6f6def4dceedc8d44344af1740e22d05bf39127e4e68bd4820c34f40922b4f57"
+    },
+    {
+      "path": "docs/evidence/m0/legacy-debug-build.txt",
+      "bytes": 10660,
+      "sha256": "919bbede41ccfe88c581a4230436100ec1602e81131c004e494a73d94bf195bb"
+    },
+    {
+      "path": "docs/evidence/m0/owner-overlay-preflight.json",
+      "bytes": 1303,
+      "sha256": "efc8295337d1560479f226107ec3a0fc7a7af65f43f374d8f1857a1ebd57525b"
+    },
+    {
+      "path": "docs/evidence/m0/preview-qa.json",
+      "bytes": 2104,
+      "sha256": "ff7e53957c98ca0a196c2916c2714f7f7dd7805f999f19a7df56c4f747b05310"
+    },
+    {
+      "path": "docs/evidence/m1/EVIDENCE_INDEX.json",
+      "bytes": 9129,
+      "sha256": "bde441a2382c56012a305c80a2c5fccd84fa7bbf1114fbe17308284ad427f606"
+    },
+    {
+      "path": "docs/evidence/m1/baseline-builds.json",
+      "bytes": 453,
+      "sha256": "4964699c479380c6cf9273f053caae199327b5678524bd146f14c41a43a02c25"
+    },
+    {
+      "path": "docs/evidence/m1/driver-debug-final.txt",
+      "bytes": 5783,
+      "sha256": "c23a483949d55af7870a5d01fbf489b2ca007d12686b72c751355471851b7402"
+    },
+    {
+      "path": "docs/evidence/m1/driver-release-final.txt",
+      "bytes": 34077,
+      "sha256": "7b981804af9f00931060966b6b0b17ef44dbe1f99e076ad3f817f3bdf7ec63a0"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-debug-architecture.json",
+      "bytes": 1131,
+      "sha256": "94bc34ba8e689a31679d6a3d56b49c5633a455db664003e508920d127d3a127b"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-debug-build-summary.json",
+      "bytes": 1523,
+      "sha256": "b1e6d196a471792688a1b82548aa07cd6902312bdefe358f9bb4561683b86419"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-debug-configuration.txt",
+      "bytes": 1485,
+      "sha256": "a869ea0602021db4a1f10e209a40b34c2168e3216e859d550c57db0ebb120267"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-debug-libraries.json",
+      "bytes": 840,
+      "sha256": "5b29f639ceb273c6a1837607247b8d5991ee5e1c6f56e99f099a7d0fb365f5a4"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-debug-recipe-receipt.json",
+      "bytes": 2921,
+      "sha256": "b6faf2f8d459ea0357d091bdf85116f2831df884f9ecd410fe22c28e676c06fe"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-debug-source-build.txt.gz",
+      "bytes": 12384,
+      "sha256": "e671d230ea72b39ee21b626a96aa5c34a9136a0d23eb5ddb36cc08e3bd973fc7"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-release-architecture.json",
+      "bytes": 1131,
+      "sha256": "7c2bf0d4ebe2e99e4e99ade047468ecf8a0ceef1976810dc0c36139dddf76376"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-release-build-summary.json",
+      "bytes": 1527,
+      "sha256": "e8f2a4bd58b106af49b69e1d49b831acf7a695454f6d6ca43d4939d592528771"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-release-configuration.txt",
+      "bytes": 1484,
+      "sha256": "4cfc07bd984dd311cae03dd1e2b32c53bc83c9d7172c118675f116b7fb35a65b"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-release-libraries.json",
+      "bytes": 840,
+      "sha256": "bef1ae12ac2f1d3e734a59807e42452de17c004f8b047d2b41a5f1e06f73198e"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-release-recipe-receipt.json",
+      "bytes": 2911,
+      "sha256": "9d14e2cac4b41d0cd0b0f97053dc13a9353b84c35971be25d5a70a1c750de419"
+    },
+    {
+      "path": "docs/evidence/m1/ffmpeg-release-source-build.txt.gz",
+      "bytes": 12419,
+      "sha256": "2a1093a3a36c95c19330ff0c294701b61b02159cb87bc6a4ad2f66eb2c1823cb"
+    },
+    {
+      "path": "docs/evidence/m1/host-compile.txt",
+      "bytes": 14,
+      "sha256": "7d1f29c33554f1f3d9e2bcc75251dbd09efefa887e9bb2ddf9fa97b30835df8d"
+    },
+    {
+      "path": "docs/evidence/m1/host-state-delete-v2.txt",
+      "bytes": 215,
+      "sha256": "0db25e3a4517dca093b18e313dfcbbb48bc084c1eb46b6169ff6fb0672405e86"
+    },
+    {
+      "path": "docs/evidence/m1/host-tests.txt",
+      "bytes": 2152,
+      "sha256": "2caa32020ad0cf02e5b801aa24bed85386b88bfdb7e81a9bc5c51f08611fe16f"
+    },
+    {
+      "path": "docs/evidence/m1/host-tool-provenance.json",
+      "bytes": 1051,
+      "sha256": "947c322c27667bc6aa1fb4527b812b257d80cfcab280a3e622e614d3affaf743"
+    },
+    {
+      "path": "docs/evidence/m1/owner-baseline-debug-compat.txt",
+      "bytes": 919,
+      "sha256": "5927845ec0a6640d9b31b36d783a5f8d78a81ba1c235c9685544c136f6aee2ae"
+    },
+    {
+      "path": "docs/evidence/m1/owner-baseline-debug-font-recovery.txt",
+      "bytes": 3667,
+      "sha256": "edd2aad4fced8db99fcbd9dc0073b16430db6a9ff0ad205b5632059865ae24c3"
+    },
+    {
+      "path": "docs/evidence/m1/owner-baseline-debug-initial.txt",
+      "bytes": 10455,
+      "sha256": "b4d3b8cb8deced6aa35b4eace8a0bb7d17efe03bb182cedb7e6daeea039c5995"
+    },
+    {
+      "path": "docs/evidence/m1/owner-baseline-debug-local.txt",
+      "bytes": 3978,
+      "sha256": "8eb525503e4a96cd80634143affc0f7978ca1f470804af39b5a97a00010fc555"
+    },
+    {
+      "path": "docs/evidence/m1/owner-baseline-release-ltcg-initial.txt",
+      "bytes": 11374,
+      "sha256": "e902c4825529cfa21f8b91e2c544049d96762646f66c5c7990c66fc65f79cf41"
+    },
+    {
+      "path": "docs/evidence/m1/owner-baseline-release-ltcg-local.txt",
+      "bytes": 34040,
+      "sha256": "8ab1ba15d6eba0b4ceedac09e4c8e57f8e73b41e21a108c71c349059bd2dcab5"
+    },
+    {
+      "path": "docs/evidence/m1/owner-overlay-preflight.json",
+      "bytes": 1063,
+      "sha256": "214708b53a0c8f1053f68d57c2034a09385709fbfe6f10b8e4d4de9f349ab752"
+    },
+    {
+      "path": "docs/evidence/m1/owner-source-recovery.json",
+      "bytes": 5767,
+      "sha256": "b33082d18bc9d8f9e535dc5e07feea007e24e27d018c4cc425a578625abf8f07"
+    },
+    {
+      "path": "docs/evidence/m2/baseline-builds.json",
+      "bytes": 639,
+      "sha256": "2aed63a7a3d315778e2aaebb52c70c58ed68d1906d70bf87bdc816d602c319ea"
+    },
+    {
+      "path": "docs/evidence/m2/d9030-multifile-probe.txt",
+      "bytes": 315,
+      "sha256": "ba5f2a3b443c0cc7d880cfcb353bf0199e0acf834fc8c514b6e28a3efe72e247"
+    },
+    {
+      "path": "docs/evidence/m2/debug-rebuild-final.txt",
+      "bytes": 47269,
+      "sha256": "4b0554a8dea773800be8e5649ecc04a455597fa96d59d59d7a6d1623a9df5a00"
+    },
+    {
+      "path": "docs/evidence/m2/debug-warning-audit.json",
+      "bytes": 11427,
+      "sha256": "4bda3a612fd1709ab251a9b4b5a6a40b89483080eb6aa39b0a9a7ea6717bb824"
+    },
+    {
+      "path": "docs/evidence/m2/ffmpeg-debug-libraries.json",
+      "bytes": 1317,
+      "sha256": "1ae1b158502245580607bad0d274dd9251cd7f01bc0f894355306f382f8abea8"
+    },
+    {
+      "path": "docs/evidence/m2/ffmpeg-release-libraries.json",
+      "bytes": 1317,
+      "sha256": "ba38c72b78573c79553cedca08b472657d7a0d9e95545ecd38eb7815d213e648"
+    },
+    {
+      "path": "docs/evidence/m2/gpu-layout-probes.txt",
+      "bytes": 378,
+      "sha256": "deca76ec432994206db1693bb355feaaac53335bb3977b4cf07aed9b7b057ebe"
+    },
+    {
+      "path": "docs/evidence/m2/gpu-layout-results.json",
+      "bytes": 604,
+      "sha256": "1efa88d2b252516c11a0e6a720bcd757ee7d2ac67d10d8473c1b9f4ecf963dba"
+    },
+    {
+      "path": "docs/evidence/m2/host-ci-portability.json",
+      "bytes": 623,
+      "sha256": "9f9960f85816bf68547e16d4f8bbff3b4a387c47ac5cc592a299e8248bacb059"
+    },
+    {
+      "path": "docs/evidence/m2/host-tests.txt",
+      "bytes": 2651,
+      "sha256": "682780cf0542932615b59ca939a974ee18161d8e925d208de08b221238bd7859"
+    },
+    {
+      "path": "docs/evidence/m2/initial-debug-rebuild.txt",
+      "bytes": 47647,
+      "sha256": "50be8d9bb3a0147d249123f5e21a72dc04f302ec1a4ae95fbc560f8a08b5cd21"
+    },
+    {
+      "path": "docs/evidence/m2/initial-release-ltcg-rebuild.txt",
+      "bytes": 46326,
+      "sha256": "2f00992da6f8f634d5f9bd94be96006819f1fd67111e5e754d7f0f3469c0bd0c"
+    },
+    {
+      "path": "docs/evidence/m2/m1-target-warning-audit.json",
+      "bytes": 17960,
+      "sha256": "04167a5bebe2778b57a1939c047e3ecf91505cdec9d7fbb3cebe43cdfde05ebe"
+    },
+    {
+      "path": "docs/evidence/m2/preservation-checks.json",
+      "bytes": 2741,
+      "sha256": "63c58bd447c56f7efa6a773a43c4688ab3024d714ac2f762758835bff90d02a6"
+    },
+    {
+      "path": "docs/evidence/m2/release-ltcg-rebuild-final.txt",
+      "bytes": 45901,
+      "sha256": "fdd9abfd9875f5d158a2a38880dc980d4643ff3d3c8ff3e3b308d61e049a10a7"
+    },
+    {
+      "path": "docs/evidence/m2/release-ltcg-warning-audit.json",
+      "bytes": 9896,
+      "sha256": "826304af234741892757ece005291075fc5a4e979b893746d1d092343152d843"
+    },
+    {
+      "path": "docs/evidence/m2/source-verification.json",
+      "bytes": 1063,
+      "sha256": "214708b53a0c8f1053f68d57c2034a09385709fbfe6f10b8e4d4de9f349ab752"
+    },
+    {
+      "path": "docs/evidence/m2/state-delete-helper.txt",
+      "bytes": 215,
+      "sha256": "0db25e3a4517dca093b18e313dfcbbb48bc084c1eb46b6169ff6fb0672405e86"
+    },
+    {
+      "path": "docs/evidence/m2/texture-negative-control.txt",
+      "bytes": 614,
+      "sha256": "6d708e6ac6641cc0b7eb173d524b23cd4d9bfbf5fcdaebf49e8f46e0f7ee8a96"
+    },
+    {
+      "path": "source-overlay/README.md",
+      "bytes": 3142,
+      "sha256": "23ace50ec8f1de0291adfb6b894410caca8c88cee2cb4abc8a315911b3496f76"
+    },
+    {
+      "path": "source-overlay/Xbox-original-upload.part01.b64",
+      "bytes": 19000,
+      "sha256": "7aa1f1447c7caab42ae8b4905959fae9073e2a065dd182f0ccb0a1505558be66"
+    },
+    {
+      "path": "source-overlay/Xbox-original-upload.part02.b64",
+      "bytes": 19000,
+      "sha256": "5f6cada8041d76ab4ff9190855e8329b08b9b34771557099d0be22c9752ec477"
+    },
+    {
+      "path": "source-overlay/Xbox-original-upload.part03.b64",
+      "bytes": 19000,
+      "sha256": "4d753dc56d597c919bc8895d0ac748a425944b9320bd51484a337947cbce7d0c"
+    },
+    {
+      "path": "source-overlay/Xbox-original-upload.part04.b64",
+      "bytes": 17980,
+      "sha256": "5b38958b56e08dfa164df9b529f6daae4fae79d33ed07b8c4b534396ec8731ca"
+    },
+    {
+      "path": "source-overlay/reconstruct.ps1",
+      "bytes": 1807,
+      "sha256": "6dab30be0afaf753a9435992694f946220333632c8e752bcd61101e385ee57ea"
+    },
+    {
+      "path": "source-overlay/reconstruct.sh",
+      "bytes": 1419,
+      "sha256": "8ffe96a9b62b4aa16b2c04d8c04df3e89c4461bb8df63eabf731e4698269372a"
+    },
+    {
+      "path": "tests/gpu_layout_probe.cpp",
+      "bytes": 1074,
+      "sha256": "8758c4b7da9f42d36b2b8dacb567c0d42e9aa38a73c26d3fce7f4b1dddd8a79a"
+    },
+    {
+      "path": "tests/launcher_texture_cases.cpp",
+      "bytes": 3439,
+      "sha256": "8a5e1474bde9694991a20716a56300c30a37d9da1deddef18d6d982d4ac4c4c8"
+    },
+    {
+      "path": "tests/preview_smoke.cjs",
+      "bytes": 3656,
+      "sha256": "e24621f2374edcbeeab88e33ba0a0b3249661ce5e62184d52d44a9ba0ed3590d"
+    },
+    {
+      "path": "tests/state_delete_compat.cpp",
+      "bytes": 1681,
+      "sha256": "e004c91cc12bbbf9d1a5e6094816d30c94497f194021f7e498552b50974c71e9"
+    },
+    {
+      "path": "tests/test_build_safety.py",
+      "bytes": 2324,
+      "sha256": "95d16390263404d704be47983999817d58e08aaac39d11ae1eccf4f53ad97c48"
+    },
+    {
+      "path": "tests/test_launcher_texture.py",
+      "bytes": 2505,
+      "sha256": "fc6d67cef7bd4bae614265e3660d6074d1124486e99d56dee7fff572573e8972"
+    },
+    {
+      "path": "tests/test_prepare_baseline.py",
+      "bytes": 2795,
+      "sha256": "64cb3cdb40d5f1e1a6adb0d775b1a432a42b4baf8ccd890cd609e40c1769480e"
+    },
+    {
+      "path": "tests/test_source_overlay.py",
+      "bytes": 4166,
+      "sha256": "a18eac6f70f531adc37e47e9a6813ad224049a83f7601e5150da7a67242ea1ab"
+    },
+    {
+      "path": "tests/test_xbox_libraries.py",
+      "bytes": 1131,
+      "sha256": "3e56ce4086b19e7f03afdd26e8fe2c2c552202f547a4695b00ce5526e208d7f8"
+    },
+    {
+      "path": "tools/audit_build_warnings.py",
+      "bytes": 1205,
+      "sha256": "bc566b4c261d5e65c9fe67fa9b3a7d436a459d8f68c1aecada0b13fd77d22a5b"
+    },
+    {
+      "path": "tools/build_baseline.ps1",
+      "bytes": 2287,
+      "sha256": "a662e383f92d1a3152fdb37d9b94ae7e23b92d3485ab988832efbdfd7c0f4561"
+    },
+    {
+      "path": "tools/build_xbox_ffmpeg.py",
+      "bytes": 6848,
+      "sha256": "8c7ed55395fd4d2bfa4fecc9927d44441c9518da34193f710ae5d407b0da91bb"
+    },
+    {
+      "path": "tools/prepare_baseline.py",
+      "bytes": 5198,
+      "sha256": "3b9ec0753f5e728e150dc38158075bf7b75ad0b1feed5e5f7e3e029c20bc7c21"
+    },
+    {
+      "path": "tools/verify_source_overlay.py",
+      "bytes": 4007,
+      "sha256": "a998e8f5c0bc6be351ff896d2d200f2604d773207687a9b3ff6df0958aba22d9"
+    },
+    {
+      "path": "tools/verify_xbox_libraries.py",
+      "bytes": 1861,
+      "sha256": "fb8fa28adb324d9ffab52eed8d4a26e7a24da0169a63d5dca77159777624c628"
+    },
+    {
+      "path": "vendor/stb/LICENSE",
+      "bytes": 2510,
+      "sha256": "bebfe904b14301657e4e5d655c811d51fd31b97c455b9cc2d8600d6bac6cff63"
+    },
+    {
+      "path": "vendor/stb/README.md",
+      "bytes": 869,
+      "sha256": "61b38c801deda429b564b8aa936d0a7309bf8ecb233dac83b631693b13363832"
+    },
+    {
+      "path": "vendor/stb/stb_truetype.h",
+      "bytes": 199192,
+      "sha256": "ecd30b05e0dd4fea3a13c26810dd9e1992dc379049482c393d5a19e6b5090aab"
+    }
+  ]
+}

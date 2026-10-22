@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "host_compiler": "cl.EXE",
+  "native_host_seh": true,
+  "xbox_execution": "NOT RUN",
+  "source_files": [
+    {
+      "path": "GPU/Directx9/VertexDecoderDX9.cpp",
+      "sha256": "a6dd14c777686a2f7f5c27bc405514e70cf93dddb984ebd29b02a962544a0e20"
+    },
+    {
+      "path": "Core/HLE/sceKernelModule.cpp",
+      "sha256": "dce6a068e5d1854566609953a42dd3dfd0a3176d502aeae9760b006c303d2412"
+    },
+    {
+      "path": "Core/HLE/sceKernelModule.cpp",
+      "sha256": "dce6a068e5d1854566609953a42dd3dfd0a3176d502aeae9760b006c303d2412"
+    },
+    {
+      "path": "Core/HLE/sceKernelModule.cpp",
+      "sha256": "dce6a068e5d1854566609953a42dd3dfd0a3176d502aeae9760b006c303d2412"
+    },
+    {
+      "path": "Core/HLE/sceKernelModule.cpp",
+      "sha256": "dce6a068e5d1854566609953a42dd3dfd0a3176d502aeae9760b006c303d2412"
+    },
+    {
+      "path": "Core/HLE/sceAtrac.cpp",
+      "sha256": "cad5ba7541e1fdb6d510e4d7f4c84add584932e2ce012edfd2272eb629daa2c0"
+    },
+    {
+      "path": "Core/Dialog/SavedataParam.cpp",
+      "sha256": "516fc43708363da4c02d4043dc9f9ef11c8edd914434b0b7687e1357ff43a8dd"
+    },
+    {
+      "path": "Core/Dialog/SavedataParam.cpp",
+      "sha256": "516fc43708363da4c02d4043dc9f9ef11c8edd914434b0b7687e1357ff43a8dd"
+    },
+    {
+      "path": "Core/Dialog/SavedataParam.cpp",
+      "sha256": "516fc43708363da4c02d4043dc9f9ef11c8edd914434b0b7687e1357ff43a8dd"
+    },
+    {
+      "path": "Core/MIPS/PPC/PpcCompVFPU.cpp",
+      "sha256": "339c20e8f452364f6981b4401757f24a08296879324ae22420fbdca74a060070"
+    },
+    {
+      "path": "GPU/Directx9/helper/global.cpp",
+      "sha256": "d507a76c794c0a190d5847a1290fd774eb2b8e088b4a2abcb1d95c684e96efca"
+    },
+    {
+      "path": "Xbox/XboxLauncher.cpp",
+      "sha256": "f2581152e275a1df4b32c210ceda08fea4a31ede38f436629bb030466c4bd97f"
+    },
+    {
+      "path": "Xbox/XenonEmulationLoop.h",
+      "sha256": "d1dfc29704348d71286efd42033a619792a9b41ef96b7c5ef9600768effd831b"
+    },
+    {
+      "path": "Xbox/XboxMain.cpp",
+      "sha256": "dbae7daf5fb2065b74642d5c33ff013def94b8b0588cbe7e4f9a425fa66e0983"
+    },
+    {
+      "path": "Common/ppcEmitter.cpp",
+      "sha256": "d378d9b30d718f8b07a851ce8b73e123e4544b2982239850c965f2f765fb4c45"
+    },
+    {
+      "path": "Core/MIPS/JitCommon/JitBlockCache.h",
+      "sha256": "5e8ba9cd975d710e3231f99d6236f975e76afda751a4dc6c1fa6169d68f073e5"
+    },
+    {
+      "path": "Core/MIPS/JitCommon/JitBlockCache.cpp",
+      "sha256": "5d6663a66a16d9f1fd80fb63cbe4cb4ea9fbb15bbd67dd0d1b8ef6cf3a9541fe"
+    },
+    {
+      "path": "Core/MIPS/PPC/PpcJit.cpp",
+      "sha256": "d060c6c03240d02b2da9b5cbec7517eecb58553c1c73d3862f9de16046ad0ee7"
+    },
+    {
+      "path": "ext/xxhash.c",
+      "sha256": "901b140fc4c1242a9d6977edaa1996fcc2643b87c02137f833f943cba610942d"
+    },
+    {
+      "path": "ext/xxhash.c",
+      "sha256": "901b140fc4c1242a9d6977edaa1996fcc2643b87c02137f833f943cba610942d"
+    }
+  ]
+}

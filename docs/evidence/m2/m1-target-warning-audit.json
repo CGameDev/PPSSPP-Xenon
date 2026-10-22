@@ -1,0 +1,259 @@
+{
+  "total": 62,
+  "by_code": {
+    "C4715": 2,
+    "C4742": 30,
+    "C4744": 30
+  },
+  "targeted_62_codes": 62,
+  "emissions": [
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\GPUState.cpp' and '<baseline>\\Core\\HLE\\sceDisplay.cpp': 16 and 4 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\GPUState.cpp' and '<baseline>\\Core\\HLE\\sceDisplay.cpp': '__declspec(align(16)) union (1616 bytes)' and 'union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\GPUState.cpp' and '<baseline>\\Core\\HLE\\sceDisplay.cpp': 16 and 4 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\GPUState.cpp' and '<baseline>\\Core\\HLE\\sceDisplay.cpp': '__declspec(align(16)) struct (420 bytes)' and 'struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\GPU_DX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\GPU_DX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\GPU_DX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\GPU_DX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Null\\NullGpu.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Null\\NullGpu.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Null\\NullGpu.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Null\\NullGpu.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\GPUCommon.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\GPUCommon.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\GPUCommon.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\GPUCommon.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\TransformPipelineDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\TransformPipelineDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\TransformPipelineDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\TransformPipelineDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\SplineDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\SplineDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\SplineDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\SplineDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\TextureCacheDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\TextureCacheDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\TextureCacheDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\TextureCacheDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\FramebufferDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\FramebufferDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\FramebufferDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\FramebufferDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\ShaderManagerDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\ShaderManagerDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\ShaderManagerDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\ShaderManagerDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\GeDisasm.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\GeDisasm.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\GeDisasm.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\GeDisasm.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\StateMappingDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\StateMappingDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\StateMappingDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\StateMappingDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\VertexDecoderDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\VertexDecoderDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\VertexDecoderDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\VertexDecoderDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Common\\TextureDecoder.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Common\\TextureDecoder.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Common\\TextureDecoder.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Common\\TextureDecoder.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\VertexShaderGeneratorDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\VertexShaderGeneratorDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\VertexShaderGeneratorDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\VertexShaderGeneratorDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUgstate gstate' has different alignment in '<baseline>\\GPU\\Directx9\\PixelShaderGeneratorDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUgstate gstate' has different type in '<baseline>\\GPU\\Directx9\\PixelShaderGeneratorDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'union (1616 bytes)' and '__declspec(align(16)) union (1616 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4742",
+      "diagnostic": "LINK : warning C4742: 'struct GPUStateCache gstate_c' has different alignment in '<baseline>\\GPU\\Directx9\\PixelShaderGeneratorDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 4 and 16 [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4744",
+      "diagnostic": "LINK : warning C4744: 'struct GPUStateCache gstate_c' has different type in '<baseline>\\GPU\\Directx9\\PixelShaderGeneratorDX9.cpp' and '<baseline>\\GPU\\GPUState.cpp': 'struct (420 bytes)' and '__declspec(align(16)) struct (420 bytes)' [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4715",
+      "diagnostic": "<baseline>\\xbox\\xboxlauncher.cpp(1028): warning C4715: 'XboxLauncher::LoadPNGTexture' : not all control paths return a value [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4715",
+      "diagnostic": "<baseline>\\xbox\\xboxlauncher.cpp(929): warning C4715: 'XboxLauncher::LoadGameIcon' : not all control paths return a value [<baseline>\\Xbox\\xx\\xx.vcxproj]"
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "total": 46,
+  "by_code": {
+    "C4010": 1,
+    "C4018": 4,
+    "C4101": 16,
+    "C4102": 1,
+    "C4146": 3,
+    "C4244": 1,
+    "C4355": 1,
+    "C4509": 11,
+    "C4800": 1,
+    "C4804": 1,
+    "D9030": 3,
+    "LNK4221": 3
+  },
+  "targeted_62_codes": 0,
+  "emissions": [
+    {
+      "code": "D9030",
+      "diagnostic": "cl : Command line warning D9030:  [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "C4146",
+      "diagnostic": "ppcEmitter.cpp(805): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "C4146",
+      "diagnostic": "ppcEmitter.cpp(820): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "C4146",
+      "diagnostic": "ppcEmitter.cpp(852): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "C4102",
+      "diagnostic": "MemArena.cpp(327): warning C4102: 'bail' : unreferenced label [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "FileUtil.cpp(655): warning C4101: 'dir' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "LNK4221",
+      "diagnostic": "stdafx.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "LNK4221",
+      "diagnostic": "ppcAbi.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "LNK4221",
+      "diagnostic": "ExtendedTrace.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Common\\CommonXbox.vcxproj]"
+    },
+    {
+      "code": "D9030",
+      "diagnostic": "cl : Command line warning D9030:  [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Core\\CoreXbox.vcxproj]"
+    },
+    {
+      "code": "C4355",
+      "diagnostic": "MIPS\\PPC\\PpcJit.cpp(206): warning C4355: 'this' : used in base member initializer list [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Core\\CoreXbox.vcxproj]"
+    },
+    {
+      "code": "C4800",
+      "diagnostic": "MIPS\\PPC\\PpcCompVFPU.cpp(116): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning) [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Core\\CoreXbox.vcxproj]"
+    },
+    {
+      "code": "C4018",
+      "diagnostic": "<workspace>\\work\\ppsspp-xenon\\artifacts\\baseline-m2\\common\\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Core\\CoreXbox.vcxproj]"
+    },
+    {
+      "code": "C4018",
+      "diagnostic": "<workspace>\\work\\ppsspp-xenon\\artifacts\\baseline-m2\\common\\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Core\\CoreXbox.vcxproj]"
+    },
+    {
+      "code": "C4018",
+      "diagnostic": "<workspace>\\work\\ppsspp-xenon\\artifacts\\baseline-m2\\common\\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Core\\CoreXbox.vcxproj]"
+    },
+    {
+      "code": "D9030",
+      "diagnostic": "cl : Command line warning D9030:  [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp2' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp2' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp3' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1425): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1503): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\VertexDecoderDX9.cpp(1596): warning C4101: 'tmp4' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4244",
+      "diagnostic": "<workspace>\\work\\ppsspp-xenon\\artifacts\\baseline-m2\\common\\Swap.h(125): warning C4244: 'argument' : conversion from 'const float' to 'const s16', possible loss of data [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4018",
+      "diagnostic": "Directx9\\helper\\global.cpp(361): warning C4018: '<' : signed/unsigned mismatch [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\FramebufferDX9.cpp(887): warning C4101: 'pixelType' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\FramebufferDX9.cpp(887): warning C4101: 'pixelSize' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\FramebufferDX9.cpp(887): warning C4101: 'align' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4101",
+      "diagnostic": "Directx9\\FramebufferDX9.cpp(887): warning C4101: 'pixelFormat' : unreferenced local variable [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\GPU\\GPUXbox.vcxproj]"
+    },
+    {
+      "code": "C4804",
+      "diagnostic": "..\\..\\ext\\xxhash.c(312): warning C4804: '/' : unsafe use of type 'bool' in operation [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(492): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(501): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(505): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(507): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(508): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4509",
+      "diagnostic": "..\\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    },
+    {
+      "code": "C4010",
+      "diagnostic": "..\\XboxLauncher.cpp(578): warning C4010: single-line comment contains line-continuation character [<workspace>\\work\\PPSSPP-Xenon\\artifacts\\baseline-m2\\Xbox\\xx\\xx.vcxproj]"
+    }
+  ]
+}

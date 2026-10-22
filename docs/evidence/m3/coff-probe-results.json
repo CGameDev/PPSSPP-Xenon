@@ -1,0 +1,53 @@
+{
+  "cache_layout": [
+    {
+      "milestone": "m2",
+      "configuration": "Debug",
+      "bytes": 56,
+      "alignment": 4
+    },
+    {
+      "milestone": "m2",
+      "configuration": "Release_LTCG",
+      "bytes": 48,
+      "alignment": 4
+    },
+    {
+      "milestone": "m3",
+      "configuration": "Debug",
+      "bytes": 56,
+      "alignment": 4
+    },
+    {
+      "milestone": "m3",
+      "configuration": "Release_LTCG",
+      "bytes": 48,
+      "alignment": 4
+    }
+  ],
+  "empty_units": [
+    {
+      "name": "stdafx",
+      "ppcbe": true,
+      "executable_code_bytes": 0,
+      "CRT_initializers": [],
+      "reason": "No executable code/initializers; full solution links without these three unused units"
+    },
+    {
+      "name": "ppcAbi",
+      "ppcbe": true,
+      "executable_code_bytes": 0,
+      "CRT_initializers": [],
+      "reason": "No executable code/initializers; full solution links without these three unused units"
+    },
+    {
+      "name": "ExtendedTrace",
+      "ppcbe": true,
+      "executable_code_bytes": 0,
+      "CRT_initializers": [],
+      "reason": "No executable code/initializers; full solution links without these three unused units"
+    }
+  ],
+  "gpu_probes": "4 compile-only passes; M2/M3 Debug/Release_LTCG; GPU size/offset/alignment assertions unchanged",
+  "console_execution": "NOT RUN"
+}

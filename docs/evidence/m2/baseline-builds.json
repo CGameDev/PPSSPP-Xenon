@@ -1,0 +1,24 @@
+[
+  {
+    "configuration": "Debug",
+    "bytes": 16375808,
+    "sha256": "407de5911675d89d422becb5fffeefb1d26f75cf6ca00a190d3df73492d63821",
+    "format": "XEX2",
+    "build_target": "Rebuild",
+    "build_exit_code": 0,
+    "original_62_warning_codes": 0,
+    "other_warnings": 46,
+    "xbox_runtime": "NOT RUN"
+  },
+  {
+    "configuration": "Release_LTCG",
+    "bytes": 9101312,
+    "sha256": "204dba0da4b7f48ec1f16aa009629b8f4ca8a26c67e8777f5f7ac5d98ca8653b",
+    "format": "XEX2",
+    "build_target": "Rebuild",
+    "build_exit_code": 0,
+    "original_62_warning_codes": 0,
+    "other_warnings": 40,
+    "xbox_runtime": "NOT RUN"
+  }
+]

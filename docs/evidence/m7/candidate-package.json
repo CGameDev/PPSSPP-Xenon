@@ -1,0 +1,12 @@
+{
+  "filename": "PPSSPP-Xenon-M7-PGF-candidate-v1.zip",
+  "bytes": 40220850,
+  "sha256": "ff063521c7f1b01fd69ea55829e6b30809863b83b22bb43c45ad0da32f742dc3",
+  "immutable_files": 176,
+  "zip_crc": "PASS",
+  "zip_manifest": "PASS",
+  "iso_included": false,
+  "owner_data_included": false,
+  "xbox_actions": "NONE",
+  "xbox_runtime": "NOT RUN"
+}

@@ -1,0 +1,326 @@
+Legacy donor diagnostic build; exit code 1. Not owner-overlay baseline.
+cl : Command line warning D9030:  [<legacy-checkout>\Xbox\xx\xx.vcxproj]
+  XinputDevice.cpp
+  XboxOs.cpp
+  XboxOnScreenDisplay.cpp
+  XboxHost.cpp
+  InputDevice.cpp
+  XboxMain.cpp
+  XaudioSound.cpp
+  bram.cpp
+  display_xbox.cpp
+  Compare.cpp
+  utf8.cpp
+  parsers.cpp
+  threadpool.cpp
+  url.cpp
+  resolve.cpp
+  http_client.cpp
+  quat.cpp
+  matrix4x4.cpp
+  expression_parser.cpp
+  input_state.cpp
+  Generating Code...
+  Compiling...
+  zim_load.cpp
+  png_load.cpp
+  i18n.cpp
+  texture_atlas.cpp
+  zip_read.cpp
+  ini_file.cpp
+  file_util.cpp
+  fd_util.cpp
+  json.cpp
+  block_allocator.cpp
+  stb_image.c
+  sha1.cpp
+  jpge.cpp
+  jpgd.cpp
+  city.cpp
+  compression.cpp
+  timeutil.cpp
+  stringutil.cpp
+  buffer.cpp
+  xxhash.c
+..\..\ext\xxhash.c(312): warning C4804: '/' : unsafe use of type 'bool' in operation [<legacy-checkout>\Xbox\xx\xx.vcxproj]
+  Generating Code...
+LINK : fatal error LNK1181: cannot open input file 'avcodec.lib' [<legacy-checkout>\Xbox\xx\xx.vcxproj]
+  stdafx.cpp
+cl : Command line warning D9030:  [<legacy-checkout>\Common\CommonXbox.vcxproj]
+  XboxCPUDetect.cpp
+  Timer.cpp
+  ThreadPools.cpp
+  StringUtils.cpp
+  ppcEmitter.cpp
+ppcEmitter.cpp(805): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<legacy-checkout>\Common\CommonXbox.vcxproj]
+ppcEmitter.cpp(820): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<legacy-checkout>\Common\CommonXbox.vcxproj]
+ppcEmitter.cpp(852): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<legacy-checkout>\Common\CommonXbox.vcxproj]
+  ppcAbi.cpp
+  MsgHandler.cpp
+  Misc.cpp
+  MemoryUtil.cpp
+  MemArena.cpp
+MemArena.cpp(327): warning C4102: 'bail' : unreferenced label [<legacy-checkout>\Common\CommonXbox.vcxproj]
+  LogManager.cpp
+  KeyMap.cpp
+  FileUtil.cpp
+FileUtil.cpp(655): warning C4101: 'dir' : unreferenced local variable [<legacy-checkout>\Common\CommonXbox.vcxproj]
+  ExtendedTrace.cpp
+  sha1.cpp
+  md5.cpp
+  ConsoleListener.cpp
+  ChunkFile.cpp
+  Generating Code...
+stdafx.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<legacy-checkout>\Common\CommonXbox.vcxproj]
+ppcAbi.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<legacy-checkout>\Common\CommonXbox.vcxproj]
+ExtendedTrace.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library [<legacy-checkout>\Common\CommonXbox.vcxproj]
+  CommonXbox.vcxproj -> <legacy-checkout>\Common\Debug\CommonXbox.lib
+  Git not on path, trying default Msysgit paths
+  Unable to update git-version.cpp, git not found.
+  If you don't want to add it to your path, set the GIT environment variable.
+cl : Command line warning D9030:  [<legacy-checkout>\Core\CoreXbox.vcxproj]
+  ppge_atlas.cpp
+  PPGeDraw.cpp
+  BlockAllocator.cpp
+  System.cpp
+  SaveState.cpp
+  Reporting.cpp
+  PSPMixer.cpp
+  PSPLoaders.cpp
+  PpcRegCacheVPU.cpp
+  PpcRegCacheFPU.cpp
+  PpcRegCache.cpp
+  PpcJit.cpp
+MIPS\PPC\PpcJit.cpp(206): warning C4355: 'this' : used in base member initializer list [<legacy-checkout>\Core\CoreXbox.vcxproj]
+  PpcCompVFPU.cpp
+MIPS\PPC\PpcCompVFPU.cpp(116): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning) [<legacy-checkout>\Core\CoreXbox.vcxproj]
+  PpcCompLoadStore.cpp
+  PpcCompFpu.cpp
+  PpcCompBranch.cpp
+  PpcCompAlu.cpp
+  PpcAsm.cpp
+  MIPSVFPUUtils.cpp
+  MIPSTables.cpp
+  Generating Code...
+  Compiling...
+  MIPSIntVFPU.cpp
+  MIPSInt.cpp
+  MIPSDisVFPU.cpp
+  MIPSDis.cpp
+  MIPSDebugInterface.cpp
+  MIPSCodeUtils.cpp
+  MIPSAsmTables.cpp
+  MIPSAsm.cpp
+  MIPSAnalyst.cpp
+  MIPS.cpp
+  JitCommon.cpp
+  JitBlockCache.cpp
+  MemmapFunctions.cpp
+  MemMap.cpp
+  Loaders.cpp
+  SimpleAT3Dec.cpp
+  SasAudio.cpp
+  MpegDemux.cpp
+  MemoryStick.cpp
+  MediaEngine.cpp
+  Generating Code...
+  Compiling...
+  AsyncIOManager.cpp
+  Host.cpp
+  __sceAudio.cpp
+  sceVaudio.cpp
+  sceUtility.cpp
+  sceUsb.cpp
+  sceUmd.cpp
+  sceSsl.cpp
+  sceSas.cpp
+  sceRtc.cpp
+  sceGameUpdate.cpp
+  sceMp3.cpp
+  sceMp4.cpp
+  sceMd5.cpp
+  sceP3da.cpp
+  scePspNpDrm_user.cpp
+  scePsmf.cpp
+  scePower.cpp
+  scePauth.cpp
+  sceParseUri.cpp
+  Generating Code...
+  Compiling...
+  sceParseHttp.cpp
+  sceOpenPSID.cpp
+  sceNp.cpp
+  sceNetAdhoc.cpp
+  sceNet.cpp
+  sceMpeg.cpp
+  sceKernelVTimer.cpp
+  sceKernelTime.cpp
+  sceKernelThread.cpp
+  sceKernelSemaphore.cpp
+  sceKernelMutex.cpp
+  sceKernelMsgPipe.cpp
+  sceKernelModule.cpp
+<legacy-checkout>\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<legacy-checkout>\Core\CoreXbox.vcxproj]
+          HLE\sceKernelModule.cpp(1221) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  sceKernelMemory.cpp
+  sceKernelMbx.cpp
+  sceKernelInterrupt.cpp
+  sceKernelEventFlag.cpp
+  sceKernelAlarm.cpp
+  sceKernel.cpp
+  sceJpeg.cpp
+  Generating Code...
+  Compiling...
+  sceIo.cpp
+  sceImpose.cpp
+  sceHttp.cpp
+  sceHprm.cpp
+  sceHeap.cpp
+  sceGe.cpp
+  sceFont.cpp
+  sceDmac.cpp
+  sceDisplay.cpp
+  sceDeflt.cpp
+  sceCtrl.cpp
+  sceChnnlsv.cpp
+  sceCcc.cpp
+  sceAudiocodec.cpp
+  sceAudio.cpp
+  sceAtrac.cpp
+<legacy-checkout>\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<legacy-checkout>\Core\CoreXbox.vcxproj]
+          HLE\sceAtrac.cpp(1539) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  proAdhoc.cpp
+  HLETables.cpp
+  HLE.cpp
+  HDRemaster.cpp
+  Generating Code...
+  Compiling...
+  PGF.cpp
+  VirtualDiscFileSystem.cpp
+  tlzrc.cpp
+  MetaFileSystem.cpp
+  ISOFileSystem.cpp
+  DirectoryFileSystem.cpp
+  BlockDevices.cpp
+  PrxDecrypter.cpp
+  PBPReader.cpp
+  ParamSFO.cpp
+  ElfReader.cpp
+  SavedataParam.cpp
+<legacy-checkout>\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<legacy-checkout>\Core\CoreXbox.vcxproj]
+          Dialog\SavedataParam.cpp(966) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  PSPSaveDialog.cpp
+  PSPPlaceholderDialog.cpp
+  PSPOskDialog.cpp
+  PSPNetconfDialog.cpp
+  PSPMsgDialog.cpp
+  PSPGamedataInstallDialog.cpp
+  PSPDialog.cpp
+  SymbolMap.cpp
+  Generating Code...
+  Compiling...
+  Breakpoints.cpp
+  Cwcheat.cpp
+  CPU.cpp
+  CoreTiming.cpp
+  Core.cpp
+  Config.cpp
+  git-version.cpp
+  snappy.cpp
+  snappy-c.cpp
+  disarm.cpp
+  Generating Code...
+  CoreXbox.vcxproj -> <legacy-checkout>\Core\Debug\CoreXbox.lib
+cl : Command line warning D9030:  [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+  NullGpu.cpp
+  Math3D.cpp
+  GPUState.cpp
+  GPUCommon.cpp
+  GeDisasm.cpp
+  VertexShaderGeneratorDX9.cpp
+  VertexDecoderDX9.cpp
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp3' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp2' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp4' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp3' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp2' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp4' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp3' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp4' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1425): warning C4101: 'tmp4' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1503): warning C4101: 'tmp4' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1596): warning C4101: 'tmp4' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+<legacy-checkout>\common\Swap.h(125): warning C4244: 'argument' : conversion from 'const float' to 'const s16', possible loss of data [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+          Directx9\VertexDecoderDX9.cpp(456) : see reference to function template instantiation 'swap_struct_t<T,F> swap_struct_t<T,F>::operator *<float>(const S &) const' being compiled
+          with
+          [
+              T=s16,
+              F=swap_16_t<s16>,
+              S=float
+          ]
+  TransformPipelineDX9.cpp
+  TextureScalerDX9.cpp
+  TextureCacheDX9.cpp
+  StateMappingDX9.cpp
+  SplineDX9.cpp
+  ShaderManagerDX9.cpp
+  PixelShaderGeneratorDX9.cpp
+  global.cpp
+Directx9\helper\global.cpp(361): warning C4018: '<' : signed/unsigned mismatch [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+  fbo.cpp
+  dx_state.cpp
+  GPU_DX9.cpp
+  FramebufferDX9.cpp
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelType' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelSize' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'align' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelFormat' : unreferenced local variable [<legacy-checkout>\GPU\GPUXbox.vcxproj]
+  VertexDecoderCommon.cpp
+  Generating Code...
+  Compiling...
+  TextureDecoder.cpp
+  IndexGenerator.cpp
+  xbrz.cpp
+  Generating Code...
+  GPUXbox.vcxproj -> <legacy-checkout>\GPU\Debug\GPUXbox.lib
+  AES.c
+  amctrl.c
+  bn.c
+  ec.c
+  kirk_engine.c
+  SHA1.c
+  libkirkXbox.vcxproj -> <legacy-checkout>\ext\libkirk\Debug\libkirkXbox.lib
+  adler32.c
+  compress.c
+  crc32.c
+  deflate.c
+  gzclose.c
+  gzlib.c
+  gzread.c
+  gzwrite.c
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
+  zlibXbox.vcxproj -> <legacy-checkout>\ext\zlib\Debug\zlibXbox.lib

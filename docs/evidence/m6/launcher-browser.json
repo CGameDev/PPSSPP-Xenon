@@ -1,0 +1,346 @@
+{
+  "status": "PASS",
+  "renderer": "Installed Edge / Playwright; host SVG trace visualization",
+  "results": [
+    {
+      "width": 1280,
+      "scene": "normal",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "normal",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "empty",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "empty",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "missing",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "missing",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "long",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "long",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "folder",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "folder",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "recent",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "recent",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "loading",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "loading",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "normal",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "normal",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "empty",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "empty",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "missing",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "missing",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "long",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "long",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "folder",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "folder",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "recent",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "recent",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "loading",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "loading",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "normal",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "normal",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "empty",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "empty",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "missing",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "missing",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "long",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "long",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "folder",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "folder",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "recent",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "recent",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "loading",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "loading",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "normal",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "normal",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "empty",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "empty",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "missing",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "missing",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "long",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "long",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "folder",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "folder",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "recent",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "recent",
+      "view": "list",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "loading",
+      "view": "grid",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "loading",
+      "view": "list",
+      "status": "PASS"
+    }
+  ],
+  "keyboardSwitch": "PASS",
+  "externalRequests": 0,
+  "pageErrors": [],
+  "limitations": "Fictional artwork; approximate browser text rasterization. No Xbox execution or visual acceptance."
+}

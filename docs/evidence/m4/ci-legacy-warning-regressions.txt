@@ -1,0 +1,226 @@
+2026-10-22T03:32:59.1130710Z Current runner version: '2.338.0'
+2026-10-22T03:32:59.1155958Z ##[group]Runner Image Provisioner
+2026-10-22T03:32:59.1156822Z Hosted Compute Agent
+2026-10-22T03:32:59.1157538Z Version: 20261015.610
+2026-10-22T03:32:59.1158199Z Commit: 267fdb4e8bbec4ab5ea31367f3a00d5c480c7656
+2026-10-22T03:32:59.1159040Z Build Date: 2026-10-14T17:06:54Z
+2026-10-22T03:32:59.1159860Z Worker ID: {b76553af-e50a-4f8b-b5cd-3e0de88228f6}
+2026-10-22T03:32:59.1160574Z Region: westcentralus
+2026-10-22T03:32:59.1161232Z Cloud: Azure
+2026-10-22T03:32:59.1162265Z ##[endgroup]
+2026-10-22T03:32:59.1163867Z ##[group]Operating System
+2026-10-22T03:32:59.1164753Z Ubuntu
+2026-10-22T03:32:59.1165559Z 24.04.5
+2026-10-22T03:32:59.1166488Z LTS
+2026-10-22T03:32:59.1167328Z ##[endgroup]
+2026-10-22T03:32:59.1168299Z ##[group]Runner Image
+2026-10-22T03:32:59.1169362Z Image: ubuntu-24.04
+2026-10-22T03:32:59.1170113Z Version: 20261018.339.1
+2026-10-22T03:32:59.1171762Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261018.339/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-22T03:32:59.1173448Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261018.339
+2026-10-22T03:32:59.1174497Z ##[endgroup]
+2026-10-22T03:32:59.1175581Z ##[group]GITHUB_TOKEN Permissions
+2026-10-22T03:32:59.1177926Z Contents: read
+2026-10-22T03:32:59.1178549Z Metadata: read
+2026-10-22T03:32:59.1179420Z ##[endgroup]
+2026-10-22T03:32:59.1182278Z Secret source: Actions
+2026-10-22T03:32:59.1183358Z Cache mode: write
+2026-10-22T03:32:59.1184411Z Prepare workflow directory
+2026-10-22T03:32:59.1523655Z Prepare all required actions
+2026-10-22T03:32:59.1570694Z Getting action download info
+2026-10-22T03:32:59.4723393Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-22T03:32:59.6832371Z Complete job name: legacy-warning-regressions
+2026-10-22T03:32:59.7766389Z ##[group]Run actions/checkout@v4
+2026-10-22T03:32:59.7767303Z with:
+2026-10-22T03:32:59.7767789Z   repository: CGameDev/PPSSPP-Xenon
+2026-10-22T03:32:59.7772465Z   token: ***
+2026-10-22T03:32:59.7772959Z   ssh-strict: true
+2026-10-22T03:32:59.7773412Z   ssh-user: git
+2026-10-22T03:32:59.7773864Z   persist-credentials: true
+2026-10-22T03:32:59.7774368Z   clean: true
+2026-10-22T03:32:59.7774817Z   sparse-checkout-cone-mode: true
+2026-10-22T03:32:59.7775353Z   fetch-depth: 1
+2026-10-22T03:32:59.7775792Z   fetch-tags: false
+2026-10-22T03:32:59.7776234Z   show-progress: true
+2026-10-22T03:32:59.7776692Z   lfs: false
+2026-10-22T03:32:59.7777121Z   submodules: false
+2026-10-22T03:32:59.7777585Z   set-safe-directory: true
+2026-10-22T03:32:59.7778112Z   allow-unsafe-pr-checkout: false
+2026-10-22T03:32:59.7778996Z ##[endgroup]
+2026-10-22T03:32:59.8875283Z Syncing repository: CGameDev/PPSSPP-Xenon
+2026-10-22T03:32:59.8877640Z ##[group]Getting Git version info
+2026-10-22T03:32:59.8878920Z Working directory is '/home/runner/work/PPSSPP-Xenon/PPSSPP-Xenon'
+2026-10-22T03:32:59.8880689Z [command]/usr/bin/git version
+2026-10-22T03:32:59.8963116Z git version 2.55.0
+2026-10-22T03:32:59.8993093Z ##[endgroup]
+2026-10-22T03:32:59.9010608Z Temporarily overriding HOME='/home/runner/work/_temp/6adbc9ed-13bd-425b-845f-685564b09a61' before making global git config changes
+2026-10-22T03:32:59.9013642Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-22T03:32:59.9018898Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/PPSSPP-Xenon/PPSSPP-Xenon
+2026-10-22T03:32:59.9078743Z Deleting the contents of '/home/runner/work/PPSSPP-Xenon/PPSSPP-Xenon'
+2026-10-22T03:32:59.9087837Z ##[group]Initializing the repository
+2026-10-22T03:32:59.9089153Z [command]/usr/bin/git init /home/runner/work/PPSSPP-Xenon/PPSSPP-Xenon
+2026-10-22T03:32:59.9197861Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-22T03:32:59.9201772Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-22T03:32:59.9203336Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-22T03:32:59.9205100Z hint: call:
+2026-10-22T03:32:59.9205753Z hint:
+2026-10-22T03:32:59.9206557Z hint: 	git config --global init.defaultBranch <name>
+2026-10-22T03:32:59.9207542Z hint:
+2026-10-22T03:32:59.9208470Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-22T03:32:59.9210093Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-22T03:32:59.9211555Z hint:
+2026-10-22T03:32:59.9212267Z hint: 	git branch -m <name>
+2026-10-22T03:32:59.9213038Z hint:
+2026-10-22T03:32:59.9214074Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-22T03:32:59.9216137Z Initialized empty Git repository in /home/runner/work/PPSSPP-Xenon/PPSSPP-Xenon/.git/
+2026-10-22T03:32:59.9219251Z [command]/usr/bin/git remote add origin https://github.com/CGameDev/PPSSPP-Xenon
+2026-10-22T03:32:59.9271055Z ##[endgroup]
+2026-10-22T03:32:59.9272761Z ##[group]Disabling automatic garbage collection
+2026-10-22T03:32:59.9277698Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-22T03:32:59.9316944Z ##[endgroup]
+2026-10-22T03:32:59.9318417Z ##[group]Setting up auth
+2026-10-22T03:32:59.9325291Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-22T03:32:59.9364568Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-22T03:32:59.9745097Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-22T03:32:59.9794138Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-22T03:33:00.0057630Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-22T03:33:00.0106321Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-22T03:33:00.0359496Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-22T03:33:00.0443861Z ##[endgroup]
+2026-10-22T03:33:00.0454035Z ##[group]Fetching the repository
+2026-10-22T03:33:00.0455761Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0298e55802c3448084fbd558b7b1a3414ddb0285:refs/remotes/pull/2/merge
+2026-10-22T03:33:01.0332886Z From https://github.com/CGameDev/PPSSPP-Xenon
+2026-10-22T03:33:01.0334952Z  * [new ref]         0298e55802c3448084fbd558b7b1a3414ddb0285 -> pull/2/merge
+2026-10-22T03:33:01.0339499Z ##[endgroup]
+2026-10-22T03:33:01.0342796Z ##[group]Determining the checkout info
+2026-10-22T03:33:01.0344904Z ##[endgroup]
+2026-10-22T03:33:01.0348592Z [command]/usr/bin/git sparse-checkout disable
+2026-10-22T03:33:01.0419828Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-22T03:33:01.0469603Z ##[group]Checking out the ref
+2026-10-22T03:33:01.0474740Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/2/merge
+2026-10-22T03:33:01.0692688Z Note: switching to 'refs/remotes/pull/2/merge'.
+2026-10-22T03:33:01.0694200Z 
+2026-10-22T03:33:01.0695224Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-22T03:33:01.0697689Z changes and commit them, and you can discard any commits you make in this
+2026-10-22T03:33:01.0700176Z state without impacting any branches by switching back to a branch.
+2026-10-22T03:33:01.0701131Z 
+2026-10-22T03:33:01.0702557Z If you want to create a new branch to retain commits you create, you may
+2026-10-22T03:33:01.0704283Z do so (now or later) by using -c with the switch command. Example:
+2026-10-22T03:33:01.0705167Z 
+2026-10-22T03:33:01.0705595Z   git switch -c <new-branch-name>
+2026-10-22T03:33:01.0706185Z 
+2026-10-22T03:33:01.0706525Z Or undo this operation with:
+2026-10-22T03:33:01.0707677Z 
+2026-10-22T03:33:01.0708003Z   git switch -
+2026-10-22T03:33:01.0708453Z 
+2026-10-22T03:33:01.0709151Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-22T03:33:01.0710160Z 
+2026-10-22T03:33:01.0711656Z HEAD is now at 0298e55 Merge 18a0ad38ef6c589ddfcc5f5c933304de80a3835e into a616aa62bbef6102a68a49ed0532dbccb1ea6764
+2026-10-22T03:33:01.0715499Z ##[endgroup]
+2026-10-22T03:33:01.0760267Z [command]/usr/bin/git log -1 --format=%H
+2026-10-22T03:33:01.0795219Z 0298e55802c3448084fbd558b7b1a3414ddb0285
+2026-10-22T03:33:01.1082070Z ##[group]Run git init artifacts/legacy
+2026-10-22T03:33:01.1083642Z [36;1mgit init artifacts/legacy[0m
+2026-10-22T03:33:01.1086447Z [36;1mgit -C artifacts/legacy fetch --depth=1 https://github.com/metalex10/PPSSPP-X360.git 540db97d96136b2139e5f12dd3c0bb18f2e1cd1f[0m
+2026-10-22T03:33:01.1089537Z [36;1mgit -C artifacts/legacy checkout --detach FETCH_HEAD[0m
+2026-10-22T03:33:01.1288815Z shell: /usr/bin/bash -e {0}
+2026-10-22T03:33:01.1290134Z ##[endgroup]
+2026-10-22T03:33:01.1429769Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-22T03:33:01.1433312Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-22T03:33:01.1436955Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-22T03:33:01.1439065Z hint: call:
+2026-10-22T03:33:01.1440247Z hint:
+2026-10-22T03:33:01.1441918Z hint: 	git config --global init.defaultBranch <name>
+2026-10-22T03:33:01.1443670Z hint:
+2026-10-22T03:33:01.1445345Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-22T03:33:01.1447920Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-22T03:33:01.1450017Z hint:
+2026-10-22T03:33:01.1451200Z hint: 	git branch -m <name>
+2026-10-22T03:33:01.1452808Z hint:
+2026-10-22T03:33:01.1454529Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-22T03:33:01.1457591Z Initialized empty Git repository in /home/runner/work/PPSSPP-Xenon/PPSSPP-Xenon/artifacts/legacy/.git/
+2026-10-22T03:33:02.4659419Z From https://github.com/metalex10/PPSSPP-X360
+2026-10-22T03:33:02.4660431Z  * branch            540db97d96136b2139e5f12dd3c0bb18f2e1cd1f -> FETCH_HEAD
+2026-10-22T03:33:03.0970739Z HEAD is now at 540db97 REfix for FFMPEG
+2026-10-22T03:33:03.1057097Z ##[group]Run python3 tools/prepare_baseline.py --legacy artifacts/legacy --destination artifacts/m3-regression-source --with-build-compatibility
+2026-10-22T03:33:03.1058263Z [36;1mpython3 tools/prepare_baseline.py --legacy artifacts/legacy --destination artifacts/m3-regression-source --with-build-compatibility[0m
+2026-10-22T03:33:03.1059368Z [36;1mpython3 tests/run_m3_regressions.py --source-root artifacts/m3-regression-source --reference-root artifacts/legacy --build-root artifacts/m3-regressions[0m
+2026-10-22T03:33:03.1114765Z shell: /usr/bin/bash -e {0}
+2026-10-22T03:33:03.1115092Z ##[endgroup]
+2026-10-22T03:33:08.9508837Z {
+2026-10-22T03:33:08.9509345Z   "status": "PASS",
+2026-10-22T03:33:08.9509731Z   "files": 6409,
+2026-10-22T03:33:08.9510213Z   "legacy_commit": "540db97d96136b2139e5f12dd3c0bb18f2e1cd1f",
+2026-10-22T03:33:08.9511087Z   "owner_archive_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35"
+2026-10-22T03:33:08.9512106Z }
+2026-10-22T03:33:10.3087641Z PASS: 786432 morph cases, blended normals, unsigned limits, tile bounds and initial root
+2026-10-22T03:33:10.3088638Z PASS: 8 actual session-loop cases (host stubs; no Xbox execution)
+2026-10-22T03:33:10.3089722Z PASS: owner loop body, crash filter and surrounding lifecycle preserved by exact source comparison
+2026-10-22T03:33:10.3090817Z PASS negative control: original wrapped multiply truncates fractional normal to zero
+2026-10-22T03:33:10.3092193Z PASS: all 82 emitted PPC prologue/epilogue words match reference (scratch address normalized)
+2026-10-22T03:33:10.3093185Z PASS: cache binding after member construction and stable reinitialization
+2026-10-22T03:33:10.3094288Z PASS: 32 xxHash outputs match reference, including streaming/chunk boundaries
+2026-10-22T03:33:10.3094784Z PASS: false xxHash size assertion still fails compilation
+2026-10-22T03:33:10.3192386Z ##[group]Run python3 tests/run_cclos_launcher.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-launcher-tests
+2026-10-22T03:33:10.3193426Z [36;1mpython3 tests/run_cclos_launcher.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-launcher-tests[0m
+2026-10-22T03:33:10.3244302Z shell: /usr/bin/bash -e {0}
+2026-10-22T03:33:10.3244575Z ##[endgroup]
+2026-10-22T03:33:12.1632582Z {
+2026-10-22T03:33:12.1633027Z   "status": "PASS",
+2026-10-22T03:33:12.1633379Z   "compiler": "g++",
+2026-10-22T03:33:12.1633782Z   "source_hashes": {
+2026-10-22T03:33:12.1634373Z     "current": "4ca3891d27f74ba5021420584d0f33b198e02ff97ac5fd4881ad936b15df4efc",
+2026-10-22T03:33:12.1635242Z     "reference": "0a8c5e1e07fce626801d4712ffc445be6651870b67be583c601d51b89a004546"
+2026-10-22T03:33:12.1635908Z   },
+2026-10-22T03:33:12.1636189Z   "host_assertions": [
+2026-10-22T03:33:12.1636638Z     "TV-safe actual packed-glyph quad bounds",
+2026-10-22T03:33:12.1637200Z     "long/empty/missing-art/folder/loading/recent",
+2026-10-22T03:33:12.1637683Z     "fitted text and image bounds",
+2026-10-22T03:33:12.1638129Z     "RT debounce and selected-game visibility",
+2026-10-22T03:33:12.1638638Z     "inactive renderer/input early return",
+2026-10-22T03:33:12.1639144Z     "no scan/write/resource work while switching",
+2026-10-22T03:33:12.1639793Z     "A file request/folder entry, LB/RB Recent policy and B exit with host stubs"
+2026-10-22T03:33:12.1640379Z   ],
+2026-10-22T03:33:12.1640873Z   "font_sha256": "970370587f57f5fc54ea830d71b0d1dad31cdd0d9db35c68e099e45f39f28bee",
+2026-10-22T03:33:12.1641875Z   "console_execution": "NOT RUN",
+2026-10-22T03:33:12.1642260Z   "budgets": [
+2026-10-22T03:33:12.1642550Z     {
+2026-10-22T03:33:12.1642841Z       "view": "grid",
+2026-10-22T03:33:12.1643209Z       "M3_draw_calls": 153,
+2026-10-22T03:33:12.1643619Z       "M4_draw_calls": 80,
+2026-10-22T03:33:12.1644015Z       "M3_triangles": 740,
+2026-10-22T03:33:12.1644415Z       "M4_triangles": 636,
+2026-10-22T03:33:12.1644810Z       "M3_cache_reads": 15,
+2026-10-22T03:33:12.1645209Z       "M4_cache_reads": 13,
+2026-10-22T03:33:12.1645620Z       "M3_texture_descriptors": 0,
+2026-10-22T03:33:12.1646079Z       "M4_texture_descriptors": 13
+2026-10-22T03:33:12.1646495Z     },
+2026-10-22T03:33:12.1646791Z     {
+2026-10-22T03:33:12.1647099Z       "view": "list",
+2026-10-22T03:33:12.1647448Z       "M3_draw_calls": 157,
+2026-10-22T03:33:12.1647838Z       "M4_draw_calls": 64,
+2026-10-22T03:33:12.1648231Z       "M3_triangles": 632,
+2026-10-22T03:33:12.1648602Z       "M4_triangles": 562,
+2026-10-22T03:33:12.1648976Z       "M3_cache_reads": 11,
+2026-10-22T03:33:12.1649305Z       "M4_cache_reads": 9,
+2026-10-22T03:33:12.1649665Z       "M3_texture_descriptors": 10,
+2026-10-22T03:33:12.1650142Z       "M4_texture_descriptors": 9
+2026-10-22T03:33:12.1650564Z     }
+2026-10-22T03:33:12.1650848Z   ]
+2026-10-22T03:33:12.1651114Z }
+2026-10-22T03:33:12.1840980Z Post job cleanup.
+2026-10-22T03:33:12.2695667Z [command]/usr/bin/git version
+2026-10-22T03:33:12.2744376Z git version 2.55.0
+2026-10-22T03:33:12.2790026Z Temporarily overriding HOME='/home/runner/work/_temp/d03cc63b-283a-4e6f-bc50-6f7fa4089b12' before making global git config changes
+2026-10-22T03:33:12.2791964Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-22T03:33:12.2796113Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/PPSSPP-Xenon/PPSSPP-Xenon
+2026-10-22T03:33:12.2838488Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-22T03:33:12.2877207Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-22T03:33:12.3153384Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-22T03:33:12.3183206Z http.https://github.com/.extraheader
+2026-10-22T03:33:12.3196407Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-22T03:33:12.3234018Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-22T03:33:12.3543504Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-22T03:33:12.3589504Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-22T03:33:12.4044932Z Cleaning up orphan processes
+2026-10-22T03:33:12.4392716Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

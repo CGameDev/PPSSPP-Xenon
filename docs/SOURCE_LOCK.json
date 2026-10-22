@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "local_date": "2026-10-22",
+  "timezone": "America/New_York",
+  "project": "CGameDev/PPSSPP-Xenon",
+  "base_commit": "a616aa62bbef6102a68a49ed0532dbccb1ea6764",
+  "branch": "bootstrap/hadcv-baseline-cclos-preview",
+  "legacy": {
+    "repository": "metalex10/PPSSPP-X360",
+    "commit": "540db97d96136b2139e5f12dd3c0bb18f2e1cd1f",
+    "imported": false,
+    "assembled": true,
+    "assembly": "committed donor objects into ignored local staging; owner files last; separate compatibility layer"
+  },
+  "modern_reference": {
+    "repository": "hrydgard/ppsspp",
+    "tag": "v1.20.4",
+    "tag_object": "3a31057b7e44270b4d5cef8c31b6559d51802a3b",
+    "commit": "fa50bb1976065c4f8b1b47af227d367fe9771555",
+    "imported": false
+  },
+  "owner_overlay": {
+    "schema_version": 1,
+    "read_only": true,
+    "parts": [
+      {
+        "name": "Xbox-original-upload.part01.b64",
+        "bytes": 19000,
+        "sha256": "7aa1f1447c7caab42ae8b4905959fae9073e2a065dd182f0ccb0a1505558be66"
+      },
+      {
+        "name": "Xbox-original-upload.part02.b64",
+        "bytes": 19000,
+        "sha256": "5f6cada8041d76ab4ff9190855e8329b08b9b34771557099d0be22c9752ec477"
+      },
+      {
+        "name": "Xbox-original-upload.part03.b64",
+        "bytes": 19000,
+        "sha256": "4d753dc56d597c919bc8895d0ac748a425944b9320bd51484a337947cbce7d0c"
+      },
+      {
+        "name": "Xbox-original-upload.part04.b64",
+        "bytes": 17980,
+        "sha256": "5b38958b56e08dfa164df9b529f6daae4fae79d33ed07b8c4b534396ec8731ca"
+      }
+    ],
+    "errors": [],
+    "decoded_bytes": 56233,
+    "expected_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+    "actual_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+    "sha256_matches": true,
+    "zip_crc": "PASS",
+    "archive_members": 30,
+    "bad_members": [],
+    "status": "PASS"
+  },
+  "qualified_xbox_baseline": "BUILD_PASS_RUNTIME_NOT_RUN",
+  "legacy_diagnostic_debug_build": {
+    "exit_code": 1,
+    "result": "FAIL",
+    "first_fatal_error": "LNK1181: cannot open input file avcodec.lib",
+    "xex_produced": false,
+    "historical_m0": true
+  },
+  "owner_overlay_build": {
+    "Debug": "PASS",
+    "Release_LTCG": "PASS"
+  },
+  "xbox_runtime_tests": "M6 owner-reported hard lock; M7 NOT RUN",
+  "production_emulator_changes": true,
+  "design": {
+    "tile_and_compact_views": "KEEP_BOTH_SWITCHABLE",
+    "detailed_design": "Navy/teal direction approved; native static adaptation implemented; Xbox appearance/TV readability untested"
+  },
+  "milestone": "M7 isolated Xenon PGF font bit-reader correction",
+  "historical_m0_commit": "005686f05ba2cda41ed7da082f222d161743098e",
+  "source_recovery_commit": "bb1e51ab2f6d879d20f3e407e190fbda7c95d160",
+  "change_scope": "Only Core/Font/PGF.cpp getBits body and generated m7-pgf identity differ from M6; UI/actions/GPU/JIT/session/settings unchanged",
+  "production_cclos_renderer": true,
+  "builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "82dfe06d31c9793679a2bfd1cc3c36e20fa6c6da2a67329f6eab4216deef8f73",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "ed160784793d68338ee8102b1d1f594646f65b65102a24328eb70fbf124223ab",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "physical_console": {
+    "tests": "Owner M6 Release_LTCG hard lock, log received; agent performed no console actions; M7 not run",
+    "initial_auto_copy": "Failed to connect, X1001; no transfer or launch succeeded",
+    "current_builds": "M7 full Debug/Release_LTCG Rebuilds zero warnings/errors; four Deploy exclusions; local candidate only"
+  },
+  "historical_m1_builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "c717668880a3e213bdb1d0589865b3d53d815f486c1b17e7935a4e1851831b48",
+      "format": "XEX2",
+      "build_exit_code": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "85b4bdedd2098c092a6c712c96e9e1ad30a7445918638717840974f1f3a53fca",
+      "format": "XEX2",
+      "build_exit_code": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "warnings": {
+    "M2_remaining_46_Debug_40_Release_LTCG": "RESOLVED",
+    "full_rebuild": {
+      "Debug": 0,
+      "Release_LTCG": 0
+    },
+    "suppressed": false
+  },
+  "historical_m2_builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "407de5911675d89d422becb5fffeefb1d26f75cf6ca00a190d3df73492d63821",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "original_62_warning_codes": 0,
+      "other_warnings": 46,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "204dba0da4b7f48ec1f16aa009629b8f4ca8a26c67e8777f5f7ac5d98ca8653b",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "original_62_warning_codes": 0,
+      "other_warnings": 40,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "historical_m3_builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "0976634098dcd90afde77201cb2cc7551bdb5a6d0b86db3ad83714035f157443",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "e99a3ba53930362d6765d28055ace2b890f3d355ffe994c7103f7209084074c0",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "historical_m4_builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "f9ae7ca7d8cc158c520879c38839fc2c2b70d5e82eada2bff085c444ac5e8761",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "01d8156d5af1641676adac072313f8679d01675b684f9f79ac3b3730106ba88d",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "production_cclos_ingame_renderer": true,
+  "console_readiness": "M7 font correction candidate; root defect reproduced on host, complete Xbox lockup resolution/performance not established",
+  "latest_evidence": "docs/evidence/m7/",
+  "frozen_parent": "32d0cdb50237bf241c04a2944bbbbdca64abb875",
+  "pause_backdrop": "Opaque static navy/teal; no framebuffer capture or retained backbuffer assumption",
+  "historical_m5_builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "63ec153126b1ab9158826824869d53fb1ea025e963f0317121c658ed37f73135",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "b3e91f830798d058cff6caeab1b43f0a336b133ef992e9682003efc454f02fb6",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "historical_m6_builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "ee056e7023a5e8ba614797d68871e4acc1dda779b3a8d5626288252c75ffc5c1",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "f4941219ce9094de417efb96800174eca0b49fbd4eb2d042ea932e8b2aaa2856",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ]
+}

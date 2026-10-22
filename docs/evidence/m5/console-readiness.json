@@ -1,0 +1,36 @@
+{
+  "software_gates": "PASS local source/dependencies/builds/host checks; hosted CI recorded separately",
+  "known_ui_assets": [
+    {
+      "path": "assets/Roboto-Condensed.ttf",
+      "bytes": 175044,
+      "sha256": "970370587f57f5fc54ea830d71b0d1dad31cdd0d9db35c68e099e45f39f28bee",
+      "status": "PRESENT LOCALLY; console NOT RUN"
+    },
+    {
+      "path": "assets/ui_atlas.zim",
+      "bytes": 1538906,
+      "sha256": "cc9a569def818de09667b5057499f2db32af15796bfe25348260b1ab8feff224",
+      "status": "PRESENT LOCALLY; console NOT RUN"
+    },
+    {
+      "path": "assets/unknown.png",
+      "bytes": 4489,
+      "sha256": "23469b31fa8117f811fd740e28d4abe44a7749823a0f8029756c820461d5b5a0",
+      "status": "PRESENT LOCALLY; console NOT RUN"
+    },
+    {
+      "path": "assets/ppge_atlas.zim",
+      "bytes": 784968,
+      "sha256": "a97b71a514f68e8cfdb43f93cdb00d7d623ccadf02090a94530fc7b87acd9c9f",
+      "status": "PRESENT LOCALLY; console NOT RUN"
+    }
+  ],
+  "flash0_files_present_locally": 18,
+  "optional_splash_png": "Absent in donor assets; unchanged loader failure fallback, M4/M5 splash does not draw it",
+  "deployment_exclusions": "All four PASS",
+  "package_status": "Local XEX archive contains no runtime assets or user data; pair with matching assembled data before any future authorized console test",
+  "console_environment": "NOT INSPECTED or contacted; owner must confirm compatible console/loader, writable isolated folder and test content later",
+  "first_hardware_gate": "Cold boot, both views, homebrew/game boot, menu input, real save/load/reset and return/relaunch; record logs and FPS/frame times",
+  "console_tests": "NOT RUN"
+}

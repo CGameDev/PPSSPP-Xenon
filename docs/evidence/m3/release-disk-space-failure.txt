@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "machine": "0x01F2 PPCBE",
+  "libraries": [
+    {
+      "name": "avcodec.lib",
+      "bytes": 10110194,
+      "sha256": "dd44186ef77d1ed49f1b229f7cbbf4c075239c87431b6f578fcef9b785ec297b",
+      "ppcbe_objects": 110
+    },
+    {
+      "name": "avdevice.lib",
+      "bytes": 126444,
+      "sha256": "d285ea13ef9f1627ce4b6e12b867ee26edce7b57fd89f695e34a3252d4c1a5be",
+      "ppcbe_objects": 3
+    },
+    {
+      "name": "avformat.lib",
+      "bytes": 2810786,
+      "sha256": "bcaf3750c84eedff0e06f4e0d75cfa4c144885228b945a2ff4c9051f20a47a44",
+      "ppcbe_objects": 35
+    },
+    {
+      "name": "avutil.lib",
+      "bytes": 1535040,
+      "sha256": "9a40e2bca0e5f16bdb22454f591103f8709e5e203008f49a69b5d52bb5a52e4b",
+      "ppcbe_objects": 54
+    },
+    {
+      "name": "swresample.lib",
+      "bytes": 330192,
+      "sha256": "ae654755b572ee2e0ae424834dbde15d346706f1016201f50004c87ef3dd41d6",
+      "ppcbe_objects": 5
+    },
+    {
+      "name": "swscale.lib",
+      "bytes": 1091336,
+      "sha256": "5dd92a5a508e000f6e89ef07abfc0d77dc0a60a14fb3f7d62a40b7c04d177d3f",
+      "ppcbe_objects": 11
+    }
+  ]
+}
+  ChunkFile.cpp
+  ConsoleListener.cpp
+  md5.cpp
+  sha1.cpp
+  FileUtil.cpp
+  KeyMap.cpp
+  LogManager.cpp
+  MemArena.cpp
+  MemoryUtil.cpp
+  Misc.cpp
+  MsgHandler.cpp
+  ppcEmitter.cpp
+  StringUtils.cpp
+  ThreadPools.cpp
+  Timer.cpp
+  XboxCPUDetect.cpp
+  CommonXbox.vcxproj -> <workspace>\work\PPSSPP-Xenon\artifacts\baseline-m3\Common\Release_LTCG\CommonXbox.lib
+  Git not on path, trying default Msysgit paths
+  disarm.cpp
+  snappy-c.cpp
+  snappy.cpp
+  git-version.cpp
+  Config.cpp
+  Core.cpp
+  CoreTiming.cpp
+  CPU.cpp
+  Cwcheat.cpp
+  Breakpoints.cpp
+  SymbolMap.cpp
+  PSPDialog.cpp
+  PSPGamedataInstallDialog.cpp
+  PSPMsgDialog.cpp
+  PSPNetconfDialog.cpp
+  PSPOskDialog.cpp
+  PSPPlaceholderDialog.cpp
+  PSPSaveDialog.cpp
+  SavedataParam.cpp
+  ElfReader.cpp
+  ParamSFO.cpp
+  PBPReader.cpp
+  PrxDecrypter.cpp
+  BlockDevices.cpp
+  DirectoryFileSystem.cpp
+  ISOFileSystem.cpp
+  MetaFileSystem.cpp
+  tlzrc.cpp
+  VirtualDiscFileSystem.cpp
+  PGF.cpp
+  HDRemaster.cpp
+  HLE.cpp
+  HLETables.cpp
+  proAdhoc.cpp
+  sceAtrac.cpp
+  sceAudio.cpp
+c:\program files (x86)\microsoft xbox 360 sdk\include\xbox\xnamathvector.inl(19669): fatal error C1088: Cannot flush compiler intermediate file: 'C:\Users\CGAmeDev\AppData\Local\Temp\_CL_b8dea616ex': No space left on device [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m3\Core\CoreXbox.vcxproj]
+c:\program files (x86)\microsoft xbox 360 sdk\include\xbox\xnamathvector.inl(16958): fatal error C1088: Cannot flush compiler intermediate file: 'C:\Users\CGAmeDev\AppData\Local\Temp\_CL_e6af46cdsy': No space left on device [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m3\Core\CoreXbox.vcxproj]
+c:\program files (x86)\microsoft xbox 360 sdk\include\xbox\xnamathvector.inl(16958): fatal error C1088: Cannot flush compiler intermediate file: 'C:\Users\CGAmeDev\AppData\Local\Temp\_CL_2c6309e3sy': No space left on device [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m3\Core\CoreXbox.vcxproj]
+  sceAudiocodec.cpp
+  sceCcc.cpp
+  sceChnnlsv.cpp
+c:\program files (x86)\microsoft xbox 360 sdk\include\xbox\xnamathvector.inl(9748): fatal error C1088: Cannot flush compiler intermediate file: 'C:\Users\CGAmeDev\AppData\Local\Temp\_CL_9229ceb0sy': No space left on device [<workspace>\work\PPSSPP-Xenon\artifacts\baseline-m3\Core\CoreXbox.vcxproj]

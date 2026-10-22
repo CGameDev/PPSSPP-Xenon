@@ -1,0 +1,12 @@
+PROBE: m1 Debug
+gpu_layout_probe.cpp
+PASS: compile only; no link, deployment or execution.
+PROBE: m1 Release_LTCG
+gpu_layout_probe.cpp
+PASS: compile only; no link, deployment or execution.
+PROBE: m2 Debug
+gpu_layout_probe.cpp
+PASS: compile only; no link, deployment or execution.
+PROBE: m2 Release_LTCG
+gpu_layout_probe.cpp
+PASS: compile only; no link, deployment or execution.

@@ -1,0 +1,44 @@
+Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+{
+  "status": "PASS",
+  "compiler": "cl.EXE",
+  "source_hashes": {
+    "current": "4142fd815d125f231fe2e790cbc808a761a5d8c8692932745a31d258a6b5b5b7",
+    "reference": "0a8c5e1e07fce626801d4712ffc445be6651870b67be583c601d51b89a004546"
+  },
+  "host_assertions": [
+    "TV-safe actual packed-glyph quad bounds",
+    "long/empty/missing-art/folder/loading/recent",
+    "fitted text and image bounds",
+    "RT debounce and selected-game visibility",
+    "inactive renderer/input early return",
+    "no scan/write/resource work while switching",
+    "A file request/folder entry, LB/RB Recent policy and B exit with host stubs"
+  ],
+  "font_sha256": "970370587f57f5fc54ea830d71b0d1dad31cdd0d9db35c68e099e45f39f28bee",
+  "console_execution": "NOT RUN",
+  "budgets": [
+    {
+      "view": "grid",
+      "M3_draw_calls": 153,
+      "M4_draw_calls": 80,
+      "M3_triangles": 740,
+      "M4_triangles": 636,
+      "M3_cache_reads": 15,
+      "M4_cache_reads": 13,
+      "M3_texture_descriptors": 0,
+      "M4_texture_descriptors": 13
+    },
+    {
+      "view": "list",
+      "M3_draw_calls": 157,
+      "M4_draw_calls": 64,
+      "M3_triangles": 632,
+      "M4_triangles": 562,
+      "M3_cache_reads": 11,
+      "M4_cache_reads": 9,
+      "M3_texture_descriptors": 10,
+      "M4_texture_descriptors": 9
+    }
+  ]
+}

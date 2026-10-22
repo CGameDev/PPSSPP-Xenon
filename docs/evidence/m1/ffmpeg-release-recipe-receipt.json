@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "machine": "0x01F2 PPCBE",
+  "libraries": [
+    {
+      "name": "avcodec.lib",
+      "bytes": 10110194,
+      "sha256": "dd44186ef77d1ed49f1b229f7cbbf4c075239c87431b6f578fcef9b785ec297b",
+      "ppcbe_objects": 110
+    },
+    {
+      "name": "avdevice.lib",
+      "bytes": 126444,
+      "sha256": "d285ea13ef9f1627ce4b6e12b867ee26edce7b57fd89f695e34a3252d4c1a5be",
+      "ppcbe_objects": 3
+    },
+    {
+      "name": "avformat.lib",
+      "bytes": 2810786,
+      "sha256": "bcaf3750c84eedff0e06f4e0d75cfa4c144885228b945a2ff4c9051f20a47a44",
+      "ppcbe_objects": 35
+    },
+    {
+      "name": "avutil.lib",
+      "bytes": 1535040,
+      "sha256": "9a40e2bca0e5f16bdb22454f591103f8709e5e203008f49a69b5d52bb5a52e4b",
+      "ppcbe_objects": 54
+    },
+    {
+      "name": "swresample.lib",
+      "bytes": 330192,
+      "sha256": "ae654755b572ee2e0ae424834dbde15d346706f1016201f50004c87ef3dd41d6",
+      "ppcbe_objects": 5
+    },
+    {
+      "name": "swscale.lib",
+      "bytes": 1091336,
+      "sha256": "5dd92a5a508e000f6e89ef07abfc0d77dc0a60a14fb3f7d62a40b7c04d177d3f",
+      "ppcbe_objects": 11
+    }
+  ],
+  "configuration": "Release",
+  "configure_arguments": [
+    "--target-os=win32",
+    "--enable-cross-compile",
+    "--toolchain=msvc",
+    "--prefix=<baseline>/ffmpeg/Xbox/ppc",
+    "--arch=ppc",
+    "--disable-programs",
+    "--disable-avfilter",
+    "--disable-postproc",
+    "--disable-doc",
+    "--disable-pthreads",
+    "--disable-network",
+    "--disable-everything",
+    "--disable-encoders",
+    "--disable-muxers",
+    "--disable-hwaccels",
+    "--disable-parsers",
+    "--disable-protocols",
+    "--disable-dxva2",
+    "--disable-altivec",
+    "--enable-w32threads",
+    "--enable-protocol=file",
+    "--enable-decoder=aac",
+    "--enable-decoder=aac_latm",
+    "--enable-decoder=atrac3",
+    "--enable-decoder=mp3",
+    "--enable-decoder=pcm_s16le",
+    "--enable-decoder=pcm_s8",
+    "--enable-decoder=h264",
+    "--enable-decoder=mpeg4",
+    "--enable-decoder=mpeg2video",
+    "--enable-decoder=mjpeg",
+    "--enable-decoder=mjpegb",
+    "--enable-parser=h264",
+    "--enable-parser=mpeg4video",
+    "--enable-parser=mpegaudio",
+    "--enable-parser=mpegvideo",
+    "--enable-parser=mjpeg",
+    "--enable-parser=aac",
+    "--enable-parser=aac_latm",
+    "--enable-demuxer=h264",
+    "--enable-demuxer=m4v",
+    "--enable-demuxer=mp3",
+    "--enable-demuxer=mpegvideo",
+    "--enable-demuxer=mpegps",
+    "--enable-demuxer=mjpeg",
+    "--enable-demuxer=avi",
+    "--enable-demuxer=aac",
+    "--enable-demuxer=pmp",
+    "--enable-demuxer=oma",
+    "--enable-demuxer=pcm_s16le",
+    "--enable-demuxer=pcm_s8",
+    "--enable-demuxer=wav",
+    "--disable-hwaccel=h264_dxva2",
+    "--enable-static",
+    "--disable-shared",
+    "--host-cc=cl",
+    "--extra-cflags=-MT -I<baseline>/ffmpeg/XboxInclude -Ox -Ot",
+    "--extra-ldflags=xapilib.lib xboxkrnl.lib vcomp.lib"
+  ]
+}

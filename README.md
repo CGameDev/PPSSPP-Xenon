@@ -1,5 +1,25 @@
 # PPSSPP Xenon
 
+> **M7 local correction candidate:** the supplied M6 failure log stops during
+> font parsing. A reproduced Xenon byte-order defect in the PGF bit-reader is
+> corrected; both full builds are warning-clean. UI/save actions stay unchanged.
+> [Evidence and limits](docs/PGF_FONT_FIX_M7.md). M7 has not run on Xbox; the full
+> lockup is not yet confirmed resolved. Nothing has been deployed or launched.
+
+> **First hardware report:** the owner observed M6 Release_LTCG's launcher and ISO
+> artwork, but game launch caused a full console lockup. Preserve logs/config
+> before retrying. [Failure report and next evidence](docs/SMOKE_TEST_REPORT_01.md).
+> No gameplay, state-operation or performance acceptance is established.
+
+> **M6 approved shell:** navy/teal sidebar, larger grid and compact library views,
+> selected-game artwork and a matching right-side in-game menu are implemented.
+> Both launcher views and existing save/load/reset actions stay.
+> Debug/Release_LTCG fully rebuild with **0 warnings / 0 errors**. Review the
+> [in-game menu](design/cclos-ingame-preview.html), [launcher](design/cclos-preview.html)
+> and [evidence](docs/BASELINE.md). The pause backdrop stays static. We are at the
+> [first console smoke-test gate](docs/CONSOLE_TEST_READINESS.md); Xbox runtime
+> and performance remain untested. No console deployment or launch is authorized.
+
 **PPSSPP Xenon** is an Xbox 360 / Xenon modernization project based on the legacy Xbox 360 port of PPSSPP.
 
 The project goal is to preserve the working Xbox 360 platform implementation while improving PSP compatibility, performance, stability, game-library usability, and game switching specifically for Xenon PowerPC and Xenos hardware.

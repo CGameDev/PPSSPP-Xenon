@@ -1,0 +1,140 @@
+Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+{
+  "status": "PASS",
+  "source_sha256": "6c63cb112781edb71c5989906657e57035e7d6ac8ff0f7c4b0bb2ac5148190f1",
+  "scope": "Only getBits body differs from M6",
+  "actual_reader_checks": {
+    "bit_cases": 8448,
+    "fonts": [
+      {
+        "glyphs": 29075,
+        "old_be_invalid_offsets": 193,
+        "new_invalid_offsets": 0,
+        "font": "jpn0.pgf",
+        "sha256": "b4ee2e944bfe59ef0b8e40f54f92a0954373b95636e7f1519128809f406a2a41"
+      },
+      {
+        "glyphs": 9778,
+        "old_be_invalid_offsets": 6277,
+        "new_invalid_offsets": 0,
+        "font": "kr0.pgf",
+        "sha256": "8e2cd9c996e7cd5d229612cadd7bb03a82ccc8728b198568df8b4f585786cb5a"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 76,
+        "new_invalid_offsets": 0,
+        "font": "ltn0.pgf",
+        "sha256": "fc6c6a61f741d806102eb9d4b53e8661e44a886a824518c347b52ea492100cc3"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 96,
+        "new_invalid_offsets": 0,
+        "font": "ltn1.pgf",
+        "sha256": "37a8261dd27b7fbc5f1b273f393bce956fbe9cabcbb9978cfc7acb06fd03ceea"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 137,
+        "new_invalid_offsets": 0,
+        "font": "ltn10.pgf",
+        "sha256": "7459613b939ae8adc7942f0b6a4c0141e5a5efcc00871755c5e46209dd44ff1d"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 142,
+        "new_invalid_offsets": 0,
+        "font": "ltn11.pgf",
+        "sha256": "b5cb9aa151075e0d70419b935012ae052de122c672b9581f686528bef1284c62"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 134,
+        "new_invalid_offsets": 0,
+        "font": "ltn12.pgf",
+        "sha256": "b57089eca4c0f1645aac463ee91bb7404150901dd6b0f45c67be805b8b262fdd"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 120,
+        "new_invalid_offsets": 0,
+        "font": "ltn13.pgf",
+        "sha256": "45e6187a5de1f03fe9faa4f4e5dfabbe707389b275851fda47af2c4bfa39bf22"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 107,
+        "new_invalid_offsets": 0,
+        "font": "ltn14.pgf",
+        "sha256": "cb7456d9ad273e33b79351bbeff6439d2735f470c7bfe9b46ca262ebbd73365d"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 99,
+        "new_invalid_offsets": 0,
+        "font": "ltn15.pgf",
+        "sha256": "ebcdde936664990ff4d447988bb50d39b7d42a1d242909c8430368044b73a0d6"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 29,
+        "new_invalid_offsets": 0,
+        "font": "ltn2.pgf",
+        "sha256": "96ca233797aae69ae06473aef930b78ed0b003555394b127bda5c049eef32954"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 52,
+        "new_invalid_offsets": 0,
+        "font": "ltn3.pgf",
+        "sha256": "8c6e59844c0cf3274c92b71fb74616d3512200075761386a045fb6dbffb39f02"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 20,
+        "new_invalid_offsets": 0,
+        "font": "ltn4.pgf",
+        "sha256": "ab09ddda69d8141ecb6738f0267cd086b1cf3eeadb8bef93c129e86f2261b06e"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 32,
+        "new_invalid_offsets": 0,
+        "font": "ltn5.pgf",
+        "sha256": "c8b5fbdd4eca5eba3e6e5d993bc5879fd2208f94669b98620e56f691989eda40"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 141,
+        "new_invalid_offsets": 0,
+        "font": "ltn6.pgf",
+        "sha256": "633d44c2af710235404c70cab4bc2a0b2dff8efcf7eb0dcb874f8d24da5d032d"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 157,
+        "new_invalid_offsets": 0,
+        "font": "ltn7.pgf",
+        "sha256": "6ae771b2c07773f2a1435d8af652477fb2ec86075b89c6917150ba1e8d7af75d"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 155,
+        "new_invalid_offsets": 0,
+        "font": "ltn8.pgf",
+        "sha256": "3ce9134e64ee9af66bd177d9821213cbe7e7e7e4a05697e61fe8afaf88ceb3c1"
+      },
+      {
+        "glyphs": 324,
+        "old_be_invalid_offsets": 158,
+        "new_invalid_offsets": 0,
+        "font": "ltn9.pgf",
+        "sha256": "f5f036a9e7063a6cfe64b1cdbe9164d0fe8f946c3fb4caf0a610b882764dcee9"
+      }
+    ],
+    "word_reads_per_call": "0, 1 or 2; exact boundary does not overread"
+  },
+  "emulation": "Explicit LE/BE word decoding on host; no PPC machine code executed",
+  "xbox_runtime": "NOT RUN; owner M6 launch previously failed"
+}

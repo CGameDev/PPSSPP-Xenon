@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "read_only": true,
+  "parts": [
+    {
+      "name": "Xbox-original-upload.part01.b64",
+      "bytes": 19000,
+      "sha256": "37192e250770878ae6a3b2634b210dc0a92db069ed5a6437c310a6e677da78de"
+    },
+    {
+      "name": "Xbox-original-upload.part02.b64",
+      "bytes": 19000,
+      "sha256": "5f6cada8041d76ab4ff9190855e8329b08b9b34771557099d0be22c9752ec477"
+    },
+    {
+      "name": "Xbox-original-upload.part03.b64",
+      "bytes": 19000,
+      "sha256": "4d753dc56d597c919bc8895d0ac748a425944b9320bd51484a337947cbce7d0c"
+    },
+    {
+      "name": "Xbox-original-upload.part04.b64",
+      "bytes": 17980,
+      "sha256": "112e6852c623c99c68dedfc5aaa544fc7e2009baa72f3018ad5a8802fee672b2"
+    }
+  ],
+  "errors": [
+    "SHA-256 mismatch: do not extract, import or build this overlay.",
+    "ZIP member verification failed; archive is damaged."
+  ],
+  "decoded_bytes": 56233,
+  "expected_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+  "actual_sha256": "755ae766ecceb5c3469f765e46de1470fdddbc978ec3c260076f9c2097c907d2",
+  "sha256_matches": false,
+  "zip_crc": "FAIL",
+  "archive_members": 30,
+  "bad_members": [
+    {
+      "name": "Xbox/XboxMain.cpp",
+      "error": "Bad CRC-32 for file 'Xbox/XboxMain.cpp'"
+    }
+  ],
+  "status": "FAIL"
+}

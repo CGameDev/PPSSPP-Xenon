@@ -1,0 +1,6 @@
+{
+  "initial_probe": "Desktop /W4 flagged inherited narrowing in remaining bit count in both old/new readers",
+  "accepted_policy": "/W3 /WX, matching production and existing launcher tracers; GCC -Wall -Wextra -Werror plus UBSan in CI",
+  "production_warning_suppression_added": false,
+  "project_warning_level_changed": false
+}

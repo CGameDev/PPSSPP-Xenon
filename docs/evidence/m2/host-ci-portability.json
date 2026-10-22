@@ -1,0 +1,9 @@
+{
+  "workflow_run": "https://github.com/CGameDev/PPSSPP-Xenon/actions/runs/39710236194",
+  "commit": "cef6676ff6c8097749d42c31c938288a55d28222",
+  "result": "FAIL: test diagnostic formatting",
+  "owner_source": "PASS",
+  "actual_loader_cpp98_cases": "PASS",
+  "failure": "Two build-safety subcases rejected enabled deployment correctly but the test did not match the long formatted error message on Linux.",
+  "correction": "Strip ANSI sequences, normalize whitespace and match the short Local-only build refused reason. Keep nonzero-exit and absence-of-build-log assertions. No build driver or emulator source changed."
+}

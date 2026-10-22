@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "launcher_frames": 14,
+  "ingame_frames": 42,
+  "identical_action_snapshots": 137,
+  "comparison": "Exact M6 trace equality",
+  "xbox_runtime": "NOT RUN"
+}

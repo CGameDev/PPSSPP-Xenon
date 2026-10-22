@@ -1,0 +1,31 @@
+{
+  "owner_report": "M6 Release_LTCG hard lock; Guide unresponsive; restart required",
+  "crash_log": "Owner reports absent",
+  "files": [
+    {
+      "name": "ppsspp.ini",
+      "bytes": 3258,
+      "sha256": "43c3ac94cf0e3ae8804ecff9370309038abd9872cca82529c38662c5ab433770"
+    },
+    {
+      "name": "ppsspp_log.txt",
+      "bytes": 5192,
+      "sha256": "c7fde2ee0d549d5025e536aeb45e2c2796362a06d7565b07cec97109d36cab8c"
+    },
+    {
+      "name": "recent.txt",
+      "bytes": 44,
+      "sha256": "459959c1811ce91d04d0ca3a06c3be790bf27221a5629761d261ba42038da286"
+    }
+  ],
+  "original_files": "Read-only from owner-supplied paths; raw copies remain local outside Git",
+  "last_log": "37:13:891 GameMain: Reading 392 bytes of PGF header, after ltn0.pgf load starts",
+  "settings": {
+    "jit_requested": true,
+    "separate_cpu": true,
+    "separate_io": true,
+    "workers": 5,
+    "psp_clock": 111
+  },
+  "modules": "Legacy log reports missing PRX keys 59/5B; this patch does not alter decryption"
+}

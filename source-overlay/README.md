@@ -1,5 +1,11 @@
 # PPSSPP Xenon — User-Provided Xbox Source Overlay
 
+> **2026-10-21 recovery:** the original owner milestone package supplied a clean,
+> byte-exact archive matching the expected hash below and all member CRCs. Parts
+> 1/4 were restored; parts 2/3 and the expected hash are unchanged. M0's damaged
+> bytes and failure evidence remain in Git history. Run the read-only
+> `python tools/verify_source_overlay.py` gate and read `docs/BASELINE.md` first.
+
 This directory preserves the **original `Xbox.zip` uploaded by the project owner** when the PPSSPP Xenon modernization milestone was prepared.
 
 The source archive is stored losslessly as four ordered Base64 chunks because the repository connector used for the initial seed could not directly write arbitrary ZIP bytes:

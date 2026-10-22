@@ -1,0 +1,46 @@
+name: Source preflight
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verifier-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test source gate, local build guards and artwork loaders
+        run: python3 -m unittest discover -s tests -v
+      - name: Compile host tooling
+        run: python3 -m compileall -q tools tests
+      - name: Test legacy save-state deletion adapter
+        run: |
+          mkdir -p artifacts/state-delete-test
+          g++ -std=c++98 -Wall -Wextra -pedantic tests/state_delete_compat.cpp -o artifacts/state-delete-test/slot-test
+          cd artifacts/state-delete-test
+          ./slot-test
+  owner-source-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify owner archive (must pass before import)
+        run: python3 tools/verify_source_overlay.py
+  legacy-warning-regressions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the pinned public legacy source
+        run: |
+          git init artifacts/legacy
+          git -C artifacts/legacy fetch --depth=1 https://github.com/metalex10/PPSSPP-X360.git 540db97d96136b2139e5f12dd3c0bb18f2e1cd1f
+          git -C artifacts/legacy checkout --detach FETCH_HEAD
+      - name: Assemble and check the actual patched source
+        run: |
+          python3 tools/prepare_baseline.py --legacy artifacts/legacy --destination artifacts/m3-regression-source --with-build-compatibility
+          python3 tests/run_m3_regressions.py --source-root artifacts/m3-regression-source --reference-root artifacts/legacy --build-root artifacts/m3-regressions
+      - name: Check both CCLOS launcher views, input and drawing budgets on the host
+        run: python3 tests/run_cclos_launcher.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-launcher-tests
+      - name: Check in-game presentation and unchanged save/load/reset contracts on the host
+        run: python3 tests/run_cclos_ingame.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-ingame-tests
+      - name: Enforce the approved shell presentation boundary
+        run: python3 tests/run_cclos_shell.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-shell-tests
+      - name: Check PGF font bits and Xenon byte order against all bundled fonts
+        run: python3 tests/run_pgf_regressions.py --source-root artifacts/m3-regression-source --build-root artifacts/pgf-reader-tests

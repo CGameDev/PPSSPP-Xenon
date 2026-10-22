@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "tested_head": "0dfdac4ba80ca93b13a47bd1c9b4aa38647e189e",
+  "workflow_run": 39720412280,
+  "url": "https://github.com/CGameDev/PPSSPP-Xenon/actions/runs/39720412280",
+  "jobs": [
+    {
+      "id": 119632324316,
+      "name": "verifier-tests",
+      "conclusion": "success"
+    },
+    {
+      "id": 119632324641,
+      "name": "owner-source-integrity",
+      "conclusion": "success"
+    },
+    {
+      "id": 119632324758,
+      "name": "legacy-warning-regressions",
+      "conclusion": "success"
+    }
+  ],
+  "checks": "Owner integrity, 20 tests, deletion adapter, pinned preparation, source-derived M3 regressions, both launcher traces and new in-game action/presentation checks",
+  "console": "NOT RUN; host-only GCC fixtures do not execute PPC code or real serialization"
+}

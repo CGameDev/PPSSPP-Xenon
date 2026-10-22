@@ -1,0 +1,40 @@
+--- a/Xbox/xx/xx.vcxproj
++++ b/Xbox/xx/xx.vcxproj
+@@ -133,6 +133,7 @@
+       <AdditionalLibraryDirectories>$(SolutionDir)\..\ffmpeg\Xbox\ppcD\lib</AdditionalLibraryDirectories>
+     </Link>
+     <Deploy>
++      <ExcludedFromBuild>true</ExcludedFromBuild>
+       <DeploymentType>CopyToHardDrive</DeploymentType>
+     </Deploy>
+   </ItemDefinitionGroup>
+@@ -160,6 +161,7 @@
+       <AdditionalLibraryDirectories>$(SolutionDir)\..\ffmpeg\Xbox\ppcD\lib</AdditionalLibraryDirectories>
+     </Link>
+     <Deploy>
++      <ExcludedFromBuild>true</ExcludedFromBuild>
+       <DeploymentType>CopyToHardDrive</DeploymentType>
+     </Deploy>
+   </ItemDefinitionGroup>
+@@ -263,6 +265,7 @@
+       <StackCommitSize>1048576</StackCommitSize>
+     </Link>
+     <Deploy>
++      <ExcludedFromBuild>true</ExcludedFromBuild>
+       <DeploymentType>CopyToHardDrive</DeploymentType>
+     </Deploy>
+   </ItemDefinitionGroup>
+@@ -294,11 +297,12 @@
+       <ProgramDatabaseFile>$(OutDir)$(ProjectName).pdb</ProgramDatabaseFile>
+       <SetChecksum>true</SetChecksum>
+       <AdditionalDependencies>xapilib.lib;d3d9ltcg.lib;d3dx9.lib;xgraphics.lib;xboxkrnl.lib;xnet.lib;xaudio2.lib;xact3ltcg.lib;x3daudioltcg.lib;xmcoreltcg.lib;vcomp.lib;avcodec.lib;avdevice.lib;avformat.lib;avutil.lib;swresample.lib;swscale.lib</AdditionalDependencies>
+-      <AdditionalLibraryDirectories>$(SolutionDir)\..\..\ffmpeg\Xbox\ppc\lib</AdditionalLibraryDirectories>
++      <AdditionalLibraryDirectories>$(ProjectDir)..\..\ffmpeg\Xbox\ppc\lib</AdditionalLibraryDirectories>
+       <AdditionalOptions>/BASE:0x92000000 %(AdditionalOptions)</AdditionalOptions>
+       <StackCommitSize>1048576</StackCommitSize>
+     </Link>
+     <Deploy>
++      <ExcludedFromBuild>true</ExcludedFromBuild>
+       <DeploymentType>CopyToHardDrive</DeploymentType>
+     </Deploy>
+   </ItemDefinitionGroup>

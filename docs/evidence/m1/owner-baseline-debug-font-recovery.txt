@@ -1,0 +1,40 @@
+  CommonXbox.vcxproj -> <baseline>\Common\Debug\CommonXbox.lib
+  Git not on path, trying default Msysgit paths
+  Unable to update git-version.cpp, git not found.
+  If you don't want to add it to your path, set the GIT environment variable.
+  git-version.cpp
+  CoreXbox.vcxproj -> <baseline>\Core\Debug\CoreXbox.lib
+  libkirkXbox.vcxproj -> <baseline>\ext\libkirk\Debug\libkirkXbox.lib
+  zlibXbox.vcxproj -> <baseline>\ext\zlib\Debug\zlibXbox.lib
+  GPUXbox.vcxproj -> <baseline>\GPU\Debug\GPUXbox.lib
+  XboxLauncher.cpp
+  XboxMain.cpp
+..\XboxMain.cpp(492): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(501): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(505): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(507): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(508): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(290) : see declaration of 'currentGame'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(286) : see declaration of 'launcher'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(236) : see declaration of 'error_string'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(290) : see declaration of 'currentGame'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(286) : see declaration of 'launcher'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(236) : see declaration of 'error_string'
+..\XboxLauncher.cpp(569): warning C4010: single-line comment contains line-continuation character [<baseline>\Xbox\xx\xx.vcxproj]
+..\XboxLauncher.cpp(1765): error C2065: 'I_UP_DIRECTORY' : undeclared identifier [<baseline>\Xbox\xx\xx.vcxproj]
+..\XboxLauncher.cpp(1765): error C2065: 'I_DIR_LINE' : undeclared identifier [<baseline>\Xbox\xx\xx.vcxproj]
+..\XboxLauncher.cpp(1897): error C2065: 'I_UP_DIRECTORY' : undeclared identifier [<baseline>\Xbox\xx\xx.vcxproj]
+..\XboxLauncher.cpp(1897): error C2065: 'I_DIR_LINE' : undeclared identifier [<baseline>\Xbox\xx\xx.vcxproj]
+..\XboxLauncher.cpp(2122): error C2039: 'DeleteSlot' : is not a member of 'SaveState' [<baseline>\Xbox\xx\xx.vcxproj]
+..\XboxLauncher.cpp(2122): error C3861: 'DeleteSlot': identifier not found [<baseline>\Xbox\xx\xx.vcxproj]

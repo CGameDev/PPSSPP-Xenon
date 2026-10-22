@@ -1,0 +1,136 @@
+--- a/Xbox/XboxLauncher.cpp
++++ b/Xbox/XboxLauncher.cpp
+@@ -2004,84 +2004,58 @@
+ 		alpha = (float)remaining / 500.0f;
+ 	}
+ 
+-	int strW = StringWidth(toastMsg_, SCALE_SMALL);
+-	float padX = 20.0f;
+-	float padY = 8.0f;
+-	float w = (float)strW + padX * 2;
+-	float h = (float)FONT_H_SMALL + padY * 2;
+-	float x = (float)(SCREEN_W - (int)w) / 2.0f;
+-	float y = (float)SCREEN_H - h - 40.0f;
+-
+-	DWORD bg = ((DWORD)(alpha * 180.0f) << 24) | 0x00202020;
+-	DWORD fg = ((DWORD)(alpha * 255.0f) << 24) | 0x00FFFFFF;
+-
+-	DrawRect(x, y, x + w, y + h, bg);
+-	DrawString(toastMsg_, (int)x + (int)padX, (int)y + (int)padY, SCALE_SMALL, fg);
++    // Same lifetime/fade as before, using bounded CCLOS presentation only.
++    DWORD bg = ((DWORD)(alpha * 180.0f) << 24) | (CclosLauncher::Panel & 0x00FFFFFF);
++    DWORD fg = ((DWORD)(alpha * 255.0f) << 24) | (CclosLauncher::Teal & 0x00FFFFFF);
++    DrawRect(80, 568, 828, 612, bg);
++    DrawFittedString(toastMsg_, 100, 580, 708, 1, fg);
+ }
+ 
+ void XboxLauncher::RenderInGameMenu() {
+-	if (!inGameMenuActive_) return;
+-
+-	EnsureResources();
+-
+-	// In-game menu background (same animated style as the main menu)
+-	RenderAnimatedBackground();
+-
+-	int totalSlots = SaveState::SAVESTATESLOTS; // 5
+-	float leftX = 100.0f;
+-	float leftW = 560.0f;
+-	float rightX = leftX + leftW + 80.0f;
+-	float rightW = 500.0f;
+-	float menuY = 100.0f;
+-	float itemH = 50.0f;
+-	float totalH = itemH * (float)totalSlots + 10.0f;
+-
+-	// Left panel background
+-	DrawRect(leftX, menuY, leftX + leftW, menuY + totalH, COL_C0);
+-	DrawRect(leftX + leftW, menuY, leftX + leftW + 2, menuY + totalH, COL_C1);
+-
+-	// Right panel background
+-	DrawRect(rightX, menuY, rightX + rightW, menuY + totalH, COL_C0);
+-	DrawRect(rightX, menuY, rightX + 2, menuY + totalH, COL_C1);
+-
+-	// Left panel items (save/load state slots)
+-	for (int i = 0; i < totalSlots; i++) {
+-		float y = menuY + (float)i * itemH + 4.0f;
+-		float h = itemH - 8.0f;
+-		bool sel = (inGameMenuFocus_ == INGMENU_LEFT && inGameMenuSel_ == i);
+-		bool hasSave = SaveState::HasSaveInSlot(i);
+-
+-		// Same selected/not-selected pattern as the main menu right panel
+-		DWORD bg = sel ? COL_C2 : COL_C0;
+-		DrawRect(leftX + 4, y, leftX + leftW - 4, y + h, bg);
+-
+-		char label[64];
+-		if (hasSave)
+-			sprintf(label, "Slot %d [SAVED]   (A:Save  X:Load  Y:Del)", i + 1);
+-		else
+-			sprintf(label, "Slot %d (empty)   (A:Save)", i + 1);
+-
+-		DrawString(label, (int)leftX + 12, (int)y + (int)(h - FONT_H_SMALL) / 2, SCALE_SMALL, COL_TAB_TEXT);
+-	}
+-
+-	// Right panel items
+-	for (int i = 0; i < 5; i++) {
+-		float y = menuY + (float)i * itemH + 4.0f;
+-		float h = itemH - 8.0f;
+-		bool sel = (inGameMenuFocus_ == INGMENU_RIGHT && inGameMenuSel_ == i);
+-
+-		// Same selected/not-selected pattern as the main menu right panel
+-		DWORD bg = sel ? COL_C2 : COL_C0;
+-		DrawRect(rightX + 4, y, rightX + rightW - 4, y + h, bg);
+-
+-		DrawString(ingMenuLabelsR[i], (int)rightX + 12, (int)y + (int)(h - FONT_H_SMALL) / 2, SCALE_SMALL, COL_TAB_TEXT);
+-	}
+-
+-	// Bottom hints
+-	float hintY = menuY + totalH + 20.0f;
+-	DrawString("D-Pad: Navigate   A: Save   X: Load   Y: Delete   B: Close Menu", (int)leftX, (int)hintY, SCALE_SMALL, COL_TAB_TEXT);
+-
+-	RenderToast();
++    if (!inGameMenuActive_) return;
++
++    EnsureResources();
++
++    // Presentation only: existing input/state dispatch and renderer lifecycle stay intact.
++    DrawRect(0, 0, (float)SCREEN_W, (float)SCREEN_H, CclosLauncher::Canvas);
++    DrawRect(64, 136, 844, 616, CclosLauncher::Border);
++    DrawRect(65, 137, 843, 615, CclosLauncher::Panel);
++    DrawRect(864, 136, 1216, 616, CclosLauncher::Border);
++    DrawRect(865, 137, 1215, 615, CclosLauncher::Panel);
++    DrawRect(64, 636, 1216, 638, CclosLauncher::Teal);
++    DrawString("PPSSPP XENON", SAFE_X, SAFE_Y, 2, CclosLauncher::Text);
++    DrawString("In-game menu", SAFE_X, 88, 1, CclosLauncher::Muted);
++    DrawString("SAVE STATES", 80, 156, 1, CclosLauncher::Teal);
++    DrawString("SESSION", 884, 156, 1, CclosLauncher::Teal);
++
++    const int totalSlots = SaveState::SAVESTATESLOTS;
++    for (int i = 0; i < totalSlots; ++i) {
++        float y = 200.0f + (float)i * 72.0f;
++        bool selected = inGameMenuFocus_ == INGMENU_LEFT && inGameMenuSel_ == i;
++        bool hasSave = SaveState::HasSaveInSlot(i);
++        DrawRect(80, y, 828, y + 64, selected ? CclosLauncher::Teal : CclosLauncher::Border);
++        DrawRect(82, y + 2, 826, y + 62, selected ? CclosLauncher::FocusCard : CclosLauncher::Card);
++        char label[32];
++        sprintf(label, "Slot %d", i + 1);
++        DrawString(label, 100, (int)y + 12, 2, selected ? CclosLauncher::Text : CclosLauncher::Muted);
++        DrawString(hasSave ? "Saved" : "Empty", 704, (int)y + 22, 1,
++            hasSave ? CclosLauncher::Teal : CclosLauncher::Quiet);
++    }
++
++    for (int i = 0; i < 5; ++i) {
++        float y = 200.0f + (float)i * 72.0f;
++        bool selected = inGameMenuFocus_ == INGMENU_RIGHT && inGameMenuSel_ == i;
++        DrawRect(884, y, 1196, y + 64, selected ? CclosLauncher::Teal : CclosLauncher::Border);
++        DrawRect(886, y + 2, 1194, y + 62, selected ? CclosLauncher::FocusCard : CclosLauncher::Card);
++        DrawFittedString(i == 1 ? "Settings unavailable" : ingMenuLabelsR[i],
++            900, (int)y + 22, 280, 1, i == 1 ? CclosLauncher::Quiet : CclosLauncher::Text);
++    }
++
++    DrawFittedString(inGameMenuFocus_ == INGMENU_LEFT ?
++        "A Save   X Load   Y Delete   B Continue" : "A Confirm   B Continue",
++        80, 654, 716, 1, CclosLauncher::Text);
++    DrawFittedString("D-Pad Navigate / Switch panels", 884, 654, 312, 1, CclosLauncher::Muted);
++    RenderToast();
+ }
+ 
+ // ---------------------------------------------------------------------------

@@ -1,0 +1,62 @@
+--- a/GPU/GPUState.h
++++ b/GPU/GPUState.h
+@@ -531,8 +531,9 @@
+ class GPUInterface;
+ class GPUDebugInterface;
+ 
+-extern GPUgstate gstate;
+-extern GPUStateCache gstate_c;
++// Match the definitions: align these globals, without changing the struct layouts.
++extern GPUgstate MEMORY_ALIGNED16(gstate);
++extern GPUStateCache MEMORY_ALIGNED16(gstate_c);
+ extern GPUInterface *gpu;
+ extern GPUDebugInterface *gpuDebug;
+ extern GPUStatistics gpuStats;
+--- a/Xbox/XboxLauncher.cpp
++++ b/Xbox/XboxLauncher.cpp
+@@ -884,7 +884,7 @@
+ 
+ 	// Read ICON0.PNG from ISO using our self-contained ISO9660 reader
+ 	std::vector<uint8_t> pngData;
+-	if (!ISO_ReadIcon(gamePath.c_str(), pngData))
++	if (!ISO_ReadIcon(gamePath.c_str(), pngData) || pngData.empty())
+ 		return NULL;
+ 
+ 	// Decode PNG to RGBA using stb_image
+@@ -920,12 +920,14 @@
+ 					dstRow[x] = ((uint32_t)a << 24) | ((uint32_t)r << 16) | ((uint32_t)g << 8) | (uint32_t)b;
+ 				}
+ 			}
+-			tex->UnlockRect(0);
+-		}
+-
++			tex->UnlockRect(0);
++		} else {
++			tex->Release();
++			tex = NULL;
++		}
++	}
+ 	free(rgba);
+ 	return tex;
+-}
+ }
+ 
+ IDirect3DTexture9 *XboxLauncher::GetOrCreateIcon(const std::string &gamePath) {
+@@ -1021,10 +1023,13 @@
+ 				}
+ 			}
+ 			tex->UnlockRect(0);
+-		}
+-		free(rgba);
+-		return tex;
+-	}
++		} else {
++			tex->Release();
++			tex = NULL;
++		}
++	}
++	free(rgba);
++	return tex;
+ }
+ 
+ void XboxLauncher::LoadAtlas() {

@@ -1,5 +1,38 @@
 # PPSSPP-Xenon — CODEX START HERE
 
+## Current M7 font correction candidate
+
+Read docs/PGF_FONT_FIX_M7.md and docs/HADCV_M7.md first. The owner's log reaches
+game threads and stops at ltn0.pgf parsing. An isolated PGF bit-reader endian and
+0/32-bit boundary correction is reproduced and both full builds are clean. Only
+Core/Font/PGF.cpp and the generated identity differ from M6. UI, save/load/reset,
+GPU/JIT/session code and settings stay unchanged. M7 has not run on Xbox and is
+not proof that the complete hard lock is resolved. Keep the old failure evidence,
+PR #2 draft, and all deployment exclusions. No agent console action is authorized.
+
+## Latest hardware evidence — read first
+
+The owner tested M6 Release_LTCG: launcher/artwork visible, then black-screen hard
+lock after ISO launch; Guide unresponsive and restart required. Read
+docs/SMOKE_TEST_REPORT_01.md before further work. Preserve existing logs/config;
+no root cause or fix is established. Earlier NOT RUN statements describe earlier
+checkpoints. No agent console connection, transfer or launch is authorized.
+
+## Current M6 approved shell — read first
+
+The approved navy/teal shell adds sidebar navigation, larger grid and compact
+views, selected-game artwork and a matching right-side in-game menu. Eight
+presentation bodies plus explicit geometry substitutions change over M5.
+Save/load/delete/reset handlers, session loop, class state, notifications and
+emulator sources remain unchanged. The pause backdrop stays opaque and static;
+Left/Right switches the existing slot/session pages, default Slot 1 unchanged.
+Both full Debug/Release_LTCG Rebuilds have zero warnings/errors.
+Read docs/BASELINE.md, docs/HADCV_M6.md, docs/BUILD_XBOX360.md and
+docs/CONSOLE_TEST_READINESS.md. All four Deploy entries must stay explicitly excluded.
+No console connection, deployment or launch is authorized. Software is ready to
+approach a first separately authorized smoke test; runtime/performance and exact
+TV legibility remain unverified. Keep PR #2 draft.
+
 Repository: https://github.com/CGameDev/PPSSPP-Xenon.git
 
 Project name: **PPSSPP Xenon**

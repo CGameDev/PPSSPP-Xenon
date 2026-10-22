@@ -1,0 +1,5 @@
+Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+launcher_texture_cases.cpp
+<workspace>\work\ppsspp-xenon\artifacts\texture-negative\launcher_texture_functions.inc(48) : error C2220: warning treated as error - no 'object' file generated
+<workspace>\work\ppsspp-xenon\artifacts\texture-negative\launcher_texture_functions.inc(48) : warning C4715: 'XboxLauncher::LoadGameIcon' : not all control paths return a value
+<workspace>\work\ppsspp-xenon\artifacts\texture-negative\launcher_texture_functions.inc(82) : warning C4715: 'XboxLauncher::LoadPNGTexture' : not all control paths return a value
