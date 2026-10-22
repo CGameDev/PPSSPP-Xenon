@@ -72,12 +72,67 @@
     "tile_and_compact_views": "KEEP_BOTH_SWITCHABLE",
     "detailed_design": "PROVISIONAL"
   },
-  "milestone": "M2 original 62-warning fixes and full local rebuilds",
+  "milestone": "M3 remaining warning fixes and warning-clean full local rebuilds",
   "historical_m0_commit": "005686f05ba2cda41ed7da082f222d161743098e",
   "source_recovery_commit": "bb1e51ab2f6d879d20f3e407e190fbda7c95d160",
-  "change_scope": "Separate aligned-extern and artwork-loader failure cleanup patch; unchanged GPU layouts, codecs, tuning and session loop",
+  "change_scope": "18 separate source/project patch targets plus owner-loop SEH helper; numeric/lifetime/build fixes; no runtime tuning or visual redesign",
   "production_cclos_renderer": false,
   "builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "0976634098dcd90afde77201cb2cc7551bdb5a6d0b86db3ad83714035f157443",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "e99a3ba53930362d6765d28055ace2b890f3d355ffe994c7103f7209084074c0",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "physical_console": {
+    "tests": "NOT RUN",
+    "initial_auto_copy": "Failed to connect, X1001; no transfer or launch succeeded",
+    "current_builds": "M3 full Rebuilds with all four Deploy entries excluded; zero warnings/errors; no console actions"
+  },
+  "historical_m1_builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "c717668880a3e213bdb1d0589865b3d53d815f486c1b17e7935a4e1851831b48",
+      "format": "XEX2",
+      "build_exit_code": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "85b4bdedd2098c092a6c712c96e9e1ad30a7445918638717840974f1f3a53fca",
+      "format": "XEX2",
+      "build_exit_code": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "warnings": {
+    "M2_remaining_46_Debug_40_Release_LTCG": "RESOLVED",
+    "full_rebuild": {
+      "Debug": 0,
+      "Release_LTCG": 0
+    },
+    "suppressed": false
+  },
+  "historical_m2_builds": [
     {
       "configuration": "Debug",
       "bytes": 16375808,
@@ -100,36 +155,5 @@
       "other_warnings": 40,
       "xbox_runtime": "NOT RUN"
     }
-  ],
-  "physical_console": {
-    "tests": "NOT RUN",
-    "initial_auto_copy": "Failed to connect, X1001; no transfer or launch succeeded",
-    "current_builds": "M2 full Rebuilds with all four Deploy entries excluded; no console actions"
-  },
-  "historical_m1_builds": [
-    {
-      "configuration": "Debug",
-      "bytes": 16375808,
-      "sha256": "c717668880a3e213bdb1d0589865b3d53d815f486c1b17e7935a4e1851831b48",
-      "format": "XEX2",
-      "build_exit_code": 0,
-      "xbox_runtime": "NOT RUN"
-    },
-    {
-      "configuration": "Release_LTCG",
-      "bytes": 9101312,
-      "sha256": "85b4bdedd2098c092a6c712c96e9e1ad30a7445918638717840974f1f3a53fca",
-      "format": "XEX2",
-      "build_exit_code": 0,
-      "xbox_runtime": "NOT RUN"
-    }
-  ],
-  "warnings": {
-    "original_targeted_62": "RESOLVED",
-    "full_rebuild_other": {
-      "Debug": 46,
-      "Release_LTCG": 40
-    },
-    "suppressed": false
-  }
+  ]
 }

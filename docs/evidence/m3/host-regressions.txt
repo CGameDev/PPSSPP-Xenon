@@ -1,0 +1,9 @@
+Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+PASS: 786432 morph cases, blended normals, unsigned limits, tile bounds and initial root
+PASS: 8 actual session-loop cases (host stubs; no Xbox execution)
+PASS: owner loop body, crash filter and surrounding lifecycle preserved by exact source comparison
+PASS negative control: original wrapped multiply truncates fractional normal to zero
+PASS: all 82 emitted PPC prologue/epilogue words match reference (scratch address normalized)
+PASS: cache binding after member construction and stable reinitialization
+PASS: 32 xxHash outputs match reference, including streaming/chunk boundaries
+PASS: false xxHash size assertion still fails compilation

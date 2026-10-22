@@ -1,0 +1,4 @@
+m3_emitter_cases.cpp
+<workspace>\work\PPSSPP-Xenon\artifacts\m3-host-regressions\emitter_functions.inc(120) : warning C4146: unary minus operator applied to unsigned type, result still unsigned
+<workspace>\work\PPSSPP-Xenon\artifacts\m3-host-regressions\emitter_functions.inc(135) : warning C4146: unary minus operator applied to unsigned type, result still unsigned
+<workspace>\work\PPSSPP-Xenon\artifacts\m3-host-regressions\emitter_functions.inc(166) : warning C4146: unary minus operator applied to unsigned type, result still unsigned

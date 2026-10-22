@@ -23,3 +23,16 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify owner archive (must pass before import)
         run: python3 tools/verify_source_overlay.py
+  legacy-warning-regressions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the pinned public legacy source
+        run: |
+          git init artifacts/legacy
+          git -C artifacts/legacy fetch --depth=1 https://github.com/metalex10/PPSSPP-X360.git 540db97d96136b2139e5f12dd3c0bb18f2e1cd1f
+          git -C artifacts/legacy checkout --detach FETCH_HEAD
+      - name: Assemble and check the actual patched source
+        run: |
+          python3 tools/prepare_baseline.py --legacy artifacts/legacy --destination artifacts/m3-regression-source --with-build-compatibility
+          python3 tests/run_m3_regressions.py --source-root artifacts/m3-regression-source --reference-root artifacts/legacy --build-root artifacts/m3-regressions

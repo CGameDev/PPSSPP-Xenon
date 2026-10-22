@@ -10,12 +10,16 @@ staging and never alter that archive.
 - `warning-fixes.patch`: match existing GPU global alignment in declarations,
   define both image-loader failure returns/cleanup and reject empty icon data.
   Struct layouts, successful pixel conversion and both UI modes stay intact.
+- `remaining-warnings.patch`: typed numeric boundaries, post-construction cache
+  binding, unused-code/project cleanup and owner-loop extraction; see the M3 review.
+- `Xbox/XenonEmulationLoop.h`: original owner loop in a non-inlined SEH helper
+  with POD locals. Main keeps its RAII objects; one call per session.
 - `Xbox/XenonStateDeleteCompat.h`: deletes only the selected current-title state
   and optional screenshot using core-generated paths. Empty/missing paths and
   partial failures return false. It never scans or deletes folders.
 
 Preparation verifies archive/donor identities, records pristine source hashes,
-normalizes patch-target line endings to LF and checks/applies all three patches.
+normalizes patch-target line endings to LF and checks/applies all four patches.
 Owner files always win same-path conflicts before this separate compatibility
 step. The licensed font header/helper and guarded provenance string follow.
 Fresh replay was compared with the built files. Runtime validation remains open.

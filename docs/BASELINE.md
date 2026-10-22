@@ -1,83 +1,115 @@
-# Baseline warning checkpoint — M2
+# Baseline warning checkpoint — M3
 
-The original **62 Release_LTCG link warnings are resolved**: 30 C4742 alignment
-mismatches, 30 associated C4744 type mismatches, and two C4715 missing returns.
-Debug and Release_LTCG are fully rebuilt locally with the licensed Xbox compiler.
-These remain untested Xbox executables. Both switchable library views remain.
+**Debug and Release_LTCG both complete full local Rebuilds with 0 warnings and
+0 errors.** The remaining M2 totals (46 Debug / 40 Release_LTCG) are resolved;
+the earlier 62-warning fixes also remain clean. Both switchable library views
+and the navy/teal design previews are preserved. Nothing was deployed or launched
+on an Xbox. Runtime compatibility and performance remain NOT RUN.
 
-## Changes and preservation
+## Reviewable changes
 
-`baseline-overlay/warning-fixes.patch` is applied after the M1 adapters. The
-byte-exact owner archive and its original authority hash remain unchanged:
-`6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35`.
-The donor stays pinned at `540db97d96136b2139e5f12dd3c0bb18f2e1cd1f`.
+`baseline-overlay/remaining-warnings.patch` changes 18 source/project files over
+M2. `Xbox/XenonEmulationLoop.h` holds the existing owner emulation loop in a
+non-inlined helper so its SEH handler no longer shares a function with main's
+RAII objects. The exact loop body and surrounding lifecycle are compared with
+the authenticated owner source. The exception filter, core timing, input/menu
+sequence and return/reset/exit decisions are retained. The helper is called once
+per session; no per-frame helper call or tuning change is added.
 
-- GPUState.h now applies MEMORY_ALIGNED16 to the two **extern global variables**,
-  matching their existing definitions in GPUState.cpp. Neither struct definition
-  changes. Compile-only XDK checks confirm 1,616/420-byte type sizes, 4-byte type
-  alignment and every matrix offset in both configurations before and after the
-  fix. Consumers now see the globals' existing 16-byte alignment. Applying
-  alignment to the struct types instead would risk padding/layout changes.
-- LoadGameIcon and LoadPNGTexture now free decoded pixels and return a defined
-  result when texture creation fails. Failed locks release the texture and return
-  null, allowing existing fallback handling. Empty icon data is rejected before
-  indexing the vector. Successful copy/swizzle/pitch behavior is unchanged.
-- The local build driver accepts `-Rebuild`, retaining all deployment checks.
-  Three rejection cases prove missing/implicit/enabled deployment metadata stops
-  before MSBuild. All four real project Deploy entries remain explicitly excluded.
-- Generated provenance identifies M2. No compiler optimization, warning policy,
-  clock/worker setting, codec profile, renderer algorithm or session loop changes.
+The numeric warning investigation found a real morph-normal defect: multiplying
+an endian-wrapped signed 16-bit sample by a float selected an overload returning
+the wrapped integer type, truncating fractional normals. Convert the sample to
+float before multiplying, matching the intended floating-point accumulation.
+A negative control reproduces the old zero result for a fractional normal;
+786,432 sample/weight/reversal cases and a blended-normal case pass afterward.
 
-Fresh preparation reproduces the built patched source byte-for-byte. Only
-GPU/GPUState.h and Xbox/XboxLauncher.cpp change among donor/owner source and
-project files compared with M1; the generated version string also advances.
-All twelve FFmpeg libraries are reused byte-for-byte from verified M1 builds,
-covering 436 PPCBE objects. No FFmpeg source/header changed, so it is not rebuilt.
-The design HTML, preview images and launcher grid/list behavior remain unchanged.
-Detailed CCLOS styling remains provisional.
+The trailing-backslash launcher comment also swallowed the following root-directory
+assignment during XDK preprocessing. Rewording the comment restores the existing
+intended initialization to the game drive; before/after preprocessing and host
+root checks verify it. Both grid/list controls and renderers remain intact.
 
-## Actual checks
+Other changes give unsigned fields unsigned comparison constants, use a signed
+tile-loop index matching tileCount, make bounded emitter offsets explicitly
+signed, bind the block cache after member construction, type the masked VFPU
+negate flag as bool, remove unused scalar locals, guard an unused platform label
+and replace xxHash's boolean-division compile-time check with an equivalent
+negative-array-size check. [The warning review](WARNING_REVIEW_M3.md) maps every
+code/count to its change and verification.
+
+Debug Common/Core/GPU projects disable obsolete MinimalRebuild (/Gm), retaining
+multiprocess compilation (/MP). This resolves their incompatible build options.
+Three Common units containing no executable code or CRT initializers are excluded
+from Debug/Release_LTCG; full linking confirms required symbols are still present.
+No warning is disabled, warning level reduced or optimization policy weakened.
+
+## Evidence
 
 | Check | Result |
 | --- | --- |
-| Original archive hash and every member CRC | PASS |
-| Host test suite | 20 PASS, no local skips |
-| Actual patched loaders with injected failures and pixel/pitch checks | 12 cases PASS, C++98 /W4 /WX |
-| Original loader negative control | Both C4715 diagnostics reproduced; expected rejection |
-| XDK layout/alignment probes | M1 and M2, Debug and Release_LTCG: four compile-only passes |
-| Fresh patch replay versus built source | Exact byte match |
-| FFmpeg identity and architecture | 12 identical libraries; 436 PPCBE objects |
-| Debug full Rebuild | PASS, 0 original-target warnings; 46 other warnings |
-| Release_LTCG full Rebuild | PASS, 0 original-target warnings; 40 other warnings |
-| Deployment, Xbox launch or runtime/performance tests | NOT RUN |
+| Original archive hash and every member CRC | PASS, authority unchanged |
+| Existing host unit tests | 20 PASS, no local skips |
+| State-deletion helper / actual artwork-loader tests | PASS, retained |
+| Morph normals | 786,432 cases plus multi-morph blend PASS; old defect reproduced |
+| Unsigned limits, tile bounds, VFPU negate flags and initial root | PASS, 4,194,304 prefix/lane checks |
+| Actual session loop | 8 host cases PASS, including native Windows SEH fault/filter |
+| Original loop/lifecycle versus extracted helper | Exact source comparison PASS |
+| PPC emitter | All 82 generated prologue/epilogue words match reference; scratch address normalized |
+| Cache construction/reinitialization | PASS; XDK class size/alignment unchanged per configuration |
+| xxHash | 32 one-shot/streaming outputs match reference; false size check rejected |
+| GPU layout | Four XDK compile-only probes PASS, existing sizes/offsets/alignment preserved |
+| Excluded Common units | XDK COFF inspection: zero code bytes, no CRT initializers |
+| Fresh preparation versus final built source | Exact byte match |
+| Debug full Rebuild | PASS, 0 warnings / 0 errors |
+| Release_LTCG full Rebuild | PASS, 0 warnings / 0 errors |
+| Console deployment, launch, runtime or performance | NOT RUN |
 
-[Build identities](evidence/m2/baseline-builds.json), full rebuild logs, warning
-inventories and source/preservation receipts are in [M2 evidence](evidence/m2/).
-The warning auditor counts emissions before MSBuild repeats its summary; the
-counts agree with MSBuild's final totals. These builds are **not warning-free**.
+The XDK is PowerPC 16.00.11886.00 with MSBuild 4 and installed licensed VS2010.
+Host regressions use actual staged functions; new fixtures pass with warnings as
+errors. Emitter tests use the real project's /W3 (its unchanged primitives have
+additional /W4 narrowing diagnostics); other new MSVC fixtures use /W4. Original
+reference/negative controls intentionally retain diagnostics and are not compiled
+with /WX. Hosted GCC checks rebuild the fixture inputs from the fixed public donor
+and authenticated owner overlay; no Xbox executable is executed by these tests.
 
-A fresh replay check caught a launcher encoding difference in the first staged
-copy. The exact replay bytes replaced that file and both full rebuilds were
-repeated before final artifact identities were recorded. Initial diagnostic logs
-are retained separately; the final logs and receipts identify accepted outputs.
+[Build identities](evidence/m3/baseline-builds.json), full logs, zero-warning
+inventories, source hashes, target probes and host outputs are in
+[M3 evidence](evidence/m3/). XEX timestamps/paths mean rebuilds are not claimed
+byte-for-byte deterministic. This is a warning-clean build checkpoint, not a
+runtime-qualified release or a performance measurement.
 
-## Other warnings and remaining limits
+## Source, dependencies and preservation
 
-The 62-warning M1 log was an incremental final link. Full solution rebuilding also
-emits older compile/library diagnostics. [The warning assessment](WARNING_REVIEW_M2.md)
-records counts, locations and reasons for deferring behavioral changes. In
-particular, C4509 concerns SEH with C++ destructors in the owner session loop;
-C4018/C4244 involve conversions, and PPC emitter/JIT warnings require their own
-correctness tests. They are not certified harmless. No diagnostic is suppressed
-and no warning level or optimization is weakened to make this checkpoint pass.
+The original owner archive retains SHA-256
+`6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35`.
+The legacy donor stays at `540db97d96136b2139e5f12dd3c0bb18f2e1cd1f`.
+Separate patches apply after archive verification; donor/owner source encodings
+are preserved byte-for-byte outside intentional hunks and line-ending normalization.
+All twelve FFmpeg libraries remain identical to M2, with all 436 objects PPCBE.
+FFmpeg source, headers and codec profiles are unchanged and were not rebuilt.
+Original licenses/notices remain, and no SDK contents or generated binaries are
+committed. The two functional corrections above and the bounded lifetime changes
+are explicit; no JIT/core modernization, clock/worker tuning or visual redesign
+is included. Detailed CCLOS styling remains provisional.
 
-No console connection, deployment or launch is requested by M2. The historical M1
-failed automatic copy attempt remains documented in [M1](BASELINE_M1.md); its
-explicit exclusions are preserved. Xbox boot, graphics, audio/input, savedata,
-states, switching, memory growth and performance remain NOT RUN. No baseline tag
-or release is created, and PR #2 remains draft. Any hardware work needs a separate
-owner instruction; this checkpoint authorizes none.
+Every legacy Deploy entry remains explicitly excluded, and the local driver still
+rejects enabled/missing deployment metadata. M3 performs no console connection,
+deployment or launch. Historical M1's failed automatic copy attempt remains
+recorded; no historical failure is erased.
 
-[M0](BASELINE_M0.md), [M1](BASELINE_M1.md) and their evidence remain historical.
-M1 evidence hashes refer to commit d68b9a609b3e145e72a3fa97613b78de738215a5;
-M2's new evidence index binds current project bytes without rewriting old records.
+## Retained build failure and limits
+
+The first Debug build exposed a further same-file unsigned comparison; all
+unsigned wrapped comparisons in that path were checked and corrected. The first
+Release attempt exhausted local disk space. Only older task-generated compiler
+intermediates and Common/Core/GPU libraries under verified task staging roots
+were removed; original sources, FFmpeg, XEX outputs and packaged milestones remain.
+Both full builds were repeated after the final emitter refinement and passed;
+accepted output identities are separate from initial diagnostics.
+
+No Xbox boot, rendering/audio/input, savedata/states/switching, memory growth or
+performance result is claimed. Keep PR #2 draft; no baseline tag, merge, release,
+deployment or hardware run is part of this checkpoint.
+
+[M0](BASELINE_M0.md), [M1](BASELINE_M1.md), [M2](BASELINE_M2.md) and their evidence
+remain historical. M2 hashes apply at commit
+`4ec6ba48525aa8be4e71eb05b6f113943f56327b`; M3 adds its own current evidence index.

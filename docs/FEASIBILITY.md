@@ -1,14 +1,13 @@
 # Xbox 360 feasibility and preservation boundaries
 
-## M2 update
+## M3 update
 
-Authentic owner source is recovered, Xbox FFmpeg is rebuilt, and Debug and
-Release_LTCG build locally. See [current baseline](BASELINE.md) for the separate
-legacy API/atlas/build adapters and missing licensed font header. Both views stay.
-The original alignment/missing-return warnings are fixed with layout and loader
-checks; other full-rebuild warnings remain. Runtime/performance and detailed visual
-acceptance remain open. The M0 findings below are historical:
-their source/build blockers are resolved, while preservation principles remain.
+Owner source and Xbox FFmpeg are recovered. Both full local configurations now
+build with zero warnings/errors. M3 applies bounded lifetime/numeric/build fixes,
+with source-derived host and target compile-only checks. Both views remain.
+Read BASELINE.md and WARNING_REVIEW_M3.md for exact changes and limits. Hardware
+compatibility, resource growth, performance and final styling remain unverified.
+The assessment below retains historical M0 conditions and preservation principles.
 
 ## Assessment
 

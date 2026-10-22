@@ -10,10 +10,10 @@ Use Python 3 and Git. The legacy checkout must be at `metalex10/PPSSPP-X360@540d
 python tools/verify_source_overlay.py
 python -m unittest discover -s tests -v
 python tools/prepare_baseline.py --legacy <legacy-checkout> `
-  --destination artifacts/baseline-m2 --with-build-compatibility
+  --destination artifacts/baseline-m3 --with-build-compatibility
 ```
 
-Compatibility mode stages beneath this project. It records the pristine source manifest, applies the three tracked patches, copies the licensed font header/helper and writes combined provenance. The original archival overlay remains unchanged.
+Compatibility mode stages beneath this project. It records the pristine source manifest, applies the four tracked patches, copies the licensed font header/helper and writes combined provenance. The original archival overlay remains unchanged.
 
 ## Local host tools
 
@@ -31,13 +31,13 @@ Use source/build staging paths without spaces; SDK/Bash installation paths may c
 
 ```powershell
 python tools/build_xbox_ffmpeg.py `
-  --source artifacts/baseline-m2/ffmpeg --build artifacts/ffmpeg-debug `
+  --source artifacts/baseline-m3/ffmpeg --build artifacts/ffmpeg-debug `
   --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
   --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
   --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Debug
 
 python tools/build_xbox_ffmpeg.py `
-  --source artifacts/baseline-m2/ffmpeg --build artifacts/ffmpeg-release `
+  --source artifacts/baseline-m3/ffmpeg --build artifacts/ffmpeg-release `
   --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
   --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
   --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Release
@@ -50,8 +50,8 @@ Native Makefiles use Windows source paths. The old MSVC dependency scanner is by
 ## Build local XEX files
 
 ```powershell
-./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m2 -Configuration Debug -Rebuild
-./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m2 -Configuration Release_LTCG -Rebuild
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m3 -Configuration Debug -Rebuild
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m3 -Configuration Release_LTCG -Rebuild
 ```
 
 The driver checks every project deployment exclusion and all six library architectures before MSBuild with normal project references. It requests Build or, with -Rebuild, a full Rebuild. Do not invoke Deploy or launch an XEX as part of this procedure.
@@ -60,9 +60,9 @@ Outputs: Xbox/xx/Debug/xx.xex and Xbox/xx/Release_LTCG/xx.xex. They require matc
 
 Compile tests/state_delete_compat.cpp with VS2010 or a C++98-capable host compiler and run it in a fresh disposable folder. Never run its fixed fixture filenames in an owner savedata directory. CI uses artifacts/state-delete-test.
 
-## M2 warning validation
+## M3 warning validation
 
-M2 reuses the twelve M1 FFmpeg libraries byte-for-byte after architecture/hash
+M3 reuses the twelve previously built FFmpeg libraries byte-for-byte after architecture/hash
 checks; no FFmpeg header/source changed. The examples above can instead rebuild
 FFmpeg from its pinned source when reproducing from an empty environment.
 
@@ -81,5 +81,25 @@ ignored artifacts. M1 comparison omits EXPECT_ALIGNED_GLOBALS and uses M1 source
 These are compile-only assertions, with no link or console execution.
 
 Audit each final log with `python tools/audit_build_warnings.py <log>`.
-C4742/C4744/C4715 must have zero emissions; retain all other warnings in evidence.
-Read WARNING_REVIEW_M2.md before interpreting the full rebuild totals.
+Every final audit must have total=0 and agree with MSBuild 0 Warning(s).
+Read WARNING_REVIEW_M3.md and preserve any failed logs.
+
+Run the added source-derived regressions after preparation:
+
+```powershell
+python tests/run_m3_regressions.py --source-root artifacts/baseline-m3 `
+  --reference-root <pinned-legacy-checkout> --build-root artifacts/m3-host-regressions
+```
+
+Use the VS2010 x86 host tools environment locally; CI uses g++ with the pinned
+public legacy checkout. Reference inputs use unchanged donor emitter/morph/hash
+code. The script executes host fixtures and emitter word generators, never Xbox
+machine code. Native Windows SEH is tested with host RaiseException; GCC's stub
+case checks control flow and does not claim native SEH. Current fixtures treat
+warnings as errors; old negative/differential controls retain expected warnings.
+Emitter fixtures use the real /W3 setting; other new MSVC fixtures use /W4.
+
+Keep enough free local storage for full compiler/link intermediates. After a
+space failure, preserve sources/evidence and only remove verified task-generated
+intermediates in obsolete staging roots; never delete owner source or SDK files.
+Repeat both full rebuilds before recording accepted hashes.

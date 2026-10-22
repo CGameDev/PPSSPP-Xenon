@@ -1,0 +1,12 @@
+[
+  {
+    "milestone": "m2",
+    "assignment_survives_preprocessing": false,
+    "compiler_exit_code": 0
+  },
+  {
+    "milestone": "m3",
+    "assignment_survives_preprocessing": true,
+    "compiler_exit_code": 0
+  }
+]

@@ -1,5 +1,10 @@
 # Backport ledger
 
+M3 adds original warning fixes, not an upstream modernization merge: owner SEH
+loop extraction, correct floating morph-normal multiplication, typed comparisons
+and offsets, delayed cache binding, a standard xxHash compile-time assertion and
+bounded unused-code/project cleanup. Original licenses remain. Both views stay.
+
 M2 applies no upstream core backport. Original patch: aligned extern declarations
 matching existing globals and deterministic artwork-loader failure cleanup.
 No GPU type layout, emulation algorithm or optimization settings change.

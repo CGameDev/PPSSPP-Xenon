@@ -1,8 +1,8 @@
 # PPSSPP Xenon
 
-> **M2 warning checkpoint:** the byte-exact owner source is recovered,
-> Xbox FFmpeg is rebuilt, and Debug/Release_LTCG both rebuild locally. The original
-> 62 link warnings are fixed; other legacy compile warnings remain. See
+> **M3 warning-clean build checkpoint:** the byte-exact owner source is recovered,
+> Xbox FFmpeg is rebuilt, and Debug/Release_LTCG both rebuild locally. Both full rebuilds finish
+> with zero warnings/errors; the remaining 46/40 diagnostics are resolved. See
 > [baseline evidence and retained warnings](docs/BASELINE.md) and
 > [reproduction steps](docs/BUILD_XBOX360.md). These are untested builds; no Xbox
 > runtime/performance acceptance is claimed. [CCLOS UI concepts](design/README.md)

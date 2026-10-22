@@ -35,16 +35,37 @@ def unpack(archive, destination, manifest, origin):
 def apply_build_compatibility(destination, project):
     # The patches are tracked separately; the archival owner bytes stay pristine.
     relative = destination.relative_to(project).as_posix()
-    for name in ("Xbox/XboxLauncher.cpp", "Xbox/xx/xx.vcxproj", "GPU/GPUState.h"):
+    for name in (
+        'Xbox/XboxLauncher.cpp',
+        'Xbox/xx/xx.vcxproj',
+        'GPU/GPUState.h',
+        'Common/FileUtil.cpp',
+        'Common/MemArena.cpp',
+        'Common/ppcEmitter.cpp',
+        'Core/HLE/sceKernelModule.cpp',
+        'Core/HLE/sceAtrac.cpp',
+        'Core/Dialog/SavedataParam.cpp',
+        'GPU/Directx9/helper/global.cpp',
+        'Core/MIPS/PPC/PpcCompVFPU.cpp',
+        'Core/MIPS/JitCommon/JitBlockCache.h',
+        'Core/MIPS/PPC/PpcJit.cpp',
+        'GPU/Directx9/VertexDecoderDX9.cpp',
+        'GPU/Directx9/FramebufferDX9.cpp',
+        'ext/xxhash.c',
+        'Common/CommonXbox.vcxproj',
+        'Core/CoreXbox.vcxproj',
+        'GPU/GPUXbox.vcxproj',
+        'Xbox/XboxMain.cpp',
+    ):
         path = destination / name
         path.write_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
     git = ["git", "-c", "safe.directory=" + project.as_posix(), "-C", str(project), "apply"]
-    for name in ("launcher-legacy-compat.patch", "local-build-project.patch", "warning-fixes.patch"):
+    for name in ("launcher-legacy-compat.patch", "local-build-project.patch", "warning-fixes.patch", "remaining-warnings.patch"):
         patch = project / "baseline-overlay" / name
         subprocess.run(git + ["--check", "--directory=" + relative, str(patch)], check=True)
         subprocess.run(git + ["--directory=" + relative, str(patch)], check=True)
-    shutil.copyfile(project / "baseline-overlay/Xbox/XenonStateDeleteCompat.h",
-                    destination / "Xbox/XenonStateDeleteCompat.h")
+    for name in ("XenonStateDeleteCompat.h", "XenonEmulationLoop.h"):
+        shutil.copyfile(project / "baseline-overlay/Xbox" / name, destination / "Xbox" / name)
     font = destination / "native/ext/stb_truetype"
     font.mkdir(parents=True, exist_ok=True)
     for name in ("stb_truetype.h", "LICENSE"):
@@ -52,7 +73,7 @@ def apply_build_compatibility(destination, project):
     (destination / "git-version.cpp").write_text(
         '// Generated baseline provenance, not a release version.\n'
         '#define PPSSPP_GIT_VERSION_NO_UPDATE 1\n'
-        'const char *PPSSPP_GIT_VERSION = "legacy-540db97-owner-6dd3c4f-m2";\n', encoding="utf-8")
+        'const char *PPSSPP_GIT_VERSION = "legacy-540db97-owner-6dd3c4f-m3";\n', encoding="utf-8")
 
 
 def prepare(legacy, overlay, destination, compatibility=False):

@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "machine": "0x01F2 PPCBE",
+  "libraries": [
+    {
+      "name": "avcodec.lib",
+      "bytes": 10110194,
+      "sha256": "dd44186ef77d1ed49f1b229f7cbbf4c075239c87431b6f578fcef9b785ec297b",
+      "ppcbe_objects": 110,
+      "identical_to_m2": true
+    },
+    {
+      "name": "avdevice.lib",
+      "bytes": 126444,
+      "sha256": "d285ea13ef9f1627ce4b6e12b867ee26edce7b57fd89f695e34a3252d4c1a5be",
+      "ppcbe_objects": 3,
+      "identical_to_m2": true
+    },
+    {
+      "name": "avformat.lib",
+      "bytes": 2810786,
+      "sha256": "bcaf3750c84eedff0e06f4e0d75cfa4c144885228b945a2ff4c9051f20a47a44",
+      "ppcbe_objects": 35,
+      "identical_to_m2": true
+    },
+    {
+      "name": "avutil.lib",
+      "bytes": 1535040,
+      "sha256": "9a40e2bca0e5f16bdb22454f591103f8709e5e203008f49a69b5d52bb5a52e4b",
+      "ppcbe_objects": 54,
+      "identical_to_m2": true
+    },
+    {
+      "name": "swresample.lib",
+      "bytes": 330192,
+      "sha256": "ae654755b572ee2e0ae424834dbde15d346706f1016201f50004c87ef3dd41d6",
+      "ppcbe_objects": 5,
+      "identical_to_m2": true
+    },
+    {
+      "name": "swscale.lib",
+      "bytes": 1091336,
+      "sha256": "5dd92a5a508e000f6e89ef07abfc0d77dc0a60a14fb3f7d62a40b7c04d177d3f",
+      "ppcbe_objects": 11,
+      "identical_to_m2": true
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+--- a/Common/FileUtil.cpp
++++ b/Common/FileUtil.cpp
+@@ -652,8 +652,8 @@
+ // Returns the current directory
+ std::string GetCurrentDir()
+ {
++#ifndef _XBOX
+ 	char *dir;
+-#ifndef _XBOX
+ 	// Get the current working directory (getcwd uses malloc) 
+ 	if (!(dir = __getcwd(NULL, 0))) {
+ 
+--- a/Common/MemArena.cpp
++++ b/Common/MemArena.cpp
+@@ -324,7 +324,9 @@
+ 
+ 	return true;
+ 
++#if !defined(_XBOX) && !defined(__SYMBIAN32__)
+ bail:
++#endif
+ 	// Argh! ERROR! Free what we grabbed so far so we can try again.
+ 	for (int j = 0; j <= i; j++)
+ 	{
+--- a/Common/ppcEmitter.cpp
++++ b/Common/ppcEmitter.cpp
+@@ -794,7 +794,7 @@
+ 	void PPCXEmitter::Prologue() {
+ 		// Save regs
+ 		u32 regSize = 8; // 4 in 32bit system
+-		u32 stackFrameSize = 0x1F0;
++		const int stackFrameSize = 0x1F0;
+ 
+ 		// Write Prologue (setup stack frame etc ...)
+ 		// Save Lr
+@@ -802,7 +802,7 @@
+ 
+ 		// Save gpr
+ 		for(int i = 14; i < 32; i ++) {
+-			STD((PPCReg)i, R1, -((33 - i) * regSize));
++			STD((PPCReg)i, R1, -((33 - i) * static_cast<int>(regSize)));
+ 		}
+ 
+ 		// Save r12
+@@ -832,7 +832,7 @@
+ 
+ 	void PPCXEmitter::Epilogue() {		
+ 		u32 regSize = 8; // 4 in 32bit system
+-		u32 stackFrameSize = 0x1F0;
++		const int stackFrameSize = 0x1F0;
+ 
+ 		//Break();
+ 
+@@ -849,7 +849,7 @@
+ #endif
+ 		// Restore gpr
+ 		for(int i = 14; i < 32; i ++) {
+-			LD((PPCReg)i, R1, -((33 - i) * regSize));
++			LD((PPCReg)i, R1, -((33 - i) * static_cast<int>(regSize)));
+ 		}		
+ 
+ 		// recover r12 (LR saved register)
+--- a/Core/HLE/sceKernelModule.cpp
++++ b/Core/HLE/sceKernelModule.cpp
+@@ -1218,7 +1218,7 @@
+ 
+ 	u8 *param_argp = 0;
+ 	u8 *param_key = 0;
+-	if (param.args > 0) {
++	if (param.args > 0U) {
+ 		u32 argpAddr = param.argp;
+ 		param_argp = new u8[param.args];
+ 		Memory::Memcpy(param_argp, argpAddr, param.args);
+@@ -1496,13 +1496,13 @@
+ 		{
+ 			if ((optionAddr) && smoption.priority > 0) {
+ 				priority = smoption.priority;
+-			} else if (module->nm.module_start_thread_priority > 0) {
++			} else if (module->nm.module_start_thread_priority > 0U) {
+ 				priority = module->nm.module_start_thread_priority;
+ 			}
+ 
+-			if ((optionAddr) && (smoption.stacksize > 0)) {
++			if ((optionAddr) && (smoption.stacksize > 0U)) {
+ 				stacksize = smoption.stacksize;
+-			} else if (module->nm.module_start_thread_stacksize > 0) {
++			} else if (module->nm.module_start_thread_stacksize > 0U) {
+ 				stacksize = module->nm.module_start_thread_stacksize;
+ 			}
+ 
+--- a/Core/HLE/sceAtrac.cpp
++++ b/Core/HLE/sceAtrac.cpp
+@@ -1536,7 +1536,7 @@
+ 	context->info.loopNum = atrac->loopNum;
+ 	context->info.loopStart = atrac->loopStartSample > 0 ? atrac->loopStartSample : 0;
+ 	context->info.loopEnd = atrac->loopEndSample > 0 ? atrac->loopEndSample : 0;
+-	if (context->info.endSample > 0) {
++	if (context->info.endSample > 0U) {
+ 		// do not change info.state if this was not called at first time
+ 		// In Sol Trigger, it would set info.state = 0x10 outside
+ 		// TODO: Should we just keep this in PSP ram then, or something?
+--- a/Core/Dialog/SavedataParam.cpp
++++ b/Core/Dialog/SavedataParam.cpp
+@@ -963,16 +963,16 @@
+ 	}
+ 
+ 	auto &fileList = param->fileList;
+-	if (fileList->secureEntries.IsValid() && fileList->maxSecureEntries > 99) {
++	if (fileList->secureEntries.IsValid() && fileList->maxSecureEntries > 99U) {
+ 		ERROR_LOG_REPORT(SCEUTILITY, "SavedataParam::GetFilesList(): too many secure entries, %d", fileList->maxSecureEntries);
+ 		return SCE_UTILITY_SAVEDATA_ERROR_RW_BAD_PARAMS;
+ 	}
+-	if (fileList->normalEntries.IsValid() && fileList->maxNormalEntries > 8192) {
++	if (fileList->normalEntries.IsValid() && fileList->maxNormalEntries > 8192U) {
+ 		ERROR_LOG_REPORT(SCEUTILITY, "SavedataParam::GetFilesList(): too many normal entries, %d", fileList->maxNormalEntries);
+ 		return SCE_UTILITY_SAVEDATA_ERROR_RW_BAD_PARAMS;
+ 	}
+ 	// TODO: This may depend on sdk version or something?  Not returned by default.
+-	if (false && fileList->systemEntries.IsValid() && fileList->maxSystemEntries > 5) {
++	if (false && fileList->systemEntries.IsValid() && fileList->maxSystemEntries > 5U) {
+ 		ERROR_LOG_REPORT(SCEUTILITY, "SavedataParam::GetFilesList(): too many system entries, %d", fileList->maxSystemEntries);
+ 		return SCE_UTILITY_SAVEDATA_ERROR_RW_BAD_PARAMS;
+ 	}
+--- a/GPU/Directx9/helper/global.cpp
++++ b/GPU/Directx9/helper/global.cpp
+@@ -358,7 +358,7 @@
+ {
+     pMaxSize->x = 0;
+     pMaxSize->y = 0;
+-    for( DWORD i = 0; i < Scenario.tileCount; i++ )
++    for( int i = 0; i < Scenario.tileCount; i++ )
+     {
+         DWORD dwWidth = Scenario.tilingRects[i].x2 - Scenario.tilingRects[i].x1;
+         DWORD dwHeight = Scenario.tilingRects[i].y2 - Scenario.tilingRects[i].y1;
+--- a/Core/MIPS/PPC/PpcCompVFPU.cpp
++++ b/Core/MIPS/PPC/PpcCompVFPU.cpp
+@@ -80,7 +80,7 @@
+ 		{
+ 			int regnum = (prefix >> (i*2)) & 3;
+ 			int abs    = (prefix >> (8+i)) & 1;
+-			int negate = (prefix >> (16+i)) & 1;
++			bool negate = ((prefix >> (16+i)) & 1) != 0;
+ 			int constants = (prefix >> (12+i)) & 1;
+ 
+ 			// Unchanged, hurray.
+--- a/Core/MIPS/JitCommon/JitBlockCache.h
++++ b/Core/MIPS/JitCommon/JitBlockCache.h
+@@ -91,6 +91,8 @@
+ 
+ 	void Clear();
+ 	void Init();
++	// Bind after the owning emitter has finished member construction.
++	void Init(CodeBlock *codeBlock) { codeBlock_ = codeBlock; Init(); }
+ 	void Shutdown();
+ 	void Reset();
+ 
+--- a/Core/MIPS/PPC/PpcJit.cpp
++++ b/Core/MIPS/PPC/PpcJit.cpp
+@@ -203,9 +203,9 @@
+ 	blocks.InvalidateICache(em_address, length);
+ }
+ 
+-Jit::Jit(MIPSState *mips) : blocks(mips, this), gpr(mips, &jo),fpr(mips),mips_(mips)
++Jit::Jit(MIPSState *mips) : blocks(mips, NULL), gpr(mips, &jo),fpr(mips),mips_(mips)
+ { 
+-	blocks.Init();
++	blocks.Init(this);
+ 	gpr.SetEmitter(this);
+ 	fpr.SetEmitter(this);
+ 	AllocCodeSpace(1024 * 1024 * 16);  // 32MB is the absolute max because that's what an ARM branch instruction can reach, backwards and forwards.
+--- a/GPU/Directx9/VertexDecoderDX9.cpp
++++ b/GPU/Directx9/VertexDecoderDX9.cpp
+@@ -453,7 +453,7 @@
+ 		const s16_le *sv = (const s16_le *)(ptr_ + onesize_*n + nrmoff);
+ 		multiplier *= (1.0f/32767.0f);
+ 		for (int j = 0; j < 3; j++)
+-			normal[j] += sv[j] * multiplier;
++			normal[j] += static_cast<float>(sv[j]) * multiplier;
+ 	}
+ }
+ 
+@@ -1160,7 +1160,7 @@
+ 	}
+ #endif
+ 	
+-	volatile u64 tmp1, tmp2, tmp3, tmp4;
++	volatile u64 tmp1;
+ 
+ 	int j;
+ 	for (j = 0; j < dec_->nweights; j++) {
+@@ -1193,7 +1193,7 @@
+ }
+ 
+ void VertexDecoderJitCache::Jit_WeightsU16() {
+-	volatile u64 tmp1, tmp2, tmp3, tmp4;
++	volatile u64 tmp1;
+ 	int j;
+ 	for (j = 0; j < dec_->nweights; j++) {
+ 		MOVI2R(scratchReg, dec_->weightoff + (j *2));
+@@ -1241,7 +1241,7 @@
+ 
+ // Fill last two bytes with zeroes to align to 4 bytes. LDRH does it for us, handy.
+ void VertexDecoderJitCache::Jit_TcU8() {
+-	volatile u64 tmp1, tmp2, tmp3, tmp4;
++	volatile u64 tmp1, tmp2;
+ 
+ 	LBZ(tempReg1, srcReg, dec_->tcoff + 0);
+ 	LBZ(tempReg2, srcReg, dec_->tcoff + 1);
+@@ -1422,7 +1422,7 @@
+ }
+ 
+ void VertexDecoderJitCache::Jit_NormalS8() {
+-	volatile u64 tmp1, tmp2, tmp3, tmp4;
++	volatile u64 tmp1, tmp2, tmp3;
+ 
+ 	LBZ(tempReg1, srcReg, dec_->nrmoff + 0);
+ 	LBZ(tempReg2, srcReg, dec_->nrmoff + 1);
+@@ -1500,7 +1500,7 @@
+ 
+ // Through expands into floats, always. Might want to look at changing this.
+ void VertexDecoderJitCache::Jit_PosS8Through() {
+-	volatile u64 tmp1, tmp2, tmp3, tmp4;
++	volatile u64 tmp1, tmp2, tmp3;
+ 
+ 	LBZ(tempReg1, srcReg, dec_->posoff + 0);
+ 	LBZ(tempReg2, srcReg, dec_->posoff + 1);
+@@ -1593,7 +1593,7 @@
+ 
+ // Copy 3 bytes and then a zero. Might as well copy four.
+ void VertexDecoderJitCache::Jit_PosS8() {
+-	volatile u64 tmp1, tmp2, tmp3, tmp4;
++	volatile u64 tmp1, tmp2, tmp3;
+ 
+ 	LBZ(tempReg1, srcReg, dec_->posoff + 0);
+ 	LBZ(tempReg2, srcReg, dec_->posoff + 1);
+--- a/GPU/Directx9/FramebufferDX9.cpp
++++ b/GPU/Directx9/FramebufferDX9.cpp
+@@ -884,7 +884,6 @@
+ 
+ 		// Order packing/readback of the framebuffer
+ 		if (vfb) {
+-			int pixelType, pixelSize, pixelFormat, align;
+ 
+ 
+ 			if (vfb->fbo) {
+--- a/ext/xxhash.c
++++ b/ext/xxhash.c
+@@ -181,7 +181,7 @@
+ //**************************************
+ // Macros
+ //**************************************
+-#define XXH_STATIC_ASSERT(c)   { enum { XXH_static_assert = 1/(!!(c)) }; }    // use only *after* variable declarations
++#define XXH_STATIC_ASSERT(c)   { typedef char XXH_static_assert[(c) ? 1 : -1]; (void)sizeof(XXH_static_assert); }    // use only *after* variable declarations
+ 
+ 
+ //****************************
+--- a/Xbox/XboxLauncher.cpp
++++ b/Xbox/XboxLauncher.cpp
+@@ -574,7 +574,7 @@
+ 	LoadRecent();
+ 	scanDone_ = false;
+ 
+-	// Start at the game root so the first scan lists game:\
++	// Start at the game root so the first scan lists the game drive.
+ 	currentDir_ = "game:\\";
+ 
+ 	// Load assets (fast, no disk scan)
+--- a/Common/CommonXbox.vcxproj
++++ b/Common/CommonXbox.vcxproj
+@@ -115,7 +115,7 @@
+       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+       <Optimization>Disabled</Optimization>
+       <ExceptionHandling>false</ExceptionHandling>
+-      <MinimalRebuild>true</MinimalRebuild>
++      <MinimalRebuild>false</MinimalRebuild>
+       <BufferSecurityCheck>false</BufferSecurityCheck>
+       <PrecompiledHeaderOutputFile>$(OutDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+@@ -308,7 +308,9 @@
+     <ClCompile Include="ConsoleListener.cpp" />
+     <ClCompile Include="Crypto\md5.cpp" />
+     <ClCompile Include="Crypto\sha1.cpp" />
+-    <ClCompile Include="ExtendedTrace.cpp" />
++    <ClCompile Include="ExtendedTrace.cpp">
++      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='Release_LTCG'">true</ExcludedFromBuild>
++    </ClCompile>
+     <ClCompile Include="FileUtil.cpp" />
+     <ClCompile Include="KeyMap.cpp" />
+     <ClCompile Include="LogManager.cpp" />
+@@ -316,9 +318,12 @@
+     <ClCompile Include="MemoryUtil.cpp" />
+     <ClCompile Include="Misc.cpp" />
+     <ClCompile Include="MsgHandler.cpp" />
+-    <ClCompile Include="ppcAbi.cpp" />
++    <ClCompile Include="ppcAbi.cpp">
++      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='Release_LTCG'">true</ExcludedFromBuild>
++    </ClCompile>
+     <ClCompile Include="ppcEmitter.cpp" />
+     <ClCompile Include="stdafx.cpp">
++      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='Release_LTCG'">true</ExcludedFromBuild>
+       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">Create</PrecompiledHeader>
+       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+--- a/Core/CoreXbox.vcxproj
++++ b/Core/CoreXbox.vcxproj
+@@ -115,7 +115,7 @@
+       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+       <Optimization>Disabled</Optimization>
+       <ExceptionHandling>false</ExceptionHandling>
+-      <MinimalRebuild>true</MinimalRebuild>
++      <MinimalRebuild>false</MinimalRebuild>
+       <BufferSecurityCheck>false</BufferSecurityCheck>
+       <PrecompiledHeaderOutputFile>$(OutDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+--- a/GPU/GPUXbox.vcxproj
++++ b/GPU/GPUXbox.vcxproj
+@@ -115,7 +115,7 @@
+       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+       <Optimization>Disabled</Optimization>
+       <ExceptionHandling>false</ExceptionHandling>
+-      <MinimalRebuild>true</MinimalRebuild>
++      <MinimalRebuild>false</MinimalRebuild>
+       <BufferSecurityCheck>false</BufferSecurityCheck>
+       <PrecompiledHeaderOutputFile>$(OutDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+--- a/Xbox/XboxMain.cpp
++++ b/Xbox/XboxMain.cpp
+@@ -202,6 +202,8 @@
+ 	}
+ 	return EXCEPTION_EXECUTE_HANDLER;
+ }
++
++#include "XenonEmulationLoop.h"
+ 
+ int main(int argc, const char* argv[])
+ {
+@@ -390,98 +392,7 @@
+ 		bool returnToMenu = false;
+ 		bool resetGame = false;
+ 		bool exitToXbox = false;
+-		bool igmWasActive = false;
+-		__try
+-		{
+-			coreState = CORE_RUNNING;
+-			XINPUT_STATE igmState;
+-			ZeroMemory(&igmState, sizeof(igmState));
+-			while (coreState == CORE_RUNNING)
+-			{
+-				XInputGetState(0, &igmState);
+-				DWORD igmButtons = igmState.Gamepad.wButtons;
+-				BYTE igmLT = igmState.Gamepad.bLeftTrigger;
+-				BYTE igmRT = igmState.Gamepad.bRightTrigger;
+-
+-				bool comboHeld = (igmButtons & XINPUT_GAMEPAD_LEFT_THUMB)
+-					&& igmLT > XINPUT_GAMEPAD_TRIGGER_THRESHOLD && igmRT > XINPUT_GAMEPAD_TRIGGER_THRESHOLD;
+-
+-				static bool comboPrev = false;
+-				bool comboPressed = comboHeld && !comboPrev;
+-				comboPrev = comboHeld;
+-
+-				if (comboPressed && !launcher.IsInGameMenuActive()) {
+-					launcher.SetInGameMenuActive(true);
+-				}
+-
+-				// Fast forward: RB + RT, matching PPSSPP's fast-forward.
+-				// Unthrottling the emulator (which DoFrameTiming respects) makes
+-				// it run as fast as the CPU can go, and only while held.
+-				bool ffHeld = (igmButtons & XINPUT_GAMEPAD_RIGHT_SHOULDER)
+-					&& igmRT > XINPUT_GAMEPAD_TRIGGER_THRESHOLD;
+-				PSP_CoreParameter().unthrottle = ffHeld;
+-
+-				if (launcher.IsInGameMenuActive()) {
+-					launcher.UpdateInGameMenu(igmButtons);
+-					launcher.RenderInGameMenu();
+-
+-					xbhost->EndFrame();
+-					xbhost->SwapBuffers();
+-					xbhost->BeginFrame();
+-
+-					static DWORD menuTick = 0;
+-					DWORD t = GetTickCount();
+-					if (menuTick > 0) {
+-						DWORD elapsed = t - menuTick;
+-						if (elapsed < 15) {
+-							Sleep(16 - (int)elapsed);
+-						}
+-					}
+-					menuTick = GetTickCount();
+-
+-					if (launcher.WantsExitToMenu()) {
+-						launcher.ClearExitToMenu();
+-						returnToMenu = true;
+-						coreState = CORE_ERROR;
+-					} else if (launcher.WantsResetGame()) {
+-						launcher.ClearResetGame();
+-						resetGame = true;
+-						coreState = CORE_ERROR;
+-					} else if (launcher.WantsExitToXbox()) {
+-						launcher.ClearExitToXbox();
+-						exitToXbox = true;
+-						coreState = CORE_ERROR;
+-					}
+-				} else {
+-					// On transition from menu -> game, consume held buttons
+-					// so they don't leak through to the emulated PSP
+-					if (igmWasActive) {
+-						XInput.UpdateState(input_state);
+-						input_state.pad_last_buttons = input_state.pad_buttons;
+-					}
+-
+-					u64 nowTicks = CoreTiming::GetTicks();
+-					u64 frameTicks = usToCycles(1000000/60);
+-
+-					PSP_RunLoopUntil(nowTicks + frameTicks);
+-
+-					UpdateInput(input_state);
+-
+-					if (coreState == CORE_NEXTFRAME) {
+-						coreState = CORE_RUNNING;
+-
+-					XboxFpsOverlay::DrawFpsOverlay();
+-					launcher.RenderToast();
+-					xbhost->EndFrame();
+-						xbhost->SwapBuffers();
+-						xbhost->BeginFrame();
+-					}
+-					igmWasActive = launcher.IsInGameMenuActive();
+-				}
+-			}
+-		}
+-		__except (LogCrashAndContinue(GetExceptionCode(), GetExceptionInformation()))
+-		{
++		if (!RunEmulationSession(launcher, xbhost, returnToMenu, resetGame, exitToXbox)) {
+ 			pspInited = false;
+ 		}
+ 
