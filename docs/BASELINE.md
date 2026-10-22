@@ -62,6 +62,7 @@ approved; detailed spacing, typography and TV readability are still open.
 | Inactive Render/Update and view switch side effects | PASS; no work while inactive, no scan/write/resource calls from switching |
 | Fresh source replay / class state / unaffected methods | PASS |
 | Browser scene/view/viewport combinations | 56 PASS; no page errors or external requests |
+| Hosted Source preflight at 18a0ad3 | All three jobs PASS; current launcher keeps warnings as errors |
 | Xbox boot, runtime, rendering/input/audio, states/switching, memory or performance | NOT RUN |
 
 The fixed 14-title fixture gives this bounded drawing comparison:
@@ -89,6 +90,13 @@ trace comparison and browser checks. [Build instructions](BUILD_XBOX360.md)
 reproduce the fresh stage, local builds and host checks. XEX files are kept local
 and not committed; timestamps/paths mean deterministic binary identity is not
 claimed. No SDK or private CCLOS assets are published.
+
+[Hosted verification](https://github.com/CGameDev/PPSSPP-Xenon/actions/runs/39717436092)
+passes source integrity, existing tests, pinned assembly, M3 regressions and both
+launcher trace fixtures. The first run stopped on three unused-variable warnings
+in the old reference renderer; its diagnostics are retained without warnings as
+errors. The current renderer passed that compilation and keeps its strict policy.
+The failed run and final logs are retained in evidence/m4/.
 
 All four Deploy entries remain explicitly excluded. The build driver still
 refuses missing/enabled exclusions and verifies library architecture first.

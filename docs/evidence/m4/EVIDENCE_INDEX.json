@@ -165,8 +165,8 @@
     },
     {
       "path": "docs/BASELINE.md",
-      "bytes": 6311,
-      "sha256": "c8ae07cf36155d8d2b4fe34ba4d8296807f24ac05b20ab484f8d70b3c3838100"
+      "bytes": 6890,
+      "sha256": "922c8683b0dafbcbd475d0ac07684e3e95d4ca6ff06d3201f552682cc46d6c06"
     },
     {
       "path": "docs/BASELINE_M0.md",
@@ -190,8 +190,8 @@
     },
     {
       "path": "docs/BUILD_XBOX360.md",
-      "bytes": 8918,
-      "sha256": "0afadb2d9a268e1e5ef244a093f97a721f378239f83aa64052c4ea02a4c0521c"
+      "bytes": 8904,
+      "sha256": "7104be57e2c293c8d38c2075de46f4528b8b57df84837739a6a2b16d47420e4a"
     },
     {
       "path": "docs/COMPATIBILITY.md",
@@ -689,6 +689,11 @@
       "sha256": "c5b9f49387284c85212542771fb76f9fae0d3f06de3cc89345414ca0ad628b41"
     },
     {
+      "path": "docs/evidence/m4/CI.json",
+      "bytes": 1024,
+      "sha256": "c862e87265977e5da6129364e53425803662ffe8f7f3af2e4cc8afda7c67ad96"
+    },
+    {
       "path": "docs/evidence/m4/baseline-builds.json",
       "bytes": 587,
       "sha256": "226028c4ab061504916175dc246f5f2620f1c37fa977bac402982d25bcabefd5"
@@ -697,6 +702,21 @@
       "path": "docs/evidence/m4/ci-initial-failure.txt",
       "bytes": 17356,
       "sha256": "78aaf41763f14bd58f8640f6297d64eb30cc4d255a8194f8e494224b6af1e0da"
+    },
+    {
+      "path": "docs/evidence/m4/ci-legacy-warning-regressions.txt",
+      "bytes": 17540,
+      "sha256": "c0b18651a9c6973d7fb5c1d55e9d82bb97e0a8cdb1436bd17f0f19fa9c21dfe0"
+    },
+    {
+      "path": "docs/evidence/m4/ci-owner-source-integrity.txt",
+      "bytes": 13174,
+      "sha256": "bebd6f014ea07dfc62e66c40106d00206fd3a53622b32007ebaec6cc7d8025c5"
+    },
+    {
+      "path": "docs/evidence/m4/ci-verifier-tests.txt",
+      "bytes": 15296,
+      "sha256": "59f24ded320b2cf51b9d00c76428fcf83bc05a0e2dd88a58d824c4e45b858910"
     },
     {
       "path": "docs/evidence/m4/current-compile.txt",

@@ -130,8 +130,8 @@ check remain at design/cclos-concept-m0.html / tests/preview_smoke.cjs.
 The MSVC host tracer uses the desktop CRT's standard non-deprecation macro for
 existing bounded sprintf usage. Only the unchanged owner's animated-background
 method has a desktop-only C4244 diagnostic bracket while compiling the fixture;
-the XDK source, project warning policies and production builds have no warning
-suppression. New presentation methods remain under /W3 /WX (GCC -Wall -Wextra
+this adds no production warning suppression or project warning-policy change.
+New presentation methods remain under /W3 /WX (GCC -Wall -Wextra
 -Werror). This host compatibility handling does not alter the rendered source.
 The historical comparison source retains its diagnostics without warnings as
 errors: GCC reports three unused variables in those old presentation methods.

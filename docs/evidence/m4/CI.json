@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "implementation_commit": "abfe5bf23b4477fd73c1c17af8d9637a129fefda",
+  "tested_head_commit": "18a0ad38ef6c589ddfcc5f5c933304de80a3835e",
+  "workflow_run": 39717436092,
+  "url": "https://github.com/CGameDev/PPSSPP-Xenon/actions/runs/39717436092",
+  "jobs": [
+    {
+      "id": 119622829891,
+      "name": "owner-source-integrity",
+      "conclusion": "success"
+    },
+    {
+      "id": 119622830123,
+      "name": "legacy-warning-regressions",
+      "conclusion": "success"
+    },
+    {
+      "id": 119622830172,
+      "name": "verifier-tests",
+      "conclusion": "success"
+    }
+  ],
+  "initial_failure": {
+    "run": 39717250221,
+    "head": "abfe5bf23b4477fd73c1c17af8d9637a129fefda",
+    "reason": "Historical reference has three GCC unused-variable diagnostics; current code compiled cleanly. Reference diagnostics remain visible without -Werror; current stays strict.",
+    "evidence": "ci-initial-failure.txt"
+  },
+  "console": "NOT RUN; hosted tests compile and execute host fixtures only"
+}
