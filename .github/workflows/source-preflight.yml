@@ -38,3 +38,5 @@ jobs:
           python3 tests/run_m3_regressions.py --source-root artifacts/m3-regression-source --reference-root artifacts/legacy --build-root artifacts/m3-regressions
       - name: Check both CCLOS launcher views, input and drawing budgets on the host
         run: python3 tests/run_cclos_launcher.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-launcher-tests
+      - name: Check in-game presentation and unchanged save/load/reset contracts on the host
+        run: python3 tests/run_cclos_ingame.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-ingame-tests

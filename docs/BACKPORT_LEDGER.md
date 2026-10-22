@@ -1,5 +1,7 @@
 # Backport ledger
 
+M5 is an original presentation-only patch for RenderInGameMenu/RenderToast. It reuses M4 helpers, font and primitive APIs, without upstream code, action/core changes or tuning. Original source and licenses stay intact. See HADCV_M5.md.
+
 M4 adds an original launcher-only CCLOS-style visual layer and bounded fitting/scroll helpers. No upstream backport, new asset dependency, core/session code or tuning change. See HADCV_M4.md and evidence/m4/.
 
 M3 adds original warning fixes, not an upstream modernization merge: owner SEH

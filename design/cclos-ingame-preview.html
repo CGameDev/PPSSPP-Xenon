@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PPSSPP Xenon · CCLOS in-game menu</title>
+<style>
+:root{color-scheme:dark;background:#07131f;color:#eaf6fa;font:15px/1.5 system-ui,Arial,sans-serif}*{box-sizing:border-box}body{margin:0;padding:24px}main{max-width:1440px;margin:auto}header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}h1{font-size:23px;letter-spacing:.04em;margin:0}p{color:#aec7d3;margin:8px 0 18px}small{color:#7895a5}a{color:#5ce6d0}nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}button,select{border:1px solid #294653;background:#101e30;color:#aec7d3;padding:9px 16px;border-radius:3px;font:inherit;cursor:pointer}button[aria-pressed=true]{border-color:#5ce6d0;color:#5ce6d0;background:#153d43}button:focus-visible,select:focus-visible{outline:2px solid #eaf6fa;outline-offset:3px}.screen{border:1px solid #294653;box-shadow:0 18px 80px #0008;aspect-ratio:16/9;overflow:hidden}svg{display:block;width:100%;height:100%}.note{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px}.status{color:#5ce6d0}footer{margin-top:24px;color:#7895a5;font-size:13px}@media(max-width:600px){body{padding:12px}h1{font-size:18px}nav{gap:6px}button,select{padding:7px 10px}.note{gap:6px}}
+svg text{white-space:pre}
+</style>
+<main><header><h1>CCLOS / IN-GAME MENU</h1><span class="status">Provisional · review preview</span></header>
+<p>Actual native drawing trace at 1280 × 720 with simulated save slots. Browser font rendering is approximate; this is not an Xbox capture.</p>
+<nav aria-label="Preview controls"><button id="slots" aria-pressed="true">Save slots focus</button><button id="session" aria-pressed="false">Session focus</button>
+<select id="item" aria-label="Selected row"></select>
+<select id="scene" aria-label="Preview scenario"><option value="menu-mixed">Mixed slots</option><option value="menu-empty">All empty</option><option value="menu-saved">All saved</option><option value="menu-toast">Notification</option><option value="menu-toast-fade">Notification fading</option><option value="menu-toast-long">Long notification</option><option value="menu-no-atlas">Without atlas</option></select></nav>
+<div class="screen"><svg id="screen" viewBox="0 0 1280 720" role="img" aria-label="CCLOS in-game menu preview"></svg></div>
+<div class="note"><span id="description"></span><span id="budget"></span></div>
+<footer>Preview controls select simulated states only. Save/load/delete/reset/exit operations cannot run here. The native controller bindings and notification timing are preserved. Exact styling and TV readability remain provisional. <a href="cclos-preview.html">Both launcher views</a>.</footer></main>
+<script src="cclos-ingame-frames.js"></script><script>
+'use strict';
+const svg=document.querySelector('#screen'),scene=document.querySelector('#scene'),item=document.querySelector('#item');
+let focus=0;
+const ns='http://www.w3.org/2000/svg';
+function el(tag,attrs){const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);svg.append(e);return e}
+function color(argb){return '#'+(argb>>>0).toString(16).padStart(8,'0').slice(2)}
+function fillItems(){const chosen=item.value||'0';item.replaceChildren();const labels=focus?['Continue game','Settings unavailable','Reset game','Exit to Xbox','Exit to menu']:['Slot 1','Slot 2','Slot 3','Slot 4','Slot 5'];for(let i=0;i<5;i++){const o=document.createElement('option');o.value=String(i);o.textContent=labels[i];item.append(o)}item.value=chosen}
+function draw(){
+ const fixed=!['menu-mixed','menu-empty','menu-saved'].includes(scene.value);
+ if(fixed){focus=0;fillItems();item.value='0'}
+ const selected=fixed?0:focus*5+Number(item.value);
+ const frame=CCLOS_INGAME_FRAMES.find(f=>f.scene===scene.value&&f.selection===selected);
+ if(!frame)throw new Error('Missing menu trace '+scene.value+'/'+selected);
+ svg.replaceChildren();
+ for(const c of frame.commands){
+  if(c.kind==='rect')el('rect',{x:c.x,y:c.y,width:c.w,height:c.h,fill:color(c.color),'fill-opacity':(c.color>>>24)/255});
+  else if(c.kind==='text'){const t=el('text',{x:c.x,y:c.y+16*c.scale,fill:color(c.color),'fill-opacity':(c.color>>>24)/255,'font-family':'Arial, sans-serif','font-size':20*c.scale,textLength:c.w,lengthAdjust:'spacingAndGlyphs'});t.textContent=c.text}
+  else throw new Error('Unexpected menu command '+c.kind);
+ }
+ item.disabled=fixed;document.querySelector('#slots').disabled=fixed;document.querySelector('#session').disabled=fixed;
+ document.querySelector('#slots').setAttribute('aria-pressed',String(fixed||focus===0));document.querySelector('#session').setAttribute('aria-pressed',String(!fixed&&focus===1));
+ svg.setAttribute('aria-label','CCLOS in-game / '+scene.value+' / selection '+selected);
+ document.querySelector('#description').textContent=scene.options[scene.selectedIndex].text+' · '+(selected<5?'Save slots':'Session')+' · 1280 × 720';
+ document.querySelector('#budget').textContent=frame.drawCalls+' host draw calls · no new artwork resources';
+}
+for(const [name,value]of [['slots',0],['session',1]])document.querySelector('#'+name).onclick=()=>{focus=value;fillItems();draw()};
+scene.onchange=draw;item.onchange=draw;fillItems();draw();
+</script></html>

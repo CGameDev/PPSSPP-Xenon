@@ -30,6 +30,7 @@ enum { FALSE=0, D3DRS_ZENABLE, D3DRS_ZWRITEENABLE, D3DRS_ALPHABLENDENABLE,
     XINPUT_GAMEPAD_DPAD_LEFT=4, XINPUT_GAMEPAD_DPAD_RIGHT=8,
     XINPUT_GAMEPAD_LEFT_SHOULDER=256, XINPUT_GAMEPAD_RIGHT_SHOULDER=512,
     XINPUT_GAMEPAD_A=4096, XINPUT_GAMEPAD_B=8192,
+    XINPUT_GAMEPAD_X=16384, XINPUT_GAMEPAD_Y=32768,
     XINPUT_GAMEPAD_TRIGGER_THRESHOLD=30, ERROR_SUCCESS=0 };
 struct XINPUT_STATE { struct Pad { DWORD wButtons; short sThumbLX,sThumbLY; BYTE bRightTrigger; } Gamepad; } input;
 static int XInputGetState(int, XINPUT_STATE *out) { *out=input; return 0; }
@@ -66,6 +67,9 @@ static void record(const char *kind,float x,float y,float w,float h,DWORD color,
     commands.push_back(c); ++drawCalls;
     triangles+=c.kind=="text" ? (int)c.text.size()*2 : 2;
 }
+#ifdef CCLOS_IGM_TRACE
+#include "cclos_ingame_stubs.h"
+#endif
 class XboxLauncher {
 public:
     struct GameEntry { std::string path,filename,title; bool isDir,isGameFile; };
@@ -83,12 +87,24 @@ public:
     stbtt_packedchar *fontChars_;
     double startTime_; float symX_[100],symY_[100];
     bool missing;
+#ifdef CCLOS_IGM_TRACE
+    enum InGameMenuFocus { INGMENU_LEFT,INGMENU_RIGHT };
+    bool inGameMenuActive_,wantsExitToMenu_,wantsExitToXbox_,wantsResetGame_;
+    int inGameMenuSel_;InGameMenuFocus inGameMenuFocus_;DWORD igmPrevButtons_;
+    char toastMsg_[64];DWORD toastEndTime_;
+    void UpdateInGameMenu(DWORD);void RenderInGameMenu();void RenderToast();void ShowToast(const char*);
+#include "ingame_state.inc"
+#endif
     IDirect3DTexture9 covers[32];
     XboxLauncher() : active_(true),wantsSettings_(false),scanDone_(true),initFailed_(false),
         selectedIndex_(0),scrollOffset_(0),rightPanelItem_(0),pollDelay_(0),repeatDelay_(0),
         currentTab_(TAB_GAMES),viewMode_(VIEW_GRID),focusRegion_(FOCUS_GAMES),prevButtons_(0),prevRightTrigger_(0),
         currentDir_("game:\\PSP\\"),vertexDecl_(0),vertexShader_(0),pixelShader_(0),zimTex_(0),unknownTex_(0),splashTex_(0),
         fontChars_(0),startTime_(0),missing(false) {
+#ifdef CCLOS_IGM_TRACE
+        inGameMenuActive_=wantsExitToMenu_=wantsExitToXbox_=wantsResetGame_=false;
+        inGameMenuSel_=0;inGameMenuFocus_=INGMENU_LEFT;igmPrevButtons_=0;toastMsg_[0]=0;toastEndTime_=0;
+#endif
         for(int i=0;i<100;++i) { symX_[i]=(float)i; symY_[i]=(float)i; }
         for(int i=0;i<32;++i) { covers[i].id=i;covers[i].width=480;covers[i].height=272;covers[i].fail=false; }
     }
@@ -168,6 +184,7 @@ static void fixture(XboxLauncher &l,int count) {
         e.path="game:\\PSP\\"+e.filename;e.isDir=false;e.isGameFile=true;l.allGames_.push_back(e); }
     l.recentGames_=l.allGames_;
 }
+#ifndef CCLOS_IGM_TRACE
 int main(int argc,char**argv) {
     assert(argc==2);
     std::ifstream file(argv[1],std::ios::binary);assert(file.good());
@@ -264,3 +281,4 @@ int main(int argc,char**argv) {
 #endif
     std::cout<<"]\n";return 0;
 }
+#endif

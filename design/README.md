@@ -1,5 +1,15 @@
 # CCLOS-style launcher review
 
+M5 adds [the in-game menu preview](cclos-ingame-preview.html), drawn from 42
+actual method trace frames with simulated states. Review slot/session focus,
+empty/saved slots, two-second notifications and their final half-second fade.
+All bindings/order stay: A saves on slots and confirms session actions, X loads,
+Y deletes an existing state, B continues. Settings remains unimplemented and is
+labelled unavailable. No preview can execute those operations. Its browser check
+covers 136 combinations; both original launcher views and their 56 checks remain.
+Exact styling and TV readability stay provisional. The native menu/notifications
+use the same M4 palette, helpers and font with no new artwork/resource dependency.
+
 Open [cclos-preview.html](cclos-preview.html) for the M4 implementation preview:
 grid/compact Games views plus empty, missing-art, long-title/path, folder, Recent
 and loading scenarios. These render draw commands from actual staged launcher

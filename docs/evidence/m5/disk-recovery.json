@@ -1,0 +1,7 @@
+{
+  "initial_failure": "Release LNK1180 insufficient local disk space; no source defect",
+  "removed": "Only older task-generated M4 compiler intermediates in eight resolved build directories, then Common/Core/GPU generated .lib in six resolved M4 output directories",
+  "bytes_reclaimed": 1421661863,
+  "preserved": "All source, FFmpeg libraries, XEX, current symbols and previous milestone packages",
+  "result": "Final Debug and Release_LTCG full Rebuilds after two-draw toast refinement PASS 0 warnings/errors"
+}

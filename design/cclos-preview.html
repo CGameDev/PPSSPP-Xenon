@@ -4,6 +4,7 @@
 <title>PPSSPP Xenon · CCLOS launcher milestone</title>
 <style>
 :root{color-scheme:dark;background:#07131f;color:#eaf6fa;font:15px/1.5 system-ui,Arial,sans-serif}*{box-sizing:border-box}body{margin:0;padding:24px}main{max-width:1440px;margin:auto}header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}h1{font-size:23px;letter-spacing:.04em;margin:0}p{color:#aec7d3;margin:8px 0 18px}small{color:#7895a5}a{color:#5ce6d0}nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}button,select{border:1px solid #294653;background:#101e30;color:#aec7d3;padding:9px 16px;border-radius:3px;font:inherit;cursor:pointer}button[aria-pressed=true]{border-color:#5ce6d0;color:#5ce6d0;background:#153d43}button:focus-visible,select:focus-visible{outline:2px solid #eaf6fa;outline-offset:3px}.screen{border:1px solid #294653;box-shadow:0 18px 80px #0008;aspect-ratio:16/9;overflow:hidden}svg{display:block;width:100%;height:100%}.note{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px}.status{color:#5ce6d0}footer{margin-top:24px;color:#7895a5;font-size:13px}@media(max-width:600px){body{padding:12px}h1{font-size:18px}nav{gap:6px}button,select{padding:7px 10px}.note{gap:6px}}
+svg text{white-space:pre}
 </style>
 <main>
 <header><h1>CCLOS / LAUNCHER MILESTONE</h1><span class="status">Provisional · review preview</span></header>
@@ -12,7 +13,7 @@
 <select id="scene" aria-label="Preview scenario"><option value="normal">Library</option><option value="empty">Empty folder</option><option value="missing">Missing artwork</option><option value="long">Long title and path</option><option value="folder">Folder</option><option value="recent">Recent</option><option value="loading">Loading</option></select></nav>
 <div class="screen"><svg id="screen" viewBox="0 0 1280 720" role="img" aria-label="CCLOS launcher grid preview"></svg></div>
 <div class="note"><span id="description">Grid library · same selected game in both views</span><span id="budget"></span></div>
-<footer>Games supports RT to switch grid/list. Recent keeps its existing grid view. The preview controls change fixture scenes only; they cannot launch an emulator or access console/storage. Detailed styling and TV readability remain open for review. <a href="cclos-concept-m0.html">Earlier concept study</a>.</footer>
+<footer>Games supports RT to switch grid/list. Recent keeps its existing grid view. The preview controls change fixture scenes only; they cannot launch an emulator or access console/storage. Detailed styling and TV readability remain open for review. <a href="cclos-ingame-preview.html">In-game menu preview</a> · <a href="cclos-concept-m0.html">Earlier concept study</a>.</footer>
 </main>
 <script src="cclos-launcher-frames.js"></script>
 <script>

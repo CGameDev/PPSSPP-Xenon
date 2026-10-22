@@ -61,7 +61,7 @@ def apply_build_compatibility(destination, project):
         path = destination / name
         path.write_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
     git = ["git", "-c", "safe.directory=" + project.as_posix(), "-C", str(project), "apply"]
-    for name in ("launcher-legacy-compat.patch", "local-build-project.patch", "warning-fixes.patch", "remaining-warnings.patch", "cclos-launcher-milestone.patch"):
+    for name in ("launcher-legacy-compat.patch", "local-build-project.patch", "warning-fixes.patch", "remaining-warnings.patch", "cclos-launcher-milestone.patch", "cclos-ingame-menu.patch"):
         patch = project / "baseline-overlay" / name
         subprocess.run(git + ["--check", "--directory=" + relative, str(patch)], check=True)
         subprocess.run(git + ["--directory=" + relative, str(patch)], check=True)
@@ -74,7 +74,7 @@ def apply_build_compatibility(destination, project):
     (destination / "git-version.cpp").write_text(
         '// Generated baseline provenance, not a release version.\n'
         '#define PPSSPP_GIT_VERSION_NO_UPDATE 1\n'
-        'const char *PPSSPP_GIT_VERSION = "legacy-540db97-owner-6dd3c4f-m4";\n', encoding="utf-8")
+        'const char *PPSSPP_GIT_VERSION = "legacy-540db97-owner-6dd3c4f-m5";\n', encoding="utf-8")
 
 
 def prepare(legacy, overlay, destination, compatibility=False):

@@ -10,10 +10,10 @@ Use Python 3 and Git. The legacy checkout must be at `metalex10/PPSSPP-X360@540d
 python tools/verify_source_overlay.py
 python -m unittest discover -s tests -v
 python tools/prepare_baseline.py --legacy <legacy-checkout> `
-  --destination artifacts/baseline-m4 --with-build-compatibility
+  --destination artifacts/baseline-m5 --with-build-compatibility
 ```
 
-Compatibility mode stages beneath this project. It records the pristine source manifest, applies the five tracked patches, copies the licensed font header and three launcher/session helpers and writes combined provenance. The original archival overlay remains unchanged.
+Compatibility mode stages beneath this project. It records the pristine source manifest, applies the six tracked patches, copies the licensed font header and three launcher/session helpers and writes combined provenance. The original archival overlay remains unchanged.
 
 ## Local host tools
 
@@ -31,13 +31,13 @@ Use source/build staging paths without spaces; SDK/Bash installation paths may c
 
 ```powershell
 python tools/build_xbox_ffmpeg.py `
-  --source artifacts/baseline-m4/ffmpeg --build artifacts/ffmpeg-debug `
+  --source artifacts/baseline-m5/ffmpeg --build artifacts/ffmpeg-debug `
   --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
   --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
   --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Debug
 
 python tools/build_xbox_ffmpeg.py `
-  --source artifacts/baseline-m4/ffmpeg --build artifacts/ffmpeg-release `
+  --source artifacts/baseline-m5/ffmpeg --build artifacts/ffmpeg-release `
   --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
   --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
   --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Release
@@ -50,8 +50,8 @@ Native Makefiles use Windows source paths. The old MSVC dependency scanner is by
 ## Build local XEX files
 
 ```powershell
-./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m4 -Configuration Debug -Rebuild
-./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m4 -Configuration Release_LTCG -Rebuild
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m5 -Configuration Debug -Rebuild
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m5 -Configuration Release_LTCG -Rebuild
 ```
 
 The driver checks every project deployment exclusion and all six library architectures before MSBuild with normal project references. It requests Build or, with -Rebuild, a full Rebuild. Do not invoke Deploy or launch an XEX as part of this procedure.
@@ -87,7 +87,7 @@ Read WARNING_REVIEW_M3.md and preserve any failed logs.
 Run the added source-derived regressions after preparation:
 
 ```powershell
-python tests/run_m3_regressions.py --source-root artifacts/baseline-m4 `
+python tests/run_m3_regressions.py --source-root artifacts/baseline-m5 `
   --reference-root <pinned-legacy-checkout> --build-root artifacts/m3-host-regressions
 ```
 
@@ -109,7 +109,7 @@ Repeat both full rebuilds before recording accepted hashes.
 After staging, run the actual launcher methods with host drawing/input/cache stubs:
 
 ```powershell
-python tests/run_cclos_launcher.py --source-root artifacts/baseline-m4 `
+python tests/run_cclos_launcher.py --source-root artifacts/baseline-m5 `
   --build-root artifacts/cclos-launcher-tests --preview-data design/cclos-launcher-frames.js
 ```
 
@@ -137,3 +137,27 @@ The historical comparison source retains its diagnostics without warnings as
 errors: GCC reports three unused variables in those old presentation methods.
 The initial CI reference-compile failure is preserved in M4 evidence; current
 launcher code compiled cleanly in that run and keeps its strict warning policy.
+
+## M5 in-game menu validation
+
+```powershell
+python tests/run_cclos_ingame.py --source-root artifacts/baseline-m5 `
+  --build-root artifacts/cclos-ingame-tests --preview-data design/cclos-ingame-frames.js
+```
+
+The host runner copies only required comparison files, reverses the M5 patch
+there to recover M4, and compiles actual drawing/action methods. Save/load/delete
+services are string/counter stubs; no real state or console is touched. All 137
+action snapshots must equal M4 and explicit expected requests. It checks 42
+presentation frames, five existing presence queries, inactive early returns,
+packed glyph bounds and notification timing/fading. Existing launcher and M3
+regressions also run against M5. Native code is unchanged outside two drawing
+functions. The M3 launcher comparison reverses M5 before M4 to retain its exact
+historical reference.
+
+Open design/cclos-ingame-preview.html for review. With the same optional browser
+setup, `node tests/cclos_ingame_preview_smoke.cjs` checks 136 combinations. The
+launcher preview's 56 checks still pass. These SVG previews approximate font
+rasterization and simulate states; they never execute real save/reset actions.
+Read CONSOLE_TEST_READINESS.md before any future hardware checkpoint. Local
+build ZIPs contain XEX/evidence, not runtime assets, flash0, ROMs or user data.

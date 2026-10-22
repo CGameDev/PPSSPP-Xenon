@@ -1,0 +1,76 @@
+{
+  "parent_m4_commit": "6fccfb0f30217cc1c7cfba2c68374114ffbbaff7",
+  "source_project_font_image_files_compared": 3878,
+  "changed_files": [
+    "Xbox/XboxLauncher.cpp"
+  ],
+  "generated_identity": "m4 -> m5",
+  "presentation_functions_only": [
+    "RenderInGameMenu",
+    "RenderToast"
+  ],
+  "all_other_launcher_source": "EXACT EQUALITY after removing only those two bodies",
+  "toast_lifetime_and_fade_prefix": "EXACT EQUALITY",
+  "built_files": [
+    {
+      "path": "Xbox/XboxLauncher.cpp",
+      "bytes": 76499,
+      "sha256": "f2581152e275a1df4b32c210ceda08fea4a31ede38f436629bb030466c4bd97f"
+    },
+    {
+      "path": "Xbox/XboxLauncher.h",
+      "bytes": 5456,
+      "sha256": "e380ccf7f7a42e4215d6b4c35add3377e91a7e958eecacdd6bb9ac6586d7aae9"
+    },
+    {
+      "path": "Xbox/CclosLauncherTheme.h",
+      "bytes": 2914,
+      "sha256": "e6c1c8d61b9ef19c286b13e6e7758baf2b79c088690abf97420eb002b3afd9cd"
+    },
+    {
+      "path": "Xbox/XenonEmulationLoop.h",
+      "bytes": 3177,
+      "sha256": "d1dfc29704348d71286efd42033a619792a9b41ef96b7c5ef9600768effd831b"
+    },
+    {
+      "path": "Xbox/XenonStateDeleteCompat.h",
+      "bytes": 663,
+      "sha256": "bb599199804ed661de2ede5ff5a53c216173ba008a571fe56809070705fb0532"
+    },
+    {
+      "path": "Xbox/XboxMain.cpp",
+      "bytes": 11678,
+      "sha256": "dbae7daf5fb2065b74642d5c33ff013def94b8b0588cbe7e4f9a425fa66e0983"
+    },
+    {
+      "path": "Xbox/xx/xx.vcxproj",
+      "bytes": 23830,
+      "sha256": "87b32c912662897b59fce4c682be81dc72340d29149a7e917a26972cd79fd954"
+    },
+    {
+      "path": "git-version.cpp",
+      "bytes": 167,
+      "sha256": "314fdd6f2490f8495e556cd40d3994ed1848c3db333cd04ed89f56b1e3807443"
+    }
+  ],
+  "deployment_exclusions": [
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Debug|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Debug_Optimised|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Release|Xbox 360'",
+      "excluded": true
+    },
+    {
+      "condition": "'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'",
+      "excluded": true
+    }
+  ],
+  "both_launcher_views": "All 14 host frames EXACTLY match M4; same input regressions pass",
+  "console_actions": "NONE: no console connection, deployment, launch or runtime test"
+}

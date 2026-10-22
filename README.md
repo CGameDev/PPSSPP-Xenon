@@ -1,11 +1,12 @@
 # PPSSPP Xenon
 
-> **M4 launcher checkpoint:** the first native CCLOS-style navy/teal launcher
-> keeps both switchable Games grid/compact views and the existing emulator/session
-> paths. Debug and Release_LTCG both fully rebuild with **0 warnings / 0 errors**.
-> [Review the implementation preview](design/cclos-preview.html),
-> [evidence](docs/BASELINE.md) and [reproduction](docs/BUILD_XBOX360.md).
-> Styling remains provisional; no Xbox runtime or performance acceptance is claimed.
+> **M5 shell checkpoint:** the CCLOS-style launcher and in-game menu now share
+> navy/teal styling. Both launcher views and existing save/load/reset actions stay.
+> Debug/Release_LTCG fully rebuild with **0 warnings / 0 errors**. Review the
+> [in-game menu](design/cclos-ingame-preview.html), [launcher](design/cclos-preview.html)
+> and [evidence](docs/BASELINE.md). Styling remains provisional. We are at the
+> [first console smoke-test gate](docs/CONSOLE_TEST_READINESS.md); Xbox runtime
+> and performance remain untested. No console deployment or launch is authorized.
 
 **PPSSPP Xenon** is an Xbox 360 / Xenon modernization project based on the legacy Xbox 360 port of PPSSPP.
 

@@ -1,5 +1,7 @@
 # Compatibility evidence
 
+M5 retains exact input/action/session code and compares 137 host action snapshots with M4, plus explicit request expectations. SaveState services are stubs: actual serialization, recovery and Xbox resets are NOT RUN. Both launcher traces stay identical and both full local builds are warning-clean. See CONSOLE_TEST_READINESS.md.
+
 M4 host traces exercise both launcher views and existing input requests with stubs. Core/session/IGM paths stay unchanged from M3. Both full local builds remain warning-clean. All Xbox compatibility rows still remain NOT RUN; no console actions were taken.
 
 M1 recovers the owner source and builds Debug/Release_LTCG. No Xbox runtime result

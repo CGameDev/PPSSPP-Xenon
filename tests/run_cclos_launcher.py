@@ -44,6 +44,10 @@ def main():
             target = reference / name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(args.source_root / name, target)
+        if "Presentation only: existing input/state dispatch" in (reference / "Xbox/XboxLauncher.cpp").read_text(encoding="latin1"):
+            subprocess.run(["git", "-C", str(ROOT), "apply", "-R",
+                            "--directory=" + reference.relative_to(ROOT).as_posix(),
+                            str(ROOT / "baseline-overlay/cclos-ingame-menu.patch")], check=True)
         subprocess.run(["git", "-C", str(ROOT), "apply", "-R",
                         "--directory=" + reference.relative_to(ROOT).as_posix(),
                         str(ROOT / "baseline-overlay/cclos-launcher-milestone.patch")], check=True)

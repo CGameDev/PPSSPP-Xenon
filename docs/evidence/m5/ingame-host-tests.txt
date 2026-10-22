@@ -1,0 +1,61 @@
+Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+{
+  "status": "PASS",
+  "compiler": "cl.EXE",
+  "source_hashes": {
+    "current": "f2581152e275a1df4b32c210ceda08fea4a31ede38f436629bb030466c4bd97f",
+    "reference": "4ca3891d27f74ba5021420584d0f33b198e02ff97ac5fd4881ad936b15df4efc"
+  },
+  "frames": 42,
+  "identical_action_snapshots": 137,
+  "unchanged_source": [
+    "UpdateInGameMenu",
+    "ShowToast",
+    "SetInGameMenuActive"
+  ],
+  "checks": [
+    "all slots saved/empty, save/load/delete success/failure, held buttons",
+    "all five session actions and cancel priority",
+    "panel navigation/clamping and request-flag reset",
+    "toast 2000ms lifetime / final 500ms fade / long messages",
+    "packed glyph bounds, inactive no-work, five existing save-presence queries and no artwork/scans/writes"
+  ],
+  "budgets": [
+    {
+      "scene": "menu-mixed",
+      "M4_draw_calls": 127,
+      "M5_draw_calls": 47,
+      "M4_triangles": 778,
+      "M5_triangles": 518
+    },
+    {
+      "scene": "menu-toast",
+      "M4_draw_calls": 129,
+      "M5_draw_calls": 49,
+      "M4_triangles": 806,
+      "M5_triangles": 546
+    },
+    {
+      "scene": "menu-no-atlas",
+      "M4_draw_calls": 26,
+      "M5_draw_calls": 47,
+      "M4_triangles": 576,
+      "M5_triangles": 518
+    },
+    {
+      "scene": "toast-0",
+      "M4_draw_calls": 2,
+      "M5_draw_calls": 2,
+      "M4_triangles": 28,
+      "M5_triangles": 28
+    },
+    {
+      "scene": "toast-long",
+      "M4_draw_calls": 2,
+      "M5_draw_calls": 2,
+      "M4_triangles": 128,
+      "M5_triangles": 130
+    }
+  ],
+  "xbox_execution": "NOT RUN"
+}

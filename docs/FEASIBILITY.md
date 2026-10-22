@@ -1,5 +1,14 @@
 # Xbox 360 feasibility and preservation boundaries
 
+## M5 readiness update
+
+The launcher and in-game menu now share provisional CCLOS styling. Both full
+local configurations rebuild warning-clean; action/session/core source and both
+launcher views are preserved and host-checked. Software is at the first console
+smoke-test gate. Runtime data/console setup need confirmation, followed by actual
+boot, input, serialization/reset/transitions and frame-time checks. See
+CONSOLE_TEST_READINESS.md. No console action is authorized or performed.
+
 ## M3 update
 
 Owner source and Xbox FFmpeg are recovered. Both full local configurations now
