@@ -1,0 +1,27 @@
+{
+  "compiler": "XDK PowerPC 16.00.11886.00",
+  "operation": "compile only; /W3 /WX",
+  "configurations": [
+    "Debug /MTd /D_DEBUG",
+    "Release_LTCG /MT /DNDEBUG"
+  ],
+  "revisions": [
+    "M1",
+    "M2"
+  ],
+  "passes": 4,
+  "GPUgstate_bytes": 1616,
+  "GPUStateCache_bytes": 420,
+  "type_alignment_bytes": 4,
+  "matrix_offsets": {
+    "world": 1024,
+    "view": 1072,
+    "proj": 1120,
+    "tgen": 1184,
+    "bone": 1232
+  },
+  "M1_extern_variable_alignment_bytes": 4,
+  "M2_extern_variable_alignment_bytes": 16,
+  "global_definitions_alignment_unchanged_bytes": 16,
+  "xbox_execution": "NOT RUN"
+}

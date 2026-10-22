@@ -1,6 +1,6 @@
 # Performance evidence
 
-M1 builds exist, but Xbox performance remains NOT RUN. Dependency restoration and
+M2 fully rebuilds both configurations and preserves GPU type sizes/offsets, but Xbox performance remains NOT RUN. Dependency restoration and
 the recorded launcher/build adapters do not change CPU clock/worker/JIT/GPU/audio
 tuning. Do not infer performance equivalence from build success. The following
 M0 measurement plan remains the acceptance basis.

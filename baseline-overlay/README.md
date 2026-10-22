@@ -7,12 +7,15 @@ staging and never alter that archive.
   bridge and truthful failure toast. No new scans, effects or session rewrite.
 - `local-build-project.patch`: excludes every Deploy entry and corrects the
   Release_LTCG FFmpeg directory relative to the executable project.
+- `warning-fixes.patch`: match existing GPU global alignment in declarations,
+  define both image-loader failure returns/cleanup and reject empty icon data.
+  Struct layouts, successful pixel conversion and both UI modes stay intact.
 - `Xbox/XenonStateDeleteCompat.h`: deletes only the selected current-title state
   and optional screenshot using core-generated paths. Empty/missing paths and
   partial failures return false. It never scans or deletes folders.
 
 Preparation verifies archive/donor identities, records pristine source hashes,
-normalizes patch-target line endings to LF and checks/applies both patches.
+normalizes patch-target line endings to LF and checks/applies all three patches.
 Owner files always win same-path conflicts before this separate compatibility
 step. The licensed font header/helper and guarded provenance string follow.
 Fresh replay was compared with the built files. Runtime validation remains open.

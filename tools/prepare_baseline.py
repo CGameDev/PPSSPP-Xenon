@@ -35,11 +35,11 @@ def unpack(archive, destination, manifest, origin):
 def apply_build_compatibility(destination, project):
     # The patches are tracked separately; the archival owner bytes stay pristine.
     relative = destination.relative_to(project).as_posix()
-    for name in ("Xbox/XboxLauncher.cpp", "Xbox/xx/xx.vcxproj"):
+    for name in ("Xbox/XboxLauncher.cpp", "Xbox/xx/xx.vcxproj", "GPU/GPUState.h"):
         path = destination / name
         path.write_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
     git = ["git", "-c", "safe.directory=" + project.as_posix(), "-C", str(project), "apply"]
-    for name in ("launcher-legacy-compat.patch", "local-build-project.patch"):
+    for name in ("launcher-legacy-compat.patch", "local-build-project.patch", "warning-fixes.patch"):
         patch = project / "baseline-overlay" / name
         subprocess.run(git + ["--check", "--directory=" + relative, str(patch)], check=True)
         subprocess.run(git + ["--directory=" + relative, str(patch)], check=True)
@@ -52,7 +52,7 @@ def apply_build_compatibility(destination, project):
     (destination / "git-version.cpp").write_text(
         '// Generated baseline provenance, not a release version.\n'
         '#define PPSSPP_GIT_VERSION_NO_UPDATE 1\n'
-        'const char *PPSSPP_GIT_VERSION = "legacy-540db97-owner-6dd3c4f-m1";\n', encoding="utf-8")
+        'const char *PPSSPP_GIT_VERSION = "legacy-540db97-owner-6dd3c4f-m2";\n', encoding="utf-8")
 
 
 def prepare(legacy, overlay, destination, compatibility=False):

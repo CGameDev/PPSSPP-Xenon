@@ -2,7 +2,8 @@ param(
     [Parameter(Mandatory=$true)][string]$SourceRoot,
     [ValidateSet('Debug','Release_LTCG')][string]$Configuration = 'Debug',
     [string]$XdkRoot = 'C:\Program Files (x86)\Microsoft Xbox 360 SDK',
-    [string]$LogPath
+    [string]$LogPath,
+    [switch]$Rebuild
 )
 $ErrorActionPreference = 'Stop'
 $baselineRoot = (Resolve-Path -LiteralPath $SourceRoot).Path
@@ -27,10 +28,11 @@ if (-not (Test-Path -LiteralPath (Join-Path $XdkRoot 'bin\win32\cl.exe'))) {
     throw 'The licensed Xbox 360 compiler is unavailable.'
 }
 if (-not $LogPath) { $LogPath = Join-Path $baselineRoot "build-$Configuration.log" }
+$buildTarget = if ($Rebuild) { '/t:Rebuild' } else { '/t:Build' }
 $previousXdk = $env:XEDK
 try {
     $env:XEDK = $XdkRoot
-    & $msbuildPath (Join-Path $baselineRoot 'Xbox\PPSSPP.sln') /t:Build `
+    & $msbuildPath (Join-Path $baselineRoot 'Xbox\PPSSPP.sln') $buildTarget `
         "/p:Configuration=$Configuration" '/p:Platform=Xbox 360' /p:DeployOnBuild=false `
         /m:1 /nologo "/flp:logfile=$LogPath;verbosity=normal" /verbosity:minimal
     if ($LASTEXITCODE -ne 0) { throw "Build failed; preserve the log at $LogPath" }

@@ -1,0 +1,11 @@
+Compile-only two files: Zi,Gm,MP
+cl : Command line warning D9030 : 
+diagnostic-flag-probe-two.cpp
+diagnostic-flag-probe.cpp
+Generating Code...
+Compile-only two files: Zi,Gm
+diagnostic-flag-probe-two.cpp
+diagnostic-flag-probe.cpp
+Compile-only two files: Zi,MP
+diagnostic-flag-probe.cpp
+diagnostic-flag-probe-two.cpp

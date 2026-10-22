@@ -1,5 +1,9 @@
 # Backport ledger
 
+M2 applies no upstream core backport. Original patch: aligned extern declarations
+matching existing globals and deterministic artwork-loader failure cleanup.
+No GPU type layout, emulation algorithm or optimization settings change.
+
 M1 applies no core backport. Dependency intake: unmodified stb_truetype v1.26,
 nothings/stb commit `6e9f34d5429cf16790ec43c9bac3f1ee4ad1f760`, MIT option,
 satisfying the owner's existing packing API. Atlas/API adaptation is original

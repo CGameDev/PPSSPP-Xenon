@@ -1,13 +1,14 @@
 # PPSSPP-Xenon — CODEX START HERE
 
-## Current M1 build checkpoint — read first
+## Current M2 warning checkpoint — read first
 
-M1 recovered the original archive and built Debug/Release_LTCG locally. Read
+M1 recovered the original archive; M2 fixes the original 62 link warnings and
+fully rebuilds Debug/Release_LTCG locally. Other legacy warnings remain. Read
 `docs/BASELINE.md` and `docs/BUILD_XBOX360.md` before the historical order below.
 Preserve the original hash and owner precedence. Use the fresh staging and
 local-only build drivers: the old XDK target auto-deploys after image creation
-unless explicitly excluded. Runtime/performance validation and warning review
-remain pending. Both UI views stay; production CCLOS styling is still provisional.
+unless explicitly excluded. Runtime/performance validation and the remaining legacy warning review
+remain pending. Do not deploy or launch without separate owner instruction. Both UI views stay; production CCLOS styling is still provisional.
 
 Repository: https://github.com/CGameDev/PPSSPP-Xenon.git
 

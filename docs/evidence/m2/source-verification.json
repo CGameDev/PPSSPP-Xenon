@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "read_only": true,
+  "parts": [
+    {
+      "name": "Xbox-original-upload.part01.b64",
+      "bytes": 19000,
+      "sha256": "7aa1f1447c7caab42ae8b4905959fae9073e2a065dd182f0ccb0a1505558be66"
+    },
+    {
+      "name": "Xbox-original-upload.part02.b64",
+      "bytes": 19000,
+      "sha256": "5f6cada8041d76ab4ff9190855e8329b08b9b34771557099d0be22c9752ec477"
+    },
+    {
+      "name": "Xbox-original-upload.part03.b64",
+      "bytes": 19000,
+      "sha256": "4d753dc56d597c919bc8895d0ac748a425944b9320bd51484a337947cbce7d0c"
+    },
+    {
+      "name": "Xbox-original-upload.part04.b64",
+      "bytes": 17980,
+      "sha256": "5b38958b56e08dfa164df9b529f6daae4fae79d33ed07b8c4b534396ec8731ca"
+    }
+  ],
+  "errors": [],
+  "decoded_bytes": 56233,
+  "expected_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+  "actual_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+  "sha256_matches": true,
+  "zip_crc": "PASS",
+  "archive_members": 30,
+  "bad_members": [],
+  "status": "PASS"
+}

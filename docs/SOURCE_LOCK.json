@@ -72,12 +72,41 @@
     "tile_and_compact_views": "KEEP_BOTH_SWITCHABLE",
     "detailed_design": "PROVISIONAL"
   },
-  "milestone": "M1 recovered source and local build checkpoint",
+  "milestone": "M2 original 62-warning fixes and full local rebuilds",
   "historical_m0_commit": "005686f05ba2cda41ed7da082f222d161743098e",
   "source_recovery_commit": "bb1e51ab2f6d879d20f3e407e190fbda7c95d160",
-  "change_scope": "Baseline launcher API/atlas adapter and dependency/build restoration only; no JIT, GPU algorithm, audio, clock/worker or session-loop changes",
+  "change_scope": "Separate aligned-extern and artwork-loader failure cleanup patch; unchanged GPU layouts, codecs, tuning and session loop",
   "production_cclos_renderer": false,
   "builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "407de5911675d89d422becb5fffeefb1d26f75cf6ca00a190d3df73492d63821",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "original_62_warning_codes": 0,
+      "other_warnings": 46,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "204dba0da4b7f48ec1f16aa009629b8f4ca8a26c67e8777f5f7ac5d98ca8653b",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "original_62_warning_codes": 0,
+      "other_warnings": 40,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "physical_console": {
+    "tests": "NOT RUN",
+    "initial_auto_copy": "Failed to connect, X1001; no transfer or launch succeeded",
+    "current_builds": "M2 full Rebuilds with all four Deploy entries excluded; no console actions"
+  },
+  "historical_m1_builds": [
     {
       "configuration": "Debug",
       "bytes": 16375808,
@@ -95,9 +124,12 @@
       "xbox_runtime": "NOT RUN"
     }
   ],
-  "physical_console": {
-    "tests": "NOT RUN",
-    "initial_auto_copy": "Failed to connect, X1001; no transfer or launch succeeded",
-    "current_builds": "Explicit Deploy exclusions checked; local builds pass"
+  "warnings": {
+    "original_targeted_62": "RESOLVED",
+    "full_rebuild_other": {
+      "Debug": 46,
+      "Release_LTCG": 40
+    },
+    "suppressed": false
   }
 }

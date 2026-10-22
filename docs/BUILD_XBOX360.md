@@ -10,10 +10,10 @@ Use Python 3 and Git. The legacy checkout must be at `metalex10/PPSSPP-X360@540d
 python tools/verify_source_overlay.py
 python -m unittest discover -s tests -v
 python tools/prepare_baseline.py --legacy <legacy-checkout> `
-  --destination artifacts/baseline-m1 --with-build-compatibility
+  --destination artifacts/baseline-m2 --with-build-compatibility
 ```
 
-Compatibility mode stages beneath this project. It records the pristine source manifest, applies the two tracked patches, copies the licensed font header/helper and writes combined provenance. The original archival overlay remains unchanged.
+Compatibility mode stages beneath this project. It records the pristine source manifest, applies the three tracked patches, copies the licensed font header/helper and writes combined provenance. The original archival overlay remains unchanged.
 
 ## Local host tools
 
@@ -31,13 +31,13 @@ Use source/build staging paths without spaces; SDK/Bash installation paths may c
 
 ```powershell
 python tools/build_xbox_ffmpeg.py `
-  --source artifacts/baseline-m1/ffmpeg --build artifacts/ffmpeg-debug `
+  --source artifacts/baseline-m2/ffmpeg --build artifacts/ffmpeg-debug `
   --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
   --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
   --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Debug
 
 python tools/build_xbox_ffmpeg.py `
-  --source artifacts/baseline-m1/ffmpeg --build artifacts/ffmpeg-release `
+  --source artifacts/baseline-m2/ffmpeg --build artifacts/ffmpeg-release `
   --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
   --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
   --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Release
@@ -50,12 +50,36 @@ Native Makefiles use Windows source paths. The old MSVC dependency scanner is by
 ## Build local XEX files
 
 ```powershell
-./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m1 -Configuration Debug
-./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m1 -Configuration Release_LTCG
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m2 -Configuration Debug -Rebuild
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m2 -Configuration Release_LTCG -Rebuild
 ```
 
-The driver checks every project deployment exclusion and all six library architectures before MSBuild with normal project references. It requests Build only. Do not invoke Deploy or launch an XEX as part of this procedure.
+The driver checks every project deployment exclusion and all six library architectures before MSBuild with normal project references. It requests Build or, with -Rebuild, a full Rebuild. Do not invoke Deploy or launch an XEX as part of this procedure.
 
 Outputs: Xbox/xx/Debug/xx.xex and Xbox/xx/Release_LTCG/xx.xex. They require matching application assets and runtime verification before use. Record hashes after every rebuild; timestamps and embedded paths may differ.
 
 Compile tests/state_delete_compat.cpp with VS2010 or a C++98-capable host compiler and run it in a fresh disposable folder. Never run its fixed fixture filenames in an owner savedata directory. CI uses artifacts/state-delete-test.
+
+## M2 warning validation
+
+M2 reuses the twelve M1 FFmpeg libraries byte-for-byte after architecture/hash
+checks; no FFmpeg header/source changed. The examples above can instead rebuild
+FFmpeg from its pinned source when reproducing from an empty environment.
+
+Run `python -m unittest discover -s tests -v` in a VS2010 host developer environment
+(or with g++ on Linux). The actual owner loader functions are reconstructed,
+patched, extracted and compiled under C++98 with warnings as errors, then exercised
+with host texture/decoder stubs. This never launches an Xbox executable. Confirm
+that no test is skipped in the acceptance environment.
+
+For compile-only ABI checks, set INCLUDE to the licensed XDK include/xbox and
+include/xbox/sys directories, then invoke its bin/win32/cl.exe with /c /W3 /WX,
+/D_XBOX /DPPC /DBIG_ENDIAN /DEXPECT_ALIGNED_GLOBALS, /I<staging>,
+/I<staging>/Common and /I<staging>/native on tests/gpu_layout_probe.cpp. Use
+/D_DEBUG /MTd for Debug or /DNDEBUG /MT for Release_LTCG, and put /Fo output under
+ignored artifacts. M1 comparison omits EXPECT_ALIGNED_GLOBALS and uses M1 source.
+These are compile-only assertions, with no link or console execution.
+
+Audit each final log with `python tools/audit_build_warnings.py <log>`.
+C4742/C4744/C4715 must have zero emissions; retain all other warnings in evidence.
+Read WARNING_REVIEW_M2.md before interpreting the full rebuild totals.

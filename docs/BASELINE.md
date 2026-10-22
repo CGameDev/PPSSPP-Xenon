@@ -1,67 +1,83 @@
-# Baseline build checkpoint — M1, 2026-10-21
+# Baseline warning checkpoint — M2
 
-The original owner source is recovered. **Debug and Release_LTCG both build locally.** These are untested Xbox executables, not runtime-qualified releases. [M0](BASELINE_M0.md) and its original failures remain historical evidence.
+The original **62 Release_LTCG link warnings are resolved**: 30 C4742 alignment
+mismatches, 30 associated C4744 type mismatches, and two C4715 missing returns.
+Debug and Release_LTCG are fully rebuilt locally with the licensed Xbox compiler.
+These remain untested Xbox executables. Both switchable library views remain.
 
-## Authentic source recovery
+## Changes and preservation
 
-The local owner download `PPSSPP-Xenon-Codex-Milestone-v1.0.zip` matches recorded package SHA-256 `ea8eaf39d8899f231d1ba1cee7687cbc67e071154ed9972f2883950c8efc8a3b`. Its embedded 56,233-byte `Xbox-original-upload.zip` matches the unchanged original authority:
+`baseline-overlay/warning-fixes.patch` is applied after the M1 adapters. The
+byte-exact owner archive and its original authority hash remain unchanged:
+`6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35`.
+The donor stays pinned at `540db97d96136b2139e5f12dd3c0bb18f2e1cd1f`.
 
-`6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35`
+- GPUState.h now applies MEMORY_ALIGNED16 to the two **extern global variables**,
+  matching their existing definitions in GPUState.cpp. Neither struct definition
+  changes. Compile-only XDK checks confirm 1,616/420-byte type sizes, 4-byte type
+  alignment and every matrix offset in both configurations before and after the
+  fix. Consumers now see the globals' existing 16-byte alignment. Applying
+  alignment to the struct types instead would risk padding/layout changes.
+- LoadGameIcon and LoadPNGTexture now free decoded pixels and return a defined
+  result when texture creation fails. Failed locks release the texture and return
+  null, allowing existing fallback handling. Empty icon data is rejected before
+  indexing the vector. Successful copy/swizzle/pitch behavior is unchanged.
+- The local build driver accepts `-Rebuild`, retaining all deployment checks.
+  Three rejection cases prove missing/implicit/enabled deployment metadata stops
+  before MSBuild. All four real project Deploy entries remain explicitly excluded.
+- Generated provenance identifies M2. No compiler optimization, warning policy,
+  clock/worker setting, codec profile, renderer algorithm or session loop changes.
 
-All 30 ZIP entries pass CRC. Compared with the damaged copy, only byte offsets 5883 and 42887 differ. Base64 parts 1 and 4 were restored directly from the authenticated archive; parts 2/3 and the expected hash are unchanged. No source was guessed or manually repaired. The recovery receipt records before/after part hashes and all recovered file hashes.
+Fresh preparation reproduces the built patched source byte-for-byte. Only
+GPU/GPUState.h and Xbox/XboxLauncher.cpp change among donor/owner source and
+project files compared with M1; the generated version string also advances.
+All twelve FFmpeg libraries are reused byte-for-byte from verified M1 builds,
+covering 436 PPCBE objects. No FFmpeg source/header changed, so it is not rebuilt.
+The design HTML, preview images and launcher grid/list behavior remain unchanged.
+Detailed CCLOS styling remains provisional.
 
-## Inputs and assembly
-
-- Legacy donor: `metalex10/PPSSPP-X360@540db97d96136b2139e5f12dd3c0bb18f2e1cd1f`.
-- Modern reference only: PPSSPP v1.20.4, `fa50bb1976065c4f8b1b47af227d367fe9771555`; no core backport.
-- `prepare_baseline.py` reads committed donor objects, preserves notices and overlays authentic owner Xbox files last into fresh, ignored staging. Its pristine manifest covers 6,409 files. Donor Git metadata and untracked build output are excluded.
-- The missing stb_truetype v1.26 header is pinned to upstream commit `6e9f34d5429cf16790ec43c9bac3f1ee4ad1f760`, retained unmodified with its license. The owner launcher already references that API.
-- Original source is reconstructed from the public pinned donor rather than duplicating thousands of third-party files in this PR. Project patches, dependency source and recipes are tracked here; SDK material, generated trees, libraries and XEX files are excluded from Git.
-
-## Xbox FFmpeg
-
-Six static libraries were rebuilt from the donor's existing FFmpeg source and Xbox recipes for Debug (`ppcD`, `-MTd`) and Release (`ppc`, `-MT`). Both detect 32-bit PPC, big-endian and w32threads, with AltiVec/network/programs disabled as in the historical recipe. No codec source or feature selection changed. Configure reports LGPL 2.1-or-later.
-
-Host tools: GNU Make 3.82 built from GNU source with VS2010, C99-to-C89 1.0.2 from upstream, and installed Git Bash. Native Make requires Windows source paths and bypassing the old MSVC dependency-scanner pipeline. Header changes require a fresh build tree. The driver copies resulting archives to the required `.lib` names; no desktop/prebuilt target libraries are borrowed.
-
-Every object header was verified: **218 PPCBE objects per profile, 436 total**, machine `0x01F2`. Tool/configuration/library hashes are in [M1 evidence](evidence/m1/).
-
-## Bounded compatibility changes
-
-The archival owner source remains pristine. `baseline-overlay/` applies these separate changes to staging:
-
-1. Map two newer folder-atlas names to the existing legacy folder glyph. Both grid/list modes remain.
-2. Bridge the absent DeleteSlot API with the core's existing current-title slot filename generator and file helpers. Empty/missing paths and failures are handled; the toast reports failures truthfully. A C++98 host test exercises disposable files and preserves unrelated slots.
-3. Mark every legacy Deploy entry `ExcludedFromBuild=true`; correct the Release_LTCG FFmpeg library path. The local build driver refuses missing exclusions.
-4. Embed a guarded combined-source identity instead of `unknown`.
-
-Fresh preparation and patch replay were compared against the exact built files. No emulation clock/worker settings, JIT, GPU algorithms, audio or session loop were changed.
-
-## Verification
-
-Installed compilers: VS2010 SP1 host `16.00.40219.01`, XDK PowerPC `16.00.11886.00`; .NET Framework 4 MSBuild with normal project references.
+## Actual checks
 
 | Check | Result |
 | --- | --- |
-| Original owner archive hash / every ZIP CRC | PASS |
-| Python host tests / compilation | 17 PASS / PASS |
-| C++98 deletion helper, VS2010 host | PASS, disposable fixtures |
-| Fresh assembly and compatibility replay | PASS |
-| Debug/Release FFmpeg builds and all object architectures | PASS |
-| Debug Xbox solution build | PASS, local XEX |
-| Release_LTCG Xbox solution build | PASS, local XEX; 62 warnings retained |
-| ISO/CSO/PBP boot, sound/input, saves/states/switching | NOT RUN |
-| Xbox memory, frame pacing, FPS/VPS and regression | NOT RUN |
-| Detailed CCLOS styling / production renderer | Provisional / not integrated |
+| Original archive hash and every member CRC | PASS |
+| Host test suite | 20 PASS, no local skips |
+| Actual patched loaders with injected failures and pixel/pitch checks | 12 cases PASS, C++98 /W4 /WX |
+| Original loader negative control | Both C4715 diagnostics reproduced; expected rejection |
+| XDK layout/alignment probes | M1 and M2, Debug and Release_LTCG: four compile-only passes |
+| Fresh patch replay versus built source | Exact byte match |
+| FFmpeg identity and architecture | 12 identical libraries; 436 PPCBE objects |
+| Debug full Rebuild | PASS, 0 original-target warnings; 46 other warnings |
+| Release_LTCG full Rebuild | PASS, 0 original-target warnings; 40 other warnings |
+| Deployment, Xbox launch or runtime/performance tests | NOT RUN |
 
-Final XEX sizes/hashes are in [baseline-builds.json](evidence/m1/baseline-builds.json). The XDK embeds timestamps/paths: repeatable procedure does not imply byte-for-byte deterministic binaries across machines. Final incremental build receipts retain earlier compile/link warnings rather than calling the entire build warning-free.
+[Build identities](evidence/m2/baseline-builds.json), full rebuild logs, warning
+inventories and source/preservation receipts are in [M2 evidence](evidence/m2/).
+The warning auditor counts emissions before MSBuild repeats its summary; the
+counts agree with MSBuild's final totals. These builds are **not warning-free**.
 
-## Retained failures and limits
+A fresh replay check caught a launcher encoding difference in the first staged
+copy. The exact replay bytes replaced that file and both full rebuilds were
+repeated before final artifact identities were recorded. Initial diagnostic logs
+are retained separately; the final logs and receipts identify accepted outputs.
 
-The first restored build exposed the font header, then atlas/API mismatches. Initial Release_LTCG linking preceded library staging and failed; it passed after dependencies were staged. Failures are preserved.
+## Other warnings and remaining limits
 
-After first successful Debug image generation, the SDK Deploy target automatically attempted `xbecopy` despite DeployOnBuild=false. It failed with X1001, unable to connect to an empty/default target. No transfer or launch succeeded. The SDK invokes Deploy after ImageXex. Explicit project metadata exclusions now prevent its copy task; subsequent local Debug/Release_LTCG builds passed. Do not rely on DeployOnBuild alone.
+The 62-warning M1 log was an incremental final link. Full solution rebuilding also
+emits older compile/library diagnostics. [The warning assessment](WARNING_REVIEW_M2.md)
+records counts, locations and reasons for deferring behavioral changes. In
+particular, C4509 concerns SEH with C++ destructors in the owner session loop;
+C4018/C4244 involve conversions, and PPC emitter/JIT warnings require their own
+correctness tests. They are not certified harmless. No diagnostic is suppressed
+and no warning level or optimization is weakened to make this checkpoint pass.
 
-Release_LTCG retains existing C4742/C4744 cross-unit GPUgstate/GPUStateCache alignment/type warnings and C4715 missing-return warnings in owner artwork loaders. Earlier compilation also reports SEH/destructor and comment-continuation warnings. These are unresolved runtime risks. No warnings were suppressed to obtain a pass.
+No console connection, deployment or launch is requested by M2. The historical M1
+failed automatic copy attempt remains documented in [M1](BASELINE_M1.md); its
+explicit exclusions are preserved. Xbox boot, graphics, audio/input, savedata,
+states, switching, memory growth and performance remain NOT RUN. No baseline tag
+or release is created, and PR #2 remains draft. Any hardware work needs a separate
+owner instruction; this checkpoint authorizes none.
 
-No baseline tag, release, runtime acceptance or performance improvement is claimed. Keep PR #2 draft. Next: investigate retained warnings and obtain a separately authorized hardware checkpoint with rollback, exact identity, boot/audio/input/save/state checks and twenty session transitions. Both UI views remain selected; detailed visual design remains open.
+[M0](BASELINE_M0.md), [M1](BASELINE_M1.md) and their evidence remain historical.
+M1 evidence hashes refer to commit d68b9a609b3e145e72a3fa97613b78de738215a5;
+M2's new evidence index binds current project bytes without rewriting old records.
