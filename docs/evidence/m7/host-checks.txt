@@ -1,0 +1,146 @@
+Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+test_unsafe_deployment_metadata_refused_before_build (test_build_safety.LocalBuildSafetyTests.test_unsafe_deployment_metadata_refused_before_build) ... ok
+test_summary_duplicates_are_not_counted_twice (test_build_safety.WarningAuditTests.test_summary_duplicates_are_not_counted_twice) ... ok
+launcher_texture_cases.cpp
+test_failure_cleanup_and_pixel_copy (test_launcher_texture.LauncherTextureTests.test_failure_cleanup_and_pixel_copy) ... ok
+test_invalid_overlay_does_not_change_existing_source (test_prepare_baseline.BaselineStagingTests.test_invalid_overlay_does_not_change_existing_source) ... ok
+test_invalid_overlay_does_not_create_staging (test_prepare_baseline.BaselineStagingTests.test_invalid_overlay_does_not_create_staging) ... ok
+test_owner_overlay_wins_and_receipt_matches_final_bytes (test_prepare_baseline.BaselineStagingTests.test_owner_overlay_wins_and_receipt_matches_final_bytes) ... ok
+test_path_escape_is_rejected (test_prepare_baseline.BaselineStagingTests.test_path_escape_is_rejected) ... ok
+test_existing_output_is_preserved_before_inputs_are_read (test_smoke_package.SmokePackageTests.test_existing_output_is_preserved_before_inputs_are_read) ... ok
+test_manifest_cannot_read_outside_kit (test_smoke_package.SmokePackageTests.test_manifest_cannot_read_outside_kit) ... ok
+test_payload_corruption_fails_verification (test_smoke_package.SmokePackageTests.test_payload_corruption_fails_verification) ... ok
+test_cli_is_read_only_and_fails_for_untrusted_source (test_source_overlay.SourceGateTests.test_cli_is_read_only_and_fails_for_untrusted_source) ... ok
+test_crc_success_cannot_override_wrong_hash (test_source_overlay.SourceGateTests.test_crc_success_cannot_override_wrong_hash) ... ok
+test_encoded_size_limit (test_source_overlay.SourceGateTests.test_encoded_size_limit) ... ok
+test_invalid_base64_is_rejected (test_source_overlay.SourceGateTests.test_invalid_base64_is_rejected) ... ok
+test_matching_hash_cannot_override_corrupt_member (test_source_overlay.SourceGateTests.test_matching_hash_cannot_override_corrupt_member) ... ok
+test_missing_part_rejected (test_source_overlay.SourceGateTests.test_missing_part_rejected) ... ok
+test_missing_required_source_rejected (test_source_overlay.SourceGateTests.test_missing_required_source_rejected) ... ok
+test_non_zip_rejected (test_source_overlay.SourceGateTests.test_non_zip_rejected) ... ok
+test_valid_archive_requires_matching_hash (test_source_overlay.SourceGateTests.test_valid_archive_requires_matching_hash) ... ok
+test_empty_archive_rejected (test_xbox_libraries.XboxLibraryTests.test_empty_archive_rejected) ... ok
+test_host_object_rejected (test_xbox_libraries.XboxLibraryTests.test_host_object_rejected) ... ok
+test_ppcbe_accepted (test_xbox_libraries.XboxLibraryTests.test_ppcbe_accepted) ... ok
+test_truncated_archive_rejected (test_xbox_libraries.XboxLibraryTests.test_truncated_archive_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 4.107s
+
+OK
+PASS: 786432 morph cases, blended normals, unsigned limits, tile bounds and initial root
+PASS: 8 actual session-loop cases (host stubs; no Xbox execution)
+PASS: owner loop body, crash filter and surrounding lifecycle preserved by exact source comparison
+PASS negative control: original wrapped multiply truncates fractional normal to zero
+PASS: all 82 emitted PPC prologue/epilogue words match reference (scratch address normalized)
+PASS: cache binding after member construction and stable reinitialization
+PASS: 32 xxHash outputs match reference, including streaming/chunk boundaries
+PASS: false xxHash size assertion still fails compilation
+{
+  "status": "PASS",
+  "compiler": "cl.EXE",
+  "source_hashes": {
+    "current": "fd3075a076050e2c01ad2770d238d40893096612e32a76c19e60ef910964f229",
+    "reference": "553303bd6f56cd63546c452152c833b98774e43cf9172386c3b60100ffafb8ea"
+  },
+  "host_assertions": [
+    "TV-safe actual packed-glyph quad bounds",
+    "long/empty/missing-art/folder/loading/recent",
+    "fitted text and image bounds",
+    "RT debounce and selected-game visibility",
+    "inactive renderer/input early return",
+    "no scan/write/resource work while switching",
+    "A file request/folder entry, LB/RB Recent policy and B exit with host stubs"
+  ],
+  "font_sha256": "970370587f57f5fc54ea830d71b0d1dad31cdd0d9db35c68e099e45f39f28bee",
+  "console_execution": "NOT RUN",
+  "budgets": [
+    {
+      "view": "grid",
+      "previous_draw_calls": 80,
+      "current_draw_calls": 62,
+      "previous_triangles": 636,
+      "current_triangles": 584,
+      "previous_cache_reads": 13,
+      "current_cache_reads": 7,
+      "previous_texture_descriptors": 13,
+      "current_texture_descriptors": 7
+    },
+    {
+      "view": "list",
+      "previous_draw_calls": 64,
+      "current_draw_calls": 56,
+      "previous_triangles": 562,
+      "current_triangles": 554,
+      "previous_cache_reads": 9,
+      "current_cache_reads": 7,
+      "previous_texture_descriptors": 9,
+      "current_texture_descriptors": 7
+    }
+  ],
+  "all_scene_cost_checks": 14,
+  "extra_glyph_triangle_limits": {
+    "empty": 24,
+    "folder": 6
+  }
+}
+{
+  "status": "PASS",
+  "compiler": "cl.EXE",
+  "source_hashes": {
+    "current": "fd3075a076050e2c01ad2770d238d40893096612e32a76c19e60ef910964f229",
+    "reference": "553303bd6f56cd63546c452152c833b98774e43cf9172386c3b60100ffafb8ea"
+  },
+  "frames": 42,
+  "identical_action_snapshots": 137,
+  "unchanged_source": [
+    "UpdateInGameMenu",
+    "ShowToast",
+    "SetInGameMenuActive"
+  ],
+  "checks": [
+    "all slots saved/empty, save/load/delete success/failure, held buttons",
+    "all five session actions and cancel priority",
+    "panel navigation/clamping and request-flag reset",
+    "toast 2000ms lifetime / final 500ms fade / long messages",
+    "packed glyph bounds, inactive no-work, five existing save-presence queries and no artwork/scans/writes"
+  ],
+  "budgets": [
+    {
+      "scene": "menu-mixed",
+      "previous_draw_calls": 47,
+      "current_draw_calls": 30,
+      "previous_triangles": 518,
+      "current_triangles": 480
+    },
+    {
+      "scene": "menu-toast",
+      "previous_draw_calls": 49,
+      "current_draw_calls": 32,
+      "previous_triangles": 546,
+      "current_triangles": 508
+    },
+    {
+      "scene": "menu-no-atlas",
+      "previous_draw_calls": 47,
+      "current_draw_calls": 30,
+      "previous_triangles": 518,
+      "current_triangles": 480
+    },
+    {
+      "scene": "toast-0",
+      "previous_draw_calls": 2,
+      "current_draw_calls": 2,
+      "previous_triangles": 28,
+      "current_triangles": 28
+    },
+    {
+      "scene": "toast-long",
+      "previous_draw_calls": 2,
+      "current_draw_calls": 2,
+      "previous_triangles": 130,
+      "current_triangles": 130
+    }
+  ],
+  "xbox_execution": "NOT RUN"
+}

@@ -1,5 +1,11 @@
 # PPSSPP Xenon
 
+> **M7 local correction candidate:** the supplied M6 failure log stops during
+> font parsing. A reproduced Xenon byte-order defect in the PGF bit-reader is
+> corrected; both full builds are warning-clean. UI/save actions stay unchanged.
+> [Evidence and limits](docs/PGF_FONT_FIX_M7.md). M7 has not run on Xbox; the full
+> lockup is not yet confirmed resolved. Nothing has been deployed or launched.
+
 > **First hardware report:** the owner observed M6 Release_LTCG's launcher and ISO
 > artwork, but game launch caused a full console lockup. Preserve logs/config
 > before retrying. [Failure report and next evidence](docs/SMOKE_TEST_REPORT_01.md).

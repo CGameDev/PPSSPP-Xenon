@@ -1,5 +1,14 @@
 # First console test readiness — M6
 
+## M7 local correction candidate
+
+The owner supplied the M6 failure log/config/recent; no crash log was found. The
+log stops during Latin-font parsing. A reproduced PGF bit-reader endian defect is
+corrected in a separate M7 candidate, with both full builds warning-clean and
+UI/action traces unchanged. See [PGF_FONT_FIX_M7.md](PGF_FONT_FIX_M7.md).
+The complete lockup is not confirmed resolved; M7 has not run on Xbox. Preserve
+M6 evidence. No agent deployment/launch is authorized or performed.
+
 ## Latest owner-run result: launch failed
 
 On 2026-10-22 the owner reported M6 Release_LTCG displaying the launcher and ISO

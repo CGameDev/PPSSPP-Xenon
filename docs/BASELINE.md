@@ -1,108 +1,110 @@
-# Approved CCLOS shell implementation — M6
+# M7 — Xenon PGF font bit-reader correction
 
-The reviewed navy/teal direction is implemented on PR #2: sidebar navigation,
-larger three-by-two game cards, a six-row compact view with shared selection,
-selected-game artwork, and a right-side in-game panel. Both full local XDK
-Rebuilds pass with **0 warnings / 0 errors**. No console was contacted, deployed
-to or launched. Xbox runtime and frame-time performance remain **NOT RUN**.
+**Local candidate only; not tested on Xbox.** The owner's M6 Release_LTCG launch
+hard-locked the console. The supplied log narrows the investigation and exposes
+a reproducible font-decoding defect, but does not prove every cause of the hang.
+No console connection, deployment or launch was performed by the agent.
 
-## Native scope
+## Evidence from the owner's files
 
-`baseline-overlay/cclos-approved-shell.patch` follows the six earlier patches.
-It changes eight presentation methods and explicit layout constants/offset-helper
-selection in XboxLauncher.cpp. `CclosShellLayout.h` supplies three-column/two-row
-and six-row-list geometry with bounded selection offsets. The older theme helper
-stays byte-identical, allowing independent reconstruction of the previous shell.
+`ppsspp_log.txt`, `ppsspp.ini` and `recent.txt` were read from the supplied paths
+and copied unchanged to local incident storage. Raw user files remain outside
+Git; their lengths/hashes are in `evidence/m7/incoming-evidence.json`. The owner
+reports that no `crash_log.txt` was found. No ISO was accessed.
 
-All other launcher source matches M5 after those explicit geometry substitutions.
-UpdateInGameMenu, ShowToast, RenderToast, font/image fitting, class state/header,
-XboxMain, session helper, Core, GPU, Common and FFmpeg remain unchanged. Among
-3,876 source/project/font/image/helper/identity files compared with M5, differences
-are limited to launcher.cpp, the new geometry header and generated m6 identity.
-Fresh source preparation reproduces all 3,876 compared files exactly.
+The log identifies the M6 version, loads the game's EBOOT, initializes memory and
+the PPC JIT dispatcher, and starts `user_main` and `GameMain`. It completes loading
+`jpn0.pgf`. The final entry is **37:13:891**, reading a PGF header immediately
+after starting `ltn0.pgf` (67,660 bytes). This is the last recorded operation, not
+a proven instruction where the console froze. It establishes more progress than
+the screenshots alone, but not interactive gameplay or full JIT correctness.
 
-The same RT binding switches Games grid/compact while retaining selection and
-visibility. Recent retains its existing grid-only policy. Folder entry, A launch,
-LB/RB tabs, B exit and existing right-panel actions remain. This milestone does
-not implement the concept's proposed game-details page or additional settings.
+The initial missing-config/controller messages are followed by successful config
+save messages, consistent with first creation. The log also reports missing PRX
+keys 59/5B, faked undecryptable modules and a deferred-thread-info error; execution
+continues to font loading afterward. These remain separate compatibility findings;
+M7 does not alter decryption or thread/callback handling. INI settings agree with
+the existing owner defaults, including JIT requested, separate CPU/I/O threads,
+five workers and 111 MHz PSP clock. No tuning change is included.
 
-## Side-panel behavior and visual limits
+## Confirmed source defect and bounded correction
 
-The right panel presents the currently focused save-slot or session page.
-Existing Left/Right switches pages; Up/Down selects a row. Opening still selects
-Slot 1. A saves, X loads, Y deletes, and B continues. Session actions retain their
-original indices and reset/exit flags. Settings is labelled unavailable and keeps
-its legacy close-menu behavior. No serialization/reset/exit handler is rewritten.
+The PGF header/metric tables already use little-endian wrappers, but `getBits`
+reads packed bitstreams through `const u32 *`. That interprets each word in native
+host byte order. On Xenon, glyph tables and bitmap fields consequently decode
+differently from the file's little-endian bit order.
 
-Static navy/teal shading approximates the reviewed layered panels using existing
-rectangles and cached artwork. Embedded PIC1/ICON0 images are fitted without
-stretching. The side menu uses an **opaque static paused backdrop**, rather than
-the concept's illustrated game scene. Retaining gameplay would require a
-separately validated snapshot path instead of relying on swap-chain contents.
-No live blur, framebuffer capture, new shader/texture, animation, decoder, thread,
-filesystem query or cache policy is introduced. Five existing slot-presence
-queries remain per visible menu frame. Normal notifications remain unchanged.
+The separate `baseline-overlay/pgf-endian-fix.patch` changes only the `getBits`
+body in `Core/Font/PGF.cpp`:
 
-## Verification
+- Read words through the existing `u32_le` type; convert each word once to `u32`.
+- Handle a zero-bit request without a memory read.
+- Handle an exact 32-bit boundary in the single-word branch, avoiding an
+  unnecessary next-word read and undefined 32-bit mask shifts.
+- Use unsigned masks and accumulation for widths up to 32 bits.
+
+No font asset, PGF format, state layout, glyph cache, allocation, thread, UI,
+save/load/reset action, GPU/JIT/session code or emulator setting changes. The
+helper remains constant work: zero, one or two word reads per call, with no new
+loop/allocation. Correct endian conversion is required work; Xbox timing has not
+been measured. This is an original local correction, not an upstream backport.
+
+## Reproduction and validation
+
+The actual old/new reader bodies are extracted from staged source. The host
+fixture explicitly models native big-endian words for the old reader and
+little-endian words for the correction, then compares against an independent
+bit-at-a-time oracle. It does not execute PPC machine code.
 
 | Check | Result |
 | --- | --- |
-| Owner archive hash / all 30 CRCs | PASS, unchanged authority |
-| Twelve FFmpeg libraries / 436 PPCBE objects | PASS, byte-identical to M5 |
+| Widths 0–32 and starting bit positions 0–255 | 8,448 oracle cases PASS |
+| Exact-boundary word count and zero-width no-read | PASS |
+| Character/glyph pointer tables for all 18 bundled fonts | PASS |
+| `ltn0.pgf` old BE invalid glyph-start offsets | 76 of 324; corrected 0 |
+| `jpn0.pgf` old BE invalid glyph-start offsets | 193 of 29,075; corrected 0 |
+| Scope after reversing the new patch | Only `getBits` body differs |
+| 23 existing unit tests and actual-source regressions | PASS, no local skips |
+| M6 launcher/menu traces and 137 action snapshots | Exact equality |
+| Fresh replay across 3,876 source/helper/project/assets/identity files | Exact bytes |
+| Changed compared with M6 | `Core/Font/PGF.cpp` and generated identity only |
+| Twelve FFmpeg libraries / 436 PPCBE objects | Unchanged |
 | Full Debug Rebuild | PASS, 0 warnings / 0 errors |
 | Full Release_LTCG Rebuild | PASS, 0 warnings / 0 errors |
-| Existing tests | 20 PASS, no skips in local VS2010 environment |
-| Numeric/session/emitter/cache/hash regressions | PASS, including native Windows host SEH |
-| Save/load/delete/session snapshots vs M5 | 137 identical, plus explicit action expectations |
-| Exact source boundary / unchanged state handlers | PASS |
-| Launcher frames / bounded costs | 14 PASS against reconstructed M5 |
-| New grid/list navigation and offset boundaries | PASS, including partial rows and count limits |
-| In-game frames / toast timing and inactive guards | 42 PASS |
-| Browser scenarios | 56 launcher + 136 menu PASS, no errors/overflow/external requests |
-| Fresh source replay / project Deploy exclusions | PASS, all four Deploy entries excluded |
-| Xbox boot, real state round trips, reset, switching, frame times | NOT RUN |
+| Four Deploy exclusions | Explicitly excluded |
+| M7 Xbox runtime, resolved hard lock and performance | NOT RUN / NOT ESTABLISHED |
 
-Host checks compile extracted native methods with device/input/state stubs. They
-do not execute PPC machine code, real saves or Xbox APIs. Current methods compile
-with warnings treated as errors; the historical reference policy stays visible.
-Previews use actual drawing traces with fictional artwork and approximate browser
-text rasterization. See [launcher](../design/cclos-preview.html),
-[side menu](../design/cclos-ingame-preview.html) and [evidence](evidence/m6/).
+The MSVC fixture uses production-equivalent `/W3 /WX`; an initial desktop `/W4`
+probe flagged the inherited bit-count narrowing in both old/new readers. No
+production warning suppression or project warning-level change was made. GCC CI
+adds undefined-behavior instrumentation to the host reader fixture.
 
-## Drawing cost versus M5
+Reproduce the font regression after current preparation:
 
-| Normal fixture | M5 → M6 draws | M5 → M6 triangles |
-| --- | --- | --- |
-| Grid library | 80 → 62 | 636 → 584 |
-| Compact library | 64 → 56 | 562 → 554 |
-| Save-slot menu | 47 → 30 | 518 → 480 |
-| Session menu | 47 → 25 | 518 → 462 |
-| Menu with notification | 49 → 32 | 546 → 508 |
-| Gameplay notification | 2 → 2 | 28 → 28 |
+```text
+python tests/run_pgf_regressions.py --source-root artifacts/baseline-m7 --build-root artifacts/m7-pgf-tests
+```
 
-Artwork lookups fall 13→7 in grid and 9→7 in compact. Draw/cache/descriptor counts
-do not increase in any of the 14 launcher fixtures. Different fitted captions add
-18/24 triangles for empty grid/list and six for compact folder; these explicit
-glyph-only bounds are tested. Long notifications remain 130 triangles, unchanged
-from M5. These are host work counts, **not Xbox performance measurements**.
+Both full build logs, warning audits, library identities, preservation receipt and
+font-table results are in `docs/evidence/m7/`. The original owner archive remains
+unchanged. The older M6 build/kit and owner failure evidence are preserved.
 
-The first host attempt caught redundant compact labels exceeding the older M3
-triangle budget. Those labels were removed; final checks compare the immediately
-preceding M5 shell. The initial failure log is retained. An exact-source checker
-also identified six inserted blank-line separators; its documented, narrow
-normalization accounts for them without relaxing executable-code comparison.
-Both production builds succeeded on their first attempts.
+## Candidate and next checkpoint
 
-## Readiness and rollback
+The local M7-PGF candidate ZIP contains separate Release_LTCG/Debug application
+folders with matching runtime files and empty test saves, plus a local verifier.
+It contains no owner ISO, logs/config/saves or SDK files. It has not been deployed
+or launched. Do not overwrite the failed M6 application/evidence or working backup.
 
-Software remains at the first controlled console smoke-test gate. Exact TV
-appearance, controller transitions, real save/load/reset, repeated switching,
-memory stability and measured performance still require separately authorized
-hardware testing. Read [CONSOLE_TEST_READINESS.md](CONSOLE_TEST_READINESS.md).
-Keep PR #2 draft. No merge, release, tag or console action is part of M6.
+A future separately authorized retest should isolate this font correction: use a
+new folder and the same ISO, capture the version/complete log, and check whether
+all internal fonts complete loading and gameplay becomes interactive. Preserve
+failure evidence after any repeat lock. The inherited consecutive first-launch
+frame starts and graphics-state/thread issues remain audit targets; deliberately
+changing none of those in M7 keeps this candidate's comparison interpretable.
+Missing encrypted-module support may still limit this title independently.
 
-The local M6 ZIP contains two XEX candidates plus identities, not a complete
-runtime install. No binaries, SDK content or game data are committed. Reverting
-the M6 implementation commit restores M5 while preserving source recovery,
-dependencies and warning fixes. Previous evidence is retained in
-[BASELINE_M5.md](BASELINE_M5.md) and `evidence/m1` through `evidence/m5`.
+Rollback is the M6 source/build snapshot or the owner's verified working install;
+M6 itself failed this title and M5 remains untested. Reverting the M7 implementation
+restores the prior reader. This correction is not a claim of a successful console
+fix, general malformed-font safety or compatibility/performance certification.

@@ -1,5 +1,14 @@
 # Reproduce the recovered Xbox 360 build
 
+Current diagnostic checkpoint: **M7 PGF font correction**. Use a fresh
+`artifacts/baseline-m7` destination with the current preparer (eight patches),
+verify/reuse the unchanged FFmpeg profiles, and run both guarded full Rebuilds
+against that stage. Run `tests/run_pgf_regressions.py` as documented in
+[PGF_FONT_FIX_M7.md](PGF_FONT_FIX_M7.md). No deployment/launch is requested.
+M7 is locally validated only; M6's owner-run launch failed. To reproduce the
+original M6 smoke kit, use the recorded M6 preparation commit/stage and its
+receipts; do not relabel an M7 build as M6.
+
 Current checkpoint: **M6 approved shell**. Use `artifacts/baseline-m6` for all
 current examples below. Preparation now applies seven patches and copies four
 helpers. The current launcher/menu runners reverse only the M6 patch to recover

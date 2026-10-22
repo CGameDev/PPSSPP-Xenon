@@ -42,3 +42,5 @@ jobs:
         run: python3 tests/run_cclos_ingame.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-ingame-tests
       - name: Enforce the approved shell presentation boundary
         run: python3 tests/run_cclos_shell.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-shell-tests
+      - name: Check PGF font bits and Xenon byte order against all bundled fonts
+        run: python3 tests/run_pgf_regressions.py --source-root artifacts/m3-regression-source --build-root artifacts/pgf-reader-tests

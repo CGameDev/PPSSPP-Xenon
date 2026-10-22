@@ -1,5 +1,15 @@
 # PPSSPP-Xenon — CODEX START HERE
 
+## Current M7 font correction candidate
+
+Read docs/PGF_FONT_FIX_M7.md and docs/HADCV_M7.md first. The owner's log reaches
+game threads and stops at ltn0.pgf parsing. An isolated PGF bit-reader endian and
+0/32-bit boundary correction is reproduced and both full builds are clean. Only
+Core/Font/PGF.cpp and the generated identity differ from M6. UI, save/load/reset,
+GPU/JIT/session code and settings stay unchanged. M7 has not run on Xbox and is
+not proof that the complete hard lock is resolved. Keep the old failure evidence,
+PR #2 draft, and all deployment exclusions. No agent console action is authorized.
+
 ## Latest hardware evidence — read first
 
 The owner tested M6 Release_LTCG: launcher/artwork visible, then black-screen hard

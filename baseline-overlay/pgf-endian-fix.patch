@@ -1,0 +1,39 @@
+--- a/Core/Font/PGF.cpp
++++ b/Core/Font/PGF.cpp
+@@ -35,23 +35,27 @@
+ 
+ // Gets a number of bits from an offset.
+ static int getBits(int numBits, const u8 *buf, size_t pos) {
+-	_dbg_assert_msg_(SCEFONT, numBits <= 32, "Unable to return more than 32 bits, %d requested", numBits);
+-
++	_dbg_assert_msg_(SCEFONT, numBits >= 0 && numBits <= 32, "Invalid PGF bit count: %d", numBits);
++
++	// PGF bit streams are little-endian even on Xenon.
++	if (numBits <= 0 || numBits > 32) return 0;
+ 	const size_t wordpos = pos >> 5;
+-	const u32 *wordbuf = (const u32 *)buf;
++	const u32_le *wordbuf = (const u32_le *)buf;
+ 	const u8 bitoff = pos & 31;
++	const u32 firstWord = wordbuf[wordpos];
+ 
+ 	// Might just be in one, has to be within two.
+-	if (bitoff + numBits < 32) {
+-		const u32 mask = (1 << numBits) - 1;
+-		return (wordbuf[wordpos] >> bitoff) & mask;
++	if (bitoff + numBits <= 32) {
++		const u32 mask = 0xFFFFFFFFU >> (32 - numBits);
++		return (firstWord >> bitoff) & mask;
+ 	} else {
+-		int v = wordbuf[wordpos] >> bitoff;
++		u32 v = firstWord >> bitoff;
+ 
+ 		const u8 done = 32 - bitoff;
+ 		const u8 remaining = numBits - done;
+-		const u32 mask = (1 << remaining) - 1;
+-		v |= (wordbuf[wordpos + 1] & mask) << done;
++		const u32 mask = 0xFFFFFFFFU >> (32 - remaining);
++		const u32 secondWord = wordbuf[wordpos + 1];
++		v |= (secondWord & mask) << done;
+ 		return v;
+ 	}
+ }

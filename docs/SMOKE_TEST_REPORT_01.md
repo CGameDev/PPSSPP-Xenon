@@ -1,5 +1,12 @@
 # First owner-reported Xbox test — 2026-10-22
 
+**Log follow-up:** the owner has now supplied ppsspp_log.txt, ppsspp.ini and
+recent.txt and reports no crash log. The log reaches GameMain and stops during
+ltn0.pgf parsing. A reproduced font-reader byte-order defect has a locally built
+M7 correction candidate; see [PGF_FONT_FIX_M7.md](PGF_FONT_FIX_M7.md). No M7 Xbox
+test or complete lockup resolution is claimed. The initial triage below is
+retained as the pre-log record; raw incoming files remain local outside Git.
+
 **Game launch FAIL: full console lockup reported. Do not treat M6 as a validated
 gameplay candidate or repeat the launch before preserving failure evidence.**
 

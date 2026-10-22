@@ -57,11 +57,12 @@ def apply_build_compatibility(destination, project):
         'Core/CoreXbox.vcxproj',
         'GPU/GPUXbox.vcxproj',
         'Xbox/XboxMain.cpp',
+        'Core/Font/PGF.cpp',
     ):
         path = destination / name
         path.write_bytes(path.read_bytes().replace(b"\r\n", b"\n"))
     git = ["git", "-c", "safe.directory=" + project.as_posix(), "-C", str(project), "apply"]
-    for name in ("launcher-legacy-compat.patch", "local-build-project.patch", "warning-fixes.patch", "remaining-warnings.patch", "cclos-launcher-milestone.patch", "cclos-ingame-menu.patch", "cclos-approved-shell.patch"):
+    for name in ("launcher-legacy-compat.patch", "local-build-project.patch", "warning-fixes.patch", "remaining-warnings.patch", "cclos-launcher-milestone.patch", "cclos-ingame-menu.patch", "cclos-approved-shell.patch", "pgf-endian-fix.patch"):
         patch = project / "baseline-overlay" / name
         subprocess.run(git + ["--check", "--directory=" + relative, str(patch)], check=True)
         subprocess.run(git + ["--directory=" + relative, str(patch)], check=True)
@@ -74,7 +75,7 @@ def apply_build_compatibility(destination, project):
     (destination / "git-version.cpp").write_text(
         '// Generated baseline provenance, not a release version.\n'
         '#define PPSSPP_GIT_VERSION_NO_UPDATE 1\n'
-        'const char *PPSSPP_GIT_VERSION = "legacy-540db97-owner-6dd3c4f-m6";\n', encoding="utf-8")
+        'const char *PPSSPP_GIT_VERSION = "legacy-540db97-owner-6dd3c4f-m7-pgf";\n', encoding="utf-8")
 
 
 def prepare(legacy, overlay, destination, compatibility=False):
