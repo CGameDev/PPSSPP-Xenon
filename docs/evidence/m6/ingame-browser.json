@@ -1,0 +1,929 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-toast",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-toast-fade",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-toast-long",
+      "status": "PASS"
+    },
+    {
+      "width": 1280,
+      "scene": "menu-no-atlas",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-toast",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-toast-fade",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-toast-long",
+      "status": "PASS"
+    },
+    {
+      "width": 1920,
+      "scene": "menu-no-atlas",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-toast",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-toast-fade",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-toast-long",
+      "status": "PASS"
+    },
+    {
+      "width": 736,
+      "scene": "menu-no-atlas",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-mixed",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-empty",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "slots",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 0,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 1,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 2,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 3,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-saved",
+      "focus": "session",
+      "row": 4,
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-toast",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-toast-fade",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-toast-long",
+      "status": "PASS"
+    },
+    {
+      "width": 360,
+      "scene": "menu-no-atlas",
+      "status": "PASS"
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": 0,
+  "xboxRuntime": "NOT RUN",
+  "renderer": "Installed Edge / Playwright; host trace, approximate browser font rasterization"
+}

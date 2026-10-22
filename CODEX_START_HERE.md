@@ -1,16 +1,19 @@
 # PPSSPP-Xenon — CODEX START HERE
 
-## Current M5 shell checkpoint — read first
+## Current M6 approved shell — read first
 
-The in-game menu and notifications now share CCLOS navy/teal styling with the
-launcher. Only two presentation bodies change over M4. Save/load/delete/reset
-handlers, both launcher views, session loop, class state and emulator sources
-remain unchanged. Both full Debug/Release_LTCG Rebuilds have zero warnings/errors.
-Read docs/BASELINE.md, docs/HADCV_M5.md, docs/BUILD_XBOX360.md and
+The approved navy/teal shell adds sidebar navigation, larger grid and compact
+views, selected-game artwork and a matching right-side in-game menu. Eight
+presentation bodies plus explicit geometry substitutions change over M5.
+Save/load/delete/reset handlers, session loop, class state, notifications and
+emulator sources remain unchanged. The pause backdrop stays opaque and static;
+Left/Right switches the existing slot/session pages, default Slot 1 unchanged.
+Both full Debug/Release_LTCG Rebuilds have zero warnings/errors.
+Read docs/BASELINE.md, docs/HADCV_M6.md, docs/BUILD_XBOX360.md and
 docs/CONSOLE_TEST_READINESS.md. All four Deploy entries must stay explicitly excluded.
 No console connection, deployment or launch is authorized. Software is ready to
 approach a first separately authorized smoke test; runtime/performance and exact
-styling/TV legibility remain unverified. Keep PR #2 draft.
+TV legibility remain unverified. Keep PR #2 draft.
 
 Repository: https://github.com/CGameDev/PPSSPP-Xenon.git
 

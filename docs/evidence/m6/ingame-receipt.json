@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "compiler": "cl.EXE",
+  "source_hashes": {
+    "current": "fd3075a076050e2c01ad2770d238d40893096612e32a76c19e60ef910964f229",
+    "reference": "553303bd6f56cd63546c452152c833b98774e43cf9172386c3b60100ffafb8ea"
+  },
+  "frames": 42,
+  "identical_action_snapshots": 137,
+  "unchanged_source": [
+    "UpdateInGameMenu",
+    "ShowToast",
+    "SetInGameMenuActive"
+  ],
+  "checks": [
+    "all slots saved/empty, save/load/delete success/failure, held buttons",
+    "all five session actions and cancel priority",
+    "panel navigation/clamping and request-flag reset",
+    "toast 2000ms lifetime / final 500ms fade / long messages",
+    "packed glyph bounds, inactive no-work, five existing save-presence queries and no artwork/scans/writes"
+  ],
+  "budgets": [
+    {
+      "scene": "menu-mixed",
+      "previous_draw_calls": 47,
+      "current_draw_calls": 30,
+      "previous_triangles": 518,
+      "current_triangles": 480
+    },
+    {
+      "scene": "menu-toast",
+      "previous_draw_calls": 49,
+      "current_draw_calls": 32,
+      "previous_triangles": 546,
+      "current_triangles": 508
+    },
+    {
+      "scene": "menu-no-atlas",
+      "previous_draw_calls": 47,
+      "current_draw_calls": 30,
+      "previous_triangles": 518,
+      "current_triangles": 480
+    },
+    {
+      "scene": "toast-0",
+      "previous_draw_calls": 2,
+      "current_draw_calls": 2,
+      "previous_triangles": 28,
+      "current_triangles": 28
+    },
+    {
+      "scene": "toast-long",
+      "previous_draw_calls": 2,
+      "current_draw_calls": 2,
+      "previous_triangles": 130,
+      "current_triangles": 130
+    }
+  ],
+  "xbox_execution": "NOT RUN"
+}

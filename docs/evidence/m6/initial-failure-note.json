@@ -1,0 +1,6 @@
+{
+  "initial_failure": "Compact view repeated labels exceeded M3 triangle budget.",
+  "resolution": "Removed redundant per-row and chrome labels. Current M6 normal views are below M5 draw and triangle counts.",
+  "boundary_check": "An initial exact-source checker flagged six inserted blank lines; its explicit presentation-boundary normalization now accounts for those separators.",
+  "production_build_failures": 0
+}

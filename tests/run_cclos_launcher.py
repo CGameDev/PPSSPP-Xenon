@@ -44,13 +44,19 @@ def main():
             target = reference / name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(args.source_root / name, target)
-        if "Presentation only: existing input/state dispatch" in (reference / "Xbox/XboxLauncher.cpp").read_text(encoding="latin1"):
+        approved_shell = 'CclosShellLayout.h' in (reference / 'Xbox/XboxLauncher.cpp').read_text(encoding='latin1')
+        if approved_shell:
+            subprocess.run(['git', '-C', str(ROOT), 'apply', '-R',
+                            '--directory=' + reference.relative_to(ROOT).as_posix(),
+                            str(ROOT / 'baseline-overlay/cclos-approved-shell.patch')], check=True)
+        if not approved_shell and "Presentation only: existing input/state dispatch" in (reference / "Xbox/XboxLauncher.cpp").read_text(encoding="latin1"):
             subprocess.run(["git", "-C", str(ROOT), "apply", "-R",
                             "--directory=" + reference.relative_to(ROOT).as_posix(),
                             str(ROOT / "baseline-overlay/cclos-ingame-menu.patch")], check=True)
-        subprocess.run(["git", "-C", str(ROOT), "apply", "-R",
-                        "--directory=" + reference.relative_to(ROOT).as_posix(),
-                        str(ROOT / "baseline-overlay/cclos-launcher-milestone.patch")], check=True)
+        if not approved_shell:
+            subprocess.run(["git", "-C", str(ROOT), "apply", "-R",
+                            "--directory=" + reference.relative_to(ROOT).as_posix(),
+                            str(ROOT / "baseline-overlay/cclos-launcher-milestone.patch")], check=True)
         args.reference_root = reference
     records = []
     for label, root in [("current", args.source_root), ("reference", args.reference_root)]:
@@ -66,7 +72,7 @@ def main():
         (work / "launcher_constants.inc").write_bytes(text[start:end].encode("latin1"))
         methods = ["RenderTabBar", "RenderListItem", "RenderGameList", "RenderGridItem", "RenderGrid",
                    "RenderRightPanel", "RenderAnimatedBackground", "Render", "RenderSplash", "Update"]
-        if label == "current":
+        if 'CclosLauncherTheme.h' in text:
             methods += ["RenderCclosBackground", "DrawFittedString", "DrawFittedTexture"]
         extracted = []
         for name in methods:
@@ -77,6 +83,10 @@ def main():
                 body = '#pragma warning(push)\n#pragma warning(disable:4244)\n' + body + '\n#pragma warning(pop)\n'
             extracted.append(body)
         generated = "static const float DEADZONE = 0.3f;\n" + "\n".join(extracted)
+        if 'CclosShellLayout.h' in text:
+            generated = '#define CCLOS_APPROVED_SHELL 1\n' + generated
+        elif 'CclosLauncherTheme.h' in text:
+            generated = '#define CCLOS_PREVIOUS_SHELL 1\n' + generated
         (work / "launcher_methods.inc").write_bytes(generated.encode("latin1"))
         exe = work / "launcher-trace.exe"
         fixture = ROOT / "tests/cclos_launcher_trace.cpp"
@@ -116,16 +126,28 @@ def main():
                "font_sha256": hashlib.sha256((args.source_root / "assets/Roboto-Condensed.ttf").read_bytes()).hexdigest(),
                "console_execution": "NOT RUN", "budgets": []}
     if len(records) == 2:
+        previous = records[1]['frames']
+        if len(previous) == len(current):
+            for a, b in zip(current, previous):
+                assert (a['scene'], a['view']) == (b['scene'], b['view'])
+                assert a['drawCalls'] <= b['drawCalls']
+                assert a['cacheReads'] <= b['cacheReads']
+                assert a['descReads'] <= b['descReads']
+                # Different fitted captions use at most twelve additional glyphs.
+                extra = 24 if a['scene'] == 'empty' else 6 if a['scene'] == 'folder' else 0
+                assert a['triangles'] <= b['triangles'] + extra
+            receipt['all_scene_cost_checks'] = len(current)
+            receipt['extra_glyph_triangle_limits'] = {'empty': 24, 'folder': 6}
         for view in ("grid", "list"):
             a = next(x for x in current if x["scene"] == view)
             b = next(x for x in records[1]["frames"] if x["scene"] == view)
             assert a["drawCalls"] < b["drawCalls"]
             assert a["cacheReads"] <= b["cacheReads"]
             assert a["triangles"] < b["triangles"]
-            receipt["budgets"].append({"view": view, "M3_draw_calls": b["drawCalls"], "M4_draw_calls": a["drawCalls"],
-                                       "M3_triangles": b["triangles"], "M4_triangles": a["triangles"],
-                                       "M3_cache_reads": b["cacheReads"], "M4_cache_reads": a["cacheReads"],
-                                       "M3_texture_descriptors": b["descReads"], "M4_texture_descriptors": a["descReads"]})
+            receipt["budgets"].append({"view": view, "previous_draw_calls": b["drawCalls"], "current_draw_calls": a["drawCalls"],
+                                       "previous_triangles": b["triangles"], "current_triangles": a["triangles"],
+                                       "previous_cache_reads": b["cacheReads"], "current_cache_reads": a["cacheReads"],
+                                       "previous_texture_descriptors": b["descReads"], "current_texture_descriptors": a["descReads"]})
     (build / "RECEIPT.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
     if args.preview_data:
         args.preview_data.write_text("window.CCLOS_FRAMES = " + json.dumps(current, separators=(",", ":")) + ";\n",

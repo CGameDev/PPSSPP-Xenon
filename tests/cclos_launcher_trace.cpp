@@ -15,6 +15,7 @@
 #define STB_TRUETYPE_IMPLEMENTATION
 #include "stb_truetype.h"
 #include "CclosLauncherTheme.h"
+#include "CclosShellLayout.h"
 typedef unsigned int DWORD; typedef unsigned char BYTE;
 #define FAILED(x) ((x) < 0)
 #define ZeroMemory(p,n) std::memset(p,0,n)
@@ -203,7 +204,7 @@ int main(int argc,char**argv) {
     for(int i=0;i<16;++i){ui_atlas.images[i].w=64;ui_atlas.images[i].h=48;}
     std::cout<<"[";bool first=true;
     for(int scene=0;scene<8;++scene) {
-#ifdef REFERENCE_RENDER
+#if defined(REFERENCE_RENDER) && !defined(CCLOS_PREVIOUS_SHELL)
         if(scene>1) break;
 #endif
         for(int view=0;view<2;++view) {
@@ -238,8 +239,27 @@ int main(int argc,char**argv) {
     resetCounts();l.Update();l.Update();assert(l.viewMode_==XboxLauncher::VIEW_LIST && l.selectedIndex_==17 && l.scrollOffset_==17);
     l.Update();l.Update();assert(l.viewMode_==XboxLauncher::VIEW_LIST);
     input.Gamepad.bRightTrigger=0;l.Update();l.Update();input.Gamepad.bRightTrigger=100;l.Update();l.Update();
-    assert(l.viewMode_==XboxLauncher::VIEW_GRID && l.selectedIndex_==17 && l.scrollOffset_==4);
+    assert(l.viewMode_==XboxLauncher::VIEW_GRID && l.selectedIndex_==17 && l.scrollOffset_==
+        (17 / GRID_COLS < ((32 + GRID_COLS - 1) / GRID_COLS - GRID_MAX_VISIBLE) ?
+         17 / GRID_COLS : ((32 + GRID_COLS - 1) / GRID_COLS - GRID_MAX_VISIBLE)));
     assert(scanCalls==0 && writeCalls==0 && resourceCalls==0);
+    // Navigate the full grid/list geometry, including last partial rows.
+    for(int view=0;view<2;++view)for(int count=1;count<=32;++count) {
+        XboxLauncher nav;nav.fontChars_=glyphs;fixture(nav,count);
+        nav.viewMode_=view?XboxLauncher::VIEW_LIST:XboxLauncher::VIEW_GRID;
+        for(int index=0;index<count;++index) {
+            nav.selectedIndex_=index;
+            nav.scrollOffset_=CclosShell::OffsetForSelection(index,count,view!=0);
+            ZeroMemory(&input,sizeof(input));input.Gamepad.wButtons=XINPUT_GAMEPAD_DPAD_DOWN;
+            nav.prevButtons_=0;nav.pollDelay_=0;resetCounts();nav.Update();nav.Update();
+            int step=view?1:GRID_COLS;
+            assert(nav.selectedIndex_==(index<count-step?index+step:index));
+            int unit=view?nav.selectedIndex_:nav.selectedIndex_/GRID_COLS;
+            int visible=view?LIST_H/LIST_ITEM_H:GRID_MAX_VISIBLE;
+            assert(nav.scrollOffset_<=unit && unit<nav.scrollOffset_+visible);
+            assert(scanCalls==0 && writeCalls==0 && resourceCalls==0);
+        }
+    }
     // Existing input contract: request a file, enter a folder, switch tabs, exit.
     // All side effects below are counters/strings in host stubs.
     for(int view=0;view<2;++view) {
@@ -260,9 +280,9 @@ int main(int argc,char**argv) {
     }
     l.active_=false;resetCounts();l.Render();l.Update();assert(commands.empty() && resourceCalls==0 && cacheReads==0);
     for(int count=0;count<=300;++count)for(int selected=-1;selected<=count+1;++selected)for(int view=0;view<2;++view) {
-        int offset=CclosLauncher::OffsetForSelection(selected,count,view!=0);assert(offset>=0);
-        if(count) {int clamped=selected<0?0:(selected>=count?count-1:selected);int unit=view?clamped:clamped/4;
-            assert(offset<=unit && unit<offset+(view?8:3));}
+        int offset=CclosShell::OffsetForSelection(selected,count,view!=0);assert(offset>=0);
+        if(count) {int clamped=selected<0?0:(selected>=count?count-1:selected);int unit=view?clamped:clamped/CclosShell::Columns;
+            assert(offset<=unit && unit<offset+(view?CclosShell::ListRows:CclosShell::Rows));}
     }
     for(int width=0;width<1000;++width) {
         char out[128];std::string longTitle(10000,'W');CclosLauncher::FitText(longTitle.c_str(),out,glyphs,(float)width,1);

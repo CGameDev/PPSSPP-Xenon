@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "changed_presentation_methods": [
+    "RenderCclosBackground",
+    "RenderTabBar",
+    "RenderListItem",
+    "RenderGameList",
+    "RenderGridItem",
+    "RenderGrid",
+    "RenderRightPanel",
+    "RenderInGameMenu"
+  ],
+  "other_cpp_source": "Exact M5 equality after explicit include/geometry substitutions",
+  "unchanged_methods": [
+    "UpdateInGameMenu",
+    "ShowToast",
+    "RenderToast",
+    "DrawFittedString",
+    "DrawFittedTexture"
+  ],
+  "xbox_runtime": "NOT RUN"
+}

@@ -1,10 +1,11 @@
 # PPSSPP Xenon
 
-> **M5 shell checkpoint:** the CCLOS-style launcher and in-game menu now share
-> navy/teal styling. Both launcher views and existing save/load/reset actions stay.
+> **M6 approved shell:** navy/teal sidebar, larger grid and compact library views,
+> selected-game artwork and a matching right-side in-game menu are implemented.
+> Both launcher views and existing save/load/reset actions stay.
 > Debug/Release_LTCG fully rebuild with **0 warnings / 0 errors**. Review the
 > [in-game menu](design/cclos-ingame-preview.html), [launcher](design/cclos-preview.html)
-> and [evidence](docs/BASELINE.md). Styling remains provisional. We are at the
+> and [evidence](docs/BASELINE.md). The pause backdrop stays static. We are at the
 > [first console smoke-test gate](docs/CONSOLE_TEST_READINESS.md); Xbox runtime
 > and performance remain untested. No console deployment or launch is authorized.
 

@@ -40,3 +40,5 @@ jobs:
         run: python3 tests/run_cclos_launcher.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-launcher-tests
       - name: Check in-game presentation and unchanged save/load/reset contracts on the host
         run: python3 tests/run_cclos_ingame.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-ingame-tests
+      - name: Enforce the approved shell presentation boundary
+        run: python3 tests/run_cclos_shell.py --source-root artifacts/m3-regression-source --build-root artifacts/cclos-shell-tests

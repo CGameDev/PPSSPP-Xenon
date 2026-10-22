@@ -29,9 +29,15 @@ def main():
             target = reference / name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(args.source_root / name, target)
-        subprocess.run(["git", "-C", str(ROOT), "apply", "-R",
-                        "--directory=" + reference.relative_to(ROOT).as_posix(),
-                        str(ROOT / "baseline-overlay/cclos-ingame-menu.patch")], check=True)
+        approved_shell = 'CclosShellLayout.h' in (reference / 'Xbox/XboxLauncher.cpp').read_text(encoding='latin1')
+        if approved_shell:
+            subprocess.run(['git', '-C', str(ROOT), 'apply', '-R',
+                            '--directory=' + reference.relative_to(ROOT).as_posix(),
+                            str(ROOT / 'baseline-overlay/cclos-approved-shell.patch')], check=True)
+        else:
+            subprocess.run(["git", "-C", str(ROOT), "apply", "-R",
+                            "--directory=" + reference.relative_to(ROOT).as_posix(),
+                            str(ROOT / "baseline-overlay/cclos-ingame-menu.patch")], check=True)
         args.reference_root = reference
     compiler = shutil.which("g++") or shutil.which("cl")
     if not compiler:
@@ -69,6 +75,8 @@ def main():
             extracted.append(body)
         labels = re.search(r"static const char \*ingMenuLabelsR\[\][^\n]+", text).group()
         generated = "static const float DEADZONE = 0.3f;\n" + labels + "\n" + "\n".join(extracted)
+        if 'CclosShellLayout.h' in text:
+            generated = '#define CCLOS_APPROVED_SHELL 1\n' + generated
         (work / "launcher_methods.inc").write_bytes(generated.encode("latin1"))
         includes = [work, ROOT / "vendor/stb", ROOT / "baseline-overlay/Xbox", ROOT / "tests"]
         exe = work / "ingame-trace.exe"
@@ -112,8 +120,8 @@ def main():
     for scene in ("menu-mixed", "menu-toast", "menu-no-atlas", "toast-0", "toast-long"):
         c = next(x for x in a["frames"] if x["scene"] == scene)
         r = next(x for x in b["frames"] if x["scene"] == scene)
-        budgets.append({"scene": scene, "M4_draw_calls": r["drawCalls"], "M5_draw_calls": c["drawCalls"],
-                        "M4_triangles": r["triangles"], "M5_triangles": c["triangles"]})
+        budgets.append({"scene": scene, "previous_draw_calls": r["drawCalls"], "current_draw_calls": c["drawCalls"],
+                        "previous_triangles": r["triangles"], "current_triangles": c["triangles"]})
     receipt = {"status": "PASS", "compiler": Path(compiler).name,
                "source_hashes": {x["label"]: x["sha256"] for x in records},
                "frames": len(a["frames"]), "identical_action_snapshots": len(a["input_transcript"]),

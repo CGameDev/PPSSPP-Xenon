@@ -1,112 +1,108 @@
-# CCLOS-style in-game menu checkpoint — M5
+# Approved CCLOS shell implementation — M6
 
-The in-game menu and notifications now match the launcher's navy/teal style.
-**Debug and Release_LTCG both finish full local Rebuilds with 0 warnings / 0 errors.**
-Both launcher views and existing save/load/delete/reset actions remain. No Xbox
-connection, deployment or launch was performed. Styling remains provisional.
+The reviewed navy/teal direction is implemented on PR #2: sidebar navigation,
+larger three-by-two game cards, a six-row compact view with shared selection,
+selected-game artwork, and a right-side in-game panel. Both full local XDK
+Rebuilds pass with **0 warnings / 0 errors**. No console was contacted, deployed
+to or launched. Xbox runtime and frame-time performance remain **NOT RUN**.
 
-## Scope and preservation
+## Native scope
 
-The separate `baseline-overlay/cclos-ingame-menu.patch` changes exactly two
-XboxLauncher.cpp bodies: RenderInGameMenu and RenderToast. All other launcher
-source matches M4 exactly after removing those bodies, including UpdateInGameMenu,
-ShowToast, input bindings, SaveState calls, flags, asset loading, helpers and
-primitives. The header and class state are identical. The existing notification
-guards, two-second lifetime and last-500ms fade calculation match exactly.
+`baseline-overlay/cclos-approved-shell.patch` follows the six earlier patches.
+It changes eight presentation methods and explicit layout constants/offset-helper
+selection in XboxLauncher.cpp. `CclosShellLayout.h` supplies three-column/two-row
+and six-row-list geometry with bounded selection offsets. The older theme helper
+stays byte-identical, allowing independent reconstruction of the previous shell.
 
-The menu uses static panels, teal focus, five saved/empty slot rows, the existing
-five session actions and contextual hints. Settings is labelled unavailable;
-its existing handler still closes the menu without opening settings. Notifications
-use a bounded navy panel and fitted teal text. No new texture, shader, allocation,
-cache policy, animation, decoder, thread, persistence or filesystem query is added.
-Five existing save-presence queries per visible menu frame are preserved, not
-claimed eliminated. Save/load toasts retain the owner's existing wording; a toast
-alone does not establish serialization success.
+All other launcher source matches M5 after those explicit geometry substitutions.
+UpdateInGameMenu, ShowToast, RenderToast, font/image fitting, class state/header,
+XboxMain, session helper, Core, GPU, Common and FFmpeg remain unchanged. Among
+3,876 source/project/font/image/helper/identity files compared with M5, differences
+are limited to launcher.cpp, the new geometry header and generated m6 identity.
+Fresh source preparation reproduces all 3,876 compared files exactly.
 
-Among 3,878 source/project/font/image files compared with M4, only launcher.cpp
-changes. The generated identity moves m4→m5. Core, GPU, Common, FFmpeg, XboxMain,
-session helper and all projects remain unchanged. All 14 launcher host frames
-match M4 exactly, preserving both switchable views and RT selection behavior.
-Fresh preparation reproduces the built source/helper/header/project bytes.
+The same RT binding switches Games grid/compact while retaining selection and
+visibility. Recent retains its existing grid-only policy. Folder entry, A launch,
+LB/RB tabs, B exit and existing right-panel actions remain. This milestone does
+not implement the concept's proposed game-details page or additional settings.
+
+## Side-panel behavior and visual limits
+
+The right panel presents the currently focused save-slot or session page.
+Existing Left/Right switches pages; Up/Down selects a row. Opening still selects
+Slot 1. A saves, X loads, Y deletes, and B continues. Session actions retain their
+original indices and reset/exit flags. Settings is labelled unavailable and keeps
+its legacy close-menu behavior. No serialization/reset/exit handler is rewritten.
+
+Static navy/teal shading approximates the reviewed layered panels using existing
+rectangles and cached artwork. Embedded PIC1/ICON0 images are fitted without
+stretching. The side menu uses an **opaque static paused backdrop**, rather than
+the concept's illustrated game scene. Retaining gameplay would require a
+separately validated snapshot path instead of relying on swap-chain contents.
+No live blur, framebuffer capture, new shader/texture, animation, decoder, thread,
+filesystem query or cache policy is introduced. Five existing slot-presence
+queries remain per visible menu frame. Normal notifications remain unchanged.
 
 ## Verification
 
 | Check | Result |
 | --- | --- |
-| Original owner archive authority / all member CRCs | PASS, unchanged |
-| Twelve FFmpeg libraries / 436 PPCBE objects | PASS, byte-identical to M4 |
+| Owner archive hash / all 30 CRCs | PASS, unchanged authority |
+| Twelve FFmpeg libraries / 436 PPCBE objects | PASS, byte-identical to M5 |
 | Full Debug Rebuild | PASS, 0 warnings / 0 errors |
 | Full Release_LTCG Rebuild | PASS, 0 warnings / 0 errors |
-| Existing host tests | 20 PASS, no local skips |
-| Existing numeric/session/emitter/cache/hash regressions | PASS, including native Windows host SEH |
-| In-game action snapshots versus M4 | 137 identical; explicit expected requests also pass |
-| Actual action source and inline menu activation setter | Exact equality |
-| All slots, empty/saved, delete success/failure, held inputs | PASS with host service stubs |
-| All five session actions, B cancellation priority and navigation | PASS with host stubs |
-| Notification expiry/fade, long text and inactive paths | PASS |
-| Actual presentation trace frames | 42 PASS, packed glyph bounds included |
-| In-game browser combinations | 136 PASS, no overflow/errors/network |
-| Both launcher views / browser combinations | Identical native traces; 56 browser checks PASS |
-| Fresh byte replay, unchanged class/session/Core/GPU | PASS |
-| Hosted Source preflight on 0dfdac4 | All three jobs PASS, including both launcher and in-game checks |
-| Xbox runtime, actual serialization/reset/switching and performance | NOT RUN |
+| Existing tests | 20 PASS, no skips in local VS2010 environment |
+| Numeric/session/emitter/cache/hash regressions | PASS, including native Windows host SEH |
+| Save/load/delete/session snapshots vs M5 | 137 identical, plus explicit action expectations |
+| Exact source boundary / unchanged state handlers | PASS |
+| Launcher frames / bounded costs | 14 PASS against reconstructed M5 |
+| New grid/list navigation and offset boundaries | PASS, including partial rows and count limits |
+| In-game frames / toast timing and inactive guards | 42 PASS |
+| Browser scenarios | 56 launcher + 136 menu PASS, no errors/overflow/external requests |
+| Fresh source replay / project Deploy exclusions | PASS, all four Deploy entries excluded |
+| Xbox boot, real state round trips, reset, switching, frame times | NOT RUN |
 
-Host checks execute extracted native methods with stubbed device, input and state
-services. They never execute Xbox code or write real save states. New code compiles
-with warnings as errors; historical reference diagnostics remain visible under
-the same comparison policy established in M4.
+Host checks compile extracted native methods with device/input/state stubs. They
+do not execute PPC machine code, real saves or Xbox APIs. Current methods compile
+with warnings treated as errors; the historical reference policy stays visible.
+Previews use actual drawing traces with fictional artwork and approximate browser
+text rasterization. See [launcher](../design/cclos-preview.html),
+[side menu](../design/cclos-ingame-preview.html) and [evidence](evidence/m6/).
 
-## Drawing cost and limits
+## Drawing cost versus M5
 
-| Scenario | M4 → M5 draws | M4 → M5 triangles |
+| Normal fixture | M5 → M6 draws | M5 → M6 triangles |
 | --- | --- | --- |
-| Normal menu with existing atlas | 127 → 47 | 778 → 518 |
-| Menu with notification | 129 → 49 | 806 → 546 |
-| Atlas absent | 26 → 47 | 576 → 518 |
-| Normal notification during gameplay | 2 → 2 | 28 → 28 |
-| Deliberately long notification | 2 → 2 | 128 → 130 |
+| Grid library | 80 → 62 | 636 → 584 |
+| Compact library | 64 → 56 | 562 → 554 |
+| Save-slot menu | 47 → 30 | 518 → 480 |
+| Session menu | 47 → 25 | 518 → 462 |
+| Menu with notification | 49 → 32 | 546 → 508 |
+| Gameplay notification | 2 → 2 | 28 → 28 |
 
-Normal menus remove the existing 100 moving symbols and their trigonometry.
-When the atlas is absent, the old menu already skipped them; the styled panels
-then use more draws. A fitted ellipsis can add a glyph in the long notification
-fixture. These bounds are recorded rather than treated as free work. Inactive
-menu/toast paths still return before resource/drawing work. The emulation loop
-has no new call sites; ordinary notifications retain two draws. Emulation/tuning
-source is untouched.
-Actual Xbox frame-time/performance equivalence still needs hardware measurement.
+Artwork lookups fall 13→7 in grid and 9→7 in compact. Draw/cache/descriptor counts
+do not increase in any of the 14 launcher fixtures. Different fitted captions add
+18/24 triangles for empty grid/list and six for compact folder; these explicit
+glyph-only bounds are tested. Long notifications remain 130 triangles, unchanged
+from M5. These are host work counts, **not Xbox performance measurements**.
 
-## Preview, readiness and evidence
+The first host attempt caught redundant compact labels exceeding the older M3
+triangle budget. Those labels were removed; final checks compare the immediately
+preceding M5 shell. The initial failure log is retained. An exact-source checker
+also identified six inserted blank-line separators; its documented, narrow
+normalization accounts for them without relaxing executable-code comparison.
+Both production builds succeeded on their first attempts.
 
-Open the [in-game preview](../design/cclos-ingame-preview.html) or
-[both launcher views](../design/cclos-preview.html). These are host drawing traces
-with simulated states and approximate browser text rasterization, not console
-captures. Detailed visual acceptance and TV legibility remain open.
+## Readiness and rollback
 
-We have reached the **first console smoke-test gate on the software side**.
-No additional UI milestone is required before that test. Matching runtime data,
-a suitable console/loader, a writable isolated test folder, rollback copies and
-test content still need confirmation for that future checkpoint. Read
-[CONSOLE_TEST_READINESS.md](CONSOLE_TEST_READINESS.md). First boot, real input and
-save/load/reset, repeated returns/relaunches and measured performance are all
-unverified; this is not a runtime-qualified release.
+Software remains at the first controlled console smoke-test gate. Exact TV
+appearance, controller transitions, real save/load/reset, repeated switching,
+memory stability and measured performance still require separately authorized
+hardware testing. Read [CONSOLE_TEST_READINESS.md](CONSOLE_TEST_READINESS.md).
+Keep PR #2 draft. No merge, release, tag or console action is part of M6.
 
-[M5 evidence](evidence/m5/) retains full build logs/audits, source and XEX hashes,
-host traces, preservation/readiness checks and browser reports. The first Release
-attempt hit local disk-space failure. Only older task-generated intermediates
-and project libraries inside checked M4 staging roots were removed; sources,
-FFmpeg, XEX and milestone packages remain. Both accepted configurations were
-fully rebuilt after the final two-draw notification refinement.
-
-[Hosted verification](https://github.com/CGameDev/PPSSPP-Xenon/actions/runs/39720412280)
-passes all three jobs on the implementation commit, including strict GCC compilation
-of the current launcher/menu fixtures. CI logs and identities are retained under
-evidence/m5/. Native Windows SEH was separately checked locally; hosted tests do
-not execute Xbox code or establish real serialization.
-
-All four Deploy entries stay explicitly excluded and the local driver refuses
-unsafe metadata. M5 performs no console actions. Earlier M1's failed automatic
-copy attempt remains historical; it did not transfer or launch. PR #2 stays
-draft: no deployment, launch, baseline tag, merge or release. No SDK/private CCLOS
-assets, game data or generated binaries are committed. Revert the M5 checkpoint
-to restore M4 presentation; [M4](BASELINE_M4.md) and earlier evidence remain at
-their recorded commits.
+The local M6 ZIP contains two XEX candidates plus identities, not a complete
+runtime install. No binaries, SDK content or game data are committed. Reverting
+the M6 implementation commit restores M5 while preserving source recovery,
+dependencies and warning fixes. Previous evidence is retained in
+[BASELINE_M5.md](BASELINE_M5.md) and `evidence/m1` through `evidence/m5`.

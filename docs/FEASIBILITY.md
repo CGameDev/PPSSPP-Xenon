@@ -1,5 +1,15 @@
 # Xbox 360 feasibility and preservation boundaries
 
+## M6 approved shell
+
+The reviewed navy/teal direction now runs through the existing native drawing
+methods: sidebar, both library views and a matching right-side menu. Both full
+builds remain warning-clean. The pause backdrop stays opaque/static, avoiding
+framebuffer capture. Host action traces and source boundaries preserve state and
+session behavior; normal drawing costs fall. Xbox appearance and performance
+remain untested. The controlled smoke-test gate and no-console-action restriction
+remain in place. Details and limits are in BASELINE.md and evidence/m6.
+
 ## M5 readiness update
 
 The launcher and in-game menu now share provisional CCLOS styling. Both full

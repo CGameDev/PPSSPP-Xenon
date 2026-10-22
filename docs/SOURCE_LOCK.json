@@ -70,18 +70,18 @@
   "production_emulator_changes": true,
   "design": {
     "tile_and_compact_views": "KEEP_BOTH_SWITCHABLE",
-    "detailed_design": "PROVISIONAL; both views approved, exact styling/TV readability pending review"
+    "detailed_design": "Navy/teal direction approved; native static adaptation implemented; Xbox appearance/TV readability untested"
   },
-  "milestone": "M5 CCLOS-style in-game menu and notifications",
+  "milestone": "M6 approved CCLOS shell and side-panel menu",
   "historical_m0_commit": "005686f05ba2cda41ed7da082f222d161743098e",
   "source_recovery_commit": "bb1e51ab2f6d879d20f3e407e190fbda7c95d160",
-  "change_scope": "Only RenderInGameMenu/RenderToast bodies over M4, plus m5 generated identity; action handlers, both launcher views, class state, Core/GPU/Common/FFmpeg and session loop unchanged",
+  "change_scope": "Eight launcher/menu presentation bodies plus explicit geometry and offset-helper substitutions over M5; one pure geometry helper. State handlers, class/header, toast, emulator and session loop unchanged.",
   "production_cclos_renderer": true,
   "builds": [
     {
       "configuration": "Debug",
       "bytes": 16375808,
-      "sha256": "63ec153126b1ab9158826824869d53fb1ea025e963f0317121c658ed37f73135",
+      "sha256": "ee056e7023a5e8ba614797d68871e4acc1dda779b3a8d5626288252c75ffc5c1",
       "format": "XEX2",
       "build_target": "Rebuild",
       "build_exit_code": 0,
@@ -92,7 +92,7 @@
     {
       "configuration": "Release_LTCG",
       "bytes": 9101312,
-      "sha256": "b3e91f830798d058cff6caeab1b43f0a336b133ef992e9682003efc454f02fb6",
+      "sha256": "f4941219ce9094de417efb96800174eca0b49fbd4eb2d042ea932e8b2aaa2856",
       "format": "XEX2",
       "build_target": "Rebuild",
       "build_exit_code": 0,
@@ -104,7 +104,7 @@
   "physical_console": {
     "tests": "NOT RUN",
     "initial_auto_copy": "Failed to connect, X1001; no transfer or launch succeeded",
-    "current_builds": "M5 full Debug/Release_LTCG Rebuilds; 0 warnings/errors; four explicit Deploy exclusions; no console actions"
+    "current_builds": "M6 full Debug/Release_LTCG Rebuilds; 0 warnings/errors; four explicit Deploy exclusions; no console actions"
   },
   "historical_m1_builds": [
     {
@@ -205,5 +205,32 @@
     }
   ],
   "production_cclos_ingame_renderer": true,
-  "console_readiness": "Software candidate for first owner-authorized smoke test; matching runtime data and console/test-folder setup still need confirmation; runtime/performance NOT RUN"
+  "console_readiness": "Software candidate for first owner-authorized smoke test; matching runtime data and console/test-folder setup still need confirmation; runtime/performance NOT RUN",
+  "latest_evidence": "docs/evidence/m6/",
+  "frozen_parent": "b82bad8848956e55d04933bfb04e9019f9b6ecb0",
+  "pause_backdrop": "Opaque static navy/teal; no framebuffer capture or retained backbuffer assumption",
+  "historical_m5_builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "63ec153126b1ab9158826824869d53fb1ea025e963f0317121c658ed37f73135",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "b3e91f830798d058cff6caeab1b43f0a336b133ef992e9682003efc454f02fb6",
+      "format": "XEX2",
+      "build_target": "Rebuild",
+      "build_exit_code": 0,
+      "warnings": 0,
+      "errors": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ]
 }

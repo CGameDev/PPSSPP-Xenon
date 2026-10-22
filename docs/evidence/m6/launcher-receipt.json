@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "compiler": "cl.EXE",
+  "source_hashes": {
+    "current": "fd3075a076050e2c01ad2770d238d40893096612e32a76c19e60ef910964f229",
+    "reference": "553303bd6f56cd63546c452152c833b98774e43cf9172386c3b60100ffafb8ea"
+  },
+  "host_assertions": [
+    "TV-safe actual packed-glyph quad bounds",
+    "long/empty/missing-art/folder/loading/recent",
+    "fitted text and image bounds",
+    "RT debounce and selected-game visibility",
+    "inactive renderer/input early return",
+    "no scan/write/resource work while switching",
+    "A file request/folder entry, LB/RB Recent policy and B exit with host stubs"
+  ],
+  "font_sha256": "970370587f57f5fc54ea830d71b0d1dad31cdd0d9db35c68e099e45f39f28bee",
+  "console_execution": "NOT RUN",
+  "budgets": [
+    {
+      "view": "grid",
+      "previous_draw_calls": 80,
+      "current_draw_calls": 62,
+      "previous_triangles": 636,
+      "current_triangles": 584,
+      "previous_cache_reads": 13,
+      "current_cache_reads": 7,
+      "previous_texture_descriptors": 13,
+      "current_texture_descriptors": 7
+    },
+    {
+      "view": "list",
+      "previous_draw_calls": 64,
+      "current_draw_calls": 56,
+      "previous_triangles": 562,
+      "current_triangles": 554,
+      "previous_cache_reads": 9,
+      "current_cache_reads": 7,
+      "previous_texture_descriptors": 9,
+      "current_texture_descriptors": 7
+    }
+  ],
+  "all_scene_cost_checks": 14,
+  "extra_glyph_triangle_limits": {
+    "empty": 24,
+    "folder": 6
+  }
+}

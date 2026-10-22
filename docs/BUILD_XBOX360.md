@@ -1,5 +1,23 @@
 # Reproduce the recovered Xbox 360 build
 
+Current checkpoint: **M6 approved shell**. Use `artifacts/baseline-m6` for all
+current examples below. Preparation now applies seven patches and copies four
+helpers. The current launcher/menu runners reverse only the M6 patch to recover
+M5 for differential checks. Older M4/M5 sections below explain those historical
+milestones; current acceptance commands are in [TESTING.md](TESTING.md).
+
+```powershell
+python tools/prepare_baseline.py --legacy <legacy-checkout> --destination artifacts/baseline-m6 --with-build-compatibility
+# Restore the verified FFmpeg profiles using the procedure below, or reuse all
+# twelve previously verified libraries only after byte/architecture checks.
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m6 -Configuration Debug -Rebuild
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m6 -Configuration Release_LTCG -Rebuild
+python tests/run_cclos_shell.py --source-root artifacts/baseline-m6 --build-root artifacts/cclos-shell-tests
+```
+
+Both builds request no deployment/launch target; all four Deploy entries must
+remain explicitly excluded. The M6 local evidence is under `docs/evidence/m6/`.
+
 Read [BASELINE.md](BASELINE.md) for identities, limitations and retained warnings. This procedure builds local files. The original XDK project automatically deploys after image generation unless its Deploy metadata is excluded.
 
 ## Verify and stage
@@ -13,7 +31,7 @@ python tools/prepare_baseline.py --legacy <legacy-checkout> `
   --destination artifacts/baseline-m5 --with-build-compatibility
 ```
 
-Compatibility mode stages beneath this project. It records the pristine source manifest, applies the six tracked patches, copies the licensed font header and three launcher/session helpers and writes combined provenance. The original archival overlay remains unchanged.
+Compatibility mode stages beneath this project. It records the pristine source manifest, applies the seven tracked patches, copies the licensed font header and four launcher/session helpers and writes combined provenance. The original archival overlay remains unchanged.
 
 ## Local host tools
 

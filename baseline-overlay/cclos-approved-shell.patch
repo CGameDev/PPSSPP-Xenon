@@ -1,0 +1,349 @@
+--- a/Xbox/XboxLauncher.cpp
++++ b/Xbox/XboxLauncher.cpp
+@@ -22,6 +22,7 @@
+ #include "Core/SaveState.h"
+ #include "XenonStateDeleteCompat.h"
+ #include "CclosLauncherTheme.h"
++#include "CclosShellLayout.h"
+ 
+ // The pinned legacy atlas uses one folder glyph for directory entries.
+ #ifndef I_UP_DIRECTORY
+@@ -393,8 +394,8 @@
+ static const int SAFE_Y = 36;
+ 
+ // Left column — game browser
+-static const int COL_LEFT_X = SAFE_X;
+-static const int COL_LEFT_W = 780;
++static const int COL_LEFT_X = 240;
++static const int COL_LEFT_W = 704;
+ static const int COL_LEFT_H = SCREEN_H - SAFE_Y * 2;
+ static const Margins LCOL_PAD(30, 10);
+ 
+@@ -413,8 +414,8 @@
+ 
+ // Game list (list mode)
+ static const int LIST_Y = CclosLauncher::ContentTop;
+-static const int LIST_H = CclosLauncher::ContentHeight;
+-static const int LIST_ITEM_H = CclosLauncher::ListHeight;
++static const int LIST_H = CclosShell::ContentHeight;
++static const int LIST_ITEM_H = CclosShell::ListHeight;
+ static const int LIST_ITEM_MARGIN = 8;
+ static const int LIST_PAD_LEFT = 16;
+ static const int LIST_TOP_PAD = 6;
+@@ -423,11 +424,11 @@
+ static const int SCROLLBAR_GAP = 8;
+ 
+ // Grid mode
+-static const int GRID_CELL_W = CclosLauncher::GridWidth;
+-static const int GRID_CELL_H = CclosLauncher::GridHeight;
++static const int GRID_CELL_W = CclosShell::GridWidth;
++static const int GRID_CELL_H = CclosShell::GridHeight;
+ static const int GRID_PAD = CclosLauncher::Gap;
+-static const int GRID_COLS = CclosLauncher::Columns;
+-static const int GRID_MAX_VISIBLE = CclosLauncher::Rows;
++static const int GRID_COLS = CclosShell::Columns;
++static const int GRID_MAX_VISIBLE = CclosShell::Rows;
+ static const Margins GRID_CELL_PAD(8, 8);
+ static const Margins GRID_SEL_PAD(2, 2);
+ static const int GRID_ICON_H = 64;
+@@ -1446,7 +1447,7 @@
+ 		prevRightTrigger_ = rt;
+ 		if (rtPressed && currentTab_ == TAB_GAMES) {
+ 			viewMode_ = (viewMode_ == VIEW_LIST) ? VIEW_GRID : VIEW_LIST;
+-			scrollOffset_ = CclosLauncher::OffsetForSelection(selectedIndex_,
++			scrollOffset_ = CclosShell::OffsetForSelection(selectedIndex_,
+ 				(int)allGames_.size(), viewMode_ == VIEW_LIST);
+ 		}
+ 	}
+@@ -1702,12 +1703,16 @@
+ // ---------------------------------------------------------------------------
+ 
+ void XboxLauncher::RenderCclosBackground() {
++    // Approved shell: static layered navy/teal, no blur, animation or extra assets.
+     DrawRect(0, 0, (float)SCREEN_W, (float)SCREEN_H, CclosLauncher::Canvas);
+-    DrawRect(64, 176, 844, 616, CclosLauncher::Panel);
+-    DrawRect(864, 36, 1216, 616, CclosLauncher::Border);
+-    DrawRect(865, 37, 1215, 615, CclosLauncher::Panel);
+-    DrawRect(64, 636, 1216, 638, CclosLauncher::Teal);
+-}
++    DrawRect(0, 0, 1280, 110, 0xFF102735);
++    DrawRect(1040, 110, 1280, 614, 0xFF102C3C);
++    DrawRect(1120, 110, 1280, 614, 0xFF163B45);
++    DrawRect(64, 120, 224, 614, CclosLauncher::Panel);
++    DrawRect(964, 174, 1216, 614, CclosLauncher::Panel);
++    DrawRect(64, 636, 1216, 638, CclosLauncher::Border);
++}
++
+ 
+ void XboxLauncher::DrawFittedString(const char *text, int x, int y, int width, int scale, DWORD color) {
+     char fitted[128];
+@@ -1726,25 +1731,25 @@
+ 
+ void XboxLauncher::RenderTabBar() {
+     DrawString("PPSSPP XENON", SAFE_X, SAFE_Y, 2, CclosLauncher::Text);
+-    DrawFittedString(currentTab_ == TAB_RECENT ? "Recently played" : currentDir_.c_str(),
+-        SAFE_X, 88, COL_LEFT_W, 1, CclosLauncher::Muted);
+     const char *names[TAB_COUNT] = { "Recent", "Games" };
+     for (int t = 0; t < TAB_COUNT; ++t) {
+-        float x = (float)(SAFE_X + t * 176);
++        float y = t == TAB_GAMES ? 136.0f : 200.0f;
+         bool selected = t == currentTab_;
+-        DrawRect(x, 120, x + 164, 160, selected ? CclosLauncher::FocusCard : CclosLauncher::Panel);
+-        if (selected) DrawRect(x, 158, x + 164, 161, CclosLauncher::Teal);
+-        DrawString(names[t], (int)x + 16, 128, 1,
+-            selected ? CclosLauncher::Text : CclosLauncher::Muted);
++        DrawRect(72, y, 216, y + 48, selected ? CclosLauncher::Teal : CclosLauncher::Panel);
++        DrawString(names[t], 88, (int)y + 14, 1,
++            selected ? CclosLauncher::Canvas : CclosLauncher::Muted);
+         if (selected && focusRegion_ == FOCUS_TABS)
+-            DrawRect(x, 120, x + 3, 158, CclosLauncher::Teal);
++            DrawRect(72, y, 76, y + 48, CclosLauncher::Text);
+     }
+-    const char *mode = currentTab_ == TAB_RECENT ? "Recent / Grid" :
+-        (viewMode_ == VIEW_GRID ? "RT: Grid / List" : "RT: List / Grid");
+-    DrawFittedString(mode, 668, 130, 160, 1, CclosLauncher::Teal);
+-    DrawString("A Select   B Exit", 80, 654, 1, CclosLauncher::Text);
+-    DrawString("LB / RB Tabs", 360, 654, 1, CclosLauncher::Muted);
+-    DrawString("RT Grid / List", 624, 654, 1, CclosLauncher::Muted);
++    DrawString("LB / RB", 88, 292, 1, CclosLauncher::Quiet);
++    DrawString(currentTab_ == TAB_RECENT ? "RECENTLY PLAYED" : "YOUR COLLECTION", 256, 126, 1, CclosLauncher::Teal);
++    DrawFittedString(currentTab_ == TAB_RECENT ? "Recent games" : currentDir_.c_str(),
++        256, 152, 480, 1, CclosLauncher::Text);
++    DrawFittedString(currentTab_ == TAB_RECENT || viewMode_ == VIEW_GRID ? "Grid" : "Compact",
++        788, 140, 140, 1, CclosLauncher::Teal);
++    DrawString("A Play / Open   B Exit", 80, 654, 1, CclosLauncher::Text);
++    DrawString("LB / RB Tabs", 420, 654, 1, CclosLauncher::Muted);
++    DrawString("RT Grid / Compact", 660, 654, 1, CclosLauncher::Muted);
+     int count = (int)(currentTab_ == TAB_RECENT ? recentGames_.size() : allGames_.size());
+     char position[48];
+     int selected = selectedIndex_ >= 0 && selectedIndex_ < count ? selectedIndex_ + 1 : 0;
+@@ -1752,6 +1757,7 @@
+     DrawFittedString(position, 1020, 654, 180, 1, CclosLauncher::Muted);
+ }
+ 
++
+ // ---------------------------------------------------------------------------
+ // Game list (list mode)
+ // ---------------------------------------------------------------------------
+@@ -1759,30 +1765,30 @@
+ void XboxLauncher::RenderListItem(int gameIdx, float y, bool isSelected) {
+     const GameEntry &entry = currentTab_ == TAB_RECENT ? recentGames_[gameIdx] : allGames_[gameIdx];
+     float x = (float)(COL_LEFT_X + LIST_PAD_LEFT);
+-    DrawRect(x, y, 824, y + 48, isSelected ? CclosLauncher::Teal : CclosLauncher::Border);
+-    DrawRect(x + 2, y + 2, 822, y + 46, isSelected ? CclosLauncher::FocusCard : CclosLauncher::Card);
++    DrawRect(x, y, 928, y + 62, isSelected ? CclosLauncher::Teal : CclosLauncher::Border);
++    DrawRect(x + 2, y + 2, 926, y + 60, isSelected ? CclosLauncher::FocusCard : CclosLauncher::Card);
+     if (entry.isDir) {
+-        if (zimTex_) DrawTextureAtlas(zimTex_, ui_atlas.images[I_DIR], x + 8, y + 8, 44, 32);
+-        else DrawString("DIR", (int)x + 8, (int)y + 14, 1, CclosLauncher::Muted);
++        if (zimTex_) DrawTextureAtlas(zimTex_, ui_atlas.images[I_DIR], x + 16, y + 16, 44, 32);
++        else DrawString("DIR", (int)x + 10, (int)y + 24, 1, CclosLauncher::Muted);
+     } else {
+         IDirect3DTexture9 *cover = GetOrCreatePoster(entry.path);
+         if (!cover) cover = GetOrCreateIcon(entry.path);
+         if (!cover) cover = unknownTex_;
+-        if (cover) DrawFittedTexture(cover, x + 6, y + 4, 72, 40);
+-        else DrawString("--", (int)x + 26, (int)y + 14, 1, CclosLauncher::Quiet);
++        if (cover) DrawFittedTexture(cover, x + 8, y + 7, 80, 48);
++        else DrawString("--", (int)x + 26, (int)y + 22, 1, CclosLauncher::Quiet);
+     }
+     const std::string &title = entry.title.empty() ? entry.filename : entry.title;
+-    DrawFittedString(title.c_str(), (int)x + 92, (int)y + 14, 620, 1,
+-        isSelected ? CclosLauncher::Text : CclosLauncher::Muted);
+-}
++    DrawFittedString(title.c_str(), (int)x + 104, (int)y + 22, 550, 1, CclosLauncher::Text);
++}
++
+ 
+ void XboxLauncher::RenderGameList() {
+     int count = (int)(currentTab_ == TAB_RECENT ? recentGames_.size() : allGames_.size());
+     if (count == 0) {
+         DrawFittedString(currentTab_ == TAB_RECENT ? "No recent games" : "This folder is empty",
+-            96, 320, 716, 2, CclosLauncher::Text);
++            272, 320, 640, 1, CclosLauncher::Text);
+         DrawFittedString(currentTab_ == TAB_RECENT ? "Open a game from the Games tab to start." :
+-            "Browse a folder containing your PSP files.", 96, 380, 716, 1, CclosLauncher::Muted);
++            "Browse a folder containing your PSP files.", 272, 380, 640, 1, CclosLauncher::Muted);
+         return;
+     }
+     if (viewMode_ == VIEW_GRID || currentTab_ == TAB_RECENT) { RenderGrid(); return; }
+@@ -1798,8 +1804,8 @@
+         float h = (float)(visible * LIST_ITEM_H);
+         float thumb = h * (float)visible / (float)count;
+         float y = top + h * (float)scrollOffset_ / (float)count;
+-        DrawRect(832, top, 836, top + h, CclosLauncher::Border);
+-        DrawRect(832, y, 836, y + thumb, CclosLauncher::Teal);
++        DrawRect(936, top, 940, top + h, CclosLauncher::Border);
++        DrawRect(936, y, 940, y + thumb, CclosLauncher::Teal);
+     }
+ }
+ 
+@@ -1813,20 +1819,22 @@
+         isSelected ? CclosLauncher::Teal : CclosLauncher::Border);
+     DrawRect(x + 2, y + 2, x + GRID_CELL_W - 2, y + GRID_CELL_H - 2,
+         isSelected ? CclosLauncher::FocusCard : CclosLauncher::Card);
++    DrawString(entry.isDir ? "FOLDER" : "PSP", (int)x + 10, (int)y + 8, 1, CclosLauncher::Quiet);
+     if (entry.isDir) {
+-        if (zimTex_) DrawTextureAtlas(zimTex_, ui_atlas.images[I_DIR], x + 60, y + 24, 50, 42);
+-        else DrawString("FOLDER", (int)x + 38, (int)y + 40, 1, CclosLauncher::Muted);
++        if (zimTex_) DrawTextureAtlas(zimTex_, ui_atlas.images[I_DIR], x + 76, y + 68, 50, 42);
++        else DrawString("FOLDER", (int)x + 58, (int)y + 80, 1, CclosLauncher::Muted);
+     } else {
+         IDirect3DTexture9 *cover = GetOrCreatePoster(entry.path);
+         if (!cover) cover = GetOrCreateIcon(entry.path);
+         if (!cover) cover = unknownTex_;
+-        if (cover) DrawFittedTexture(cover, x + 8, y + 8, (float)GRID_CELL_W - 16, 80);
+-        else DrawFittedString("No artwork", (int)x + 10, (int)y + 38, GRID_CELL_W - 20, 1, CclosLauncher::Quiet);
++        if (cover) DrawFittedTexture(cover, x + 8, y + 32, (float)GRID_CELL_W - 16, 124);
++        else DrawFittedString("No artwork", (int)x + 28, (int)y + 86, GRID_CELL_W - 40, 1, CclosLauncher::Quiet);
+     }
+     const std::string &title = entry.title.empty() ? entry.filename : entry.title;
+-    DrawFittedString(title.c_str(), (int)x + 10, (int)y + 98, GRID_CELL_W - 20, 1,
++    DrawFittedString(title.c_str(), (int)x + 10, (int)y + 166, GRID_CELL_W - 20, 1,
+         isSelected ? CclosLauncher::Text : CclosLauncher::Muted);
+ }
++
+ 
+ void XboxLauncher::RenderGrid() {
+     int count = (int)(currentTab_ == TAB_RECENT ? recentGames_.size() : allGames_.size());
+@@ -1845,8 +1853,8 @@
+         float h = (float)(GRID_MAX_VISIBLE * (GRID_CELL_H + GRID_PAD) - GRID_PAD);
+         float thumb = h * (float)GRID_MAX_VISIBLE / (float)rows;
+         float y = top + h * (float)scrollOffset_ / (float)rows;
+-        DrawRect(832, top, 836, top + h, CclosLauncher::Border);
+-        DrawRect(832, y, 836, y + thumb, CclosLauncher::Teal);
++        DrawRect(936, top, 940, top + h, CclosLauncher::Border);
++        DrawRect(936, y, 940, y + thumb, CclosLauncher::Teal);
+     }
+ }
+ 
+@@ -1855,33 +1863,31 @@
+ // ---------------------------------------------------------------------------
+ 
+ void XboxLauncher::RenderRightPanel() {
+-    DrawString("SELECTED", 884, 56, 1, CclosLauncher::Teal);
++    DrawString("SELECTED GAME", 980, 194, 1, CclosLauncher::Teal);
+     const GameEntry *entry = NULL;
+     const std::vector<GameEntry> &items = currentTab_ == TAB_RECENT ? recentGames_ : allGames_;
+     if (selectedIndex_ >= 0 && selectedIndex_ < (int)items.size()) entry = &items[selectedIndex_];
+     const char *title = entry ? (entry->title.empty() ? entry->filename.c_str() : entry->title.c_str()) : "Your PSP library";
+-    DrawFittedString(title, 884, 86, 312, 1, CclosLauncher::Text);
+-    DrawRect(884, 122, 1196, 298, CclosLauncher::Canvas);
+     IDirect3DTexture9 *poster = NULL;
+     if (entry && !entry->isDir) {
+         poster = GetOrCreatePoster(entry->path);
+         if (!poster) poster = GetOrCreateIcon(entry->path);
+         if (!poster) poster = unknownTex_;
+     }
+-    if (poster) DrawFittedTexture(poster, 884, 122, 312, 176);
+-    else DrawFittedString(entry && entry->isDir ? "Folder" : "No artwork", 904, 200, 272, 1, CclosLauncher::Quiet);
+-    DrawString(entry && entry->isDir ? "FOLDER" : "LOCAL LIBRARY", 884, 322, 1, CclosLauncher::Teal);
+-    DrawFittedString(entry ? entry->path.c_str() : "Choose a file from Games", 884, 356, 312, 1, CclosLauncher::Muted);
+-    DrawString("Xbox 360 / PSP", 884, 400, 1, CclosLauncher::Quiet);
++    DrawRect(980, 230, 1200, 362, CclosLauncher::Canvas);
++    if (poster) DrawFittedTexture(poster, 980, 230, 220, 132);
++    else DrawFittedString(entry && entry->isDir ? "Folder" : "No artwork", 996, 286, 188, 1, CclosLauncher::Quiet);
++    DrawFittedString(title, 980, 380, 220, 1, CclosLauncher::Text);
++    DrawFittedString(entry ? entry->path.c_str() : "Choose a file from Games", 980, 416, 220, 1, CclosLauncher::Muted);
++    DrawString("A Play / Open", 980, 454, 1, CclosLauncher::Teal);
+     bool settingsFocus = focusRegion_ == FOCUS_RIGHT_PANEL && rightPanelItem_ == 0;
+     bool exitFocus = focusRegion_ == FOCUS_RIGHT_PANEL && rightPanelItem_ == 1;
+-    DrawRect(884, 464, 1196, 508, settingsFocus ? CclosLauncher::Teal : CclosLauncher::Border);
+-    DrawRect(886, 466, 1194, 506, CclosLauncher::Panel);
+-    DrawFittedString("Settings unavailable", 898, 476, 284, 1, CclosLauncher::Quiet);
+-    DrawRect(884, 520, 1196, 564, exitFocus ? CclosLauncher::Teal : CclosLauncher::Border);
+-    DrawRect(886, 522, 1194, 562, exitFocus ? CclosLauncher::FocusCard : CclosLauncher::Card);
+-    DrawString("Exit", 898, 532, 1, CclosLauncher::Text);
+-}
++    DrawRect(980, 496, 1200, 538, settingsFocus ? CclosLauncher::FocusCard : CclosLauncher::Card);
++    DrawFittedString("Settings unavailable", 992, 507, 196, 1, CclosLauncher::Quiet);
++    DrawRect(980, 550, 1200, 592, exitFocus ? CclosLauncher::Teal : CclosLauncher::Card);
++    DrawString("Exit", 996, 561, 1, exitFocus ? CclosLauncher::Canvas : CclosLauncher::Text);
++}
++
+ 
+ // ---------------------------------------------------------------------------
+ // In-game menu (overlay during emulation)
+@@ -2013,50 +2019,46 @@
+ 
+ void XboxLauncher::RenderInGameMenu() {
+     if (!inGameMenuActive_) return;
+-
+     EnsureResources();
+-
+     // Presentation only: existing input/state dispatch and renderer lifecycle stay intact.
++    // Opaque static backdrop avoids relying on discarded swap-chain contents.
+     DrawRect(0, 0, (float)SCREEN_W, (float)SCREEN_H, CclosLauncher::Canvas);
+-    DrawRect(64, 136, 844, 616, CclosLauncher::Border);
+-    DrawRect(65, 137, 843, 615, CclosLauncher::Panel);
+-    DrawRect(864, 136, 1216, 616, CclosLauncher::Border);
+-    DrawRect(865, 137, 1215, 615, CclosLauncher::Panel);
+-    DrawRect(64, 636, 1216, 638, CclosLauncher::Teal);
++    DrawRect(0, 110, 856, 636, 0xFF102735);
++    DrawRect(0, 500, 856, 636, 0xFF163B45);
+     DrawString("PPSSPP XENON", SAFE_X, SAFE_Y, 2, CclosLauncher::Text);
+-    DrawString("In-game menu", SAFE_X, 88, 1, CclosLauncher::Muted);
+-    DrawString("SAVE STATES", 80, 156, 1, CclosLauncher::Teal);
+-    DrawString("SESSION", 884, 156, 1, CclosLauncher::Teal);
+-
+-    const int totalSlots = SaveState::SAVESTATESLOTS;
+-    for (int i = 0; i < totalSlots; ++i) {
+-        float y = 200.0f + (float)i * 72.0f;
+-        bool selected = inGameMenuFocus_ == INGMENU_LEFT && inGameMenuSel_ == i;
++    DrawString("GAME PAUSED", 96, 270, 2, CclosLauncher::Text);
++    DrawString("Your session, right where you left it.", 96, 338, 1, CclosLauncher::Muted);
++    DrawString("B Continue", 96, 396, 1, CclosLauncher::Teal);
++    DrawRect(876, 110, 1216, 636, CclosLauncher::Panel);
++    DrawRect(876, 110, 878, 636, CclosLauncher::Border);
++    bool slots = inGameMenuFocus_ == INGMENU_LEFT;
++    DrawString(slots ? "SAVE STATES" : "SESSION", 896, 136, 1, CclosLauncher::Teal);
++    DrawString(slots ? "Save / load states" : "Take a moment.", 896, 176, 1, CclosLauncher::Text);
++    DrawString(slots ? "Left / Right: Session" : "Left / Right: Save states", 896, 216, 1, CclosLauncher::Muted);
++    for (int i = 0; i < SaveState::SAVESTATESLOTS; ++i) {
+         bool hasSave = SaveState::HasSaveInSlot(i);
+-        DrawRect(80, y, 828, y + 64, selected ? CclosLauncher::Teal : CclosLauncher::Border);
+-        DrawRect(82, y + 2, 826, y + 62, selected ? CclosLauncher::FocusCard : CclosLauncher::Card);
+-        char label[32];
+-        sprintf(label, "Slot %d", i + 1);
+-        DrawString(label, 100, (int)y + 12, 2, selected ? CclosLauncher::Text : CclosLauncher::Muted);
+-        DrawString(hasSave ? "Saved" : "Empty", 704, (int)y + 22, 1,
+-            hasSave ? CclosLauncher::Teal : CclosLauncher::Quiet);
++        float y = 260.0f + (float)i * 62.0f;
++        bool selected = inGameMenuSel_ == i;
++        DrawRect(892, y, 1200, y + 56, selected ? CclosLauncher::Teal : CclosLauncher::Panel);
++        DWORD color = selected ? CclosLauncher::Canvas : CclosLauncher::Text;
++        if (slots) {
++            char label[32];
++            sprintf(label, "Slot %d", i + 1);
++            DrawString(label, 908, (int)y + 5, 1, color);
++            DrawString(hasSave ? "Saved" : "Empty", 908, (int)y + 30, 1,
++                selected ? CclosLauncher::Canvas : CclosLauncher::Muted);
++        } else {
++            DrawFittedString(i == 1 ? "Settings unavailable" : ingMenuLabelsR[i],
++                908, (int)y + 17, 276, 1, i == 1 && !selected ? CclosLauncher::Quiet : color);
++        }
+     }
+-
+-    for (int i = 0; i < 5; ++i) {
+-        float y = 200.0f + (float)i * 72.0f;
+-        bool selected = inGameMenuFocus_ == INGMENU_RIGHT && inGameMenuSel_ == i;
+-        DrawRect(884, y, 1196, y + 64, selected ? CclosLauncher::Teal : CclosLauncher::Border);
+-        DrawRect(886, y + 2, 1194, y + 62, selected ? CclosLauncher::FocusCard : CclosLauncher::Card);
+-        DrawFittedString(i == 1 ? "Settings unavailable" : ingMenuLabelsR[i],
+-            900, (int)y + 22, 280, 1, i == 1 ? CclosLauncher::Quiet : CclosLauncher::Text);
+-    }
+-
+-    DrawFittedString(inGameMenuFocus_ == INGMENU_LEFT ?
+-        "A Save   X Load   Y Delete   B Continue" : "A Confirm   B Continue",
+-        80, 654, 716, 1, CclosLauncher::Text);
+-    DrawFittedString("D-Pad Navigate / Switch panels", 884, 654, 312, 1, CclosLauncher::Muted);
++    DrawRect(64, 636, 1216, 638, CclosLauncher::Border);
++    DrawFittedString(slots ? "A Save   X Load   Y Delete   B Continue" : "A Confirm   B Continue",
++        80, 654, 720, 1, CclosLauncher::Text);
++    DrawString("D-Pad Navigate", 980, 654, 1, CclosLauncher::Muted);
+     RenderToast();
+ }
++
+ 
+ // ---------------------------------------------------------------------------
+ // Animated background (shared with the in-game menu)

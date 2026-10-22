@@ -1,4 +1,4 @@
-# First console test readiness — M5
+# First console test readiness — M6
 
 **Software is at the first console smoke-test gate.** Recovery, Xbox dependencies,
 both clean builds and host checks are complete. No further UI milestone is needed
@@ -13,7 +13,7 @@ Keep automatic deployment excluded and PR #2 draft.
 
 - Authentic owner archive and pinned donor; original authority unchanged.
 - Both XEX configurations fully linked, zero warnings/errors, hashes recorded in
-  evidence/m5/baseline-builds.json; all 436 FFmpeg objects verified PPCBE.
+  evidence/m6/baseline-builds.json; all 436 FFmpeg objects verified PPCBE.
 - Existing source-derived regressions and exact action/session preservation.
 - Both launcher views, menu layout, input requests and notification timing tested
   with host stubs; no real serialization or Xbox execution is implied.
@@ -27,7 +27,7 @@ Keep automatic deployment excluded and PR #2 draft.
 Confirm a compatible owner-controlled Xbox environment/loader and writable,
 isolated application folder. Pair the exact candidate XEX with its matching
 assembled runtime assets and flash0 data; the local XEX ZIP alone is not a complete
-application. Preserve M4 rollback XEX/data and existing config/memstick/state files.
+application. Preserve M5 rollback XEX/data and existing config/memstick/state files.
 Choose a legal homebrew/autotest or owner-provided test title outside Git. Console
 settings, paths, storage and content have not been verified in this task.
 
@@ -46,7 +46,7 @@ settings, paths, storage and content have not been verified in this task.
    least 20 transitions. Observe crash recovery, file handles, audio and memory
    after caches stabilize. Collect game:\ppsspp_log.txt and game:\crash_log.txt
    when present; retain failed evidence.
-6. Compare M4/M5 with identical title, scene, settings and output mode: median,
+6. Compare M5/M6 with identical title, scene, settings and output mode: median,
    p95/max frame intervals, FPS/VPS, audio underruns, menu cost, switch latency and
    texture/process high-water marks. Include notification visibility. Do not tune
    clocks/workers while establishing the comparison baseline.
