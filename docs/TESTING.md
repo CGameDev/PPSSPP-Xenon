@@ -1,5 +1,10 @@
 # Current shell validation
 
+For the first hardware handoff, use [smoke-test/START-HERE.md](smoke-test/START-HERE.md).
+`tools/prepare_smoke_test.py` assembles local candidate/rollback folders only; its
+integrity/no-overwrite tests are included in normal unittest discovery. No test
+or packaging command authorizes console transfer or launch.
+
 Prepare M6 as described in [BUILD_XBOX360.md](BUILD_XBOX360.md).
 Use the VS2010 x86 host environment locally, or g++ in CI:
 

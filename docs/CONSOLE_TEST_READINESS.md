@@ -9,6 +9,28 @@ The owner explicitly said not to deploy or launch. No console was contacted or
 inspected. The following is a future test handoff, not authorization to execute it.
 Keep automatic deployment excluded and PR #2 draft.
 
+## Prepared local test kit
+
+The M6 smoke-test kit now contains both exact M6 configurations with matching
+`assets/`, `flash0/`, `lang/` and empty disposable test-data folders. Separate M5
+Debug/Release folders provide prior candidates, not Xbox-verified backups.
+An immutable file manifest, PC-only verifier, ISO-based checklist, blank result
+records and rollback instructions are included. The owner's ISO is available but
+has not been inspected or bundled. No configuration/save data was imported.
+
+Start with [smoke-test/START-HERE.md](smoke-test/START-HERE.md),
+[CHECKLIST.md](smoke-test/CHECKLIST.md) and [ROLLBACK.md](smoke-test/ROLLBACK.md).
+Reproduce locally with `python tools/prepare_smoke_test.py --destination <new-local-folder>`
+after reconstructing the two recorded stages/builds. Preparation validates XEX
+hashes against the committed M5/M6 receipts and all runtime bytes against each
+source manifest, then refuses an existing destination or ZIP. It has no network,
+deployment, launch, delete or restore operation. The kit remains local; binaries,
+fonts, flash0 and any eventual ISO are not committed or attached to GitHub.
+
+Future console/loader compatibility, actual writable target path, backup status
+and explicit first transfer/launch authorization are still unresolved gates.
+This package does not establish a working boot or Xbox performance.
+
 ## Cleared locally
 
 - Authentic owner archive and pinned donor; original authority unchanged.

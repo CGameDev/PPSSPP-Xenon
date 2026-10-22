@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "immutable_files": 349,
+  "runtime_files_per_app": 80,
+  "applications": 4,
+  "zip_crc": "PASS",
+  "zip_manifest_round_trip": "PASS",
+  "required_empty_directories": 24,
+  "python_verifier": "PASS",
+  "powershell_7_verifier": "PASS",
+  "windows_powershell_5_verifier": "BLOCKED by existing script policy; unchanged",
+  "tampered_file_negative_control": "PASS",
+  "iso_included": false,
+  "existing_user_data_included": false,
+  "console_actions": "NONE",
+  "xex_rebuilt_or_modified": false,
+  "xbox_runtime": "NOT RUN"
+}
