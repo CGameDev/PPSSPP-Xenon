@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -37,7 +38,9 @@ class LocalBuildSafetyTests(unittest.TestCase):
                                              "-SourceRoot", str(root), "-Rebuild"],
                                             capture_output=True, text=True)
                     self.assertNotEqual(result.returncode, 0)
-                    output = result.stdout + result.stderr
+                    # PowerShell 7 on Linux adds ANSI styling and wraps long error text.
+                    output = re.sub(r"\x1b\[[0-9;]*m", "", result.stdout + result.stderr)
+                    output = " ".join(output.split())
                     self.assertTrue("deployment metadata is missing" in output or
-                                    "every legacy Deploy entry must be explicitly excluded" in output)
+                                    "Local-only build refused" in output, output)
                     self.assertFalse((root / "build-Debug.log").exists())

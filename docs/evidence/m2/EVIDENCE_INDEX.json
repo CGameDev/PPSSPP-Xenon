@@ -403,9 +403,14 @@
       "sha256": "1efa88d2b252516c11a0e6a720bcd757ee7d2ac67d10d8473c1b9f4ecf963dba"
     },
     {
+      "path": "docs/evidence/m2/host-ci-portability.json",
+      "bytes": 623,
+      "sha256": "9f9960f85816bf68547e16d4f8bbff3b4a387c47ac5cc592a299e8248bacb059"
+    },
+    {
       "path": "docs/evidence/m2/host-tests.txt",
       "bytes": 2651,
-      "sha256": "c2b8aba6377b06f98df4bf87847bc74857266e3c2a7ab0b9e15f9188beb54f33"
+      "sha256": "682780cf0542932615b59ca939a974ee18161d8e925d208de08b221238bd7859"
     },
     {
       "path": "docs/evidence/m2/initial-debug-rebuild.txt",
@@ -509,8 +514,8 @@
     },
     {
       "path": "tests/test_build_safety.py",
-      "bytes": 2161,
-      "sha256": "db93e4290241225a460a3d752f3b5612b6f41cce8500723837920904d06ef500"
+      "bytes": 2324,
+      "sha256": "95d16390263404d704be47983999817d58e08aaac39d11ae1eccf4f53ad97c48"
     },
     {
       "path": "tests/test_launcher_texture.py",

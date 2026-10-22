@@ -22,6 +22,6 @@ test_ppcbe_accepted (test_xbox_libraries.XboxLibraryTests.test_ppcbe_accepted) .
 test_truncated_archive_rejected (test_xbox_libraries.XboxLibraryTests.test_truncated_archive_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 20 tests in 2.208s
+Ran 20 tests in 2.094s
 
 OK
