@@ -1,5 +1,10 @@
 # Performance evidence
 
+M1 builds exist, but Xbox performance remains NOT RUN. Dependency restoration and
+the recorded launcher/build adapters do not change CPU clock/worker/JIT/GPU/audio
+tuning. Do not infer performance equivalence from build success. The following
+M0 measurement plan remains the acceptance basis.
+
 No Xbox performance measurements exist for M0. No improvement, 60 FPS, active JIT,
 memory stability or regression-free runtime claim is made. No production emulator
 source, worker count, PSP clock, JIT, audio or GPU path changes are included.

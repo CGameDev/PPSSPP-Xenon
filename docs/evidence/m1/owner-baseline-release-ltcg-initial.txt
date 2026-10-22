@@ -1,0 +1,321 @@
+  ChunkFile.cpp
+  ConsoleListener.cpp
+  md5.cpp
+  sha1.cpp
+  ExtendedTrace.cpp
+  FileUtil.cpp
+  KeyMap.cpp
+  LogManager.cpp
+  MemArena.cpp
+  MemoryUtil.cpp
+  Misc.cpp
+  MsgHandler.cpp
+  ppcAbi.cpp
+  ppcEmitter.cpp
+  stdafx.cpp
+  StringUtils.cpp
+MemArena.cpp(327): warning C4102: 'bail' : unreferenced label [<baseline>\Common\CommonXbox.vcxproj]
+FileUtil.cpp(655): warning C4101: 'dir' : unreferenced local variable [<baseline>\Common\CommonXbox.vcxproj]
+  ThreadPools.cpp
+  Timer.cpp
+  XboxCPUDetect.cpp
+ppcEmitter.cpp(805): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<baseline>\Common\CommonXbox.vcxproj]
+ppcEmitter.cpp(820): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<baseline>\Common\CommonXbox.vcxproj]
+ppcEmitter.cpp(852): warning C4146: unary minus operator applied to unsigned type, result still unsigned [<baseline>\Common\CommonXbox.vcxproj]
+  CommonXbox.vcxproj -> <baseline>\Common\Release_LTCG\CommonXbox.lib
+  Git not on path, trying default Msysgit paths
+  disarm.cpp
+  snappy-c.cpp
+  snappy.cpp
+  git-version.cpp
+  Config.cpp
+  Core.cpp
+  CoreTiming.cpp
+  CPU.cpp
+  Cwcheat.cpp
+  Breakpoints.cpp
+  SymbolMap.cpp
+  PSPDialog.cpp
+  PSPGamedataInstallDialog.cpp
+  PSPMsgDialog.cpp
+  PSPNetconfDialog.cpp
+  PSPOskDialog.cpp
+  PSPPlaceholderDialog.cpp
+  PSPSaveDialog.cpp
+  SavedataParam.cpp
+  ElfReader.cpp
+  ParamSFO.cpp
+  PBPReader.cpp
+  PrxDecrypter.cpp
+  BlockDevices.cpp
+  DirectoryFileSystem.cpp
+  ISOFileSystem.cpp
+  MetaFileSystem.cpp
+  tlzrc.cpp
+  VirtualDiscFileSystem.cpp
+  PGF.cpp
+  HDRemaster.cpp
+  HLE.cpp
+  HLETables.cpp
+  proAdhoc.cpp
+<baseline>\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<baseline>\Core\CoreXbox.vcxproj]
+          Dialog\SavedataParam.cpp(966) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  sceAtrac.cpp
+  sceAudio.cpp
+  sceAudiocodec.cpp
+  sceCcc.cpp
+  sceChnnlsv.cpp
+  sceCtrl.cpp
+  sceDeflt.cpp
+  sceDisplay.cpp
+  sceDmac.cpp
+  sceFont.cpp
+  sceGe.cpp
+<baseline>\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<baseline>\Core\CoreXbox.vcxproj]
+          HLE\sceAtrac.cpp(1539) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  sceHeap.cpp
+  sceHprm.cpp
+  sceHttp.cpp
+  sceImpose.cpp
+  sceIo.cpp
+  sceJpeg.cpp
+  sceKernel.cpp
+  sceKernelAlarm.cpp
+  sceKernelEventFlag.cpp
+  sceKernelInterrupt.cpp
+  sceKernelMbx.cpp
+  sceKernelMemory.cpp
+  sceKernelModule.cpp
+  sceKernelMsgPipe.cpp
+  sceKernelMutex.cpp
+  sceKernelSemaphore.cpp
+  sceKernelThread.cpp
+  sceKernelTime.cpp
+  sceKernelVTimer.cpp
+  sceMpeg.cpp
+  sceNet.cpp
+  sceNetAdhoc.cpp
+  sceNp.cpp
+<baseline>\common\Swap.h(214): warning C4018: '>' : signed/unsigned mismatch [<baseline>\Core\CoreXbox.vcxproj]
+          HLE\sceKernelModule.cpp(1221) : see reference to function template instantiation 'bool swap_struct_t<T,F>::operator ><int>(const S &) const' being compiled
+          with
+          [
+              T=u32,
+              F=swap_32_t<u32>,
+              S=int
+          ]
+  sceOpenPSID.cpp
+  sceParseHttp.cpp
+  sceParseUri.cpp
+  scePauth.cpp
+  scePower.cpp
+  scePsmf.cpp
+  scePspNpDrm_user.cpp
+  sceP3da.cpp
+  sceMd5.cpp
+  sceMp4.cpp
+  sceMp3.cpp
+  sceGameUpdate.cpp
+  sceRtc.cpp
+  sceSas.cpp
+  sceSsl.cpp
+  sceUmd.cpp
+  sceUsb.cpp
+  sceUtility.cpp
+  sceVaudio.cpp
+  __sceAudio.cpp
+  Host.cpp
+  AsyncIOManager.cpp
+  MediaEngine.cpp
+  MemoryStick.cpp
+  MpegDemux.cpp
+  SasAudio.cpp
+  SimpleAT3Dec.cpp
+  Loaders.cpp
+  MemMap.cpp
+  MemmapFunctions.cpp
+  JitBlockCache.cpp
+  JitCommon.cpp
+  MIPS.cpp
+  MIPSAnalyst.cpp
+  MIPSAsm.cpp
+  MIPSAsmTables.cpp
+  MIPSCodeUtils.cpp
+  MIPSDebugInterface.cpp
+  MIPSDis.cpp
+  MIPSDisVFPU.cpp
+  MIPSInt.cpp
+  MIPSIntVFPU.cpp
+  MIPSTables.cpp
+  MIPSVFPUUtils.cpp
+  PpcAsm.cpp
+  PpcCompAlu.cpp
+  PpcCompBranch.cpp
+  PpcCompFpu.cpp
+  PpcCompLoadStore.cpp
+  PpcCompVFPU.cpp
+  PpcJit.cpp
+  PpcRegCache.cpp
+  PpcRegCacheFPU.cpp
+  PpcRegCacheVPU.cpp
+  PSPLoaders.cpp
+  PSPMixer.cpp
+  Reporting.cpp
+  SaveState.cpp
+  System.cpp
+  BlockAllocator.cpp
+MIPS\PPC\PpcCompVFPU.cpp(116): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning) [<baseline>\Core\CoreXbox.vcxproj]
+  PPGeDraw.cpp
+  ppge_atlas.cpp
+MIPS\PPC\PpcJit.cpp(206): warning C4355: 'this' : used in base member initializer list [<baseline>\Core\CoreXbox.vcxproj]
+  CoreXbox.vcxproj -> <baseline>\Core\Release_LTCG\CoreXbox.lib
+  xbrz.cpp
+  IndexGenerator.cpp
+  TextureDecoder.cpp
+  VertexDecoderCommon.cpp
+  FramebufferDX9.cpp
+  GPU_DX9.cpp
+  dx_state.cpp
+  fbo.cpp
+  global.cpp
+  PixelShaderGeneratorDX9.cpp
+  ShaderManagerDX9.cpp
+  SplineDX9.cpp
+Directx9\helper\global.cpp(361): warning C4018: '<' : signed/unsigned mismatch [<baseline>\GPU\GPUXbox.vcxproj]
+  StateMappingDX9.cpp
+  TextureCacheDX9.cpp
+  TextureScalerDX9.cpp
+  TransformPipelineDX9.cpp
+  VertexDecoderDX9.cpp
+  VertexShaderGeneratorDX9.cpp
+  GeDisasm.cpp
+  GPUCommon.cpp
+  GPUState.cpp
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelType' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelSize' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'align' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\FramebufferDX9.cpp(887): warning C4101: 'pixelFormat' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+  Math3D.cpp
+  NullGpu.cpp
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp3' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp2' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1163): warning C4101: 'tmp4' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp3' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp2' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1196): warning C4101: 'tmp4' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp3' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1244): warning C4101: 'tmp4' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1425): warning C4101: 'tmp4' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1503): warning C4101: 'tmp4' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+Directx9\VertexDecoderDX9.cpp(1596): warning C4101: 'tmp4' : unreferenced local variable [<baseline>\GPU\GPUXbox.vcxproj]
+<baseline>\common\Swap.h(125): warning C4244: 'argument' : conversion from 'const float' to 'const s16', possible loss of data [<baseline>\GPU\GPUXbox.vcxproj]
+          Directx9\VertexDecoderDX9.cpp(456) : see reference to function template instantiation 'swap_struct_t<T,F> swap_struct_t<T,F>::operator *<float>(const S &) const' being compiled
+          with
+          [
+              T=s16,
+              F=swap_16_t<s16>,
+              S=float
+          ]
+  GPUXbox.vcxproj -> <baseline>\GPU\Release_LTCG\GPUXbox.lib
+  AES.c
+  amctrl.c
+  bn.c
+  ec.c
+  kirk_engine.c
+  SHA1.c
+  libkirkXbox.vcxproj -> <baseline>\ext\libkirk\Release\libkirkXbox.lib
+  adler32.c
+  compress.c
+  crc32.c
+  deflate.c
+  gzclose.c
+  gzlib.c
+  gzread.c
+  gzwrite.c
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
+  zlibXbox.vcxproj -> <baseline>\ext\zlib\Release\zlibXbox.lib
+  xxhash.c
+  buffer.cpp
+  stringutil.cpp
+  timeutil.cpp
+  compression.cpp
+  city.cpp
+  jpgd.cpp
+  jpge.cpp
+  sha1.cpp
+  stb_image.c
+  block_allocator.cpp
+  json.cpp
+..\..\ext\xxhash.c(312): warning C4804: '/' : unsafe use of type 'bool' in operation [<baseline>\Xbox\xx\xx.vcxproj]
+  fd_util.cpp
+  file_util.cpp
+  ini_file.cpp
+  zip_read.cpp
+  texture_atlas.cpp
+  i18n.cpp
+  png_load.cpp
+  zim_load.cpp
+  input_state.cpp
+  expression_parser.cpp
+  matrix4x4.cpp
+  quat.cpp
+  http_client.cpp
+  resolve.cpp
+  url.cpp
+  threadpool.cpp
+  parsers.cpp
+  utf8.cpp
+  Compare.cpp
+  display_xbox.cpp
+  bram.cpp
+  XaudioSound.cpp
+  XboxFpsOverlay.cpp
+  XboxLauncher.cpp
+  XboxMain.cpp
+  InputDevice.cpp
+  XboxHost.cpp
+  XboxOnScreenDisplay.cpp
+  XboxOs.cpp
+  XinputDevice.cpp
+..\XboxMain.cpp(492): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(501): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(505): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(507): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(508): warning C4509: nonstandard extension used: 'main' uses SEH and 'selectedGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(323) : see declaration of 'selectedGame'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(290) : see declaration of 'currentGame'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(286) : see declaration of 'launcher'
+..\XboxMain.cpp(520): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(236) : see declaration of 'error_string'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'currentGame' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(290) : see declaration of 'currentGame'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'launcher' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(286) : see declaration of 'launcher'
+..\XboxMain.cpp(521): warning C4509: nonstandard extension used: 'main' uses SEH and 'error_string' has destructor [<baseline>\Xbox\xx\xx.vcxproj]
+          ..\XboxMain.cpp(236) : see declaration of 'error_string'
+..\XboxLauncher.cpp(578): warning C4010: single-line comment contains line-continuation character [<baseline>\Xbox\xx\xx.vcxproj]
+LINK : fatal error LNK1181: cannot open input file 'avcodec.lib' [<baseline>\Xbox\xx\xx.vcxproj]

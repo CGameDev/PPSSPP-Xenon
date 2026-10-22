@@ -1,0 +1,32 @@
+--- a/Xbox/XboxLauncher.cpp
++++ b/Xbox/XboxLauncher.cpp
+@@ -20,6 +20,15 @@
+ #include "UI/ui_atlas.h"
+ #include "UI/ui_atlas.cpp"
+ #include "Core/SaveState.h"
++#include "XenonStateDeleteCompat.h"
++
++// The pinned legacy atlas uses one folder glyph for directory entries.
++#ifndef I_UP_DIRECTORY
++#define I_UP_DIRECTORY I_DIR
++#endif
++#ifndef I_DIR_LINE
++#define I_DIR_LINE I_DIR
++#endif
+ #include "Core/ELF/ParamSFO.h"
+ #include "Core/FileSystems/BlockDevices.h"
+ #include "Core/FileSystems/ISOFileSystem.h"
+@@ -2119,9 +2128,11 @@
+ 			ShowToast(msg);
+ 		}
+ 		if (justPressed & XINPUT_GAMEPAD_Y && SaveState::HasSaveInSlot(slot)) {
+-			SaveState::DeleteSlot(slot);
++			bool deleted = XenonBaseline::DeleteStateFiles(
++                SaveState::GenerateSaveSlotFilename(slot, "ppst"),
++                SaveState::GenerateSaveSlotFilename(slot, "jpg"));
+ 			char msg[32];
+-			sprintf(msg, "State %d deleted", slot + 1);
++			sprintf(msg, deleted ? "State %d deleted" : "Delete state %d failed", slot + 1);
+ 			ShowToast(msg);
+ 		}
+ 		}

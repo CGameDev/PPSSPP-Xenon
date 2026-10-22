@@ -1,44 +1,61 @@
-# Build and recovery instructions
+# Reproduce the recovered Xbox 360 build
 
-**Current result: no qualified Xbox executable.** Start with [BASELINE.md](BASELINE.md).
+Read [BASELINE.md](BASELINE.md) for identities, limitations and retained warnings. This procedure builds local files. The original XDK project automatically deploys after image generation unless its Deploy metadata is excluded.
 
-Run the read-only preflight from this repository root with Python 3:
+## Verify and stage
+
+Use Python 3 and Git. The legacy checkout must be at `metalex10/PPSSPP-X360@540db97d96136b2139e5f12dd3c0bb18f2e1cd1f`. Committed objects are imported, never its working-tree changes. A fresh destination is required.
 
 ```powershell
 python tools/verify_source_overlay.py
 python -m unittest discover -s tests -v
-python -m compileall -q tools tests
+python tools/prepare_baseline.py --legacy <legacy-checkout> `
+  --destination artifacts/baseline-m1 --with-build-compatibility
 ```
 
-The preflight prints JSON to stdout and exits 0 for PASS, 1 for FAIL. It does not
-write output files. Redirect stdout to preserve a receipt if desired. As of M0,
-the real archive must fail; synthetic test success does not override that result.
-Do not run the older destructive reconstruction scripts against a directory
-holding previous good extracted source. They remain preserved historical tools.
+Compatibility mode stages beneath this project. It records the pristine source manifest, applies the two tracked patches, copies the licensed font header/helper and writes combined provenance. The original archival overlay remains unchanged.
 
-After trusted archive recovery, reconstruct with the documented hash check in a
-fresh staging location, preserve the complete donor licensing/attribution and
-copy owner Xbox files last. Do not overwrite local changes or import donor Git
-metadata. Pin the donor and modern reference identities in BASELINE.md.
+## Local host tools
 
-The inspected solution entry is `Xbox/PPSSPP.sln`; its executable project is
-`Xbox/xx/xx.vcxproj`. `Xbox/Xbox.vcxproj.vcxproj` is a different, older project,
-not the solution's executable target. The recovered owner solution must be
-rechecked instead of assuming this structure is unchanged.
+Use the installed licensed VS2010/XDK. No SDK content is downloaded or redistributed. Exact host-tool hashes are in `evidence/m1/host-tool-provenance.json`.
 
-Use the licensed VS2010/XDK environment for `Debug|Xbox 360`, then
-`Release_LTCG|Xbox 360`. Build locally with `/t:Build`, not Deploy. Verify targets
-and disable deployment; M0 does not authorize any console connection. Prefer
-normal project-reference builds for baseline qualification. Record command,
-environment/compiler identity, clean source manifest, exit code, dependencies,
-XEX and resource hashes and all warnings/errors.
+- GNU Make source: https://ftp.gnu.org/gnu/make/make-3.82.tar.gz
+- C99 wrapper/converter: https://github.com/libav/c99-to-c89/releases/tag/release-1.0.2
+- Existing Git for Windows Bash.
 
-Resolve the missing FFmpeg libraries from compatible source/configuration under
-`ffmpeg/Xbox/ppcD/lib` (Debug) and `ffmpeg/Xbox/ppc/lib` (Release). Inspect the
-Release_LTCG relative library directory: the legacy project differs from Release
-and must be validated. Keep FFmpeg and all included codecs' license notices.
-Do not commit SDK headers/libraries, generated build output or a borrowed XEX.
+Extract tools into task-owned staging. For GNU Make, copy config.h.W32 to config.h, enable HAVE_CYGWIN_SHELL there, enter the VS2010 x86 tools environment, add the Make source root to INCLUDE, and run build_w32.bat. The extra include directory fixes its historical subproc config.h search. M1 used WinRel/gnumake.exe. This is a host tool, not an emulator dependency. GNU Make 4.4.1 failed with the old compiler and is not used.
 
-The legacy version-generation command currently produces `unknown`; ensure Git
-is found and exact version provenance is embedded before accepting a baseline.
-Compilation, linking, boot, behavior and performance each need separate receipts.
+## Build Xbox FFmpeg
+
+Use source/build staging paths without spaces; SDK/Bash installation paths may contain spaces. Supply verified tool locations. Run Debug and Release in separate fresh directories:
+
+```powershell
+python tools/build_xbox_ffmpeg.py `
+  --source artifacts/baseline-m1/ffmpeg --build artifacts/ffmpeg-debug `
+  --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
+  --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
+  --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Debug
+
+python tools/build_xbox_ffmpeg.py `
+  --source artifacts/baseline-m1/ffmpeg --build artifacts/ffmpeg-release `
+  --make <make-source>/WinRel/gnumake.exe --c99 <c99-tools-directory> `
+  --xdk 'C:/Program Files (x86)/Microsoft Xbox 360 SDK' `
+  --bash 'C:/Program Files/Git/bin/bash.exe' --configuration Release
+```
+
+The driver verifies pinned FFmpeg source hashes, derives arguments from existing Xbox recipes, places XDK compiler/linker ahead of Unix tools, validates PPC/32-bit/big-endian configuration and checks every archive object. Logs and BUILD_RECEIPT.json stay in each build directory. All six `.lib` files go to ffmpeg/Xbox/ppcD/lib or ffmpeg/Xbox/ppc/lib. It does not run old install/clean scripts.
+
+Native Makefiles use Windows source paths. The old MSVC dependency scanner is bypassed because of its native Make/modern Git Bash quoting incompatibility. **Header changes require fresh FFmpeg build directories.** `--resume` is allowed only when existing configuration arguments match the recipe exactly; it does not replace clean builds after header changes. Both profiles were exercised with this driver against completed M1 builds.
+
+## Build local XEX files
+
+```powershell
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m1 -Configuration Debug
+./tools/build_baseline.ps1 -SourceRoot artifacts/baseline-m1 -Configuration Release_LTCG
+```
+
+The driver checks every project deployment exclusion and all six library architectures before MSBuild with normal project references. It requests Build only. Do not invoke Deploy or launch an XEX as part of this procedure.
+
+Outputs: Xbox/xx/Debug/xx.xex and Xbox/xx/Release_LTCG/xx.xex. They require matching application assets and runtime verification before use. Record hashes after every rebuild; timestamps and embedded paths may differ.
+
+Compile tests/state_delete_compat.cpp with VS2010 or a C++98-capable host compiler and run it in a fresh disposable folder. Never run its fixed fixture filenames in an owner savedata directory. CI uses artifacts/state-delete-test.

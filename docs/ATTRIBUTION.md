@@ -3,6 +3,12 @@
 PPSSPP Xenon is a community Xbox 360 port/modernization project derived from
 PPSSPP. It is not an official PPSSPP or Microsoft product.
 
+M1 vendors unmodified stb_truetype v1.26 with upstream license (MIT option),
+restores the original owner's archive and adds GPL-2.0-or-later staging/build
+tools and compatibility glue. Donor/FFmpeg source is assembled in ignored local
+staging with its original notices. No SDK material or generated binary is
+committed. The M0-specific provenance below remains historical.
+
 - Legacy implementation reference: `metalex10/PPSSPP-X360`, commit
   `540db97d96136b2139e5f12dd3c0bb18f2e1cd1f`. M0 copies only its unmodified
   GPLv2 license text as `LICENSE`; no emulator implementation is imported yet.

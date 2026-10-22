@@ -1,11 +1,11 @@
 # PPSSPP Xenon
 
-> **M0 recovery checkpoint (2026-10-21):** the archived owner overlay fails its
-> original SHA-256 and ZIP CRC checks. Run `python tools/verify_source_overlay.py`
-> before reconstruction/import. See [baseline and build evidence](docs/BASELINE.md)
-> and [HAD-CV state](docs/HADCV_M0.md). No qualified XEX or Xbox runtime result exists.
-> [CCLOS-style UI concepts](design/README.md) are available for review; both tile
-> and compact views will be retained. Detailed styling remains provisional.
+> **M1 build checkpoint (2026-10-21):** the byte-exact owner source is recovered,
+> Xbox FFmpeg is rebuilt, and Debug/Release_LTCG both build locally. See
+> [baseline evidence and retained warnings](docs/BASELINE.md) and
+> [reproduction steps](docs/BUILD_XBOX360.md). These are untested builds; no Xbox
+> runtime/performance acceptance is claimed. [CCLOS UI concepts](design/README.md)
+> retain both tile and compact views; detailed styling remains provisional.
 
 **PPSSPP Xenon** is an Xbox 360 / Xenon modernization project based on the legacy Xbox 360 port of PPSSPP.
 

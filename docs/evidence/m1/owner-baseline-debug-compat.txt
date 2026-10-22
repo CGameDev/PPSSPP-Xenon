@@ -1,0 +1,12 @@
+  CommonXbox.vcxproj -> <baseline>\Common\Debug\CommonXbox.lib
+  Git not on path, trying default Msysgit paths
+  git-version.cpp
+  CoreXbox.vcxproj -> <baseline>\Core\Debug\CoreXbox.lib
+  libkirkXbox.vcxproj -> <baseline>\ext\libkirk\Debug\libkirkXbox.lib
+  zlibXbox.vcxproj -> <baseline>\ext\zlib\Debug\zlibXbox.lib
+  GPUXbox.vcxproj -> <baseline>\GPU\Debug\GPUXbox.lib
+  XboxLauncher.cpp
+..\XboxLauncher.cpp(578): warning C4010: single-line comment contains line-continuation character [<baseline>\Xbox\xx\xx.vcxproj]
+<baseline>\xbox\xboxlauncher.cpp(929): warning C4715: 'XboxLauncher::LoadGameIcon' : not all control paths return a value [<baseline>\Xbox\xx\xx.vcxproj]
+<baseline>\xbox\xboxlauncher.cpp(1028): warning C4715: 'XboxLauncher::LoadPNGTexture' : not all control paths return a value [<baseline>\Xbox\xx\xx.vcxproj]
+xbecopy : error X1001: Could not connect to Xbox 360 '' [<baseline>\Xbox\xx\xx.vcxproj]

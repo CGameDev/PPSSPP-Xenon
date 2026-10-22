@@ -8,7 +8,9 @@
   "legacy": {
     "repository": "metalex10/PPSSPP-X360",
     "commit": "540db97d96136b2139e5f12dd3c0bb18f2e1cd1f",
-    "imported": false
+    "imported": false,
+    "assembled": true,
+    "assembly": "committed donor objects into ignored local staging; owner files last; separate compatibility layer"
   },
   "modern_reference": {
     "repository": "hrydgard/ppsspp",
@@ -24,7 +26,7 @@
       {
         "name": "Xbox-original-upload.part01.b64",
         "bytes": 19000,
-        "sha256": "37192e250770878ae6a3b2634b210dc0a92db069ed5a6437c310a6e677da78de"
+        "sha256": "7aa1f1447c7caab42ae8b4905959fae9073e2a065dd182f0ccb0a1505558be66"
       },
       {
         "name": "Xbox-original-upload.part02.b64",
@@ -39,39 +41,63 @@
       {
         "name": "Xbox-original-upload.part04.b64",
         "bytes": 17980,
-        "sha256": "112e6852c623c99c68dedfc5aaa544fc7e2009baa72f3018ad5a8802fee672b2"
+        "sha256": "5b38958b56e08dfa164df9b529f6daae4fae79d33ed07b8c4b534396ec8731ca"
       }
     ],
-    "errors": [
-      "SHA-256 mismatch: do not extract, import or build this overlay.",
-      "ZIP member verification failed; archive is damaged."
-    ],
+    "errors": [],
     "decoded_bytes": 56233,
     "expected_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
-    "actual_sha256": "755ae766ecceb5c3469f765e46de1470fdddbc978ec3c260076f9c2097c907d2",
-    "sha256_matches": false,
-    "zip_crc": "FAIL",
+    "actual_sha256": "6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35",
+    "sha256_matches": true,
+    "zip_crc": "PASS",
     "archive_members": 30,
-    "bad_members": [
-      {
-        "name": "Xbox/XboxMain.cpp",
-        "error": "Bad CRC-32 for file 'Xbox/XboxMain.cpp'"
-      }
-    ],
-    "status": "FAIL"
+    "bad_members": [],
+    "status": "PASS"
   },
-  "qualified_xbox_baseline": "BLOCKED",
+  "qualified_xbox_baseline": "BUILD_PASS_RUNTIME_NOT_RUN",
   "legacy_diagnostic_debug_build": {
     "exit_code": 1,
     "result": "FAIL",
     "first_fatal_error": "LNK1181: cannot open input file avcodec.lib",
-    "xex_produced": false
+    "xex_produced": false,
+    "historical_m0": true
   },
-  "owner_overlay_build": "BLOCKED",
+  "owner_overlay_build": {
+    "Debug": "PASS",
+    "Release_LTCG": "PASS"
+  },
   "xbox_runtime_tests": "NOT_RUN",
-  "production_emulator_changes": false,
+  "production_emulator_changes": true,
   "design": {
-    "tile_and_compact_views": "OWNER_SELECTED_BOTH_SWITCHABLE",
+    "tile_and_compact_views": "KEEP_BOTH_SWITCHABLE",
     "detailed_design": "PROVISIONAL"
+  },
+  "milestone": "M1 recovered source and local build checkpoint",
+  "historical_m0_commit": "005686f05ba2cda41ed7da082f222d161743098e",
+  "source_recovery_commit": "bb1e51ab2f6d879d20f3e407e190fbda7c95d160",
+  "change_scope": "Baseline launcher API/atlas adapter and dependency/build restoration only; no JIT, GPU algorithm, audio, clock/worker or session-loop changes",
+  "production_cclos_renderer": false,
+  "builds": [
+    {
+      "configuration": "Debug",
+      "bytes": 16375808,
+      "sha256": "c717668880a3e213bdb1d0589865b3d53d815f486c1b17e7935a4e1851831b48",
+      "format": "XEX2",
+      "build_exit_code": 0,
+      "xbox_runtime": "NOT RUN"
+    },
+    {
+      "configuration": "Release_LTCG",
+      "bytes": 9101312,
+      "sha256": "85b4bdedd2098c092a6c712c96e9e1ad30a7445918638717840974f1f3a53fca",
+      "format": "XEX2",
+      "build_exit_code": 0,
+      "xbox_runtime": "NOT RUN"
+    }
+  ],
+  "physical_console": {
+    "tests": "NOT RUN",
+    "initial_auto_copy": "Failed to connect, X1001; no transfer or launch succeeded",
+    "current_builds": "Explicit Deploy exclusions checked; local builds pass"
   }
 }

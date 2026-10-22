@@ -1,0 +1,69 @@
+install prefix            <baseline>/ffmpeg/Xbox/ppcD
+source path               <baseline>/ffmpeg
+C compiler                c99wrap cl
+ARCH                      ppc (generic)
+big-endian                yes
+runtime cpu detection     yes
+AltiVec enabled           no
+PPC 4xx optimizations     no
+dcbzl available           no
+debug symbols             yes
+strip symbols             no
+optimize for size         no
+optimizations             yes
+static                    yes
+shared                    no
+postprocessing support    no
+new filter support        no
+network support           no
+threading support         w32threads
+safe bitstream reader     yes
+SDL support               no
+opencl enabled            no
+libzvbi enabled           no
+texi2html enabled         no
+perl enabled              yes
+pod2man enabled           no
+makeinfo enabled          no
+
+External libraries:
+
+Enabled decoders:
+aac			h264			mpeg2video
+aac_latm		mjpeg			mpeg4
+atrac3			mjpegb			pcm_s16le
+h263			mp3			pcm_s8
+
+Enabled encoders:
+
+Enabled hwaccels:
+
+Enabled parsers:
+aac			h264			mpegaudio
+aac_latm		mjpeg			mpegvideo
+h263			mpeg4video
+
+Enabled demuxers:
+aac			mp3			pcm_s16le
+avi			mpegps			pcm_s8
+h264			mpegvideo		pmp
+m4v			oma			wav
+mjpeg
+
+Enabled muxers:
+
+Enabled protocols:
+file
+
+Enabled filters:
+
+Enabled bsfs:
+
+Enabled indevs:
+
+Enabled outdevs:
+
+License: LGPL version 2.1 or later
+Creating config.mak, config.h, and doc/config.texi...
+
+WARNING: pkg-config not found, library detection may fail.

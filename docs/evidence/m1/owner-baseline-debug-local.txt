@@ -1,0 +1,90 @@
+Build started 10/21/2026 9:28:29 PM.
+Project "<baseline>\Xbox\PPSSPP.sln" on node 1 (Build target(s)).
+ValidateSolutionConfiguration:
+  Building solution configuration "Debug|Xbox 360".
+Project "<baseline>\Xbox\PPSSPP.sln" (1) is building "<baseline>\Xbox\xx\xx.vcxproj" (2) on node 1 (default targets).
+Project "<baseline>\Xbox\xx\xx.vcxproj" (2) is building "<baseline>\Common\CommonXbox.vcxproj" (3) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\CommonXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  All outputs are up-to-date.
+  All outputs are up-to-date.
+Lib:
+  All outputs are up-to-date.
+  CommonXbox.vcxproj -> <baseline>\Common\Debug\CommonXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\CommonXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\CommonXbox.lastbuildstate".
+Done Building Project "<baseline>\Common\CommonXbox.vcxproj" (default targets).
+Project "<baseline>\Xbox\xx\xx.vcxproj" (2) is building "<baseline>\Core\CoreXbox.vcxproj" (4) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\CoreXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+PreBuildEvent:
+  Description: Updating git-version.cpp
+  ../Windows/git-version-gen.cmd
+  :VCEnd
+  Git not on path, trying default Msysgit paths
+ClCompile:
+  All outputs are up-to-date.
+Lib:
+  All outputs are up-to-date.
+  CoreXbox.vcxproj -> <baseline>\Core\Debug\CoreXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\CoreXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\CoreXbox.lastbuildstate".
+Done Building Project "<baseline>\Core\CoreXbox.vcxproj" (default targets).
+Project "<baseline>\Xbox\xx\xx.vcxproj" (2) is building "<baseline>\ext\libkirk\libkirkXbox.vcxproj" (5) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\libkirkXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  All outputs are up-to-date.
+Lib:
+  All outputs are up-to-date.
+  libkirkXbox.vcxproj -> <baseline>\ext\libkirk\Debug\libkirkXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\libkirkXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\libkirkXbox.lastbuildstate".
+Done Building Project "<baseline>\ext\libkirk\libkirkXbox.vcxproj" (default targets).
+Project "<baseline>\Xbox\xx\xx.vcxproj" (2) is building "<baseline>\ext\zlib\zlibXbox.vcxproj" (6) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\zlibXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  All outputs are up-to-date.
+Lib:
+  All outputs are up-to-date.
+  zlibXbox.vcxproj -> <baseline>\ext\zlib\Debug\zlibXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\zlibXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\zlibXbox.lastbuildstate".
+Done Building Project "<baseline>\ext\zlib\zlibXbox.vcxproj" (default targets).
+Project "<baseline>\Xbox\xx\xx.vcxproj" (2) is building "<baseline>\GPU\GPUXbox.vcxproj" (7) on node 1 (default targets).
+InitializeBuildStatus:
+  Creating "xbox\Debug\GPUXbox.unsuccessfulbuild" because "AlwaysCreate" was specified.
+ClCompile:
+  All outputs are up-to-date.
+Lib:
+  All outputs are up-to-date.
+  GPUXbox.vcxproj -> <baseline>\GPU\Debug\GPUXbox.lib
+FinalizeBuildStatus:
+  Deleting file "xbox\Debug\GPUXbox.unsuccessfulbuild".
+  Touching "xbox\Debug\GPUXbox.lastbuildstate".
+Done Building Project "<baseline>\GPU\GPUXbox.vcxproj" (default targets).
+InitializeBuildStatus:
+  Touching "Debug\xx.unsuccessfulbuild".
+ClCompile:
+  All outputs are up-to-date.
+Link:
+  All outputs are up-to-date.
+ImageXex:
+Skipping target "ImageXex" because all output files are up-to-date with respect to the input files.
+FinalizeBuildStatus:
+  Deleting file "Debug\xx.unsuccessfulbuild".
+  Touching "Debug\xx.lastbuildstate".
+Done Building Project "<baseline>\Xbox\xx\xx.vcxproj" (default targets).
+Done Building Project "<baseline>\Xbox\PPSSPP.sln" (Build target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.01

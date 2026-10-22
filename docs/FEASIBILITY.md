@@ -1,5 +1,14 @@
 # Xbox 360 feasibility and preservation boundaries
 
+## M1 update
+
+Authentic owner source is recovered, Xbox FFmpeg is rebuilt, and Debug and
+Release_LTCG build locally. See [current baseline](BASELINE.md) for the separate
+legacy API/atlas/build adapters and missing licensed font header. Both views stay.
+Runtime/performance and detailed visual acceptance remain open; retained alignment
+and missing-return warnings need review. The M0 findings below are historical:
+their source/build blockers are resolved, while preservation principles remain.
+
 ## Assessment
 
 A CCLOS-style launcher is feasible in the existing XDK/D3D9 shell. A working,

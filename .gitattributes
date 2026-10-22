@@ -9,3 +9,10 @@ LICENSE text eol=lf
 .gitignore text eol=lf
 *.b64 -text
 *.png -text
+*.patch text eol=lf -whitespace
+*.h text eol=lf
+*.cpp text eol=lf
+*.ps1 text eol=lf
+.gitattributes text eol=lf
+docs/evidence/** -whitespace
+vendor/stb/** -text -whitespace

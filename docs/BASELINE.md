@@ -1,75 +1,67 @@
-# Source and build baseline — M0, 2026-10-21
+# Baseline build checkpoint — M1, 2026-10-21
 
-This is a **recovery checkpoint**, not a known-good emulator baseline or release.
-No Xbox 360 runtime test was performed. The tag `xenon-baseline-legacy` has not
-been created because the required complete, owner-overlay build does not exist.
+The original owner source is recovered. **Debug and Release_LTCG both build locally.** These are untested Xbox executables, not runtime-qualified releases. [M0](BASELINE_M0.md) and its original failures remain historical evidence.
 
-## Frozen identities
+## Authentic source recovery
 
-| Input | Exact identity | Disposition |
-| --- | --- | --- |
-| Destination main | `a616aa62bbef6102a68a49ed0532dbccb1ea6764` | Clean clone; handoff plus four Base64 parts, no complete emulator tree |
-| Legacy donor | `metalex10/PPSSPP-X360@540db97d96136b2139e5f12dd3c0bb18f2e1cd1f` | Separate reference checkout; unchanged source build attempted |
-| Modern comparison | `hrydgard/ppsspp`, tag `v1.20.4` | Annotated tag object `3a31057b7e44270b4d5cef8c31b6559d51802a3b`, peeled commit `fa50bb1976065c4f8b1b47af227d367fe9771555`; verified via GitHub; no code imported |
-| Owner archive expected | `6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35` | Original documented authority; retained unchanged |
-| Owner archive actual | `755ae766ecceb5c3469f765e46de1470fdddbc978ec3c260076f9c2097c907d2` | **FAIL**: 56,233 decoded bytes, 30 ZIP entries; bad CRC in `Xbox/XboxMain.cpp` |
+The local owner download `PPSSPP-Xenon-Codex-Milestone-v1.0.zip` matches recorded package SHA-256 `ea8eaf39d8899f231d1ba1cee7687cbc67e071154ed9972f2883950c8efc8a3b`. Its embedded 56,233-byte `Xbox-original-upload.zip` matches the unchanged original authority:
 
-The original PowerShell reconstruction script rejected the archive. An independent
-Python decode and CRC check confirmed the failure. The new read-only preflight
-records each part's size/hash and checks every ZIP member. ZIP inspection is
-diagnostic only: no damaged source was extracted, imported, repaired or compiled.
-Git history shows each of the four parts was introduced once, with no earlier
-complete, corrected version available in this repository's history.
+`6dd3c4f3c21bc6d5603861ee3f8a0b5b4a480e6218fbbbe95c87ecd7bd090e35`
 
-## Actual build evidence
+All 30 ZIP entries pass CRC. Compared with the damaged copy, only byte offsets 5883 and 42887 differ. Base64 parts 1 and 4 were restored directly from the authenticated archive; parts 2/3 and the expected hash are unchanged. No source was guessed or manually repaired. The recovery receipt records before/after part hashes and all recovered file hashes.
 
-The PC has Visual Studio 2010 and the Xbox 360 SDK. Observed compiler versions:
-XDK `cl.exe` file version `16.00.11886.00`; host VC compiler
-`16.00.40219.01` (SP1). These are compiler identities, not a claim that every
-installed SDK component shares a particular release version.
+## Inputs and assembly
 
-The separate legacy checkout was built with .NET Framework 4 MSBuild:
+- Legacy donor: `metalex10/PPSSPP-X360@540db97d96136b2139e5f12dd3c0bb18f2e1cd1f`.
+- Modern reference only: PPSSPP v1.20.4, `fa50bb1976065c4f8b1b47af227d367fe9771555`; no core backport.
+- `prepare_baseline.py` reads committed donor objects, preserves notices and overlays authentic owner Xbox files last into fresh, ignored staging. Its pristine manifest covers 6,409 files. Donor Git metadata and untracked build output are excluded.
+- The missing stb_truetype v1.26 header is pinned to upstream commit `6e9f34d5429cf16790ec43c9bac3f1ee4ad1f760`, retained unmodified with its license. The owner launcher already references that API.
+- Original source is reconstructed from the public pinned donor rather than duplicating thousands of third-party files in this PR. Project patches, dependency source and recipes are tracked here; SDK material, generated trees, libraries and XEX files are excluded from Git.
 
-```powershell
-$env:XEDK = 'C:\Program Files (x86)\Microsoft Xbox 360 SDK'
-& 'C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe' `
-  Xbox/PPSSPP.sln /t:Build /p:Configuration=Debug '/p:Platform=Xbox 360' `
-  /p:DeployOnBuild=false /p:BuildProjectReferences=false /m:1 /nologo `
-  '/flp:logfile=../legacy-debug-build.log;verbosity=minimal' /verbosity:minimal
-```
+## Xbox FFmpeg
 
-Exit code **1**. `CommonXbox.lib`, `CoreXbox.lib`, `GPUXbox.lib`,
-`libkirkXbox.lib` and `zlibXbox.lib` were emitted. PPC emitter/JIT sources compiled.
-The front-end link failed with **LNK1181: cannot open input file `avcodec.lib`**.
-Both `ffmpeg/Xbox/ppcD/lib/avcodec.lib` and `ffmpeg/Xbox/ppc/lib/avcodec.lib`
-are absent. Other missing link dependencies may surface after this first failure.
-The legacy version-generation script also reported Git unavailable and generated
-an `unknown` version string. The checkout was shallow; the full source commit is
-recorded independently above. No source edits were made to achieve these results.
+Six static libraries were rebuilt from the donor's existing FFmpeg source and Xbox recipes for Debug (`ppcD`, `-MTd`) and Release (`ppc`, `-MT`). Both detect 32-bit PPC, big-endian and w32threads, with AltiVec/network/programs disabled as in the historical recipe. No codec source or feature selection changed. Configure reports LGPL 2.1-or-later.
 
-This invocation disables recursive project-reference builds; the solution still
-built its listed library projects. It is diagnostic evidence, not a qualified
-dependency-ordered clean build. After dependency recovery, use the normal
-project-reference behavior and re-establish Debug and Release_LTCG from a clean,
-verified full tree. Do not accept the partial libraries as a baseline XEX.
+Host tools: GNU Make 3.82 built from GNU source with VS2010, C99-to-C89 1.0.2 from upstream, and installed Git Bash. Native Make requires Windows source paths and bypassing the old MSVC dependency-scanner pipeline. Header changes require a fresh build tree. The driver copies resulting archives to the required `.lib` names; no desktop/prebuilt target libraries are borrowed.
 
-| Gate | Result |
+Every object header was verified: **218 PPCBE objects per profile, 436 total**, machine `0x01F2`. Tool/configuration/library hashes are in [M1 evidence](evidence/m1/).
+
+## Bounded compatibility changes
+
+The archival owner source remains pristine. `baseline-overlay/` applies these separate changes to staging:
+
+1. Map two newer folder-atlas names to the existing legacy folder glyph. Both grid/list modes remain.
+2. Bridge the absent DeleteSlot API with the core's existing current-title slot filename generator and file helpers. Empty/missing paths and failures are handled; the toast reports failures truthfully. A C++98 host test exercises disposable files and preserves unrelated slots.
+3. Mark every legacy Deploy entry `ExcludedFromBuild=true`; correct the Release_LTCG FFmpeg library path. The local build driver refuses missing exclusions.
+4. Embed a guarded combined-source identity instead of `unknown`.
+
+Fresh preparation and patch replay were compared against the exact built files. No emulation clock/worker settings, JIT, GPU algorithms, audio or session loop were changed.
+
+## Verification
+
+Installed compilers: VS2010 SP1 host `16.00.40219.01`, XDK PowerPC `16.00.11886.00`; .NET Framework 4 MSBuild with normal project references.
+
+| Check | Result |
 | --- | --- |
-| Handoff source identity | PASS |
-| Owner archive authenticity / member CRC | FAIL |
-| Complete legacy+owner source import | BLOCKED by archive integrity |
-| Legacy donor Debug solution build | FAIL at front-end link; partial libraries emitted |
-| Owner-overlay Debug / Release_LTCG build | BLOCKED / NOT RUN |
-| ISO/CSO/PBP boot, sound, input, savedata, game switching | NOT RUN |
-| FPS/VPS, memory, texture lifetime, frame pacing | NOT RUN |
-| Baseline XEX size/hash | Unavailable; no XEX produced |
+| Original owner archive hash / every ZIP CRC | PASS |
+| Python host tests / compilation | 17 PASS / PASS |
+| C++98 deletion helper, VS2010 host | PASS, disposable fixtures |
+| Fresh assembly and compatibility replay | PASS |
+| Debug/Release FFmpeg builds and all object architectures | PASS |
+| Debug Xbox solution build | PASS, local XEX |
+| Release_LTCG Xbox solution build | PASS, local XEX; 62 warnings retained |
+| ISO/CSO/PBP boot, sound/input, saves/states/switching | NOT RUN |
+| Xbox memory, frame pacing, FPS/VPS and regression | NOT RUN |
+| Detailed CCLOS styling / production renderer | Provisional / not integrated |
 
-See [M0 evidence](evidence/m0/) and [feasibility](FEASIBILITY.md).
+Final XEX sizes/hashes are in [baseline-builds.json](evidence/m1/baseline-builds.json). The XDK embeds timestamps/paths: repeatable procedure does not imply byte-for-byte deterministic binaries across machines. Final incremental build receipts retain earlier compile/link warnings rather than calling the entire build warning-free.
 
-## Recovery condition
+## Retained failures and limits
 
-Recover the owner's original `Xbox.zip` from a trusted original source. Its bytes
-must match the documented expected SHA-256 and pass every member CRC before use.
-If the original is lost, a different owner-supplied archive requires an explicit
-new provenance/authority record; changing the expected hash to bless these damaged
-bytes is not a recovery. Preserve the current parts and failure evidence.
+The first restored build exposed the font header, then atlas/API mismatches. Initial Release_LTCG linking preceded library staging and failed; it passed after dependencies were staged. Failures are preserved.
+
+After first successful Debug image generation, the SDK Deploy target automatically attempted `xbecopy` despite DeployOnBuild=false. It failed with X1001, unable to connect to an empty/default target. No transfer or launch succeeded. The SDK invokes Deploy after ImageXex. Explicit project metadata exclusions now prevent its copy task; subsequent local Debug/Release_LTCG builds passed. Do not rely on DeployOnBuild alone.
+
+Release_LTCG retains existing C4742/C4744 cross-unit GPUgstate/GPUStateCache alignment/type warnings and C4715 missing-return warnings in owner artwork loaders. Earlier compilation also reports SEH/destructor and comment-continuation warnings. These are unresolved runtime risks. No warnings were suppressed to obtain a pass.
+
+No baseline tag, release, runtime acceptance or performance improvement is claimed. Keep PR #2 draft. Next: investigate retained warnings and obtain a separately authorized hardware checkpoint with rollback, exact identity, boot/audio/input/save/state checks and twenty session transitions. Both UI views remain selected; detailed visual design remains open.

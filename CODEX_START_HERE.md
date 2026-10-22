@@ -1,12 +1,13 @@
 # PPSSPP-Xenon — CODEX START HERE
 
-## Current recovery gate — read first
+## Current M1 build checkpoint — read first
 
-M0 found that the tracked owner archive is damaged. Read `docs/BASELINE.md` and
-`docs/HADCV_M0.md` before following the historical bootstrap order below. Run
-`python tools/verify_source_overlay.py`; do not reconstruct/import unless the
-original documented digest and all member CRC checks pass. Preserve the expected
-hash and source precedence. M0 includes no production UI or emulator changes.
+M1 recovered the original archive and built Debug/Release_LTCG locally. Read
+`docs/BASELINE.md` and `docs/BUILD_XBOX360.md` before the historical order below.
+Preserve the original hash and owner precedence. Use the fresh staging and
+local-only build drivers: the old XDK target auto-deploys after image creation
+unless explicitly excluded. Runtime/performance validation and warning review
+remain pending. Both UI views stay; production CCLOS styling is still provisional.
 
 Repository: https://github.com/CGameDev/PPSSPP-Xenon.git
 

@@ -1,0 +1,37 @@
+[
+  {
+    "file": "make-3.82.tar.gz",
+    "bytes": 1712747,
+    "sha256": "3d991b33e604187c5881a0abc2e102d5b9776da5569640e73778f85d617242e7"
+  },
+  {
+    "file": "make-3.82/config.h",
+    "bytes": 15276,
+    "sha256": "0f94a47ce904174f4b7a12a57f9e922fad7ff2c3a3a0273ac6ecd281a770b083"
+  },
+  {
+    "file": "make-3.82/WinRel/gnumake.exe",
+    "bytes": 245760,
+    "sha256": "5f0bc15130e1f807c5f1cdbd35839bc21feb6cade404fd72a48d3935c3510137"
+  },
+  {
+    "file": "c99-to-c89-1.0.2.zip",
+    "bytes": 2165840,
+    "sha256": "c1a02e0a6f64ae736fe6d85a116053ef29e5932f8dbc4b08f696f149e3ea98dc"
+  },
+  {
+    "file": "c99-tools-1.0.2/c99wrap.exe",
+    "bytes": 64512,
+    "sha256": "9968029f52d5fe1f30a9ff446fcc0f380883e22ed8257f7b710e28dcac45e465"
+  },
+  {
+    "file": "c99-tools-1.0.2/c99conv.exe",
+    "bytes": 4444160,
+    "sha256": "60edf987780a59e0507aefe6372aa1cf815ace11cf8111eec38f39be04001d60"
+  },
+  {
+    "file": "legacy-more-files.rar",
+    "bytes": 2352641,
+    "sha256": "d7cc718af3ff1c0a241f0678fa82e2deb8611c80bef74f800c5f10615cf3f681"
+  }
+]
