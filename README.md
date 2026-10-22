@@ -1,5 +1,10 @@
 # PPSSPP Xenon
 
+> **First hardware report:** the owner observed M6 Release_LTCG's launcher and ISO
+> artwork, but game launch caused a full console lockup. Preserve logs/config
+> before retrying. [Failure report and next evidence](docs/SMOKE_TEST_REPORT_01.md).
+> No gameplay, state-operation or performance acceptance is established.
+
 > **M6 approved shell:** navy/teal sidebar, larger grid and compact library views,
 > selected-game artwork and a matching right-side in-game menu are implemented.
 > Both launcher views and existing save/load/reset actions stay.

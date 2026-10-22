@@ -1,5 +1,21 @@
 # First console test readiness — M6
 
+## Latest owner-run result: launch failed
+
+On 2026-10-22 the owner reported M6 Release_LTCG displaying the launcher and ISO
+artwork, then a black-screen hard lock after launch. Guide did not respond and
+the console required restarting. Game boot is **FAIL**, not validated. Preserve
+existing logs/config before any retry. See [SMOKE_TEST_REPORT_01.md](SMOKE_TEST_REPORT_01.md).
+The agent performed no Xbox connection, deployment or launch. Source audit found
+two consecutive inherited first-launch frame starts; their causal role is not
+established. No native change or fix claim is made yet.
+
+The readiness/kit instructions below record the pre-test handoff. Remaining
+gameplay/save/reset/performance gates have not passed. The sealed kit is retained
+for evidence and is not a recommendation to repeat the failed launch unchanged.
+
+## Pre-test handoff
+
 **Software is at the first console smoke-test gate.** Recovery, Xbox dependencies,
 both clean builds and host checks are complete. No further UI milestone is needed
 before an initial test. A working console boot or stable game session has not yet

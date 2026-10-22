@@ -1,5 +1,13 @@
 # PPSSPP-Xenon — CODEX START HERE
 
+## Latest hardware evidence — read first
+
+The owner tested M6 Release_LTCG: launcher/artwork visible, then black-screen hard
+lock after ISO launch; Guide unresponsive and restart required. Read
+docs/SMOKE_TEST_REPORT_01.md before further work. Preserve existing logs/config;
+no root cause or fix is established. Earlier NOT RUN statements describe earlier
+checkpoints. No agent console connection, transfer or launch is authorized.
+
 ## Current M6 approved shell — read first
 
 The approved navy/teal shell adds sidebar navigation, larger grid and compact
