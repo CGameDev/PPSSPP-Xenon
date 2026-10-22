@@ -16,6 +16,14 @@ typedef long long s64; typedef unsigned long long u64;
 static u16 bswap16(u16 x) { return (u16)((x >> 8) | (x << 8)); }
 static u32 bswap32(u32 x) { return (x >> 24) | ((x >> 8) & 0xff00U) | ((x << 8) & 0xff0000U) | (x << 24); }
 static u64 bswap64(u64 x) { return ((u64)bswap32((u32)x) << 32) | bswap32((u32)(x >> 32)); }
+static float bswapf(float value) {
+    u32 bits; std::memcpy(&bits,&value,sizeof(bits)); bits=bswap32(bits);
+    std::memcpy(&value,&bits,sizeof(bits)); return value;
+}
+static double bswapd(double value) {
+    u64 bits; std::memcpy(&bits,&value,sizeof(bits)); bits=bswap64(bits);
+    std::memcpy(&value,&bits,sizeof(bits)); return value;
+}
 #define COMMON_BIG_ENDIAN 1
 #define COMMON_LITTLE_ENDIAN 0
 #include "Common/Swap.h"
@@ -45,6 +53,7 @@ static void testRoot() {
 int main() {
     assert(sizeof(s16) == 2 && sizeof(u32) == 4);
     assert(bswap64(1) == ((u64)1 << 56));
+    assert(bswapf(bswapf(1.0f)) == 1.0f && bswapd(bswapd(1.0)) == 1.0);
     const float weights[] = {0.0f, 0.25f, 0.5f, 1.0f, -1.0f, 1.5f};
     s16_le input[6]; float output[3];
     VertexDecoderDX9 decoder;

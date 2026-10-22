@@ -522,6 +522,11 @@
       "sha256": "dcb01d7115a0540687810fcfa9e0ceb93c624e5ac2bb54173640a019b3ba9c2e"
     },
     {
+      "path": "docs/evidence/m3/host-ci-portability.json",
+      "bytes": 472,
+      "sha256": "50b42bac160658dbbcf490aa7ffbfd7e79c52e020e58ced37c788d54fa09c27d"
+    },
+    {
       "path": "docs/evidence/m3/host-regressions.txt",
       "bytes": 713,
       "sha256": "86b5885f6d0ae95d8c6754e1c46936f7ce6368b1ba1e42dc097e6a1a5d4be1b3"
@@ -593,8 +598,8 @@
     },
     {
       "path": "docs/evidence/m3/regression-morph-negative-compile.log",
-      "bytes": 3666,
-      "sha256": "6e06ce08499c700030c7c2105e751c6bb495cad74e48cb5b19694706be68a7d4"
+      "bytes": 3674,
+      "sha256": "cdb828083a325816b0374a7348a339a970d0f8ad68ea3e9d2ff55e451836a181"
     },
     {
       "path": "docs/evidence/m3/regression-morph-negative-run.log",
@@ -708,8 +713,8 @@
     },
     {
       "path": "tests/m3_numeric_cases.cpp",
-      "bytes": 4874,
-      "sha256": "5a5c8bc54744763dcd541febdefcc6ab16d63b87245d5a004e0827848f95633e"
+      "bytes": 5286,
+      "sha256": "5631b97588c44f048ad50dcaec95ea6635db789d5bf80ba5623fe069281feef4"
     },
     {
       "path": "tests/m3_session_cases.cpp",
